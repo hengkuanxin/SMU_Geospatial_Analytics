@@ -1,11 +1,14 @@
 ---
-title: "SMU_Geospatial_Analytics"
+title: "Geospatial Analytics Practice Site"
+author: "Heng Kuan Xin"
+date: 2024-08-20
+date-modified: 2024-08-20
+execute: 
+  eval: true
+  echo: true
+  freeze: true
 ---
 
-This is a Quarto website.
+This website showcases my attempts on some analytics exercises using publicly available geospatial data; the assignments are a part of the course "IS415 Geospatial Analytics and Applications" from the Singapore Management University.
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
-
-```{r}
-1 + 1
-```
+Analyses were done using R programming language. This website was made using Quarto.

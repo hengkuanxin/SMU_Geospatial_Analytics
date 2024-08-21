@@ -3,10 +3,11 @@ title: "Exercise 01 'Geospatial Data Science with R'"
 author: "Heng Kuan Xin"
 date: 2024-08-20
 date-modified: 2024-08-21
-execute: 
+execute:
   eval: true
   echo: true
   freeze: true
+  output: false
 ---
 
 (Copied from Exercise) Learning Outcome:
@@ -117,6 +118,8 @@ glimpse(mpsz)
 #### Show first n rows of data frame
 
 ```{r}
+#| output: true
+
 head(mpsz, n=5)
 ```
 
@@ -127,18 +130,24 @@ head(mpsz, n=5)
 The default plot of an sf object is a multi-plot of all attributes, up to a reasonable maximum as shown above.
 
 ```{r}
+#| output: true
+
 plot(mpsz)
 ```
 
 #### Plot geometry only
 
 ```{r}
+#| output: true
+
 plot(st_geometry(mpsz))
 ```
 
 #### Plot by attribute
 
 ```{r}
+#| output: true
+
 plot(mpsz["PLN_AREA_N"]) # specify a particular attribute used to plot sf object
 ```
 
@@ -199,7 +208,7 @@ airbnb_listings_sf <- st_as_sf(airbnb_listings,
 
 # EPSG:4326 is inferred from the data source, and it is also the standard CRS based on WGS84. The coordinates are in degrees (long, lat)
 
-glimpse(airbnb_listings_sf)
+# glimpse(airbnb_listings_sf)
 
 ```
 
@@ -232,7 +241,6 @@ sum(buffer_cycling$area)
 
 # we will find out how many Preschools (point feature) exist within each planning subzone (polygon feature)
 
-
 mpsz3414$`PreSch Count` <- lengths(st_intersects(mpsz3414,preschool3414))
 
 summary(mpsz3414$`PreSch Count`)
@@ -240,6 +248,7 @@ summary(mpsz3414$`PreSch Count`)
 ```
 
 ```{r}
+#| output: true
 # list the planning subzone with the most number of pre-school
 
 top_n(mpsz3414, 1, `PreSch Count`)
@@ -254,7 +263,7 @@ Steps:
 -   Count number of pre-school per area (in each planning subzone)
 
 ```{r}
-
+#| output: true
 # Calculate area of each planning subzone
 mpsz3414$Area <- mpsz3414 %>% 
   st_area()
@@ -263,7 +272,7 @@ glimpse(mpsz3414)
 ```
 
 ```{r}
-
+#| output: true
 # Create new column called 'PreSch Density' by dividing areschool count by area (multiplied by 1000000 as area is in millions)
 
 mpsz3414 <- mpsz3414 %>% mutate(`PreSch Density` = `PreSch Count`/ Area * 1000000)
@@ -277,7 +286,7 @@ glimpse(mpsz3414)
 ------------------------------------------------------------------------
 
 ```{r}
-
+#| output: true
 # "In this section, you will learn how to use appropriate ggplot2 functions to create functional and yet truthful statistical graphs for EDA purposes."
 
 # plot the histogram to observe distribution of preschool density (count per area in subzone)
@@ -287,7 +296,7 @@ hist(mpsz3414$`PreSch Density`)
 ```
 
 ```{r}
-
+#| output: true
 # to improve on visualisation, we will specify the mapping aesthetics + histogram(bin size, color, fill) + labels
 
 ggplot(
@@ -312,7 +321,7 @@ ggplot(
 ```
 
 ```{r}
-
+#| output: true
 # a scatter plot: using PreSch Density as x, PreSch Count as y, adding color by their region names + point plot
 
 ggplot(

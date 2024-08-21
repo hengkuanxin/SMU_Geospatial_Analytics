@@ -3,11 +3,20 @@ title: "Exercise 2 'Thematic Mapping and GeoVisualisation with R'"
 author: "Heng Kuan Xin"
 date: 2024-08-21
 date-modified: 2024-08-21
-execute: 
+execute:
   eval: true
   echo: true
   freeze: true
+  output: false
 ---
+
+(Copied from Exercise) Overview: 
+
+In general, thematic mapping involves the use of map symbols to visualize selected properties of geographic features that are not naturally visible, such as population, temperature, crime rate, and property prices, just to mention a few of them.
+
+Geovisualisation, on the other hand, works by providing graphical ideation to render a place, a phenomenon or a process visible, enabling human’s most powerful information-processing abilities – those of spatial cognition associated with our eye–brain vision system – to be directly brought to bear.
+
+In this chapter, you will learn how to plot functional and truthful choropleth maps by using an R package called **tmap** package.
 
 ### 1 Import packages
 
@@ -33,7 +42,7 @@ mpsz <- st_read(
 
 popdata <- read_csv("data/aspatial/respopagesextod2011to2020/respopagesextod2011to2020.csv", show_col_types = FALSE)
 
-popdata
+# popdata
 
 ```
 
@@ -42,6 +51,7 @@ popdata
 ------------------------------------------------------------------------
 
 #### Create Data Table for Year 2020
+
 Aim: Create a data table for year 2020 values, containing columns PA, SZ, YOUNG, ECONOMY ACTIVE, AGED, TOTAL, and DEPENDENCY.
 
 Derive values for:
@@ -53,7 +63,7 @@ Derive values for:
 -   DEPENDENCY: the ratio between young and aged against economy active group
 
 ```{r}
-
+#| output: true
 popdata2020 <- popdata %>%
   filter(Time==2020) %>%
   group_by(PA, SZ, AG) %>%
@@ -91,6 +101,7 @@ mpsz_pop2020 <- left_join(mpsz, popdata2020,
 ```
 
 #### Export/Write Data frame as RDS object
+
 ```{r}
 
 # Write to a R Data Serialization(RDS) file, which is useful for storing state of objects between R sessions
@@ -104,12 +115,3 @@ write_rds(mpsz_pop2020, "data/rds/mpszpop2020.rds")
 ------------------------------------------------------------------------
 
 TO BE COMPLETED
-
-
-
-
-
-
-
-
-

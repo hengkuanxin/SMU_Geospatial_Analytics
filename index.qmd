@@ -8,8 +8,6 @@ execute:
   freeze: true
 ---
 
-This website was made to showcase my attempts on some analytics exercises using publicly available geospatial data; the assignments are a part of the course "IS415 Geospatial Analytics and Applications" from the Singapore Management University.
-
 **Access the contents via the sidebar.**
 
 Contents overview:

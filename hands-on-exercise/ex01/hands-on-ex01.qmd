@@ -23,11 +23,15 @@ execute:
 
 ### 1 Import packages
 
+------------------------------------------------------------------------
+
 ```{r}
 pacman::p_load(sf, tidyverse)
 ```
 
 ### 2 Import data
+
+------------------------------------------------------------------------
 
 The data used in this assignment is acquired from publicly available sources:
 
@@ -60,6 +64,8 @@ airbnb_listings <- read_csv("data/aspatial/listings.csv",
 ```
 
 ### 3 Read geometry data
+
+------------------------------------------------------------------------
 
 #### Retrieve Geometry List
 
@@ -116,6 +122,8 @@ head(mpsz, n=5)
 
 ### 4 Plot Geospatial Data
 
+------------------------------------------------------------------------
+
 The default plot of an sf object is a multi-plot of all attributes, up to a reasonable maximum as shown above.
 
 ```{r}
@@ -135,6 +143,8 @@ plot(mpsz["PLN_AREA_N"]) # specify a particular attribute used to plot sf object
 ```
 
 ### 5 View CRS details and assign a new EPSG code
+
+------------------------------------------------------------------------
 
 ```{r}
 
@@ -157,6 +167,8 @@ mpsz3414 <- st_set_crs(mpsz, 3414)
 
 ### 6 CRS Transformation
 
+------------------------------------------------------------------------
+
 ```{r}
 
 # Observe that preschool uses WGS84 for its CRS
@@ -172,6 +184,8 @@ preschool3414 <- st_transform(preschool,
 ```
 
 ### 7 Converting Aspatial Data
+
+------------------------------------------------------------------------
 
 ```{r}
 
@@ -190,6 +204,8 @@ glimpse(airbnb_listings_sf)
 ```
 
 ### 8 Geoprocessing with sf package
+
+------------------------------------------------------------------------
 
 #### Buffer around geometry
 
@@ -257,6 +273,8 @@ glimpse(mpsz3414)
 ```
 
 ### 9 Exploratory Data Analysis
+
+------------------------------------------------------------------------
 
 ```{r}
 

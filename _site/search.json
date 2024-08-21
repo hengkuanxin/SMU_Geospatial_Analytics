@@ -2,9 +2,9 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Geospatial Analytics Practice Site",
+    "title": "R for Geospatial Analytics",
     "section": "",
-    "text": "This website showcases my attempts on some analytics exercises using publicly available geospatial data; the assignments are a part of the course “IS415 Geospatial Analytics and Applications” from the Singapore Management University.\nAnalyses were done using R programming language. This website was made using Quarto."
+    "text": "This website was made to showcase my attempts on some analytics exercises using publicly available geospatial data; the assignments are a part of the course “IS415 Geospatial Analytics and Applications” from the Singapore Management University.\nAccess the contents via the sidebar.\nContents overview:\n\nHome (this page)\nAbout\nHands-on exercises\nIn-class exercises\n\nAnalyses were done using R programming language. This website was crafted using Quarto package."
   },
   {
     "objectID": "about.html",

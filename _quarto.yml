@@ -2,21 +2,23 @@ project:
   type: website
 
 website:
-  title: "Geospatial Analysis Practice Site"
-  navbar:
-    left:
-      - href: index.qmd
-        text: "Home"
-      - about.qmd
-      - text: "Hands-on Exercises"
-        menu: 
-        - text: "Hands-on Exercise 1"
-          href: hands-on-exercise/ex01/hands-on-ex01.qmd
-      - text: "In-class Exercises"
-        menu: 
-        - text: "In-class Exercise 1"
-          href: in-class-exercise/ex01/in-class-ex01.qmd
+  title: "IS415 Practice Site"
   search: true
+  sidebar:
+    style: "docked"
+    contents:
+      - text: "Home"
+        href: index.qmd
+      - text: "About"
+        href: about.qmd
+      - section: "Hands-on Exercises"
+        contents: 
+        - text: "01 ‘Geospatial Data Science with R’"
+          href: hands-on-exercise/ex01/hands-on-ex01.qmd
+      - section: "In-class Exercises"
+        contents: 
+        - text: "Practice 01"
+          href: in-class-exercise/ex01/in-class-ex01.qmd
 
 format:
   html:

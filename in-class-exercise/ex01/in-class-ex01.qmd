@@ -11,6 +11,8 @@ execute:
 
 ### 1 Import packages & data
 
+----
+
 ```{r}
 pacman::p_load(tidyverse, sf)
 ```
@@ -24,6 +26,8 @@ mpsz <- st_read(
 ```
 
 ### 2 Reading Data
+
+----
 
 ```{r}
 

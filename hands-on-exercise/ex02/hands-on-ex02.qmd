@@ -1,0 +1,115 @@
+---
+title: "Exercise 2 'Thematic Mapping and GeoVisualisation with R'"
+author: "Heng Kuan Xin"
+date: 2024-08-21
+date-modified: 2024-08-21
+execute: 
+  eval: true
+  echo: true
+  freeze: true
+---
+
+### 1 Import packages
+
+------------------------------------------------------------------------
+
+```{r}
+
+pacman::p_load(sf, tidyverse, tmap)
+
+```
+
+### 2 Import data
+
+------------------------------------------------------------------------
+
+```{r}
+
+mpsz <- st_read(
+  dsn="data/geospatial/MasterPlan2014SubzoneBoundaryWebSHP",
+  layer="MP14_SUBZONE_WEB_PL")
+
+# mpsz
+
+popdata <- read_csv("data/aspatial/respopagesextod2011to2020/respopagesextod2011to2020.csv", show_col_types = FALSE)
+
+popdata
+
+```
+
+### 3 Data Preparation
+
+------------------------------------------------------------------------
+
+#### Create Data Table for Year 2020
+Aim: Create a data table for year 2020 values, containing columns PA, SZ, YOUNG, ECONOMY ACTIVE, AGED, TOTAL, and DEPENDENCY.
+
+Derive values for:
+
+-   YOUNG: age group 0 to 4 until age groyup 20 to 24,
+-   ECONOMY ACTIVE: age group 25-29 until age group 60-64,
+-   AGED: age group 65 and above,
+-   TOTAL: all age group, and
+-   DEPENDENCY: the ratio between young and aged against economy active group
+
+```{r}
+
+popdata2020 <- popdata %>%
+  filter(Time==2020) %>%
+  group_by(PA, SZ, AG) %>%
+  summarise(`POP` = sum(`Pop`)) %>%
+  ungroup()%>%
+  pivot_wider(names_from=AG, 
+              values_from=POP) %>%
+  mutate(YOUNG = rowSums(.[3:6])
+         +rowSums(.[12])) %>%
+mutate(`ECONOMY ACTIVE` = rowSums(.[7:11])+
+rowSums(.[13:15]))%>%
+mutate(`AGED`=rowSums(.[16:21])) %>%
+mutate(`TOTAL`=rowSums(.[3:21])) %>%  
+mutate(`DEPENDENCY` = (`YOUNG` + `AGED`)/`ECONOMY ACTIVE`) %>%
+  select(`PA`, `SZ`, `YOUNG`, `ECONOMY ACTIVE`, `AGED`, `TOTAL`, `DEPENDENCY`)
+
+popdata2020
+```
+
+#### Join attribute and geospatial data (geolocational join)
+
+```{r}
+
+# convert PA and SZ variable data to upper cases to match SUBZONE_N and PLN_AREA_N of mspz
+popdata2020 <- popdata2020 %>%
+  mutate_at(.vars = vars(PA, SZ), 
+          .funs = list(toupper)) %>%
+  filter(`ECONOMY ACTIVE` > 0)
+
+
+# left join by SUBZONE_N = SZ
+mpsz_pop2020 <- left_join(mpsz, popdata2020,
+                          by = c("SUBZONE_N" = "SZ"))
+
+```
+
+#### Export/Write Data frame as RDS object
+```{r}
+
+# Write to a R Data Serialization(RDS) file, which is useful for storing state of objects between R sessions
+
+write_rds(mpsz_pop2020, "data/rds/mpszpop2020.rds")
+
+```
+
+### 4 Choropleth Mapping Geospatial Data Using tmap
+
+------------------------------------------------------------------------
+
+TO BE COMPLETED
+
+
+
+
+
+
+
+
+

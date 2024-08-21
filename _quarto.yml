@@ -15,6 +15,8 @@ website:
         contents: 
         - text: "01 ‘Geospatial Data Science with R’"
           href: hands-on-exercise/ex01/hands-on-ex01.qmd
+        - text: "02 ‘Thematic Mapping and GeoVisualisation with R’"
+          href: hands-on-exercise/ex02/hands-on-ex02.qmd
       - section: "In-class Exercises"
         contents: 
         - text: "Practice 01"

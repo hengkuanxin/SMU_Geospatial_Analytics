@@ -1,0 +1,34 @@
+---
+title: "In-class Exercise 01"
+author: "Heng Kuan Xin"
+date: 2024-08-21
+date-modified: 2024-08-21
+execute: 
+  eval: true
+  echo: true
+  freeze: true
+---
+
+### 1 Import packages & data
+
+```{r}
+pacman::p_load(tidyverse, sf)
+```
+
+```{r}
+
+mpsz <- st_read(
+  dsn = "data/geospatial/MPSZ-2019",
+  layer = "MPSZ-2019")
+
+```
+
+### 2 Reading Data
+
+```{r}
+
+st_geometry(mpsz)
+
+plot(mpsz)
+
+```

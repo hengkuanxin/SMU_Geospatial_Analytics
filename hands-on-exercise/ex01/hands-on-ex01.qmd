@@ -61,7 +61,8 @@ airbnb_listings <- read_csv("data/aspatial/listings.csv",
 
 ### 3 Read geometry data
 
-#### Retrieve Geometry List 
+#### Retrieve Geometry List
+
 ```{r}
 
 # Retrieve geometry list to see detailed information
@@ -233,8 +234,8 @@ top_n(mpsz3414, 1, `PreSch Count`)
 
 Steps:
 
-- Calculate area of each planning subzone
-- Count number of pre-school per area (in each planning subzone)
+-   Calculate area of each planning subzone
+-   Count number of pre-school per area (in each planning subzone)
 
 ```{r}
 

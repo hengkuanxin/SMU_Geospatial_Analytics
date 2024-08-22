@@ -7,7 +7,7 @@ execute:
   eval: true
   echo: true
   freeze: true
-  output: false
+  output: true
 ---
 
 (Copied from Exercise) Learning Outcome:
@@ -42,7 +42,7 @@ The data used in this assignment is acquired from publicly available sources:
 4.  Latest version of Singapore Airbnb listing data from Inside Airbnb
 
 ```{r}
-
+#| output: false
 # Singapore Master Plan 2014 Subzone Boundary (polygon feature)
 mpsz <- st_read(dsn = "data/geospatial/MasterPlan2014SubzoneBoundaryWebSHP", 
                 layer = "MP14_SUBZONE_WEB_PL")
@@ -118,7 +118,6 @@ glimpse(mpsz)
 #### Show first n rows of data frame
 
 ```{r}
-#| output: true
 
 head(mpsz, n=5)
 ```
@@ -130,7 +129,6 @@ head(mpsz, n=5)
 The default plot of an sf object is a multi-plot of all attributes, up to a reasonable maximum as shown above.
 
 ```{r}
-#| output: true
 
 plot(mpsz)
 ```
@@ -248,7 +246,6 @@ summary(mpsz3414$`PreSch Count`)
 ```
 
 ```{r}
-#| output: true
 # list the planning subzone with the most number of pre-school
 
 top_n(mpsz3414, 1, `PreSch Count`)
@@ -263,7 +260,6 @@ Steps:
 -   Count number of pre-school per area (in each planning subzone)
 
 ```{r}
-#| output: true
 # Calculate area of each planning subzone
 mpsz3414$Area <- mpsz3414 %>% 
   st_area()
@@ -272,7 +268,6 @@ glimpse(mpsz3414)
 ```
 
 ```{r}
-#| output: true
 # Create new column called 'PreSch Density' by dividing areschool count by area (multiplied by 1000000 as area is in millions)
 
 mpsz3414 <- mpsz3414 %>% mutate(`PreSch Density` = `PreSch Count`/ Area * 1000000)
@@ -286,7 +281,6 @@ glimpse(mpsz3414)
 ------------------------------------------------------------------------
 
 ```{r}
-#| output: true
 # "In this section, you will learn how to use appropriate ggplot2 functions to create functional and yet truthful statistical graphs for EDA purposes."
 
 # plot the histogram to observe distribution of preschool density (count per area in subzone)
@@ -296,7 +290,6 @@ hist(mpsz3414$`PreSch Density`)
 ```
 
 ```{r}
-#| output: true
 # to improve on visualisation, we will specify the mapping aesthetics + histogram(bin size, color, fill) + labels
 
 ggplot(
@@ -321,7 +314,6 @@ ggplot(
 ```
 
 ```{r}
-#| output: true
 # a scatter plot: using PreSch Density as x, PreSch Count as y, adding color by their region names + point plot
 
 ggplot(

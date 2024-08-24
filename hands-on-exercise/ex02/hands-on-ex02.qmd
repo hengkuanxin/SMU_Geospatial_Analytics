@@ -2,12 +2,15 @@
 title: "Exercise 02 'Thematic Mapping and GeoVisualisation with R'"
 author: "Heng Kuan Xin"
 date: 2024-08-21
-date-modified: 2024-08-22
+date-modified: 2024-08-24
 execute:
   eval: true
   echo: true
   freeze: true
   output: true
+  warning: false
+  error: false
+toc-depth: 5
 ---
 
 (Copied from Exercise) Overview:
@@ -32,6 +35,12 @@ pacman::p_load(sf, tidyverse, tmap)
 
 ------------------------------------------------------------------------
 
+(Copied from Exercise) Two data set will be used to create the choropleth map. They are:
+
+-   Master Plan 2014 Subzone Boundary (Web) (i.e. `MP14_SUBZONE_WEB_PL`) in ESRI shapefile format. It can be downloaded at [data.gov.sg](https://data.gov.sg/) This is a geospatial data. It consists of the geographical boundary of Singapore at the planning subzone level. The data is based on URA Master Plan 2014.
+
+-   Singapore Residents by Planning Area / Subzone, Age Group, Sex and Type of Dwelling, June 2011-2020 in csv format (i.e. `respopagesextod2011to2020.csv`). This is an aspatial data fie. It can be downloaded at [Department of Statistics, Singapore](https://www.singstat.gov.sg/) Although it does not contain any coordinates values, but it’s PA and SZ fields can be used as unique identifiers to geocode to `MP14_SUBZONE_WEB_PL` shapefile.
+
 ```{r}
 #| output: false
 
@@ -44,7 +53,7 @@ mpsz <- st_read(
 popdata <- read_csv("data/aspatial/respopagesextod2011to2020/respopagesextod2011to2020.csv", show_col_types = FALSE)
 
 # popdata
-
+# colnames(popdata)
 ```
 
 ### 3 Data Preparation
@@ -53,34 +62,45 @@ popdata <- read_csv("data/aspatial/respopagesextod2011to2020/respopagesextod2011
 
 #### Create Data Table for Year 2020
 
-Aim: Create a data table for year 2020 values, containing columns PA, SZ, YOUNG, ECONOMY ACTIVE, AGED, TOTAL, and DEPENDENCY.
+We want to plot a choropleth map using year 2020 values, by joining the population table with the masterplan subzone object.
 
-Derive values for:
+Aim: Create a data table for year 2020 values, containing columns as shown:
 
--   YOUNG: age group 0 to 4 until age groyup 20 to 24,
+|     |     |       |                |      |       |            |
+|-----|-----|-------|----------------|------|-------|------------|
+| PA  | SZ  | YOUNG | ECONOMY ACTIVE | AGED | TOTAL | DEPENDENCY |
+
+Therefore, we will derive values for:
+
+-   YOUNG: age group 0 to 4 until age group 20 to 24,
 -   ECONOMY ACTIVE: age group 25-29 until age group 60-64,
 -   AGED: age group 65 and above,
 -   TOTAL: all age group, and
 -   DEPENDENCY: the ratio between young and aged against economy active group
 
 ```{r}
+
 popdata2020 <- popdata %>%
-  filter(Time==2020) %>%
-  group_by(PA, SZ, AG) %>%
-  summarise(`POP` = sum(`Pop`)) %>%
-  ungroup()%>%
-  pivot_wider(names_from=AG, 
-              values_from=POP) %>%
-  mutate(YOUNG = rowSums(.[3:6])
-         +rowSums(.[12])) %>%
-mutate(`ECONOMY ACTIVE` = rowSums(.[7:11])+
-rowSums(.[13:15]))%>%
-mutate(`AGED`=rowSums(.[16:21])) %>%
-mutate(`TOTAL`=rowSums(.[3:21])) %>%  
-mutate(`DEPENDENCY` = (`YOUNG` + `AGED`)/`ECONOMY ACTIVE`) %>%
+  filter(Time==2020) %>%    # select rows where Time = 2020 
+  group_by(PA, SZ, AG) %>%  # group by PA, SZ, AG
+  summarise(`POP` = sum(`Pop`)) %>% # sum up the population within each group
+  ungroup() %>%              # ungroup table (which allows for further calculations
+                             # on individual rows)
+  pivot_wider(               # create new columns using values from AG as names
+    names_from=AG,           # and values from POP as values
+    values_from=POP)
+
+colnames(popdata2020)
+
+popdata2020 <- popdata2020 %>%
+  mutate(YOUNG = rowSums(.[3:6]) + rowSums(.[14])) %>% # add YOUNG = sum across the row where index = [3:6] and [15] 
+  mutate(`ECONOMY ACTIVE` = rowSums(.[7:13]) + rowSums(.[15])) %>% # add ECONOMY ACTIVE
+  mutate(`AGED`= rowSums(.[16:21])) %>% # add AGED
+  mutate(`TOTAL`= rowSums(.[3:21])) %>% # add TOTAL
+  mutate(`DEPENDENCY` = (`YOUNG` + `AGED`)/`ECONOMY ACTIVE`) %>% # add DEPENDENCY
   select(`PA`, `SZ`, `YOUNG`, `ECONOMY ACTIVE`, `AGED`, `TOTAL`, `DEPENDENCY`)
 
-popdata2020
+colnames(popdata2020)
 ```
 
 #### Join attribute and geospatial data (geolocational join)
@@ -89,8 +109,8 @@ popdata2020
 
 # convert PA and SZ variable data to upper cases to match SUBZONE_N and PLN_AREA_N of mspz
 popdata2020 <- popdata2020 %>%
-  mutate_at(.vars = vars(PA, SZ), 
-          .funs = list(toupper)) %>%
+  mutate_at(.vars = vars(PA, SZ),      # mutate at variables PA , SZ
+          .funs = list(toupper)) %>%   # apply function list(toupper)
   filter(`ECONOMY ACTIVE` > 0)
 
 
@@ -114,7 +134,13 @@ write_rds(mpsz_pop2020, "data/rds/mpszpop2020.rds")
 
 ------------------------------------------------------------------------
 
+#### Overview Examples
+
+##### Quick Method of Visualising using qtm()
+
 ```{r}
+
+# set tmap mode to "plot" , alternatively use view for interactive plot
 tmap_mode("plot")
 qtm(mpsz_pop2020,
     fill = "DEPENDENCY")
@@ -122,13 +148,7 @@ qtm(mpsz_pop2020,
 
 ```
 
-```{r}
-# ggplot(data=mpsz_pop2020,
-#        mapping=aes(
-#          y="DEPENDENCY", x=""))
-
-
-```
+##### Adjusting layouts, borders, and adding furnitures (e.g. compass, scale)
 
 ```{r}
 tm_shape(mpsz_pop2020)+
@@ -152,57 +172,79 @@ tm_shape(mpsz_pop2020)+
 
 ```
 
-```{r}
-# sf::st_is_valid(st_make_valid(mpsz_pop2020))
-```
+##### Basic Steps to create a Choropleth Map. Using tm_polygons() vs tm_fill() + tm_borders()
 
 ```{r}
 
-# sf::st_make_valid(mpsz_pop2020)
+# st_make_valid(mpsz_pop2020)
 # tmap_options(check.and.fix = TRUE)
 # tmap_mode("plot")
 
+# Step 1a: Plain Polygon
 tm1 <- tm_shape(mpsz_pop2020) + tm_polygons() + tm_layout(
-  main.title = "1. Base map using polygons, no colour",
+  main.title = "Step 1a: Plain Polygon",
   main.title.position = "center",
-  main.title.size = 1)
+  main.title.size = 0.7)
 
+# Step 1b: Coloured Polygon using DEPENDENCY
 tm2 <- tm_shape(mpsz_pop2020)+ tm_polygons("DEPENDENCY") + tm_layout(
-  main.title = "2. Base map using polygon, chloropeth colouring using attribute 'DEPENDENCY'",
+  main.title = "Step 1b: Coloured Polygon using DEPENDENCY",
   main.title.position = "center",
-  main.title.size = 1)
+  main.title.size = 0.7,
+  legend.width = 5.0)
 
+# Alternatively, Step 2a: Coloured Fill using DEPENDENCY instead of Polygon
 tm3 <- tm_shape(mpsz_pop2020)+ tm_fill("DEPENDENCY") + tm_layout(
-  main.title = "3. Base map using fill, colour based on 'DEPENDENCY'",
+  main.title = "Alternatively, Step 2a: Coloured Fill using DEPENDENCY instead of Polygon",
   main.title.position = "center",
-  main.title.size = 1)
+  main.title.size = 0.7)
 
+# Step 2b: Add in borders on top of Fill
 tm4 <- tm_shape(mpsz_pop2020) + tm_fill("DEPENDENCY") + tm_borders(lwd = 0.1, alpha = 1) + tm_layout(
-  main.title = "4. Add fill but with borders",
+  main.title = "Step 2b: Add in borders on top of Fill",
   main.title.position = "center",
-  main.title.size = 1)
+  main.title.size = 0.7)
 
+# Specify Data Classification (Quantile, n=5)
 tm5 <- tm_shape(mpsz_pop2020) + tm_fill("DEPENDENCY", n = 5, style = "quantile") + tm_borders(alpha = 0.5) + tm_layout(
-  main.title = "5. Specify the data-classification as 'quantile', set to 5 categories",
+  main.title = "Specify Data Classification (Quantile, n=5)",
   main.title.position = "center",
-  main.title.size = 1)
+  main.title.size = 0.7)
 
+# Specify Data Classification (Equal range), n=5)
 tm6 <- tm_shape(mpsz_pop2020) + tm_fill("DEPENDENCY", n = 5, style = "equal") + tm_borders(alpha = 0.5) + tm_layout(
-  main.title = "6. Specify the data-classification as 'equal', set to 5 categories",
+  main.title = "Specify Data Classification (Equal range), n=5)",
   main.title.position = "center",
-  main.title.size = 1)
+  main.title.size = 0.7)
 
-tm1
-tm2
-tm3
-tm4
-tm5
-tm6
+# Plot all maps together
+tmap_arrange(tm1,tm2,tm3,tm4,tm5,tm6)
 ```
+
+#### Determining Data Classification Methods and Number of Classes
+
+![Data Classification Guide](images/data_classification_guide.jpg){fig-align="center" width="489"}
+
+Given that Dependency ranges from 0 to 19, let us try n = 1 + 3.32 \* log(20) \~= 5.
 
 ```{r}
+ggplot(data = mpsz_pop2020, 
+       mapping = aes(x = `DEPENDENCY`)
+       ) +
+  geom_histogram()
+  # geom_dotplot()
+  # geom_freqpoly()
+```
+
+By plotting the distribution of DEPENDENCY, we see that there is an outlier that is significantly larger. To avoid misrepresenting the data, we should avoid equal intervals, quantile, and standard deviation. A good choice may be Jenks (Natural Breaks), or other manual classifications.
+
+```{r}
+# Visualise the attribute value range
+
 summary(mpsz_pop2020$DEPENDENCY)
 ```
+
+#### Custom Intervals/Ranges for Data Classification
 
 ```{r}
 tm_shape(mpsz_pop2020)+
@@ -211,7 +253,12 @@ tm_shape(mpsz_pop2020)+
   tm_borders(alpha = 0.5)
 ```
 
+#### Adjusting palette, Inverting Palette
+
 ```{r}
+
+# Using colour palette Blues instead of default
+
 tm_shape(mpsz_pop2020)+
   tm_fill("DEPENDENCY",
           n = 6,
@@ -221,12 +268,17 @@ tm_shape(mpsz_pop2020)+
 ```
 
 ```{r}
+## Changing palette to Greens. Use -Greens for inverse colouring
+
 tm_shape(mpsz_pop2020)+
   tm_fill("DEPENDENCY",
+          n = 6,
           style = "quantile",
           palette = "-Greens") +
   tm_borders(alpha = 0.5)
 ```
+
+#### Adjusting Legend properties
 
 ```{r}
 tm_shape(mpsz_pop2020)+
@@ -247,14 +299,22 @@ tm_shape(mpsz_pop2020)+
   tm_borders(alpha = 0.5)
 ```
 
+#### Adjusting tmap_style()
+
 ```{r}
+
 tmap_style("classic")
+
+# other available styles are: "gray", "natural", "cobalt", "col_blind", "albatross", "beaver", "bw", "classic", "watercolor" 
+
 tm_shape(mpsz_pop2020)+
   tm_fill("DEPENDENCY", 
           style = "quantile", 
           palette = "-Greens") +
   tm_borders(alpha = 0.5)
 ```
+
+#### More Examples
 
 ```{r}
 tm_shape(mpsz_pop2020)+
@@ -280,7 +340,15 @@ tm_shape(mpsz_pop2020)+
 tmap_style("white")
 ```
 
+### 5 Showing Multiple Maps
+
+------------------------------------------------------------------------
+
+#### Method 1: specify within tm_fill()
+
 ```{r}
+
+# note two maps created, one using "YOUNG", the other "AGED"
 tm_shape(mpsz_pop2020)+
   tm_fill(c("YOUNG", "AGED"),
           style = "equal", 
@@ -298,6 +366,8 @@ tm_shape(mpsz_pop2020)+
   tm_layout(legend.position = c("right", "bottom"))
 ```
 
+#### Method 2: Using tm_facets(by = ATTRIBUTE)
+
 ```{r}
 tm_shape(mpsz_pop2020) +
   tm_fill("DEPENDENCY",
@@ -313,6 +383,8 @@ tm_shape(mpsz_pop2020) +
   tm_borders(alpha = 0.5)
 ```
 
+#### Method 3: Using tmap_arrange(map1, map2, ...)
+
 ```{r}
 youngmap <- tm_shape(mpsz_pop2020)+ 
   tm_polygons("YOUNG", 
@@ -326,6 +398,10 @@ agedmap <- tm_shape(mpsz_pop2020)+
 
 tmap_arrange(youngmap, agedmap, asp=1, ncol=2)
 ```
+
+### 6 Specifying Specific Region in Map to Show
+
+------------------------------------------------------------------------
 
 ```{r}
 tm_shape(mpsz_pop2020[mpsz_pop2020$REGION_N=="CENTRAL REGION", ])+

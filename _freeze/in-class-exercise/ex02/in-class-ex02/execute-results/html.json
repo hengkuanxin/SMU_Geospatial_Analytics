@@ -1,0 +1,14 @@
+{
+  "hash": "f65ab425cc198b5dab50818f5b04f89a",
+  "result": {
+    "markdown": "---\ntitle: \"Exercise 02 'Thematic Mapping and GeoVisualisation with R'\"\nauthor: \"Heng Kuan Xin\"\ndate: 2024-08-21\ndate-modified: '2024-08-26'\nexecute:\n  eval: true\n  echo: true\n  freeze: true\n  output: true\n  warning: false\n  error: false\ntoc-depth: 5\n---\n\n\n### Packages\n\n\n::: {.cell}\n\n```{.r .cell-code}\nSys.Date()\n```\n\n::: {.cell-output .cell-output-stdout}\n```\n[1] \"2024-08-26\"\n```\n:::\n:::\n\n\n\n\n### Data\n\n\n### Introduction\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

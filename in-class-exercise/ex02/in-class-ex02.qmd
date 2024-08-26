@@ -1,0 +1,28 @@
+---
+title: "Exercise 02 'Thematic Mapping and GeoVisualisation with R'"
+author: "Heng Kuan Xin"
+date: 2024-08-21
+date-modified: '`r Sys.Date()`'
+execute:
+  eval: true
+  echo: true
+  freeze: true
+  output: true
+  warning: false
+  error: false
+toc-depth: 5
+---
+
+### Packages
+
+```{r}
+\
+
+```
+
+
+
+### Data
+
+
+### Introduction

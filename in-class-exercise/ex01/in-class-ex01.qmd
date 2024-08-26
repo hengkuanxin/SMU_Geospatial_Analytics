@@ -2,16 +2,20 @@
 title: "In-class Exercise 01"
 author: "Heng Kuan Xin"
 date: 2024-08-21
-date-modified: 2024-08-21
+date-modified: '`r Sys.Date()`'
+format: html
+editor: visual
 execute: 
   eval: true
   echo: true
   freeze: true
+  warning: false
+  error: false
 ---
 
 ### 1 Import packages & data
 
-----
+------------------------------------------------------------------------
 
 ```{r}
 pacman::p_load(tidyverse, sf)
@@ -27,7 +31,7 @@ mpsz <- st_read(
 
 ### 2 Reading Data
 
-----
+------------------------------------------------------------------------
 
 ```{r}
 

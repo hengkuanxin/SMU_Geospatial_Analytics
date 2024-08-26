@@ -25,7 +25,7 @@
     "href": "in-class-exercise/ex01/in-class-ex01.html",
     "title": "In-class Exercise 01",
     "section": "",
-    "text": "1 Import packages & data\n\npacman::p_load(tidyverse, sf)\n\n\nmpsz &lt;- st_read(\n  dsn = \"data/geospatial/MPSZ-2019\",\n  layer = \"MPSZ-2019\")\n\nReading layer `MPSZ-2019' from data source \n  `C:\\hengkuanxin\\SMU_Geospatial_Analytics\\in-class-exercise\\ex01\\data\\geospatial\\MPSZ-2019' \n  using driver `ESRI Shapefile'\nSimple feature collection with 332 features and 6 fields\nGeometry type: MULTIPOLYGON\nDimension:     XY\nBounding box:  xmin: 103.6057 ymin: 1.158699 xmax: 104.0885 ymax: 1.470775\nGeodetic CRS:  WGS 84\n\n\n\n\n2 Reading Data\n\nst_geometry(mpsz)\n\nGeometry set for 332 features \nGeometry type: MULTIPOLYGON\nDimension:     XY\nBounding box:  xmin: 103.6057 ymin: 1.158699 xmax: 104.0885 ymax: 1.470775\nGeodetic CRS:  WGS 84\nFirst 5 geometries:\n\n\nMULTIPOLYGON (((103.8802 1.283859, 103.8802 1.2...\n\n\nMULTIPOLYGON (((103.8376 1.295599, 103.8377 1.2...\n\n\nMULTIPOLYGON (((103.8341 1.292476, 103.8341 1.2...\n\n\nMULTIPOLYGON (((103.7125 1.291625, 103.7126 1.2...\n\n\nMULTIPOLYGON (((103.8472 1.297, 103.8473 1.2969...\n\nplot(mpsz)"
+    "text": "1 Import packages & data\n\n\npacman::p_load(tidyverse, sf)\n\n\nmpsz &lt;- st_read(\n  dsn = \"data/geospatial/MPSZ-2019\",\n  layer = \"MPSZ-2019\")\n\nReading layer `MPSZ-2019' from data source \n  `C:\\hengkuanxin\\SMU_Geospatial_Analytics\\in-class-exercise\\ex01\\data\\geospatial\\MPSZ-2019' \n  using driver `ESRI Shapefile'\nSimple feature collection with 332 features and 6 fields\nGeometry type: MULTIPOLYGON\nDimension:     XY\nBounding box:  xmin: 103.6057 ymin: 1.158699 xmax: 104.0885 ymax: 1.470775\nGeodetic CRS:  WGS 84\n\n\n\n\n2 Reading Data\n\n\nst_geometry(mpsz)\n\nGeometry set for 332 features \nGeometry type: MULTIPOLYGON\nDimension:     XY\nBounding box:  xmin: 103.6057 ymin: 1.158699 xmax: 104.0885 ymax: 1.470775\nGeodetic CRS:  WGS 84\nFirst 5 geometries:\n\nplot(mpsz)"
   },
   {
     "objectID": "in-class-exercise/ex01/data/geospatial/MPSZ-2019/MPSZ-2019.html",
@@ -131,5 +131,12 @@
     "title": "Exercise 02 ‘Thematic Mapping and GeoVisualisation with R’",
     "section": "Method 3: Using tmap_arrange(map1, map2, …)",
     "text": "Method 3: Using tmap_arrange(map1, map2, …)\n\nyoungmap &lt;- tm_shape(mpsz_pop2020)+ \n  tm_polygons(\"YOUNG\", \n              style = \"quantile\", \n              palette = \"Blues\")\n\nagedmap &lt;- tm_shape(mpsz_pop2020)+ \n  tm_polygons(\"AGED\", \n              style = \"quantile\", \n              palette = \"Blues\")\n\ntmap_arrange(youngmap, agedmap, asp=1, ncol=2)"
+  },
+  {
+    "objectID": "in-class-exercise/ex02/in-class-ex02.html",
+    "href": "in-class-exercise/ex02/in-class-ex02.html",
+    "title": "Exercise 02 ‘Thematic Mapping and GeoVisualisation with R’",
+    "section": "",
+    "text": "Packages\n\nSys.Date()\n\n[1] \"2024-08-26\"\n\n\n\n\nData\n\n\nIntroduction"
   }
 ]

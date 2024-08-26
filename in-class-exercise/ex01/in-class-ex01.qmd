@@ -1,16 +1,16 @@
 ---
-title: "In-class Exercise 01"
+title: "In-class-exercise 01 (reviewing Hands-exercise 01)"
 author: "Heng Kuan Xin"
 date: 2024-08-21
-date-modified: '`r Sys.Date()`'
-format: html
-editor: visual
-execute: 
+date-modified: "last-modified"
+execute:
   eval: true
   echo: true
   freeze: true
+  output: true
   warning: false
   error: false
+toc-depth: 5
 ---
 
 ### 1 Import packages & data

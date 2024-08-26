@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Heng Kuan Xin">
-<meta name="dcterms.date" content="2024-08-21">
+<meta name="dcterms.date" content="2024-08-26">
 
-<title>IS415 Practice Site - Exercise 02 ‘Thematic Mapping and GeoVisualisation with R’</title>
+<title>IS415 Practice Site - In-class-exercise 02 (reviewing Hands-exercise 02)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -109,9 +109,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
-      IS415 Practice Site
-      </li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../in-class-exercise/ex01/in-class-ex01.html">In-class Exercises</a></li><li class="breadcrumb-item"><a href="../../in-class-exercise/ex02/in-class-ex02.html">Practice 02</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -169,6 +167,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">02 ‘Thematic Mapping and GeoVisualisation with R’</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../hands-on-exercise/ex03/hands-on-ex03.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">03 ‘Spatial Point Pattern Analysis’</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -186,6 +190,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Practice 01</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../in-class-exercise/ex02/in-class-ex02.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Practice 02</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -198,9 +208,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#packages" id="toc-packages" class="nav-link active" data-scroll-target="#packages">Packages</a></li>
-  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#working-with-master-plan-planning-sub-zone-data" id="toc-working-with-master-plan-planning-sub-zone-data" class="nav-link active" data-scroll-target="#working-with-master-plan-planning-sub-zone-data">1.0 Working with Master Plan Planning Sub-zone Data</a>
+  <ul>
+  <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">Packages</a></li>
+  <li><a href="#the-code" id="toc-the-code" class="nav-link" data-scroll-target="#the-code">1.1 The code</a></li>
+  <li><a href="#checking-the-class-info." id="toc-checking-the-class-info." class="nav-link" data-scroll-target="#checking-the-class-info.">1.2 Checking the class info.</a></li>
+  <li><a href="#bad-data" id="toc-bad-data" class="nav-link" data-scroll-target="#bad-data">2.0 Bad Data</a></li>
+  <li><a href="#generating-kml-file-from-sf-object-we-imported-from-the-shp-file" id="toc-generating-kml-file-from-sf-object-we-imported-from-the-shp-file" class="nav-link" data-scroll-target="#generating-kml-file-from-sf-object-we-imported-from-the-shp-file">2.1 Generating KML file from sf object we imported from the SHP file</a></li>
+  </ul></li>
+  <li><a href="#choosing-good-data-sets" id="toc-choosing-good-data-sets" class="nav-link" data-scroll-target="#choosing-good-data-sets">3. Choosing Good Data sets</a>
+  <ul>
+  <li><a href="#pre-school-locations" id="toc-pre-school-locations" class="nav-link" data-scroll-target="#pre-school-locations">3.1 Pre-school locations</a></li>
+  <li><a href="#masterplan-2019-sub-zone" id="toc-masterplan-2019-sub-zone" class="nav-link" data-scroll-target="#masterplan-2019-sub-zone">3.2 Masterplan 2019 Sub-zone</a></li>
+  <li><a href="#transforming-the-crs" id="toc-transforming-the-crs" class="nav-link" data-scroll-target="#transforming-the-crs">3.3 Transforming the CRS</a></li>
+  </ul></li>
+  <li><a href="#working-with-population-data" id="toc-working-with-population-data" class="nav-link" data-scroll-target="#working-with-population-data">4.0 Working with Population Data</a>
+  <ul>
+  <li><a href="#join-together-population-data-with-geospatial-data-masterplan-sub-zone" id="toc-join-together-population-data-with-geospatial-data-masterplan-sub-zone" class="nav-link" data-scroll-target="#join-together-population-data-with-geospatial-data-masterplan-sub-zone">Join together population data with geospatial data (masterplan sub-zone)</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -209,7 +234,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Exercise 02 ‘Thematic Mapping and GeoVisualisation with R’</h1>
+<h1 class="title">In-class-exercise 02 (reviewing Hands-exercise 02)</h1>
 </div>
 
 
@@ -226,7 +251,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">August 21, 2024</p>
+      <p class="date">August 26, 2024</p>
     </div>
   </div>
   
@@ -242,22 +267,183 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
+<section id="working-with-master-plan-planning-sub-zone-data" class="level2">
+<h2 class="anchored" data-anchor-id="working-with-master-plan-planning-sub-zone-data">1.0 Working with Master Plan Planning Sub-zone Data</h2>
 <section id="packages" class="level3">
 <h3 class="anchored" data-anchor-id="packages">Packages</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.Date</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load packages</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(sf, tidyverse, tmap)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">#pacman::p_load(sf, tidyverse, ggstatsplot, tmap)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="the-code" class="level3">
+<h3 class="anchored" data-anchor-id="the-code">1.1 The code</h3>
+<p>We are going to import the Master Plan 2014 Subzone Boundary Web (file format .shp and .kml) retrieved from data.gov.sg.</p>
+<p>This code chunk imports the shapefile data</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>mpsz_shp <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="at">dsn=</span><span class="st">"data/geospatial/MasterPlan2014SubzoneBoundaryWebSHP"</span>, </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>                    <span class="at">layer=</span><span class="st">"MP14_SUBZONE_WEB_PL"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>In RStudio, check the <code>Help</code> tab to search for library functions, it will show you the input arguments and the output.</p>
+</section>
+<section id="checking-the-class-info." class="level3">
+<h3 class="anchored" data-anchor-id="checking-the-class-info.">1.2 Checking the class info.</h3>
+<p>Whenever you import data, make sure to view the data and understand what data types, data formats, crs (coordinate reference systems), geometry type, and so on.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(mpsz_shp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2024-08-26"</code></pre>
+<pre><code>[1] "sf"         "data.frame"</code></pre>
+</div>
+</div>
+<p><strong>Note</strong>: when reading data types:</p>
+<ul>
+<li><code>int</code> : an integer</li>
+<li><code>num</code> : numerical; can be any real number</li>
+<li><code>chr</code> : characters - geometry : sf’s geometry data.
+<ul>
+<li>E.g. “sfc_MULTIPOLYGONS” if the package detects multipolygons.</li>
+</ul></li>
+</ul>
+<p>refer to <a href="https://resbaz.github.io/2014-r-materials/lessons/01-intro_r/data-structures.html">basic data types in R</a></p>
+</section>
+<section id="bad-data" class="level3">
+<h3 class="anchored" data-anchor-id="bad-data">2.0 Bad Data</h3>
+<p>This code chunk tries to import the kml data</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># mpsz_kml &lt;- st_read("data/geospatial/MasterPlan2014SubzoneBoundaryWebKML.kml")</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># This data file cannot be used; The data source is corrupted.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>There might be a reasons why the kml cannot be used: (1) it is a zipped file, or (2) the file got tampered/corrupted during the uploading process.</p>
+<p>If you want to convert to another file format, you can generate it using sf::st_write().</p>
+</section>
+<section id="generating-kml-file-from-sf-object-we-imported-from-the-shp-file" class="level3">
+<h3 class="anchored" data-anchor-id="generating-kml-file-from-sf-object-we-imported-from-the-shp-file">2.1 Generating KML file from sf object we imported from the SHP file</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| output: false</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">st_write</span>(mpsz_shp,</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>         <span class="st">"data/geospatial/MP14_SUBZONE_WEB_PL.kml"</span>,</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">delete_dsn =</span> <span class="cn">TRUE</span>) <span class="co"># delete old file if exists.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Deleting source `data/geospatial/MP14_SUBZONE_WEB_PL.kml' using driver `KML'
+Writing layer `MP14_SUBZONE_WEB_PL' to data source 
+  `data/geospatial/MP14_SUBZONE_WEB_PL.kml' using driver `KML'
+Writing 323 features with 15 fields and geometry type Multi Polygon.</code></pre>
 </div>
 </div>
 </section>
-<section id="data" class="level3">
-<h3 class="anchored" data-anchor-id="data">Data</h3>
 </section>
-<section id="introduction" class="level3">
-<h3 class="anchored" data-anchor-id="introduction">Introduction</h3>
+<section id="choosing-good-data-sets" class="level2">
+<h2 class="anchored" data-anchor-id="choosing-good-data-sets">3. Choosing Good Data sets</h2>
+<section id="pre-school-locations" class="level3">
+<h3 class="anchored" data-anchor-id="pre-school-locations">3.1 Pre-school locations</h3>
+<p>download and load the preschool locations from data.gov.sg</p>
+<p>TO BE COMPLETED</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#import data set</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>preschool_kml <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="at">dsn=</span><span class="st">"data/geospatial/PreSchoolsLocation.kml"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Reading layer `PRESCHOOLS_LOCATION' from data source 
+  `C:\hengkuanxin\SMU_Geospatial_Analytics\in-class-exercise\ex02\data\geospatial\PreSchoolsLocation.kml' 
+  using driver `KML'
+Simple feature collection with 2290 features and 2 fields
+Geometry type: POINT
+Dimension:     XYZ
+Bounding box:  xmin: 103.6878 ymin: 1.247759 xmax: 103.9897 ymax: 1.462134
+z_range:       zmin: 0 zmax: 0
+Geodetic CRS:  WGS 84</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># preschool_geojson &lt;- st_read("data/geospatial/PreschoolsLocation.geojson")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="masterplan-2019-sub-zone" class="level3">
+<h3 class="anchored" data-anchor-id="masterplan-2019-sub-zone">3.2 Masterplan 2019 Sub-zone</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#import data set</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>mpsz19_kml <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">"data/geospatial/MasterPlan2019SubzoneBoundaryNoSeaKML.kml"</span>)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>mpsz19_shp <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="at">dsn=</span><span class="st">"data/geospatial/MPSZ-2019"</span>,</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>                      <span class="at">layer=</span><span class="st">"MPSZ-2019"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Note the differences: both have 332 features, but one has 2+1 fields, the other has 6+1 fields. KML has nested multiple attributes within 1 column. The KML file format in this context is harder to use than the SHP file format.</p>
+</section>
+<section id="transforming-the-crs" class="level3">
+<h3 class="anchored" data-anchor-id="transforming-the-crs">3.3 Transforming the CRS</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>mpsz19_shp_3414 <span class="ot">&lt;-</span> mpsz19_shp <span class="sc">%&gt;%</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_transform</span>(<span class="at">crs=</span><span class="dv">3414</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>EPSG:3414 refers to Singapore’s projected coordinate system (SVY21), as opposed to WGS84. A projected coordinate system uses distances measure, rather than degrees (latitude, longitude)</p>
+</section>
+</section>
+<section id="working-with-population-data" class="level2">
+<h2 class="anchored" data-anchor-id="working-with-population-data">4.0 Working with Population Data</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>pop2023 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/aspatial/respopagesextod2023.csv"</span>, )</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co"># show column data types</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="fu">spec</span>(pop2023)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Note</strong>: Ease of use of data: see how the columns and data are categorised between different the different data sets <code>respopagesextod2023.csv</code> and <code>respopagesextod2023.xlsx</code>. Check the other data sets: <code>respopagesexfa2023.csv</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>pop2023_sum <span class="ot">&lt;-</span> pop2023 <span class="sc">%&gt;%</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(PA, SZ, AG) <span class="sc">%&gt;%</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="st">`</span><span class="at">POP</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">sum</span>(<span class="st">`</span><span class="at">Pop</span><span class="st">`</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(pop2023_sum)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "PA"  "SZ"  "AG"  "POP"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>pop2023_sum <span class="ot">&lt;-</span> pop2023_sum <span class="sc">%&gt;%</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> <span class="st">`</span><span class="at">AG</span><span class="st">`</span>,</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">values_from =</span> <span class="st">`</span><span class="at">POP</span><span class="st">`</span>)</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(pop2023_sum)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "PA"          "SZ"          "0_to_4"      "10_to_14"    "15_to_19"   
+ [6] "20_to_24"    "25_to_29"    "30_to_34"    "35_to_39"    "40_to_44"   
+[11] "45_to_49"    "50_to_54"    "55_to_59"    "5_to_9"      "60_to_64"   
+[16] "65_to_69"    "70_to_74"    "75_to_79"    "80_to_84"    "85_to_89"   
+[21] "90_and_Over"</code></pre>
+</div>
+</div>
+<p>Note: tidyverse is a collection of packages for data science, also called a disjointed integrated packages. The separate packages maintained separately and do not contain same function names. Collectively, they might conflict with Base R functions, however; e.g.&nbsp;dpylr::filter().</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>pop2023_sum <span class="ot">&lt;-</span> pop2023_sum <span class="sc">%&gt;%</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">YOUNG =</span> <span class="fu">rowSums</span>(.[<span class="dv">3</span><span class="sc">:</span><span class="dv">6</span>]) <span class="sc">+</span> <span class="fu">rowSums</span>(.[<span class="dv">14</span>])) <span class="sc">%&gt;%</span> <span class="co"># add YOUNG = sum across the row where index = [3:6] and [15] </span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">`</span><span class="at">ECONOMY ACTIVE</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">rowSums</span>(.[<span class="dv">7</span><span class="sc">:</span><span class="dv">13</span>]) <span class="sc">+</span> <span class="fu">rowSums</span>(.[<span class="dv">15</span>])) <span class="sc">%&gt;%</span> <span class="co"># add ECONOMY ACTIVE</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">`</span><span class="at">AGED</span><span class="st">`</span><span class="ot">=</span> <span class="fu">rowSums</span>(.[<span class="dv">16</span><span class="sc">:</span><span class="dv">21</span>])) <span class="sc">%&gt;%</span> <span class="co"># add AGED</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">`</span><span class="at">TOTAL</span><span class="st">`</span><span class="ot">=</span> <span class="fu">rowSums</span>(.[<span class="dv">3</span><span class="sc">:</span><span class="dv">21</span>])) <span class="sc">%&gt;%</span> <span class="co"># add TOTAL</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">`</span><span class="at">DEPENDENCY</span><span class="st">`</span> <span class="ot">=</span> (<span class="st">`</span><span class="at">YOUNG</span><span class="st">`</span> <span class="sc">+</span> <span class="st">`</span><span class="at">AGED</span><span class="st">`</span>)<span class="sc">/</span><span class="st">`</span><span class="at">ECONOMY ACTIVE</span><span class="st">`</span>) <span class="sc">%&gt;%</span> <span class="co"># add DEPENDENCY</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="st">`</span><span class="at">PA</span><span class="st">`</span>, <span class="st">`</span><span class="at">SZ</span><span class="st">`</span>, <span class="st">`</span><span class="at">YOUNG</span><span class="st">`</span>, <span class="st">`</span><span class="at">ECONOMY ACTIVE</span><span class="st">`</span>, <span class="st">`</span><span class="at">AGED</span><span class="st">`</span>, <span class="st">`</span><span class="at">TOTAL</span><span class="st">`</span>, <span class="st">`</span><span class="at">DEPENDENCY</span><span class="st">`</span>)</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(pop2023_sum)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "PA"             "SZ"             "YOUNG"          "ECONOMY ACTIVE"
+[5] "AGED"           "TOTAL"          "DEPENDENCY"    </code></pre>
+</div>
+</div>
+<section id="join-together-population-data-with-geospatial-data-masterplan-sub-zone" class="level3">
+<h3 class="anchored" data-anchor-id="join-together-population-data-with-geospatial-data-masterplan-sub-zone">Join together population data with geospatial data (masterplan sub-zone)</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># convert PA and SZ variable data to upper cases to match SUBZONE_N and PLN_AREA_N of mspz</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>pop2023_sum <span class="ot">&lt;-</span> pop2023_sum <span class="sc">%&gt;%</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate_at</span>(<span class="at">.vars =</span> <span class="fu">vars</span>(PA, SZ),      <span class="co"># mutate at variables PA , SZ</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">.funs =</span> <span class="fu">list</span>(toupper)) <span class="sc">%&gt;%</span>   <span class="co"># apply function list(toupper)</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="st">`</span><span class="at">ECONOMY ACTIVE</span><span class="st">`</span> <span class="sc">&gt;</span> <span class="dv">0</span>)</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="co"># left join by SUBZONE_N = SZ</span></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>mpsz19_shp_3414 <span class="ot">&lt;-</span> <span class="fu">left_join</span>(mpsz19_shp_3414, pop2023_sum,</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>                          <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"SUBZONE_N"</span> <span class="ot">=</span> <span class="st">"SZ"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

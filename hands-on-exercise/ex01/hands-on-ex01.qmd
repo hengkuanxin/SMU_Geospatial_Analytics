@@ -1,13 +1,17 @@
 ---
-title: "Exercise 01 'Geospatial Data Science with R'"
+title: "01 'Geospatial Data Science with R'"
 author: "Heng Kuan Xin"
 date: 2024-08-20
-date-modified: 2024-08-21
+date-modified: "last-modified"
+
 execute:
   eval: true
   echo: true
   freeze: true
   output: true
+  warning: false
+  error: false
+toc-depth: 5
 ---
 
 (Copied from Exercise) Learning Outcome:

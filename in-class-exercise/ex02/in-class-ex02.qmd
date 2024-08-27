@@ -1,5 +1,5 @@
 ---
-title: "In-class-exercise 02 (reviewing Hands-exercise 02)"
+title: "02 Exercise Review 2"
 author: "Heng Kuan Xin"
 date: 2024-08-26
 date-modified: "last-modified"
@@ -48,15 +48,15 @@ Whenever you import data, make sure to view the data and understand what data ty
 ```{r}
 class(mpsz_shp)
 ```
-**Note**: when reading data types: 
 
-- `int` : an integer 
-- `num` : numerical; can be any real number 
-- `chr` : characters - geometry : sf's geometry data. 
-  - E.g. "sfc_MULTIPOLYGONS" if the package detects multipolygons.
+**Note**: when reading data types:
+
+-   `int` : an integer
+-   `num` : numerical; can be any real number
+-   `chr` : characters - geometry : sf's geometry data.
+    -   E.g. "sfc_MULTIPOLYGONS" if the package detects multipolygons.
 
 refer to [basic data types in R](https://resbaz.github.io/2014-r-materials/lessons/01-intro_r/data-structures.html)
-
 
 ### 2.0 Bad Data
 
@@ -68,8 +68,7 @@ This code chunk tries to import the kml data
 # This data file cannot be used; The data source is corrupted.
 ```
 
-
-There might be a reasons why the kml cannot be used: (1) it is a zipped file, or (2) the file got tampered/corrupted during the uploading process. 
+There might be a reasons why the kml cannot be used: (1) it is a zipped file, or (2) the file got tampered/corrupted during the uploading process.
 
 If you want to convert to another file format, you can generate it using sf::st_write().
 
@@ -83,7 +82,6 @@ st_write(mpsz_shp,
          "data/geospatial/MP14_SUBZONE_WEB_PL.kml",
          delete_dsn = TRUE) # delete old file if exists.
 ```
-
 
 ## 3. Choosing Good Data sets
 
@@ -101,6 +99,7 @@ preschool_kml <- st_read(dsn="data/geospatial/PreSchoolsLocation.kml")
 ```
 
 ### 3.2 Masterplan 2019 Sub-zone
+
 ```{r}
 #| output: false
 
@@ -111,8 +110,8 @@ mpsz19_shp <- st_read(dsn="data/geospatial/MPSZ-2019",
                       layer="MPSZ-2019")
 
 ```
-Note the differences: both have 332 features, but one has 2+1 fields, the other has 6+1 fields.
-KML has nested multiple attributes within 1 column. The KML file format in this context is harder to use than the SHP file format.
+
+Note the differences: both have 332 features, but one has 2+1 fields, the other has 6+1 fields. KML has nested multiple attributes within 1 column. The KML file format in this context is harder to use than the SHP file format.
 
 ### 3.3 Transforming the CRS
 
@@ -122,7 +121,6 @@ mpsz19_shp_3414 <- mpsz19_shp %>%
 ```
 
 EPSG:3414 refers to Singapore's projected coordinate system (SVY21), as opposed to WGS84. A projected coordinate system uses distances measure, rather than degrees (latitude, longitude)
-
 
 ## 4.0 Working with Population Data
 
@@ -136,7 +134,6 @@ spec(pop2023)
 ```
 
 **Note**: Ease of use of data: see how the columns and data are categorised between different the different data sets `respopagesextod2023.csv` and `respopagesextod2023.xlsx`. Check the other data sets: `respopagesexfa2023.csv`
-
 
 ```{r}
 pop2023_sum <- pop2023 %>%
@@ -182,5 +179,3 @@ mpsz19_shp_3414 <- left_join(mpsz19_shp_3414, pop2023_sum,
                           by = c("SUBZONE_N" = "SZ"))
 
 ```
-
-

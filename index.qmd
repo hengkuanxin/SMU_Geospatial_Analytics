@@ -2,10 +2,21 @@
 title: "R for Geospatial Analytics"
 author: "Heng Kuan Xin"
 date: 2024-08-20
+date-modified: "last-modified"
+sidebar: false
 execute: 
   eval: true
   echo: true
   freeze: true
+  
+listing:
+  field-display-names:
+    title: "Posts"
+  contents:
+    - "hands-on-exercise/*/*.qmd"
+    - "in-class-exercise/*/*.qmd"
+  type: "table"
+  sort: "date desc"
 ---
 
 **Access the contents via the sidebar.**
@@ -16,7 +27,3 @@ Contents overview:
 2.  About
 3.  Hands-on exercises
 4.  In-class exercises
-
-Analyses were done using R programming language. This website was crafted using [Quarto](https://quarto.org/) package.
-
-------------------------------------------------------------------------

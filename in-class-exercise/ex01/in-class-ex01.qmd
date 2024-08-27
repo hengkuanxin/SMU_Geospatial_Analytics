@@ -1,5 +1,5 @@
 ---
-title: "In-class-exercise 01 (reviewing Hands-exercise 01)"
+title: "01 Exercise Review 1"
 author: "Heng Kuan Xin"
 date: 2024-08-21
 date-modified: "last-modified"

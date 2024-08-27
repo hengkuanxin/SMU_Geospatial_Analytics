@@ -1,0 +1,17 @@
+---
+title: "In-Class Exercises Introduction"
+author: "Heng Kuan Xin"
+date-modified: "last-modified"
+execute:
+  eval: true
+  echo: true
+  freeze: true
+  output: true
+  warning: false
+  error: false
+toc-depth: 5
+---
+
+This section showcases my practices and additional notes during my weekly classes, which are mainly reviews of the hands on exercises.
+
+All analyses were done using R programming language and are for learning purposes only.

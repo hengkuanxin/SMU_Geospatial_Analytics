@@ -2,17 +2,28 @@ project:
   type: website
 
 website:
-  title: "IS415 Practice Site"
-  search: true
-  sidebar:
-    style: "floating"
-    contents:
+  title: "R for Geospatial Analytics"
+  
+  navbar:
+    background: dark
+    search: true
+    left:
       - text: "Home"
         href: "index.html"
       - text: "About"
         href: "about.html"
+      - text: "Hands-on Exercises"
+        href: "hands-on-exercise/hands-on-ex-intro.html"
+      - text: "In-class Exercises"
+        href: "in-class-exercise/in-class-ex-intro.html"
+  sidebar:
+    search: true
+    style: "floating"
+    contents:
       - section: "Hands-on Exercises"
-        contents: 
+        contents:
+        - text: "00 Introduction"
+          href: "hands-on-exercise/hands-on-ex-intro.html"
         - text: "01 ‘Geospatial Data Science with R’"
           href: "hands-on-exercise/ex01/hands-on-ex01.html"
         - text: "02 ‘Thematic Mapping and GeoVisualisation with R’"
@@ -20,11 +31,19 @@ website:
         - text: "03 ‘Spatial Point Pattern Analysis’"
           href: "hands-on-exercise/ex03/hands-on-ex03.html"
       - section: "In-class Exercises"
-        contents: 
-        - text: "Practice 01"
+        contents:
+        - text: "00 Introduction"
+          href: "in-class-exercise/in-class-ex-intro.html"
+        - text: "01 Exercise Review 1"
           href: "in-class-exercise/ex01/in-class-ex01.html"
-        - text: "Practice 02"
+        - text: "02 Exercise Review 2"
           href: "in-class-exercise/ex02/in-class-ex02.html"
+
+  page-footer:
+    background: secondary
+    left: "Copyright 2024, Heng Kuan Xin"
+    right: "This website is built with [R](https://www.r-project.org/about.html), [Quarto](https://quarto.org/), and [Netlify](https://www.netlify.com/)"
+
 
 format:
   html:

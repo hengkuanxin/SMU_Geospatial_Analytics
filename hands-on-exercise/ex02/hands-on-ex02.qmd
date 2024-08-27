@@ -1,8 +1,8 @@
 ---
-title: "Exercise 02 'Thematic Mapping and GeoVisualisation with R'"
+title: "02 'Thematic Mapping and GeoVisualisation with R'"
 author: "Heng Kuan Xin"
 date: 2024-08-21
-date-modified: 2024-08-24
+date-modified: "last-modified"
 execute:
   eval: true
   echo: true

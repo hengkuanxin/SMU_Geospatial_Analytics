@@ -4,12 +4,12 @@
     "href": "index.html",
     "title": "R for Geospatial Analytics",
     "section": "",
-    "text": "Access the contents via the sidebar.\nContents overview:\n\nHome (this page)\nAbout\nHands-on exercises\nIn-class exercises\n\nAnalyses were done using R programming language. This website was crafted using Quarto package."
+    "text": "Access the contents via the sidebar.\nContents overview:\n\nHome (this page)\nAbout\nHands-on exercises\nIn-class exercises\n\n\n\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Posts\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\nDate\n\n\nPosts\n\n\nAuthor\n\n\n\n\n\n\nAug 26, 2024\n\n\n02 Exercise Review 2\n\n\nHeng Kuan Xin\n\n\n\n\nAug 21, 2024\n\n\n02 ‘Thematic Mapping and GeoVisualisation with R’\n\n\nHeng Kuan Xin\n\n\n\n\nAug 21, 2024\n\n\n01 Exercise Review 1\n\n\nHeng Kuan Xin\n\n\n\n\nAug 20, 2024\n\n\n01 ‘Geospatial Data Science with R’\n\n\nHeng Kuan Xin\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "about.html",
     "href": "about.html",
-    "title": "About",
+    "title": "Heng Kuan Xin",
     "section": "",
     "text": "About this site\n\n1 + 1\n\n[1] 2"
   },
@@ -159,5 +159,33 @@
     "title": "In-class-exercise 02 (reviewing Hands-exercise 02)",
     "section": "4.0 Working with Population Data",
     "text": "4.0 Working with Population Data\n\npop2023 &lt;- read_csv(\"data/aspatial/respopagesextod2023.csv\", )\n\n# show column data types\nspec(pop2023)\n\nNote: Ease of use of data: see how the columns and data are categorised between different the different data sets respopagesextod2023.csv and respopagesextod2023.xlsx. Check the other data sets: respopagesexfa2023.csv\n\npop2023_sum &lt;- pop2023 %&gt;%\n  group_by(PA, SZ, AG) %&gt;%\n  summarise(`POP` = sum(`Pop`)) %&gt;%\n  ungroup()\n\ncolnames(pop2023_sum)\n\n[1] \"PA\"  \"SZ\"  \"AG\"  \"POP\"\n\npop2023_sum &lt;- pop2023_sum %&gt;%\n  pivot_wider(names_from = `AG`,\n              values_from = `POP`)\n\ncolnames(pop2023_sum)\n\n [1] \"PA\"          \"SZ\"          \"0_to_4\"      \"10_to_14\"    \"15_to_19\"   \n [6] \"20_to_24\"    \"25_to_29\"    \"30_to_34\"    \"35_to_39\"    \"40_to_44\"   \n[11] \"45_to_49\"    \"50_to_54\"    \"55_to_59\"    \"5_to_9\"      \"60_to_64\"   \n[16] \"65_to_69\"    \"70_to_74\"    \"75_to_79\"    \"80_to_84\"    \"85_to_89\"   \n[21] \"90_and_Over\"\n\n\nNote: tidyverse is a collection of packages for data science, also called a disjointed integrated packages. The separate packages maintained separately and do not contain same function names. Collectively, they might conflict with Base R functions, however; e.g. dpylr::filter().\n\npop2023_sum &lt;- pop2023_sum %&gt;%\n  mutate(YOUNG = rowSums(.[3:6]) + rowSums(.[14])) %&gt;% # add YOUNG = sum across the row where index = [3:6] and [15] \n  mutate(`ECONOMY ACTIVE` = rowSums(.[7:13]) + rowSums(.[15])) %&gt;% # add ECONOMY ACTIVE\n  mutate(`AGED`= rowSums(.[16:21])) %&gt;% # add AGED\n  mutate(`TOTAL`= rowSums(.[3:21])) %&gt;% # add TOTAL\n  mutate(`DEPENDENCY` = (`YOUNG` + `AGED`)/`ECONOMY ACTIVE`) %&gt;% # add DEPENDENCY\n  select(`PA`, `SZ`, `YOUNG`, `ECONOMY ACTIVE`, `AGED`, `TOTAL`, `DEPENDENCY`)\n\ncolnames(pop2023_sum)\n\n[1] \"PA\"             \"SZ\"             \"YOUNG\"          \"ECONOMY ACTIVE\"\n[5] \"AGED\"           \"TOTAL\"          \"DEPENDENCY\"    \n\n\n\nJoin together population data with geospatial data (masterplan sub-zone)\n\n# convert PA and SZ variable data to upper cases to match SUBZONE_N and PLN_AREA_N of mspz\npop2023_sum &lt;- pop2023_sum %&gt;%\n  mutate_at(.vars = vars(PA, SZ),      # mutate at variables PA , SZ\n          .funs = list(toupper)) %&gt;%   # apply function list(toupper)\n  filter(`ECONOMY ACTIVE` &gt; 0)\n\n\n# left join by SUBZONE_N = SZ\nmpsz19_shp_3414 &lt;- left_join(mpsz19_shp_3414, pop2023_sum,\n                          by = c(\"SUBZONE_N\" = \"SZ\"))"
+  },
+  {
+    "objectID": "in-class-exercise/ex02/data/geospatial/MPSZ-2019/MPSZ-2019.html",
+    "href": "in-class-exercise/ex02/data/geospatial/MPSZ-2019/MPSZ-2019.html",
+    "title": "IS415 Practice Site",
+    "section": "",
+    "text": "&lt;!DOCTYPE qgis PUBLIC ‘http://mrcc.com/qgis.dtd’ ‘SYSTEM’&gt;     dataset\n\n\n        0 0     false"
+  },
+  {
+    "objectID": "hands-on-exercise/hands-on-ex-intro.html",
+    "href": "hands-on-exercise/hands-on-ex-intro.html",
+    "title": "Hands-On Exercises Introduction",
+    "section": "",
+    "text": "This section showcases my weekly attempts at geospatial analytics for my course.\nEach exercise is focused on a central topic; e.g. Hands-on exercise 02 ‘Thematic Mapping and GeoVisualisation with R’ corresponding to the topic of the assignment of the week.\nAll analyses were done using R programming language and are for learning purposes only."
+  },
+  {
+    "objectID": "in-class-exercise/in-class-ex-intro.html",
+    "href": "in-class-exercise/in-class-ex-intro.html",
+    "title": "In-Class Exercises Introduction",
+    "section": "",
+    "text": "This section showcases my practices and additional notes during my weekly classes, which are mainly reviews of the hands on exercises.\nAll analyses were done using R programming language and are for learning purposes only."
+  },
+  {
+    "objectID": "index.html#new-posts",
+    "href": "index.html#new-posts",
+    "title": "R for Geospatial Analytics",
+    "section": "New Posts",
+    "text": "New Posts"
   }
 ]

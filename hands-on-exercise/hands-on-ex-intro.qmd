@@ -1,0 +1,20 @@
+---
+title: "Hands-On Exercises Introduction"
+author: "Heng Kuan Xin"
+date-modified: "last-modified"
+execute:
+  eval: true
+  echo: true
+  freeze: true
+  output: true
+  warning: false
+  error: false
+toc-depth: 5
+---
+
+This section showcases my weekly attempts at geospatial analytics for my course.
+
+Each exercise is focused on a central topic; e.g. *Hands-on exercise 02 'Thematic Mapping and GeoVisualisation with R'* corresponding to the topic of the assignment of the week.
+
+
+All analyses were done using R programming language and are for learning purposes only.

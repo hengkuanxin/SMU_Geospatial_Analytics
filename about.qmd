@@ -1,5 +1,17 @@
 ---
-title: "About"
+title: "Heng Kuan Xin"
+about:
+  id: hero-heading
+  template: jolla
+  image: "images/profile.jpeg"
+  #links:
+  #  - icon: twitter
+  #    text: twitter
+  #    href: "https://twitter.com"
+  #  - icon: github
+  #    text: Github
+  #    href: "https://github.com"
+sidebar: false
 ---
 
 About this site

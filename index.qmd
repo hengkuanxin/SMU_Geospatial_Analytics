@@ -19,8 +19,6 @@ listing:
   sort: "date desc"
 ---
 
-**Access the contents via the sidebar.**
-
 Contents overview:
 
 1.  Home (this page)

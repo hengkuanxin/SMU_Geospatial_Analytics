@@ -28,8 +28,10 @@ website:
           href: "hands-on-exercise/ex01/hands-on-ex01.html"
         - text: "02 ‘Thematic Mapping and GeoVisualisation with R’"
           href: "hands-on-exercise/ex02/hands-on-ex02.html"
-        - text: "03 ‘Spatial Point Pattern Analysis’"
-          href: "hands-on-exercise/ex03/hands-on-ex03.html"
+        - text: "03 (Part 1) ‘1st Order Spatial Point Pattern Analysis’"
+          href: "hands-on-exercise/ex03/hands-on-ex03_01.html"
+        - text: "03 (Part 2) ‘2nd Order Spatial Point Pattern Analysis’"
+          href: "hands-on-exercise/ex03/hands-on-ex03_02.html"
       - section: "In-class Exercises"
         contents:
         - text: "00 Introduction"
@@ -41,7 +43,7 @@ website:
 
   page-footer:
     background: secondary
-    left: "Copyright 2024, Heng Kuan Xin"
+    left: "Website by Heng Kuan Xin"
     right: "This website is built with [R](https://www.r-project.org/about.html), [Quarto](https://quarto.org/), and [Netlify](https://www.netlify.com/)"
 
 

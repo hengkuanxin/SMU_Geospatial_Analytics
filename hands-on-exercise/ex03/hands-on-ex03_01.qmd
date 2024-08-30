@@ -58,7 +58,7 @@ The above is a copy from the exercise overview from [workbook](https://r4gdsa.ne
 ## 1 Import Packages
 
 ```{r}
-pacman::p_load(sf, spatstat, raster, maptools, tmap)
+pacman::p_load(sf, spatstat, raster, tmap, rvest, tidyverse)
 
 ```
 
@@ -82,10 +82,61 @@ childcare_sf <- childcare_sf %>% st_transform(crs=3414)
 
 ### Checking Attribute Information
 
-\* Notice how the attributes of childcare_sf is nested within html syntax. We will not be parsing it this time, but for future references:
+\* Notice how the attributes of childcare_sf is nested within html syntax. Instead of using BeautifulSoup4 in Python, in R we can use the rvest package to parse the html data. (Converted my python function to R with help of ChatGPT)
 
 -   In order to read the attributes, we need to first isolate the 'Description' attribute, and read line by line using each \<tr\>.
 -   Within each line, identify \<th\> and \<td\>. The attribute name is located within a pair of \<th\>, and value is located within a pair of \<td\>.
+
+NOTE: **list() in R can behave as both an array and a hashtable**, the equivalent of which are list() and dictionary() in Python respectively.
+
+```{r}
+parse_html_table <- function(html) {
+  # read the HTML content
+  rows <- read_html(html) %>% html_nodes("tr")
+  
+  # initialise an empty list to store data
+  data <- list()
+  
+  # read row by row
+  for (row in rows) {
+    # find all columns in the row
+    cols <- html_nodes(row, xpath = ".//th|.//td")
+    
+    # if exactly 2 columns, add them to the data list
+    if (length(cols) == 2) {
+      
+      ## get KEY-VALUE pair
+      key <- html_text(cols[1], trim = TRUE)
+      value <- html_text(cols[2], trim = TRUE)
+      data[[key]] <- value
+    }
+  }
+  
+  return(data)
+}
+
+childcare_sf$Parsed <- lapply(X=childcare_sf$Description, FUN=parse_html_table)
+```
+
+Extracting attribute `NAME` from `Parsed` column
+
+```{r}
+# head(childcare_sf$Parsed,n=5)
+# childcare_sf$Parsed[[1]]$NAME
+
+# Apply function where we retrieve
+childcare_sf$NAME <- lapply(X=childcare_sf$Parsed, FUN=function(x) x$NAME) %>% 
+  # unlist to turn list into vector
+  unlist()
+
+# childcare_sf$NAME
+childcare_sf <- childcare_sf %>% select(`NAME`) # Keep Name only, since other attributes are not used
+```
+
+```{r}
+# show result
+head(childcare_sf)
+```
 
 ### Check CRS are all consistent-- All EPSG:3414
 
@@ -124,7 +175,7 @@ qtm(childcare_sf)
 We can also use tmap 'view' mode to plot our data layer on an interactive map, which uses [Leaflet for R](https://rstudio.github.io/leaflet/), where Leaflet is an open-source JavaScript library for interactive maps. In this mode, we can drag and zoom around and click on the features of our data layer to query its attribute information.
 
 ```{r}
-tmap_mode('plot')
+tmap_mode('view')
 tm_shape(childcare_sf)+
   tm_dots()
 
@@ -187,13 +238,17 @@ At a glance, we can see that by converting Spatial\*DataFrame to SpatialPoints o
 
 Now, we will use **as.ppp()** function of spatstat to convert the spatial data into spatstat’s **ppp** object format
 
+# TO BE VERIFIED
+
 ```{r}
 
-# childcare_ppp <- as.ppp(childcare_sp, W=NULL)
+# childcare_ppp <- as.ppp(childcare_sf)
+# childcare_ppp <- as.ppp(x=childcare_sf$geometry, W=NULL)
 # childcare_ppp <- as.ppp(st_coordinates(childcare_sf), st_bbox(childcare_sf))
 # childcare_ppp
 
-
 ```
 
-TO BE COMPLETED
+```{r}
+# plot(childcare_ppp)
+```

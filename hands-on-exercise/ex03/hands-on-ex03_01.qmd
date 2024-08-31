@@ -58,7 +58,7 @@ The above is a copy from the exercise overview from [workbook](https://r4gdsa.ne
 ## 1 Import Packages
 
 ```{r}
-pacman::p_load(sf, spatstat, raster, tmap, rvest, tidyverse, maptools)
+pacman::p_load(sf, spatstat, raster, tmap, rvest, tidyverse)
 
 ```
 
@@ -157,8 +157,8 @@ Note: even though sg_sf and mpsz_sf is using SVY21, and have its coordinates in 
 ```{r}
 
 # change CRS to EPSG:3414
-st_set_crs(sg_sf,3414)
-st_set_crs(mpsz_sf,3414)
+st_crs(sg_sf) <- 3414
+st_crs(mpsz_sf) <- 3414
 ```
 
 ### Quick View of Data
@@ -486,7 +486,7 @@ plot(density(childcareSG_ppp.km,
      main="Disc")
 ```
 
-## Fixed and Adaptive KDE
+## 5 Fixed and Adaptive KDE
 
 ```         
 Next, you will compute a KDE layer by defining a bandwidth of 600 meter. Notice that in the code chunk below, the sigma value used is 0.6. This is because the unit of measurement of childcareSG_ppp.km object is in kilometer, hence the 600m is 0.6km.
@@ -704,7 +704,10 @@ plot(density(childcare_tm_ppp_km,
              kernel="gaussian"),
      main="Tampines")
 ```
-```
+
+## 6 Nearest Neighbour Analysis
+
+```         
 In this section, we will perform the Clark-Evans test of aggregation for a spatial point pattern by using [*clarkevans.test()*](https://www.rdocumentation.org/packages/spatstat/versions/1.63-3/topics/clarkevans.test) of **statspat**.
 
 The test hypotheses are:
@@ -718,8 +721,8 @@ The 95% confident interval will be used.
 
 ### Testing spatial point patterns using Clark and Evans Test
 
-Using childcareSG_PPP
-'
+Using childcareSG_PPP '
+
 ```{r}
 clarkevans.test(childcareSG_ppp,
                 correction="none",
@@ -729,6 +732,7 @@ clarkevans.test(childcareSG_ppp,
 ```
 
 Using childcare_ck_ppp
+
 ```{r}
 clarkevans.test(childcare_ck_ppp,
                 correction="none",

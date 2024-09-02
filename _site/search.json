@@ -4,12 +4,12 @@
     "href": "index.html",
     "title": "R for Geospatial Analytics",
     "section": "",
-    "text": "Contents overview: 1. Home (this page) 2. About 3. Hands-on exercises 4. In-class exercises\n\n\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Posts\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nDate\n\n\nPosts\n\n\nAuthor\n\n\n\n\n\n\nSep 2, 2024\n\n\n03 Exercise Review 3\n\n\nHeng Kuan Xin\n\n\n\n\nAug 29, 2024\n\n\n03 (Part 1) ‘1st Order Spatial Point Patterns Analysis Methods’\n\n\nHeng Kuan Xin\n\n\n\n\nAug 29, 2024\n\n\n03 (Part 2) ‘2nd Order Spatial Point Patterns Analysis Methods’\n\n\nHeng Kuan Xin\n\n\n\n\nAug 26, 2024\n\n\n02 Exercise Review 2\n\n\nHeng Kuan Xin\n\n\n\n\nAug 21, 2024\n\n\n02 ‘Thematic Mapping and GeoVisualisation with R’\n\n\nHeng Kuan Xin\n\n\n\n\nAug 21, 2024\n\n\n01 Exercise Review 1\n\n\nHeng Kuan Xin\n\n\n\n\nAug 20, 2024\n\n\n01 ‘Geospatial Data Science with R’\n\n\nHeng Kuan Xin\n\n\n\n\n\nNo matching items"
+    "text": "Contents overview:\n\nHome (this page)\nAbout\nHands-on exercises\nIn-class exercises\n\n\n\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Posts\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nDate\n\n\nPosts\n\n\nAuthor\n\n\n\n\n\n\nSep 2, 2024\n\n\n03 In-class Exercise 3 (Review)\n\n\nHeng Kuan Xin\n\n\n\n\nSep 2, 2024\n\n\n03 In-class Exercise 3 (Review)\n\n\nHeng Kuan Xin\n\n\n\n\nAug 29, 2024\n\n\n03 (Part 1) ‘1st Order Spatial Point Patterns Analysis Methods’\n\n\nHeng Kuan Xin\n\n\n\n\nAug 29, 2024\n\n\n03 (Part 2) ‘2nd Order Spatial Point Patterns Analysis Methods’\n\n\nHeng Kuan Xin\n\n\n\n\nAug 26, 2024\n\n\n02 In-class Exercise 2 (Review)\n\n\nHeng Kuan Xin\n\n\n\n\nAug 26, 2024\n\n\n02 In-class Exercise 2 (Review)\n\n\nHeng Kuan Xin\n\n\n\n\nAug 21, 2024\n\n\n02 ‘Thematic Mapping and GeoVisualisation with R’\n\n\nHeng Kuan Xin\n\n\n\n\nAug 21, 2024\n\n\n01 In-class Exercise 1 (Review)\n\n\nHeng Kuan Xin\n\n\n\n\nAug 20, 2024\n\n\nAbout Me\n\n\nHeng Kuan Xin\n\n\n\n\nAug 20, 2024\n\n\n01 ‘Geospatial Data Science with R’\n\n\nHeng Kuan Xin\n\n\n\n\nAug 20, 2024\n\n\nHands-On Exercises Introduction\n\n\nHeng Kuan Xin\n\n\n\n\nAug 20, 2024\n\n\nIn-Class Exercises Introduction\n\n\nHeng Kuan Xin\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "about.html",
     "href": "about.html",
-    "title": "Heng Kuan Xin",
+    "title": "About Me",
     "section": "",
     "text": "About this site\n\n1 + 1\n\n[1] 2"
   },
@@ -28,9 +28,14 @@
   {
     "objectID": "in-class-exercise/ex01/in-class-ex01.html",
     "href": "in-class-exercise/ex01/in-class-ex01.html",
-    "title": "In-class-exercise 01 (reviewing Hands-exercise 01)",
+    "title": "01 In-class Exercise 1 (Review)",
     "section": "",
-    "text": "1 Import packages & data\n\n\npacman::p_load(tidyverse, sf)\n\n\nmpsz &lt;- st_read(\n  dsn = \"data/geospatial/MPSZ-2019\",\n  layer = \"MPSZ-2019\")\n\nReading layer `MPSZ-2019' from data source \n  `C:\\hengkuanxin\\SMU_Geospatial_Analytics\\in-class-exercise\\ex01\\data\\geospatial\\MPSZ-2019' \n  using driver `ESRI Shapefile'\nSimple feature collection with 332 features and 6 fields\nGeometry type: MULTIPOLYGON\nDimension:     XY\nBounding box:  xmin: 103.6057 ymin: 1.158699 xmax: 104.0885 ymax: 1.470775\nGeodetic CRS:  WGS 84\n\n\n\n\n2 Reading Data\n\n\nst_geometry(mpsz)\n\nGeometry set for 332 features \nGeometry type: MULTIPOLYGON\nDimension:     XY\nBounding box:  xmin: 103.6057 ymin: 1.158699 xmax: 104.0885 ymax: 1.470775\nGeodetic CRS:  WGS 84\nFirst 5 geometries:\n\nplot(mpsz)"
+    "text": "1 Import packages & data\n\n\npacman::p_load(tidyverse, sf)\n\n\nmpsz &lt;- st_read(\n  dsn = \"data/geospatial/MPSZ-2019\",\n  layer = \"MPSZ-2019\")\n\nReading layer `MPSZ-2019' from data source \n  `C:\\hengkuanxin\\SMU_Geospatial_Analytics\\in-class-exercise\\ex01\\data\\geospatial\\MPSZ-2019' \n  using driver `ESRI Shapefile'\nSimple feature collection with 332 features and 6 fields\nGeometry type: MULTIPOLYGON\nDimension:     XY\nBounding box:  xmin: 103.6057 ymin: 1.158699 xmax: 104.0885 ymax: 1.470775\nGeodetic CRS:  WGS 84\n\n\n\n\n2 Reading Data\n\n\nst_geometry(mpsz)\n\nGeometry set for 332 features \nGeometry type: MULTIPOLYGON\nDimension:     XY\nBounding box:  xmin: 103.6057 ymin: 1.158699 xmax: 104.0885 ymax: 1.470775\nGeodetic CRS:  WGS 84\nFirst 5 geometries:\n\nplot(mpsz)",
+    "crumbs": [
+      "Home",
+      "In-class Exercises",
+      "01 In-class Exercise 1 (Review)"
+    ]
   },
   {
     "objectID": "in-class-exercise/ex01/data/geospatial/MPSZ-2019/MPSZ-2019.html",
@@ -151,7 +156,7 @@
     "crumbs": [
       "Home",
       "In-class Exercises",
-      "02 Exercise Review 2"
+      "02 In-class Exercise 2 (Review)"
     ]
   },
   {
@@ -163,7 +168,7 @@
     "crumbs": [
       "Home",
       "In-class Exercises",
-      "02 Exercise Review 2"
+      "02 In-class Exercise 2 (Review)"
     ]
   },
   {
@@ -175,7 +180,7 @@
     "crumbs": [
       "Home",
       "In-class Exercises",
-      "02 Exercise Review 2"
+      "02 In-class Exercise 2 (Review)"
     ]
   },
   {
@@ -187,13 +192,13 @@
     "crumbs": [
       "Home",
       "In-class Exercises",
-      "02 Exercise Review 2"
+      "02 In-class Exercise 2 (Review)"
     ]
   },
   {
     "objectID": "in-class-exercise/ex02/data/geospatial/MPSZ-2019/MPSZ-2019.html",
     "href": "in-class-exercise/ex02/data/geospatial/MPSZ-2019/MPSZ-2019.html",
-    "title": "IS415 Practice Site",
+    "title": "R for Geospatial Analytics",
     "section": "",
     "text": "&lt;!DOCTYPE qgis PUBLIC ‘http://mrcc.com/qgis.dtd’ ‘SYSTEM’&gt;     dataset\n\n\n        0 0     false"
   },

@@ -13,9 +13,13 @@ execute:
 toc-depth: 5
 ---
 
+
+
 ## 1.0 Working with Master Plan Planning Sub-zone Data
 
 ### Packages
+
+
 
 ```{r}
 # load packages
@@ -25,11 +29,15 @@ pacman::p_load(sf, tidyverse, tmap)
 #pacman::p_load(sf, tidyverse, ggstatsplot, tmap)
 ```
 
+
+
 ### 1.1 The code
 
 We are going to import the Master Plan 2014 Subzone Boundary Web (file format .shp and .kml) retrieved from data.gov.sg.
 
 This code chunk imports the shapefile data
+
+
 
 ```{r}
 #| output: false
@@ -39,15 +47,21 @@ mpsz_shp <- st_read(dsn="data/geospatial/MasterPlan2014SubzoneBoundaryWebSHP",
 
 ```
 
+
+
 In RStudio, check the `Help` tab to search for library functions, it will show you the input arguments and the output.
 
 ### 1.2 Checking the class info.
 
 Whenever you import data, make sure to view the data and understand what data types, data formats, crs (coordinate reference systems), geometry type, and so on.
 
+
+
 ```{r}
 class(mpsz_shp)
 ```
+
+
 
 **Note**: when reading data types:
 
@@ -62,17 +76,23 @@ refer to [basic data types in R](https://resbaz.github.io/2014-r-materials/lesso
 
 This code chunk tries to import the kml data
 
+
+
 ```{r}
 
 # mpsz_kml <- st_read("data/geospatial/MasterPlan2014SubzoneBoundaryWebKML.kml")
 # This data file cannot be used; The data source is corrupted.
 ```
 
+
+
 There might be a reasons why the kml cannot be used: (1) it is a zipped file, or (2) the file got tampered/corrupted during the uploading process.
 
 If you want to convert to another file format, you can generate it using sf::st_write().
 
 ### 2.1 Generating KML file from sf object we imported from the SHP file
+
+
 
 ```{r}
 
@@ -83,6 +103,8 @@ st_write(mpsz_shp,
          delete_dsn = TRUE) # delete old file if exists.
 ```
 
+
+
 ## 3. Choosing Good Data sets
 
 ### 3.1 Pre-school locations
@@ -91,6 +113,8 @@ download and load the preschool locations from data.gov.sg
 
 TO BE COMPLETED
 
+
+
 ```{r}
 #import data set
 preschool_kml <- st_read(dsn="data/geospatial/PreSchoolsLocation.kml")
@@ -98,7 +122,11 @@ preschool_kml <- st_read(dsn="data/geospatial/PreSchoolsLocation.kml")
 # preschool_geojson <- st_read("data/geospatial/PreschoolsLocation.geojson")
 ```
 
+
+
 ### 3.2 Masterplan 2019 Sub-zone
+
+
 
 ```{r}
 #| output: false
@@ -111,18 +139,26 @@ mpsz19_shp <- st_read(dsn="data/geospatial/MPSZ-2019",
 
 ```
 
+
+
 Note the differences: both have 332 features, but one has 2+1 fields, the other has 6+1 fields. KML has nested multiple attributes within 1 column. The KML file format in this context is harder to use than the SHP file format.
 
 ### 3.3 Transforming the CRS
+
+
 
 ```{r}
 mpsz19_shp_3414 <- mpsz19_shp %>%
   st_transform(crs=3414)
 ```
 
+
+
 EPSG:3414 refers to Singapore's projected coordinate system (SVY21), as opposed to WGS84. A projected coordinate system uses distances measure, rather than degrees (latitude, longitude)
 
 ## 4.0 Working with Population Data
+
+
 
 ```{r}
 #| output: false
@@ -133,7 +169,11 @@ pop2023 <- read_csv("data/aspatial/respopagesextod2023.csv", )
 spec(pop2023)
 ```
 
+
+
 **Note**: Ease of use of data: see how the columns and data are categorised between different the different data sets `respopagesextod2023.csv` and `respopagesextod2023.xlsx`. Check the other data sets: `respopagesexfa2023.csv`
+
+
 
 ```{r}
 pop2023_sum <- pop2023 %>%
@@ -150,7 +190,11 @@ pop2023_sum <- pop2023_sum %>%
 colnames(pop2023_sum)
 ```
 
+
+
 Note: tidyverse is a collection of packages for data science, also called a disjointed integrated packages. The separate packages maintained separately and do not contain same function names. Collectively, they might conflict with Base R functions, however; e.g. dpylr::filter().
+
+
 
 ```{r}
 pop2023_sum <- pop2023_sum %>%
@@ -164,7 +208,11 @@ pop2023_sum <- pop2023_sum %>%
 colnames(pop2023_sum)
 ```
 
+
+
 ### Join together population data with geospatial data (masterplan sub-zone)
+
+
 
 ```{r}
 # convert PA and SZ variable data to upper cases to match SUBZONE_N and PLN_AREA_N of mspz
@@ -179,3 +227,4 @@ mpsz19_shp_3414 <- left_join(mpsz19_shp_3414, pop2023_sum,
                           by = c("SUBZONE_N" = "SZ"))
 
 ```
+

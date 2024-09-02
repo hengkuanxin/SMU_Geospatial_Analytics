@@ -1,5 +1,7 @@
 ---
-title: "Heng Kuan Xin"
+title: "About Me"
+date: 2024-08-20
+author: "Heng Kuan Xin"
 about:
   id: hero-heading
   template: jolla

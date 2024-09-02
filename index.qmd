@@ -12,14 +12,15 @@ execute:
 listing:
   field-display-names:
     title: "Posts"
-  contents:
-    - "hands-on-exercise/*/*.qmd"
-    - "in-class-exercise/*/*.qmd"
+    contents:
+      - "/in-class-exercise/*/*.html"
+      - "/hands-on-exercise/*/*.html"
   type: "table"
   sort: "date desc"
 ---
 
 Contents overview:
+
 1.  Home (this page)
 2.  About
 3.  Hands-on exercises

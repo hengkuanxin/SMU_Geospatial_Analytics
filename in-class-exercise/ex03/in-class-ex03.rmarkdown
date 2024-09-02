@@ -13,6 +13,8 @@ execute:
 toc-depth: 5
 ---
 
+
+
 ## 1 In class Review \[5 items\]
 
 ### 1.1 Review Introduction
@@ -113,14 +115,20 @@ Generally, we use G and K estimation functions (similar to K is L function, whic
 
 ### Importing Packages
 
+
+
 ```{r}
 pacman::p_load(tidyverse, sf, spatstat, tmap, rvest, maptools)
 ```
+
+
 
 #### Issue 1: Installing maptools
 
 Note that maptools is retired, so we have issues converting from simplefeatures object to spatstat's ppp object.
 For subsequent use, don't re-install everytime, include 'eval: false' once installed.
+
+
 
 ```{r}
 #| eval: false
@@ -129,7 +137,11 @@ install.packages("maptools",
 
 ```
 
+
+
 ### Import Data set
+
+
 
 ```{r}
 #| output: false
@@ -140,6 +152,8 @@ childcare_sf <- st_read(dsn="data/geospatial/child-care-services-geojson.geojson
 mpsz_sf <- st_read(dsn="data/geospatial", layer = "MP14_SUBZONE_WEB_PL")
 ```
 
+
+
 #### Issue 2: Getting Coastal Outline using Subzone Layer
 
 In sf package, there are two methods to combine multiple sf features into one simple feature object.
@@ -149,12 +163,18 @@ In sf package, there are two methods to combine multiple sf features into one si
 
 Always note that the data we want is not always provided in the most suitable form or format. Therefore, we should always look into manipulating and 'massaging' our data to extract whatever useful information we need.
 
+
+
 ```{r}
 sg_sf <- mpsz_sf %>% st_union()
 sg_sf
 ```
 
+
+
 ### Data Wrangling
+
+
 
 ```{r}
 
@@ -165,13 +185,16 @@ st_transform(mpsz_sf, crs = 3414)
 st_transform(sg_sf, crs = 3414)
 ```
 
-
 ```{r}
 st_crs(mpsz_sf) <- 3414
 st_crs(childcare_sf) <- 3414
 st_crs(sg_sf) <- 3414
 ```
+
+
 ### Issue 3: Conflicts with Maptools
+
+
 ```{r}
 #| eval: false
 gridded_kde_childcareSG_bw <- maptools::as.SpatialGridDataFrame.im(kde_childcareSG.bw) 
@@ -179,19 +202,27 @@ gridded_kde_childcareSG_bw <- maptools::as.SpatialGridDataFrame.im(kde_childcare
 spplot(gridded_kde_childcareSG_bw)
 ```
 
+
+
 ## Briefing on Take-Home Exercise 01
 
 Geospatial Analytics for Social Goods.
 
 Focus: Myanmar Armed Conflict
 
+
+
 ```{r}
 acled_sf <- read_csv("data/ACLED_Myanmar.csv")
 ```
 
+
+
 Note that event_date is recorded as a character filed
 
 use this instead:
+
+
 
 ```{r}
 

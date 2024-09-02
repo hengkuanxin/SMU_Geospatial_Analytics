@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.56">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Heng Kuan Xin">
+<meta name="dcterms.date" content="2024-09-02">
+
+<title>03 Exercise Review 3 – R for Geospatial Analytics</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">R for Geospatial Analytics</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="../../hands-on-exercise/hands-on-ex-intro.html" aria-current="page"> 
+<span class="menu-text">Hands-on Exercises</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../in-class-exercise/in-class-ex-intro.html"> 
+<span class="menu-text">In-class Exercises</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../in-class-exercise/in-class-ex-intro.html">In-class Exercises</a></li><li class="breadcrumb-item"><a href="../../in-class-exercise/ex03/in-class-ex03.html">03 In-class Exercise 3 (Review)</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Hands-on Exercises</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../hands-on-exercise/hands-on-ex-intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">00 Introduction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../hands-on-exercise/ex01/hands-on-ex01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">01 ‘Geospatial Data Science with R’</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../hands-on-exercise/ex02/hands-on-ex02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">02 ‘Thematic Mapping and GeoVisualisation with R’</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../hands-on-exercise/ex03/hands-on-ex03_01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">03 (Part 1) ‘1st Order Spatial Point Pattern Analysis’</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../hands-on-exercise/ex03/hands-on-ex03_02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">03 (Part 2) ‘2nd Order Spatial Point Pattern Analysis’</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">In-class Exercises</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../in-class-exercise/in-class-ex-intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">00 Introduction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../in-class-exercise/ex01/in-class-ex01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">01 In-class Exercise 1 (Review)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../in-class-exercise/ex02/in-class-ex02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">02 In-class Exercise 2 (Review)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../in-class-exercise/ex03/in-class-ex03.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">03 In-class Exercise 3 (Review)</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#in-class-review-5-items" id="toc-in-class-review-5-items" class="nav-link active" data-scroll-target="#in-class-review-5-items">1 In class Review [5 items]</a>
+  <ul>
+  <li><a href="#review-introduction" id="toc-review-introduction" class="nav-link" data-scroll-target="#review-introduction">1.1 Review Introduction</a></li>
+  <li><a href="#review-spatial-point-analysis" id="toc-review-spatial-point-analysis" class="nav-link" data-scroll-target="#review-spatial-point-analysis">1.2 Review Spatial Point Analysis</a></li>
+  <li><a href="#review-kernel-density-estimation-kde" id="toc-review-kernel-density-estimation-kde" class="nav-link" data-scroll-target="#review-kernel-density-estimation-kde">1.3 Review Kernel Density Estimation (KDE):</a></li>
+  <li><a href="#review-specifics-of-kde-5-items" id="toc-review-specifics-of-kde-5-items" class="nav-link" data-scroll-target="#review-specifics-of-kde-5-items">1.4 Review Specifics of KDE [5 items]</a>
+  <ul>
+  <li><a href="#different-kernal-interpolation-settings" id="toc-different-kernal-interpolation-settings" class="nav-link" data-scroll-target="#different-kernal-interpolation-settings">1.4.1 Different Kernal Interpolation settings</a></li>
+  <li><a href="#hypothesis-testing" id="toc-hypothesis-testing" class="nav-link" data-scroll-target="#hypothesis-testing">1.4.2 Hypothesis Testing</a></li>
+  <li><a href="#determining-significance-also-see-confidence-interval-in-this-section" id="toc-determining-significance-also-see-confidence-interval-in-this-section" class="nav-link" data-scroll-target="#determining-significance-also-see-confidence-interval-in-this-section">1.4.3 Determining Significance (also see confidence interval in this section)</a></li>
+  <li><a href="#number-of-simulations" id="toc-number-of-simulations" class="nav-link" data-scroll-target="#number-of-simulations">1.4.4 Number of Simulations</a></li>
+  <li><a href="#confidence-interval" id="toc-confidence-interval" class="nav-link" data-scroll-target="#confidence-interval">1.4.5 Confidence Interval</a></li>
+  </ul></li>
+  <li><a href="#review-interpretation-of-l-estimation-function-complete-spatial-randomness-test-diagram" id="toc-review-interpretation-of-l-estimation-function-complete-spatial-randomness-test-diagram" class="nav-link" data-scroll-target="#review-interpretation-of-l-estimation-function-complete-spatial-randomness-test-diagram">1.5 Review Interpretation of L Estimation Function Complete Spatial Randomness Test (Diagram):</a></li>
+  </ul></li>
+  <li><a href="#in-class-exercise" id="toc-in-class-exercise" class="nav-link" data-scroll-target="#in-class-exercise">2 In Class Exercise</a>
+  <ul>
+  <li><a href="#importing-packages" id="toc-importing-packages" class="nav-link" data-scroll-target="#importing-packages">Importing Packages</a>
+  <ul>
+  <li><a href="#issue-1-installing-maptools" id="toc-issue-1-installing-maptools" class="nav-link" data-scroll-target="#issue-1-installing-maptools">Issue 1: Installing maptools</a></li>
+  </ul></li>
+  <li><a href="#import-data-set" id="toc-import-data-set" class="nav-link" data-scroll-target="#import-data-set">Import Data set</a>
+  <ul>
+  <li><a href="#issue-2-getting-coastal-outline-using-subzone-layer" id="toc-issue-2-getting-coastal-outline-using-subzone-layer" class="nav-link" data-scroll-target="#issue-2-getting-coastal-outline-using-subzone-layer">Issue 2: Getting Coastal Outline using Subzone Layer</a></li>
+  </ul></li>
+  <li><a href="#data-wrangling" id="toc-data-wrangling" class="nav-link" data-scroll-target="#data-wrangling">Data Wrangling</a></li>
+  <li><a href="#issue-3-conflicts-with-maptools" id="toc-issue-3-conflicts-with-maptools" class="nav-link" data-scroll-target="#issue-3-conflicts-with-maptools">Issue 3: Conflicts with Maptools</a></li>
+  </ul></li>
+  <li><a href="#briefing-on-take-home-exercise-01" id="toc-briefing-on-take-home-exercise-01" class="nav-link" data-scroll-target="#briefing-on-take-home-exercise-01">Briefing on Take-Home Exercise 01</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../in-class-exercise/in-class-ex-intro.html">In-class Exercises</a></li><li class="breadcrumb-item"><a href="../../in-class-exercise/ex03/in-class-ex03.html">03 In-class Exercise 3 (Review)</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">03 Exercise Review 3</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Heng Kuan Xin </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">September 2, 2024</p>
+    </div>
+  </div>
+  
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">September 2, 2024</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="in-class-review-5-items" class="level2">
+<h2 class="anchored" data-anchor-id="in-class-review-5-items">1 In class Review [5 items]</h2>
+<section id="review-introduction" class="level3">
+<h3 class="anchored" data-anchor-id="review-introduction">1.1 Review Introduction</h3>
+<p>Review on Spatial Point Patterns in Real World</p>
+<div class="line-block">Distribution of diseases such as dengue fever – note recorded based on homeaddress, not where you’ve bitten<br>
+Distribution of car collisions (traffic accidents) – note recorded on-site<br>
+Distribution of education institution<br>
+Distribution of social media data such as tweets through web crawling, and signal is from the celltower, not very exact.</div>
+<p>Always take note:</p>
+<ul>
+<li>Always know where the source of your data is from.</li>
+<li>You cannot take a sample from the population from spatial point events and analyse it.</li>
+<li>You can get a complete subset like “kindergarten” from a subset of “childcare centre”, but you cannot do a random sampling out of “kindergarten” like when you do usual statistical analysis.</li>
+</ul>
+<p>What we want to know:</p>
+<p>Is the point even randomly distributed? Almost never will we get random distribution in the real world, unless you are doing a very micro-scale study.</p>
+</section>
+<section id="review-spatial-point-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="review-spatial-point-analysis">1.2 Review Spatial Point Analysis</h3>
+<p>Types of spatial points analysis:</p>
+<p>– 1st order: exploratory data analysis – visualise data points – 2nd order:</p>
+<p>We are not able to objectively visualise the intensity on a map (interpretation can change depending on how big your points are). To do so objectively one method is to use Kernal Density Estimation(KDE).</p>
+<p>Why analysis? Using KDE:</p>
+<p>– We are determining spatial distribution of poins are Either <strong>random</strong> or <strong>not random</strong>. – If <strong>not random</strong>, either clustered or uniform (dispersed)</p>
+</section>
+<section id="review-kernel-density-estimation-kde" class="level3">
+<h3 class="anchored" data-anchor-id="review-kernel-density-estimation-kde">1.3 Review Kernel Density Estimation (KDE):</h3>
+<p>Fixed Bandwidths – we can fixed search radius for our KDE, but this is not always realistic.</p>
+<p>Adaptive Bandwidths – More realistically, we know that not every place has the same geographical/physical size. Tampines is larger than Choa Chu Kang, do you use the same search distance for both area and determine the density, or use a larger bandwidth for Tampines and smaller for Choa Chu Kang?</p>
+<p>– Having different bandwidths, which one is accurate? They are all accurate! – Interpretation? Which one best shows you the most appropriate interpretation?</p>
+</section>
+<section id="review-specifics-of-kde-5-items" class="level3">
+<h3 class="anchored" data-anchor-id="review-specifics-of-kde-5-items">1.4 Review Specifics of KDE [5 items]</h3>
+<section id="different-kernal-interpolation-settings" class="level4">
+<h4 class="anchored" data-anchor-id="different-kernal-interpolation-settings">1.4.1 Different Kernal Interpolation settings</h4>
+<p>Kernal Interpolation.. Note the differences between Quartic and Gaussian - They are similar, but they give different results - Gaussian may result in negative results (e.g.&nbsp;-1.0 kernel density estimation for childcare -&gt; doesn’t make sense realistically) - If you want to avoid negative results, but want to use a normal-distributinon-like interpolation function, use Quartic instead.</p>
+</section>
+<section id="hypothesis-testing" class="level4">
+<h4 class="anchored" data-anchor-id="hypothesis-testing">1.4.2 Hypothesis Testing</h4>
+<p>To declare whether the points events are random, we say:</p>
+<ul>
+<li><p>Null Hypothesis, H0 = Observed point process (or point events) <strong>resemble</strong> complete Spatial Random Distribution.</p></li>
+<li><p>Alternative Hypothesis, H1 = Observed point process (or point events) <strong>do not resemble</strong> complete Spatial Random Distribution.</p></li>
+</ul>
+<p>Homogenous distribution–complete spatial randomness–is an ‘ideal’ situation. It should not happen. If we happen to not have enough evidence to reject the null hypothesis, it does not mean the null hypothesis is correct. It simply means our evidence is not enough – either error in sampling, or sampling size is too small such that it does not represent the population.</p>
+</section>
+<section id="determining-significance-also-see-confidence-interval-in-this-section" class="level4">
+<h4 class="anchored" data-anchor-id="determining-significance-also-see-confidence-interval-in-this-section">1.4.3 Determining Significance (also see confidence interval in this section)</h4>
+<p>What is this “population” that we are comparing with? We basically do a Monte Carlo simulation (multiple simulations) to come up with a spatially randomly distributed point events within our study region.</p>
+<p>– For each simulated point pattern, estimate G(r) and use the maximum (95th) and minimum (5th) of these functions for the simulated patterns to define an upper and lower simulation envelope. (the max and min can be varied, need not be 95%)</p>
+<p>– If the estimated G(r) lies above the upper envelope or below the lower envelope, the estimated G(r) is statistically significant.</p>
+</section>
+<section id="number-of-simulations" class="level4">
+<h4 class="anchored" data-anchor-id="number-of-simulations">1.4.4 Number of Simulations</h4>
+<p>In spatstat’s simulations, minimum number of simulation for 95% confidence is 40 (R counts from 0, use 39 in code) simulations. (according to spatstat’s documentation):</p>
+<ul>
+<li>Having larger number of sampling increases our confidence in the final result.</li>
+<li>Usually it’s easier to remember and cleaner to use a easier to read number like 99 (which produces 100 simulations)</li>
+<li><strong>Remember to always use a seed value for the random generation</strong>, so that you get a reproduceable result.</li>
+<li>You just need to set a seed for all algorithms that deals with randomness at the top of the document, no need to repeat it for every code chunk.</li>
+</ul>
+</section>
+<section id="confidence-interval" class="level4">
+<h4 class="anchored" data-anchor-id="confidence-interval">1.4.5 Confidence Interval</h4>
+<p>Before you begin your analysis, always set your Confidence Interval – 90%, 95%, 99%. This will help to determine the alpha value for your analysis, where alpha = 1 - (confidence interval/100)</p>
+<ul>
+<li>Why? Note that not everything is certain in the real world, you have to know that there is a limit where we can no longer be confident in our result.</li>
+<li>p-value by itself does not mean anything other than the probability of the occurrence of a given event. This probability has to be significantly higher (or lower) than a certain value (in here, the alpha value) to be determined significant.</li>
+</ul>
+</section>
+</section>
+<section id="review-interpretation-of-l-estimation-function-complete-spatial-randomness-test-diagram" class="level3">
+<h3 class="anchored" data-anchor-id="review-interpretation-of-l-estimation-function-complete-spatial-randomness-test-diagram">1.5 Review Interpretation of L Estimation Function Complete Spatial Randomness Test (Diagram):</h3>
+<ul>
+<li>Grey Zone indicates the confidence envelop (95%), and anything that falls within we are not confident that point spatial distribution is not random.</li>
+<li>The red diagonal line (break line) separates at 50% the upper confidence envelope and lower confidence envelope.</li>
+<li>Outside the Grey Zone, if – In above break line, then there are signs of clustering – In below break line, then there are signs of uniform distribution</li>
+<li>Note we also look out for from which distance to which distance where we are confident clustering occurs.</li>
+</ul>
+<p>Generally, we use G and K estimation functions (similar to K is L function, which is a standardised function of K), do you know why? <strong>TO BE COMPLETED</strong></p>
+<p>– Extra Notes: L function is a transformation of K function. We divide by pi (as each study area is a circle), we further subtract away the radius of each study area to straighten the break line into a straight line. – Extra Notes: Difference between G and K:</p>
+<ul>
+<li>Both functions are zonal, they search a radius around each point.</li>
+<li>G function uses a fixed set of radius (fixed bandwidth)</li>
+<li>K function uses a search radius relative to surrounding points, e.g.&nbsp;the nearest point is 100m away, the first search is 100m around point, the next nearest point is 200m away, we do a search 200m around point.</li>
+</ul>
+</section>
+</section>
+<section id="in-class-exercise" class="level2">
+<h2 class="anchored" data-anchor-id="in-class-exercise">2 In Class Exercise</h2>
+<section id="importing-packages" class="level3">
+<h3 class="anchored" data-anchor-id="importing-packages">Importing Packages</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(tidyverse, sf, spatstat, tmap, rvest, maptools)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="issue-1-installing-maptools" class="level4">
+<h4 class="anchored" data-anchor-id="issue-1-installing-maptools">Issue 1: Installing maptools</h4>
+<p>Note that maptools is retired, so we have issues converting from simplefeatures object to spatstat’s ppp object. For subsequent use, don’t re-install everytime, include ‘eval: false’ once installed.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"maptools"</span>,</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>                 <span class="at">repos =</span> <span class="st">"https://packagemanager.posit.co/cran/2023-10-13"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="import-data-set" class="level3">
+<h3 class="anchored" data-anchor-id="import-data-set">Import Data set</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># childcare services data</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>childcare_sf <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="at">dsn=</span><span class="st">"data/geospatial/child-care-services-geojson.geojson"</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># masterplan subzone data</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>mpsz_sf <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="at">dsn=</span><span class="st">"data/geospatial"</span>, <span class="at">layer =</span> <span class="st">"MP14_SUBZONE_WEB_PL"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="issue-2-getting-coastal-outline-using-subzone-layer" class="level4">
+<h4 class="anchored" data-anchor-id="issue-2-getting-coastal-outline-using-subzone-layer">Issue 2: Getting Coastal Outline using Subzone Layer</h4>
+<p>In sf package, there are two methods to combine multiple sf features into one simple feature object.</p>
+<ul>
+<li>st_combine() – combine without unioning or resolving internal boundaries</li>
+<li>st_union() – combine and remove all itnernal boundaries</li>
+</ul>
+<p>Always note that the data we want is not always provided in the most suitable form or format. Therefore, we should always look into manipulating and ‘massaging’ our data to extract whatever useful information we need.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>sg_sf <span class="ot">&lt;-</span> mpsz_sf <span class="sc">%&gt;%</span> <span class="fu">st_union</span>()</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>sg_sf</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Geometry set for 1 feature 
+Geometry type: MULTIPOLYGON
+Dimension:     XY
+Bounding box:  xmin: 2667.538 ymin: 15748.72 xmax: 56396.44 ymax: 50256.33
+Projected CRS: SVY21</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="data-wrangling" class="level3">
+<h3 class="anchored" data-anchor-id="data-wrangling">Data Wrangling</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ensure all data sets are in the same CRS throughout</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">st_transform</span>(childcare_sf, <span class="at">crs =</span> <span class="dv">3414</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Simple feature collection with 1545 features and 2 fields
+Geometry type: POINT
+Dimension:     XYZ
+Bounding box:  xmin: 11203.01 ymin: 25667.6 xmax: 45404.24 ymax: 49300.88
+z_range:       zmin: 0 zmax: 0
+Projected CRS: SVY21 / Singapore TM
+First 10 features:
+     Name
+1   kml_1
+2   kml_2
+3   kml_3
+4   kml_4
+5   kml_5
+6   kml_6
+7   kml_7
+8   kml_8
+9   kml_9
+10 kml_10
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         Description
+1                     &lt;center&gt;&lt;table&gt;&lt;tr&gt;&lt;th colspan='2' align='center'&gt;&lt;em&gt;Attributes&lt;/em&gt;&lt;/th&gt;&lt;/tr&gt;&lt;tr bgcolor="#E3E3F3"&gt; &lt;th&gt;ADDRESSBLOCKHOUSENUMBER&lt;/th&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor=""&gt; &lt;th&gt;ADDRESSBUILDINGNAME&lt;/th&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor="#E3E3F3"&gt; &lt;th&gt;ADDRESSPOSTALCODE&lt;/th&gt; &lt;td&gt;760742&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor=""&gt; &lt;th&gt;ADDRESSSTREETNAME&lt;/th&gt; &lt;td&gt;742, YISHUN AVENUE 5, #01 - 470, SINGAPORE 760742&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor="#E3E3F3"&gt; &lt;th&gt;ADDRESSTYPE&lt;/th&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor=""&gt; &lt;th&gt;DESCRIPTION&lt;/th&gt; &lt;td&gt;Child Care Services&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor="#E3E3F3"&gt; &lt;th&gt;HYPERLINK&lt;/th&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor=""&gt; &lt;th&gt;LANDXADDRESSPOINT&lt;/th&gt; &lt;td&gt;0&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor="#E3E3F3"&gt; &lt;th&gt;LANDYADDRESSPOINT&lt;/th&gt; &lt;td&gt;0&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor=""&gt; &lt;th&gt;NAME&lt;/th&gt; &lt;td&gt;AVERBEL CHILD DEVELOPMENT CENTRE PTE LTD&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor="#E3E3F3"&gt; &lt;th&gt;PHOTOURL&lt;/th&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor=""&gt; &lt;th&gt;ADDRESSFLOORNUMBER&lt;/th&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor="#E3E3F3"&gt; &lt;th&gt;INC_CRC&lt;/th&gt; &lt;td&gt;AEA27114446235CE&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor=""&gt; &lt;th&gt;FMEL_UPD_D&lt;/th&gt; &lt;td&gt;20200826094036&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor="#E3E3F3"&gt; &lt;th&gt;ADDRESSUNITNUMBER&lt;/th&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt;&lt;/table&gt;&lt;/center&gt;
+2                                                        &lt;center&gt;&lt;table&gt;&lt;tr&gt;&lt;th colspan='2' align='center'&gt;&lt;em&gt;Attributes&lt;/em&gt;&lt;/th&gt;&lt;/tr&gt;&lt;tr bgcolor="#E3E3F3"&gt; &lt;th&gt;ADDRESSBLOCKHOUSENUMBER&lt;/th&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor=""&gt; &lt;th&gt;ADDRESSBUILDINGNAME&lt;/th&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor="#E3E3F3"&gt; &lt;th&gt;ADDRESSPOSTALCODE&lt;/th&gt; &lt;td&gt;159053&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor=""&gt; &lt;th&gt;ADDRESSSTREETNAME&lt;/th&gt; &lt;td&gt;20, LENGKOK BAHRU, #02 - 05, SINGAPORE 159053&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor="#E3E3F3"&gt; &lt;th&gt;ADDRESSTYPE&lt;/th&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor=""&gt; &lt;th&gt;DESCRIPTION&lt;/th&gt; &lt;td&gt;Child Care Services&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor="#E3E3F3"&gt; &lt;th&gt;HYPERLINK&lt;/th&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor=""&gt; &lt;th&gt;LANDXADDRESSPOINT&lt;/th&gt; &lt;td&gt;0&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor="#E3E3F3"&gt; &lt;th&gt;LANDYADDRESSPOINT&lt;/th&gt; &lt;td&gt;0&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor=""&gt; &lt;th&gt;NAME&lt;/th&gt; &lt;td&gt;AWWA LTD.&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor="#E3E3F3"&gt; &lt;th&gt;PHOTOURL&lt;/th&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor=""&gt; &lt;th&gt;ADDRESSFLOORNUMBER&lt;/th&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor="#E3E3F3"&gt; &lt;th&gt;INC_CRC&lt;/th&gt; &lt;td&gt;86B24416FB1663C6&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor=""&gt; &lt;th&gt;FMEL_UPD_D&lt;/th&gt; &lt;td&gt;20200826094036&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor="#E3E3F3"&gt; &lt;th&gt;ADDRESSUNITNUMBER&lt;/th&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt;&lt;/table&gt;&lt;/center&gt;
+3                            &lt;center&gt;&lt;table&gt;&lt;tr&gt;&lt;th colspan='2' align='center'&gt;&lt;em&gt;Attributes&lt;/em&gt;&lt;/th&gt;&lt;/tr&gt;&lt;tr bgcolor="#E3E3F3"&gt; &lt;th&gt;ADDRESSBLOCKHOUSENUMBER&lt;/th&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor=""&gt; &lt;th&gt;ADDRESSBUILDINGNAME&lt;/th&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor="#E3E3F3"&gt; &lt;th&gt;ADDRESSPOSTALCODE&lt;/th&gt; &lt;td&gt;556912&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor=""&gt; &lt;th&gt;ADDRESSSTREETNAME&lt;/th&gt; &lt;td&gt;22, LI HWAN VIEW, GOLDEN HILL ESTATE, SINGAPORE 556912&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor="#E3E3F3"&gt; &lt;th&gt;ADDRESSTYPE&lt;/th&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor=""&gt; &lt;th&gt;DESCRIPTION&lt;/th&gt; &lt;td&gt;Child Care Services&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor="#E3E3F3"&gt; &lt;th&gt;HYPERLINK&lt;/th&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor=""&gt; &lt;th&gt;LANDXADDRESSPOINT&lt;/th&gt; &lt;td&gt;0&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor="#E3E3F3"&gt; &lt;th&gt;LANDYADDRESSPOINT&lt;/th&gt; &lt;td&gt;0&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor=""&gt; &lt;th&gt;NAME&lt;/th&gt; &lt;td&gt;BABIES BY-THE-PARK PTE. LTD.&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor="#E3E3F3"&gt; &lt;th&gt;PHOTOURL&lt;/th&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor=""&gt; &lt;th&gt;ADDRESSFLOORNUMBER&lt;/th&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor="#E3E3F3"&gt; &lt;th&gt;INC_CRC&lt;/th&gt; &lt;td&gt;F971CBBA973E1AE5&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor=""&gt; &lt;th&gt;FMEL_UPD_D&lt;/th&gt; &lt;td&gt;20200826094036&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor="#E3E3F3"&gt; &lt;th&gt;ADDRESSUNITNUMBER&lt;/th&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt;&lt;/table&gt;&lt;/center&gt;
+4                     &lt;center&gt;&lt;table&gt;&lt;tr&gt;&lt;th colspan='2' align='center'&gt;&lt;em&gt;Attributes&lt;/em&gt;&lt;/th&gt;&lt;/tr&gt;&lt;tr bgcolor="#E3E3F3"&gt; &lt;th&gt;ADDRESSBLOCKHOUSENUMBER&lt;/th&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor=""&gt; &lt;th&gt;ADDRESSBUILDINGNAME&lt;/th&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor="#E3E3F3"&gt; &lt;th&gt;ADDRESSPOSTALCODE&lt;/th&gt; &lt;td&gt;569139&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor=""&gt; &lt;th&gt;ADDRESSSTREETNAME&lt;/th&gt; &lt;td&gt;3, ANG MO KIO STREET 62, #01 - 36, LINK@AMK, SINGAPORE 569139&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor="#E3E3F3"&gt; &lt;th&gt;ADDRESSTYPE&lt;/th&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor=""&gt; &lt;th&gt;DESCRIPTION&lt;/th&gt; &lt;td&gt;Child Care Services&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor="#E3E3F3"&gt; &lt;th&gt;HYPERLINK&lt;/th&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor=""&gt; &lt;th&gt;LANDXADDRESSPOINT&lt;/th&gt; &lt;td&gt;0&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor="#E3E3F3"&gt; &lt;th&gt;LANDYADDRESSPOINT&lt;/th&gt; &lt;td&gt;0&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor=""&gt; &lt;th&gt;NAME&lt;/th&gt; &lt;td&gt;Baby Elk Infant Care Pte Ltd&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor="#E3E3F3"&gt; &lt;th&gt;PHOTOURL&lt;/th&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor=""&gt; &lt;th&gt;ADDRESSFLOORNUMBER&lt;/th&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor="#E3E3F3"&gt; &lt;th&gt;INC_CRC&lt;/th&gt; &lt;td&gt;86A4F25D1C7C9D85&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor=""&gt; &lt;th&gt;FMEL_UPD_D&lt;/th&gt; &lt;td&gt;20200826094036&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor="#E3E3F3"&gt; &lt;th&gt;ADDRESSUNITNUMBER&lt;/th&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt;&lt;/table&gt;&lt;/center&gt;
+5                                               &lt;center&gt;&lt;table&gt;&lt;tr&gt;&lt;th colspan='2' align='center'&gt;&lt;em&gt;Attributes&lt;/em&gt;&lt;/th&gt;&lt;/tr&gt;&lt;tr bgcolor="#E3E3F3"&gt; &lt;th&gt;ADDRESSBLOCKHOUSENUMBER&lt;/th&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor=""&gt; &lt;th&gt;ADDRESSBUILDINGNAME&lt;/th&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor="#E3E3F3"&gt; &lt;th&gt;ADDRESSPOSTALCODE&lt;/th&gt; &lt;td&gt;467961&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor=""&gt; &lt;th&gt;ADDRESSSTREETNAME&lt;/th&gt; &lt;td&gt;22A, KEW DRIVE, SINGAPORE 467961&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor="#E3E3F3"&gt; &lt;th&gt;ADDRESSTYPE&lt;/th&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor=""&gt; &lt;th&gt;DESCRIPTION&lt;/th&gt; &lt;td&gt;Child Care Services&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor="#E3E3F3"&gt; &lt;th&gt;HYPERLINK&lt;/th&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor=""&gt; &lt;th&gt;LANDXADDRESSPOINT&lt;/th&gt; &lt;td&gt;0&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor="#E3E3F3"&gt; &lt;th&gt;LANDYADDRESSPOINT&lt;/th&gt; &lt;td&gt;0&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor=""&gt; &lt;th&gt;NAME&lt;/th&gt; &lt;td&gt;BABYPLANET MONTESSORI PTE. LTD.&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor="#E3E3F3"&gt; &lt;th&gt;PHOTOURL&lt;/th&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor=""&gt; &lt;th&gt;ADDRESSFLOORNUMBER&lt;/th&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor="#E3E3F3"&gt; &lt;th&gt;INC_CRC&lt;/th&gt; &lt;td&gt;CFE3F056F8171C7B&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor=""&gt; &lt;th&gt;FMEL_UPD_D&lt;/th&gt; &lt;td&gt;20200826094036&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor="#E3E3F3"&gt; &lt;th&gt;ADDRESSUNITNUMBER&lt;/th&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt;&lt;/table&gt;&lt;/center&gt;
+6                                           &lt;center&gt;&lt;table&gt;&lt;tr&gt;&lt;th colspan='2' align='center'&gt;&lt;em&gt;Attributes&lt;/em&gt;&lt;/th&gt;&lt;/tr&gt;&lt;tr bgcolor="#E3E3F3"&gt; &lt;th&gt;ADDRESSBLOCKHOUSENUMBER&lt;/th&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor=""&gt; &lt;th&gt;ADDRESSBUILDINGNAME&lt;/th&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor="#E3E3F3"&gt; &lt;th&gt;ADDRESSPOSTALCODE&lt;/th&gt; &lt;td&gt;598523&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor=""&gt; &lt;th&gt;ADDRESSSTREETNAME&lt;/th&gt; &lt;td&gt;3 Jalan Kakatua, JURONG PARK, SINGAPORE 598523&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor="#E3E3F3"&gt; &lt;th&gt;ADDRESSTYPE&lt;/th&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor=""&gt; &lt;th&gt;DESCRIPTION&lt;/th&gt; &lt;td&gt;Child Care Services&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor="#E3E3F3"&gt; &lt;th&gt;HYPERLINK&lt;/th&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor=""&gt; &lt;th&gt;LANDXADDRESSPOINT&lt;/th&gt; &lt;td&gt;0&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor="#E3E3F3"&gt; &lt;th&gt;LANDYADDRESSPOINT&lt;/th&gt; &lt;td&gt;0&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor=""&gt; &lt;th&gt;NAME&lt;/th&gt; &lt;td&gt;BAMBINI CHILDCARE LLP&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor="#E3E3F3"&gt; &lt;th&gt;PHOTOURL&lt;/th&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor=""&gt; &lt;th&gt;ADDRESSFLOORNUMBER&lt;/th&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor="#E3E3F3"&gt; &lt;th&gt;INC_CRC&lt;/th&gt; &lt;td&gt;2B4F0B285ED28C4A&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor=""&gt; &lt;th&gt;FMEL_UPD_D&lt;/th&gt; &lt;td&gt;20200826094036&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor="#E3E3F3"&gt; &lt;th&gt;ADDRESSUNITNUMBER&lt;/th&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt;&lt;/table&gt;&lt;/center&gt;
+7                              &lt;center&gt;&lt;table&gt;&lt;tr&gt;&lt;th colspan='2' align='center'&gt;&lt;em&gt;Attributes&lt;/em&gt;&lt;/th&gt;&lt;/tr&gt;&lt;tr bgcolor="#E3E3F3"&gt; &lt;th&gt;ADDRESSBLOCKHOUSENUMBER&lt;/th&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor=""&gt; &lt;th&gt;ADDRESSBUILDINGNAME&lt;/th&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor="#E3E3F3"&gt; &lt;th&gt;ADDRESSPOSTALCODE&lt;/th&gt; &lt;td&gt;160131&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor=""&gt; &lt;th&gt;ADDRESSSTREETNAME&lt;/th&gt; &lt;td&gt;131, JALAN BUKIT MERAH, #01 - 1591, SINGAPORE 160131&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor="#E3E3F3"&gt; &lt;th&gt;ADDRESSTYPE&lt;/th&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor=""&gt; &lt;th&gt;DESCRIPTION&lt;/th&gt; &lt;td&gt;Child Care Services&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor="#E3E3F3"&gt; &lt;th&gt;HYPERLINK&lt;/th&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor=""&gt; &lt;th&gt;LANDXADDRESSPOINT&lt;/th&gt; &lt;td&gt;0&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor="#E3E3F3"&gt; &lt;th&gt;LANDYADDRESSPOINT&lt;/th&gt; &lt;td&gt;0&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor=""&gt; &lt;th&gt;NAME&lt;/th&gt; &lt;td&gt;BAMBINI MONTESSORI PTE. LTD.&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor="#E3E3F3"&gt; &lt;th&gt;PHOTOURL&lt;/th&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor=""&gt; &lt;th&gt;ADDRESSFLOORNUMBER&lt;/th&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor="#E3E3F3"&gt; &lt;th&gt;INC_CRC&lt;/th&gt; &lt;td&gt;F62A225197813BBD&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor=""&gt; &lt;th&gt;FMEL_UPD_D&lt;/th&gt; &lt;td&gt;20200826094036&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor="#E3E3F3"&gt; &lt;th&gt;ADDRESSUNITNUMBER&lt;/th&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt;&lt;/table&gt;&lt;/center&gt;
+8                        &lt;center&gt;&lt;table&gt;&lt;tr&gt;&lt;th colspan='2' align='center'&gt;&lt;em&gt;Attributes&lt;/em&gt;&lt;/th&gt;&lt;/tr&gt;&lt;tr bgcolor="#E3E3F3"&gt; &lt;th&gt;ADDRESSBLOCKHOUSENUMBER&lt;/th&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor=""&gt; &lt;th&gt;ADDRESSBUILDINGNAME&lt;/th&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor="#E3E3F3"&gt; &lt;th&gt;ADDRESSPOSTALCODE&lt;/th&gt; &lt;td&gt;543319&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor=""&gt; &lt;th&gt;ADDRESSSTREETNAME&lt;/th&gt; &lt;td&gt;319C, ANCHORVALE DRIVE, #01 - 66, SINGAPORE 543319&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor="#E3E3F3"&gt; &lt;th&gt;ADDRESSTYPE&lt;/th&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor=""&gt; &lt;th&gt;DESCRIPTION&lt;/th&gt; &lt;td&gt;Child Care Services&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor="#E3E3F3"&gt; &lt;th&gt;HYPERLINK&lt;/th&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor=""&gt; &lt;th&gt;LANDXADDRESSPOINT&lt;/th&gt; &lt;td&gt;0&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor="#E3E3F3"&gt; &lt;th&gt;LANDYADDRESSPOINT&lt;/th&gt; &lt;td&gt;0&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor=""&gt; &lt;th&gt;NAME&lt;/th&gt; &lt;td&gt;BERRY TREE PRESCHOOL PRIVATE LIMITED&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor="#E3E3F3"&gt; &lt;th&gt;PHOTOURL&lt;/th&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor=""&gt; &lt;th&gt;ADDRESSFLOORNUMBER&lt;/th&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor="#E3E3F3"&gt; &lt;th&gt;INC_CRC&lt;/th&gt; &lt;td&gt;AE242159867D5EB2&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor=""&gt; &lt;th&gt;FMEL_UPD_D&lt;/th&gt; &lt;td&gt;20200826094036&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor="#E3E3F3"&gt; &lt;th&gt;ADDRESSUNITNUMBER&lt;/th&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt;&lt;/table&gt;&lt;/center&gt;
+9  &lt;center&gt;&lt;table&gt;&lt;tr&gt;&lt;th colspan='2' align='center'&gt;&lt;em&gt;Attributes&lt;/em&gt;&lt;/th&gt;&lt;/tr&gt;&lt;tr bgcolor="#E3E3F3"&gt; &lt;th&gt;ADDRESSBLOCKHOUSENUMBER&lt;/th&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor=""&gt; &lt;th&gt;ADDRESSBUILDINGNAME&lt;/th&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor="#E3E3F3"&gt; &lt;th&gt;ADDRESSPOSTALCODE&lt;/th&gt; &lt;td&gt;750511&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor=""&gt; &lt;th&gt;ADDRESSSTREETNAME&lt;/th&gt; &lt;td&gt;511, CANBERRA ROAD, #03 - 02, SEMBAWANG MART, SINGAPORE 750511&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor="#E3E3F3"&gt; &lt;th&gt;ADDRESSTYPE&lt;/th&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor=""&gt; &lt;th&gt;DESCRIPTION&lt;/th&gt; &lt;td&gt;Child Care Services&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor="#E3E3F3"&gt; &lt;th&gt;HYPERLINK&lt;/th&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor=""&gt; &lt;th&gt;LANDXADDRESSPOINT&lt;/th&gt; &lt;td&gt;0&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor="#E3E3F3"&gt; &lt;th&gt;LANDYADDRESSPOINT&lt;/th&gt; &lt;td&gt;0&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor=""&gt; &lt;th&gt;NAME&lt;/th&gt; &lt;td&gt;BERRY TREE PRESCHOOL@SEMBAWANG PRIVATE LIMITED&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor="#E3E3F3"&gt; &lt;th&gt;PHOTOURL&lt;/th&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor=""&gt; &lt;th&gt;ADDRESSFLOORNUMBER&lt;/th&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor="#E3E3F3"&gt; &lt;th&gt;INC_CRC&lt;/th&gt; &lt;td&gt;C1456F97A17ED64A&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor=""&gt; &lt;th&gt;FMEL_UPD_D&lt;/th&gt; &lt;td&gt;20200826094036&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor="#E3E3F3"&gt; &lt;th&gt;ADDRESSUNITNUMBER&lt;/th&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt;&lt;/table&gt;&lt;/center&gt;
+10                    &lt;center&gt;&lt;table&gt;&lt;tr&gt;&lt;th colspan='2' align='center'&gt;&lt;em&gt;Attributes&lt;/em&gt;&lt;/th&gt;&lt;/tr&gt;&lt;tr bgcolor="#E3E3F3"&gt; &lt;th&gt;ADDRESSBLOCKHOUSENUMBER&lt;/th&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor=""&gt; &lt;th&gt;ADDRESSBUILDINGNAME&lt;/th&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor="#E3E3F3"&gt; &lt;th&gt;ADDRESSPOSTALCODE&lt;/th&gt; &lt;td&gt;823195&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor=""&gt; &lt;th&gt;ADDRESSSTREETNAME&lt;/th&gt; &lt;td&gt;195C, PUNGGOL ROAD, #01 - 532, THE PERIWINKLE, SINGAPORE 823195&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor="#E3E3F3"&gt; &lt;th&gt;ADDRESSTYPE&lt;/th&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor=""&gt; &lt;th&gt;DESCRIPTION&lt;/th&gt; &lt;td&gt;Child Care Services&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor="#E3E3F3"&gt; &lt;th&gt;HYPERLINK&lt;/th&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor=""&gt; &lt;th&gt;LANDXADDRESSPOINT&lt;/th&gt; &lt;td&gt;0&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor="#E3E3F3"&gt; &lt;th&gt;LANDYADDRESSPOINT&lt;/th&gt; &lt;td&gt;0&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor=""&gt; &lt;th&gt;NAME&lt;/th&gt; &lt;td&gt;BERRY TREE@PUNGGOL PTE LTD&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor="#E3E3F3"&gt; &lt;th&gt;PHOTOURL&lt;/th&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor=""&gt; &lt;th&gt;ADDRESSFLOORNUMBER&lt;/th&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor="#E3E3F3"&gt; &lt;th&gt;INC_CRC&lt;/th&gt; &lt;td&gt;4F6A8FCA467C3437&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor=""&gt; &lt;th&gt;FMEL_UPD_D&lt;/th&gt; &lt;td&gt;20200826094036&lt;/td&gt; &lt;/tr&gt;&lt;tr bgcolor="#E3E3F3"&gt; &lt;th&gt;ADDRESSUNITNUMBER&lt;/th&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt;&lt;/table&gt;&lt;/center&gt;
+                        geometry
+1   POINT Z (27976.73 45716.7 0)
+2     POINT Z (25824 29900.09 0)
+3  POINT Z (31399.04 37416.36 0)
+4   POINT Z (29268.43 40942.1 0)
+5  POINT Z (41217.74 33554.94 0)
+6  POINT Z (20644.07 36118.78 0)
+7  POINT Z (27427.95 29182.36 0)
+8  POINT Z (34378.47 41423.03 0)
+9  POINT Z (26467.04 48384.34 0)
+10 POINT Z (36173.81 42550.33 0)</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">st_transform</span>(mpsz_sf, <span class="at">crs =</span> <span class="dv">3414</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Simple feature collection with 323 features and 15 fields
+Geometry type: MULTIPOLYGON
+Dimension:     XY
+Bounding box:  xmin: 2667.538 ymin: 15748.72 xmax: 56396.44 ymax: 50256.33
+Projected CRS: SVY21 / Singapore TM
+First 10 features:
+   OBJECTID SUBZONE_NO       SUBZONE_N SUBZONE_C CA_IND      PLN_AREA_N
+1         1          1    MARINA SOUTH    MSSZ01      Y    MARINA SOUTH
+2         2          1    PEARL'S HILL    OTSZ01      Y          OUTRAM
+3         3          3       BOAT QUAY    SRSZ03      Y SINGAPORE RIVER
+4         4          8  HENDERSON HILL    BMSZ08      N     BUKIT MERAH
+5         5          3         REDHILL    BMSZ03      N     BUKIT MERAH
+6         6          7  ALEXANDRA HILL    BMSZ07      N     BUKIT MERAH
+7         7          9   BUKIT HO SWEE    BMSZ09      N     BUKIT MERAH
+8         8          2     CLARKE QUAY    SRSZ02      Y SINGAPORE RIVER
+9         9         13 PASIR PANJANG 1    QTSZ13      N      QUEENSTOWN
+10       10          7       QUEENSWAY    QTSZ07      N      QUEENSTOWN
+   PLN_AREA_C       REGION_N REGION_C          INC_CRC FMEL_UPD_D   X_ADDR
+1          MS CENTRAL REGION       CR 5ED7EB253F99252E 2014-12-05 31595.84
+2          OT CENTRAL REGION       CR 8C7149B9EB32EEFC 2014-12-05 28679.06
+3          SR CENTRAL REGION       CR C35FEFF02B13E0E5 2014-12-05 29654.96
+4          BM CENTRAL REGION       CR 3775D82C5DDBEFBD 2014-12-05 26782.83
+5          BM CENTRAL REGION       CR 85D9ABEF0A40678F 2014-12-05 26201.96
+6          BM CENTRAL REGION       CR 9D286521EF5E3B59 2014-12-05 25358.82
+7          BM CENTRAL REGION       CR 7839A8577144EFE2 2014-12-05 27680.06
+8          SR CENTRAL REGION       CR 48661DC0FBA09F7A 2014-12-05 29253.21
+9          QT CENTRAL REGION       CR 1F721290C421BFAB 2014-12-05 22077.34
+10         QT CENTRAL REGION       CR 3580D2AFFBEE914C 2014-12-05 24168.31
+     Y_ADDR SHAPE_Leng SHAPE_Area                       geometry
+1  29220.19   5267.381  1630379.3 MULTIPOLYGON (((31495.56 30...
+2  29782.05   3506.107   559816.2 MULTIPOLYGON (((29092.28 30...
+3  29974.66   1740.926   160807.5 MULTIPOLYGON (((29932.33 29...
+4  29933.77   3313.625   595428.9 MULTIPOLYGON (((27131.28 30...
+5  30005.70   2825.594   387429.4 MULTIPOLYGON (((26451.03 30...
+6  29991.38   4428.913  1030378.8 MULTIPOLYGON (((25899.7 297...
+7  30230.86   3275.312   551732.0 MULTIPOLYGON (((27746.95 30...
+8  30222.86   2208.619   290184.7 MULTIPOLYGON (((29351.26 29...
+9  29893.78   6571.323  1084792.3 MULTIPOLYGON (((20996.49 30...
+10 30104.18   3454.239   631644.3 MULTIPOLYGON (((24472.11 29...</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">st_transform</span>(sg_sf, <span class="at">crs =</span> <span class="dv">3414</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Geometry set for 1 feature 
+Geometry type: MULTIPOLYGON
+Dimension:     XY
+Bounding box:  xmin: 2667.538 ymin: 15748.72 xmax: 56396.44 ymax: 50256.33
+Projected CRS: SVY21 / Singapore TM</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">st_crs</span>(mpsz_sf) <span class="ot">&lt;-</span> <span class="dv">3414</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">st_crs</span>(childcare_sf) <span class="ot">&lt;-</span> <span class="dv">3414</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">st_crs</span>(sg_sf) <span class="ot">&lt;-</span> <span class="dv">3414</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="issue-3-conflicts-with-maptools" class="level3">
+<h3 class="anchored" data-anchor-id="issue-3-conflicts-with-maptools">Issue 3: Conflicts with Maptools</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>gridded_kde_childcareSG_bw <span class="ot">&lt;-</span> maptools<span class="sc">::</span><span class="fu">as.SpatialGridDataFrame.im</span>(kde_childcareSG.bw) </span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co"># this uses maptools, use maptools::as.SpatialGridDataFrame.im(kde_childcareSG.bw)</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">spplot</span>(gridded_kde_childcareSG_bw)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="briefing-on-take-home-exercise-01" class="level2">
+<h2 class="anchored" data-anchor-id="briefing-on-take-home-exercise-01">Briefing on Take-Home Exercise 01</h2>
+<p>Geospatial Analytics for Social Goods.</p>
+<p>Focus: Myanmar Armed Conflict</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>acled_sf <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/ACLED_Myanmar.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Note that event_date is recorded as a character filed</p>
+<p>use this instead:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert into simplefeature, using long,lat as coordinates, source crs=4326, use projected crs = 32647, which is WGS 84 / UTM zone 47N. </span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>acled_sf <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/ACLED_Myanmar.csv"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_as_sf</span>(<span class="at">coords =</span><span class="fu">c</span>(</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"longitude"</span>, <span class="st">"latitude"</span>),</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">crs=</span><span class="dv">4326</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">st_transform</span>(<span class="at">crs =</span> <span class="dv">32647</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">event_date =</span> <span class="fu">dmy</span>(event_date))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tmap_mode</span>(<span class="st">'plot'</span>)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>acled_sf <span class="sc">%&gt;%</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2023</span> <span class="sc">|</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>           event_type <span class="sc">==</span> <span class="st">"Political violence"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_shape</span>() <span class="sc">+</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_dots</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="in-class-ex03_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tmap_mode</span>(<span class="st">"plot"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Website by Heng Kuan Xin</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>This website is built with <a href="https://www.r-project.org/about.html">R</a>, <a href="https://quarto.org/">Quarto</a>, and <a href="https://www.netlify.com/">Netlify</a></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

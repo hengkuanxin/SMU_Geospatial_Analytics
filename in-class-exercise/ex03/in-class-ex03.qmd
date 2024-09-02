@@ -1,0 +1,217 @@
+---
+title: "03 Exercise Review 3"
+author: "Heng Kuan Xin"
+date: 2024-09-02
+date-modified: "last-modified"
+execute:
+  eval: true
+  echo: true
+  freeze: true
+  output: true
+  warning: false
+  error: false
+toc-depth: 5
+---
+
+## 1 In class Review \[5 items\]
+
+### 1.1 Review Introduction
+
+Review on Spatial Point Patterns in Real World
+
+| Distribution of diseases such as dengue fever -- note recorded based on homeaddress, not where you've bitten
+| Distribution of car collisions (traffic accidents) -- note recorded on-site
+| Distribution of education institution
+| Distribution of social media data such as tweets through web crawling, and signal is from the celltower, not very exact.
+
+Always take note:
+
+-   Always know where the source of your data is from.
+-   You cannot take a sample from the population from spatial point events and analyse it.
+-   You can get a complete subset like "kindergarten" from a subset of "childcare centre", but you cannot do a random sampling out of "kindergarten" like when you do usual statistical analysis.
+
+What we want to know:
+
+Is the point even randomly distributed? Almost never will we get random distribution in the real world, unless you are doing a very micro-scale study.
+
+### 1.2 Review Spatial Point Analysis
+
+Types of spatial points analysis:
+
+-- 1st order: exploratory data analysis -- visualise data points -- 2nd order:
+
+We are not able to objectively visualise the intensity on a map (interpretation can change depending on how big your points are). To do so objectively one method is to use Kernal Density Estimation(KDE).
+
+Why analysis? Using KDE:
+
+-- We are determining spatial distribution of poins are Either **random** or **not random**. -- If **not random**, either clustered or uniform (dispersed)
+
+### 1.3 Review Kernel Density Estimation (KDE):
+
+Fixed Bandwidths -- we can fixed search radius for our KDE, but this is not always realistic.
+
+Adaptive Bandwidths -- More realistically, we know that not every place has the same geographical/physical size. Tampines is larger than Choa Chu Kang, do you use the same search distance for both area and determine the density, or use a larger bandwidth for Tampines and smaller for Choa Chu Kang?
+
+-- Having different bandwidths, which one is accurate? They are all accurate! -- Interpretation? Which one best shows you the most appropriate interpretation?
+
+### 1.4 Review Specifics of KDE \[5 items\]
+
+#### 1.4.1 Different Kernal Interpolation settings
+
+Kernal Interpolation.. Note the differences between Quartic and Gaussian - They are similar, but they give different results - Gaussian may result in negative results (e.g. -1.0 kernel density estimation for childcare -\> doesn't make sense realistically) - If you want to avoid negative results, but want to use a normal-distributinon-like interpolation function, use Quartic instead.
+
+#### 1.4.2 Hypothesis Testing
+
+To declare whether the points events are random, we say:
+
+-   Null Hypothesis, H0 = Observed point process (or point events) **resemble** complete Spatial Random Distribution.
+
+-   Alternative Hypothesis, H1 = Observed point process (or point events) **do not resemble** complete Spatial Random Distribution.
+
+Homogenous distribution--complete spatial randomness--is an 'ideal' situation. It should not happen. If we happen to not have enough evidence to reject the null hypothesis, it does not mean the null hypothesis is correct. It simply means our evidence is not enough -- either error in sampling, or sampling size is too small such that it does not represent the population.
+
+#### 1.4.3 Determining Significance (also see confidence interval in this section)
+
+What is this "population" that we are comparing with? We basically do a Monte Carlo simulation (multiple simulations) to come up with a spatially randomly distributed point events within our study region.
+
+-- For each simulated point pattern, estimate G(r) and use the maximum (95th) and minimum (5th) of these functions for the simulated patterns to define an upper and lower simulation envelope. (the max and min can be varied, need not be 95%)
+
+-- If the estimated G(r) lies above the upper envelope or below the lower envelope, the estimated G(r) is statistically significant.
+
+#### 1.4.4 Number of Simulations
+
+In spatstat's simulations, minimum number of simulation for 95% confidence is 40 (R counts from 0, use 39 in code) simulations. (according to spatstat's documentation):
+
+-   Having larger number of sampling increases our confidence in the final result.
+-   Usually it's easier to remember and cleaner to use a easier to read number like 99 (which produces 100 simulations)
+-   **Remember to always use a seed value for the random generation**, so that you get a reproduceable result.
+-   You just need to set a seed for all algorithms that deals with randomness at the top of the document, no need to repeat it for every code chunk.
+
+#### 1.4.5 Confidence Interval
+
+Before you begin your analysis, always set your Confidence Interval -- 90%, 95%, 99%. This will help to determine the alpha value for your analysis, where alpha = 1 - (confidence interval/100)
+
+-   Why? Note that not everything is certain in the real world, you have to know that there is a limit where we can no longer be confident in our result.
+-   p-value by itself does not mean anything other than the probability of the occurrence of a given event. This probability has to be significantly higher (or lower) than a certain value (in here, the alpha value) to be determined significant.
+
+### 1.5 Review Interpretation of L Estimation Function Complete Spatial Randomness Test (Diagram):
+
+-   Grey Zone indicates the confidence envelop (95%), and anything that falls within we are not confident that point spatial distribution is not random.
+-   The red diagonal line (break line) separates at 50% the upper confidence envelope and lower confidence envelope.
+-   Outside the Grey Zone, if -- In above break line, then there are signs of clustering -- In below break line, then there are signs of uniform distribution
+-   Note we also look out for from which distance to which distance where we are confident clustering occurs.
+
+Generally, we use G and K estimation functions (similar to K is L function, which is a standardised function of K), do you know why? **TO BE COMPLETED**
+
+-- Extra Notes: L function is a transformation of K function. We divide by pi (as each study area is a circle), we further subtract away the radius of each study area to straighten the break line into a straight line. -- Extra Notes: Difference between G and K:
+
+-   Both functions are zonal, they search a radius around each point.
+-   G function uses a fixed set of radius (fixed bandwidth)
+-   K function uses a search radius relative to surrounding points, e.g. the nearest point is 100m away, the first search is 100m around point, the next nearest point is 200m away, we do a search 200m around point.
+
+## 2 In Class Exercise
+
+### Importing Packages
+
+```{r}
+pacman::p_load(tidyverse, sf, spatstat, tmap, rvest, maptools)
+```
+
+#### Issue 1: Installing maptools
+
+Note that maptools is retired, so we have issues converting from simplefeatures object to spatstat's ppp object.
+For subsequent use, don't re-install everytime, include 'eval: false' once installed.
+
+```{r}
+#| eval: false
+install.packages("maptools",
+                 repos = "https://packagemanager.posit.co/cran/2023-10-13")
+
+```
+
+### Import Data set
+
+```{r}
+#| output: false
+# childcare services data
+childcare_sf <- st_read(dsn="data/geospatial/child-care-services-geojson.geojson")
+
+# masterplan subzone data
+mpsz_sf <- st_read(dsn="data/geospatial", layer = "MP14_SUBZONE_WEB_PL")
+```
+
+#### Issue 2: Getting Coastal Outline using Subzone Layer
+
+In sf package, there are two methods to combine multiple sf features into one simple feature object.
+
+- st_combine() -- combine without unioning or resolving internal boundaries
+- st_union() -- combine and remove all itnernal boundaries
+
+Always note that the data we want is not always provided in the most suitable form or format. Therefore, we should always look into manipulating and 'massaging' our data to extract whatever useful information we need.
+
+```{r}
+sg_sf <- mpsz_sf %>% st_union()
+sg_sf
+```
+
+### Data Wrangling
+
+```{r}
+
+# Ensure all data sets are in the same CRS throughout
+
+st_transform(childcare_sf, crs = 3414)
+st_transform(mpsz_sf, crs = 3414)
+st_transform(sg_sf, crs = 3414)
+```
+
+
+```{r}
+st_crs(mpsz_sf) <- 3414
+st_crs(childcare_sf) <- 3414
+st_crs(sg_sf) <- 3414
+```
+### Issue 3: Conflicts with Maptools
+```{r}
+#| eval: false
+gridded_kde_childcareSG_bw <- maptools::as.SpatialGridDataFrame.im(kde_childcareSG.bw) 
+# this uses maptools, use maptools::as.SpatialGridDataFrame.im(kde_childcareSG.bw)
+spplot(gridded_kde_childcareSG_bw)
+```
+
+## Briefing on Take-Home Exercise 01
+
+Geospatial Analytics for Social Goods.
+
+Focus: Myanmar Armed Conflict
+
+```{r}
+acled_sf <- read_csv("data/ACLED_Myanmar.csv")
+```
+
+Note that event_date is recorded as a character filed
+
+use this instead:
+
+```{r}
+
+# Convert into simplefeature, using long,lat as coordinates, source crs=4326, use projected crs = 32647, which is WGS 84 / UTM zone 47N. 
+
+acled_sf <- read_csv("data/ACLED_Myanmar.csv") %>%
+  st_as_sf(coords =c(
+    "longitude", "latitude"),
+    crs=4326) %>%
+    st_transform(crs = 32647) %>%
+    mutate(event_date = dmy(event_date))
+```
+
+```{r}
+tmap_mode('plot')
+acled_sf %>%
+  filter(year == 2023 |
+           event_type == "Political violence") %>%
+  tm_shape() +
+  tm_dots()
+tmap_mode("plot")
+```
+

@@ -36,10 +36,12 @@ website:
         contents:
         - text: "00 Introduction"
           href: "in-class-exercise/in-class-ex-intro.html"
-        - text: "01 Exercise Review 1"
+        - text: "01 In-class Exercise 1 (Review)"
           href: "in-class-exercise/ex01/in-class-ex01.html"
-        - text: "02 Exercise Review 2"
+        - text: "02 In-class Exercise 2 (Review)"
           href: "in-class-exercise/ex02/in-class-ex02.html"
+        - text: "03 In-class Exercise 3 (Review)"
+          href: "in-class-exercise/ex03/in-class-ex03.html"
 
   page-footer:
     background: secondary

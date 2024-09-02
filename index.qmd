@@ -20,7 +20,6 @@ listing:
 ---
 
 Contents overview:
-
 1.  Home (this page)
 2.  About
 3.  Hands-on exercises

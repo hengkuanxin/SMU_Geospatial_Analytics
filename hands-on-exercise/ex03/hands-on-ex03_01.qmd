@@ -191,9 +191,9 @@ Reminder: Always remember to switch back to plot mode after the interactive map.
 
 ## 3 Geospatial Data Wrangling
 
-### Convert sf DataFrame to sp’s **Spatial\*** class (and **Spatial\*DataFrame**).
+### [Handling sp objects (Optional)] Convert sf DataFrame to sp’s **Spatial\*** class (and **Spatial\*DataFrame**).
 
-"Many geospatial analysis packages require the input geospatial data in sp’s **Spatial\***classes."
+"Many geospatial analysis packages require the input geospatial data in sp’s **Spatial\***classes. But it is not always required, you can use sf instead."
 
 ```{r}
 # The code chunk below uses as_Spatial() of sf package to convert the three geospatial data from simple feature data frame to sp’s Spatial* class.
@@ -217,7 +217,7 @@ mpsz
 sg
 ```
 
-### Converting the Spatial\* class into generic sp format
+### [Handling sp objects (Optional)] Converting the Spatial\* class into generic sp format
 
 "**spatstat** requires the analytical data in **ppp** object form. There is no direct way to convert a Spatial\* classes into **ppp** object. We need to convert the **Spatial classes\*** into a **Spatial(sp)** object first."
 
@@ -234,7 +234,7 @@ childcare_sp
 
 At a glance, we can see that by converting Spatial\*DataFrame to SpatialPoints or SpatialPolygons, we have lost all attribute information except the geometry features.
 
-### Converting the generic sp format into spatstat’s ppp format
+### [Handling sp objects (Optional)] Converting the generic sp format into spatstat’s ppp format
 
 Now, we will use **as.ppp()** function of spatstat to convert the spatial data into spatstat’s **ppp** object format
 
@@ -540,7 +540,8 @@ gridded_kde_childcareSG_bw <-
   #raster(kde_childcareSG.bw) %>% 
   as(kde_childcareSG.bw,"SpatialGridDataFrame")
   
-# as.SpatialGridDataFrame.im(kde_childcareSG.bw)
+# as.SpatialGridDataFrame.im(kde_childcareSG.bw) 
+# this uses maptools, use maptools::as.SpatialGridDataFrame.im(kde_childcareSG.bw)
 
 spplot(gridded_kde_childcareSG_bw)
 

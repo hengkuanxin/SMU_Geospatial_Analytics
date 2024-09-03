@@ -16,6 +16,7 @@ listing:
   contents:
     - "in-class-exercise/*/*.qmd"
     - "hands-on-exercise/*/*.qmd"
+    - "take-home-exercise/*/*.qmd"
   
 ---
 

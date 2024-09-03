@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Heng Kuan Xin">
-<meta name="dcterms.date" content="2024-08-20">
+<meta name="dcterms.date" content="2024-09-04">
 
-<title>00 In-Class Exercises Introduction – R for Geospatial Analytics</title>
+<title>01 Take Home Exercise 1 – R for Geospatial Analytics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -25,23 +25,23 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<link href="../images/compass.png" rel="icon" type="image/png">
-<script src="../site_libs/quarto-html/quarto.js"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../images/compass.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -71,7 +71,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-sidebar floating nav-fixed">
@@ -81,10 +81,10 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../images/compass.png" alt="" class="navbar-logo">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../images/compass.png" alt="" class="navbar-logo">
     </a>
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">R for Geospatial Analytics</span>
     </a>
   </div>
@@ -95,23 +95,23 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../about.html"> 
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../hands-on-exercise/hands-on-ex-intro.html" aria-current="page"> 
+    <a class="nav-link active" href="../../hands-on-exercise/hands-on-ex-intro.html" aria-current="page"> 
 <span class="menu-text">Hands-on Exercises</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../in-class-exercise/in-class-ex-intro.html"> 
+    <a class="nav-link" href="../../in-class-exercise/in-class-ex-intro.html"> 
 <span class="menu-text">In-class Exercises</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../take-home-exercise/take-home-ex-intro.html"> 
+    <a class="nav-link" href="../../take-home-exercise/take-home-ex-intro.html"> 
 <span class="menu-text">Take Home Exercises</span></a>
   </li>  
 </ul>
@@ -130,7 +130,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../in-class-exercise/in-class-ex-intro.html">In-class Exercises</a></li><li class="breadcrumb-item"><a href="../in-class-exercise/in-class-ex-intro.html">00 In-Class Exercises Introduction</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../take-home-exercise/take-home-ex-intro.html">Take Home Exercises</a></li><li class="breadcrumb-item"><a href="../../take-home-exercise/ex01/take-home-ex01.html">01 Take Home Exercise 1</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -153,37 +153,37 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../hands-on-exercise/hands-on-ex-intro.html" class="sidebar-item-text sidebar-link">
+  <a href="../../hands-on-exercise/hands-on-ex-intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">00 Hands-On Exercises Introduction</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../hands-on-exercise/ex01/hands-on-ex01.html" class="sidebar-item-text sidebar-link">
+  <a href="../../hands-on-exercise/ex01/hands-on-ex01.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">01 ‘Geospatial Data Science with R’</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../hands-on-exercise/ex02/hands-on-ex02.html" class="sidebar-item-text sidebar-link">
+  <a href="../../hands-on-exercise/ex02/hands-on-ex02.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">02 ‘Thematic Mapping and GeoVisualisation with R’</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../hands-on-exercise/ex03/hands-on-ex03_01.html" class="sidebar-item-text sidebar-link">
+  <a href="../../hands-on-exercise/ex03/hands-on-ex03_01.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">03 (Part 1) ‘1st Order Spatial Point Pattern Analysis’</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../hands-on-exercise/ex03/hands-on-ex03_02.html" class="sidebar-item-text sidebar-link">
+  <a href="../../hands-on-exercise/ex03/hands-on-ex03_02.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">03 (Part 2) ‘2nd Order Spatial Point Pattern Analysis’</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../hands-on-exercise/ex04/hands-on-ex04.html" class="sidebar-item-text sidebar-link">
+  <a href="../../hands-on-exercise/ex04/hands-on-ex04.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">04 ‘Network Constrained Spatial Point Patterns Analysis’</span></a>
   </div>
 </li>
@@ -200,25 +200,25 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../in-class-exercise/in-class-ex-intro.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../in-class-exercise/in-class-ex-intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">00 In-Class Exercises Introduction</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../in-class-exercise/ex01/in-class-ex01.html" class="sidebar-item-text sidebar-link">
+  <a href="../../in-class-exercise/ex01/in-class-ex01.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">01 In-class Exercise 1 (Review)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../in-class-exercise/ex02/in-class-ex02.html" class="sidebar-item-text sidebar-link">
+  <a href="../../in-class-exercise/ex02/in-class-ex02.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">02 In-class Exercise 2 (Review)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../in-class-exercise/ex03/in-class-ex03.html" class="sidebar-item-text sidebar-link">
+  <a href="../../in-class-exercise/ex03/in-class-ex03.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">03 In-class Exercise 3 (Review)</span></a>
   </div>
 </li>
@@ -235,13 +235,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../take-home-exercise/take-home-ex-intro.html" class="sidebar-item-text sidebar-link">
+  <a href="../../take-home-exercise/take-home-ex-intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">00 Take Home Exercise Introduction</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../take-home-exercise/ex01/take-home-ex01.html" class="sidebar-item-text sidebar-link">
+  <a href="../../take-home-exercise/ex01/take-home-ex01.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">01 Take Home Exercise 1</span></a>
   </div>
 </li>
@@ -258,9 +258,10 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../in-class-exercise/in-class-ex-intro.html">In-class Exercises</a></li><li class="breadcrumb-item"><a href="../in-class-exercise/in-class-ex-intro.html">00 In-Class Exercises Introduction</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../take-home-exercise/take-home-ex-intro.html">Take Home Exercises</a></li><li class="breadcrumb-item"><a href="../../take-home-exercise/ex01/take-home-ex01.html">01 Take Home Exercise 1</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">00 In-Class Exercises Introduction</h1>
+<h1 class="title">01 Take Home Exercise 1</h1>
+<p class="subtitle lead">Geospatial Analytics for Social Good: Application of Spatial and Spatio-temporal Point Patterns Analysis to discover the geographical distribution of Armed Conflict in Myanmar</p>
 </div>
 
 
@@ -277,7 +278,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">August 20, 2024</p>
+      <p class="date">September 4, 2024</p>
     </div>
   </div>
   
@@ -295,8 +296,16 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>This section showcases my practices and additional notes during my weekly classes, which are mainly reviews of the hands on exercises.</p>
-<p>All analyses were done using R programming language and are for learning purposes only.</p>
+<p>Data sets:</p>
+<ul>
+<li>ACLED_Myamar</li>
+</ul>
+<p>Case Study:</p>
+<p>History of Myanmar Armed Conflict:</p>
+<p>Current Situation:</p>
+<p>Study Area:</p>
+<p>Focus and Objective:</p>
+<p>Analysis Methods Used:</p>
 
 
 

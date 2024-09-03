@@ -1,0 +1,16 @@
+---
+title: "00 Take Home Exercise Introduction"
+author: "Heng Kuan Xin"
+date: 2024-08-20
+date-modified: "last-modified"
+execute:
+  eval: true
+  echo: true
+  freeze: true
+  output: true
+  warning: false
+  error: false
+toc-depth: 5
+---
+
+There are three take-home exercises that are due throughout the term. They aim to provide students the opportunities to apply the methods learned in class by working through mini real-world cases. Each take-home exercise is an extension of the hands-on and in-class exercises.

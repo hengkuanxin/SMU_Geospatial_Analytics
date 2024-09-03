@@ -9,7 +9,7 @@
 <meta name="author" content="Heng Kuan Xin">
 <meta name="dcterms.date" content="2024-09-02">
 
-<title>03 Exercise Review 3 – R for Geospatial Analytics</title>
+<title>03 In-class Exercise 3 (Review) – R for Geospatial Analytics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -66,6 +66,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
+<link href="../../images/compass.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -114,6 +115,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../images/compass.png" alt="" class="navbar-logo">
+    </a>
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">R for Geospatial Analytics</span>
     </a>
@@ -140,9 +144,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="nav-link" href="../../in-class-exercise/in-class-ex-intro.html"> 
 <span class="menu-text">In-class Exercises</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../take-home-exercise/take-home-ex-intro.html"> 
+<span class="menu-text">Take Home Exercises</span></a>
+  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -154,9 +167,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../in-class-exercise/in-class-ex-intro.html">In-class Exercises</a></li><li class="breadcrumb-item"><a href="../../in-class-exercise/ex03/in-class-ex03.html">03 In-class Exercise 3 (Review)</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
-      </button>
     </div>
   </nav>
 </header>
@@ -164,11 +174,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-        <div class="mt-2 flex-shrink-0 align-items-center">
-        <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
-        </div>
-        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item sidebar-item-section">
@@ -183,7 +188,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../hands-on-exercise/hands-on-ex-intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">00 Introduction</span></a>
+ <span class="menu-text">00 Hands-On Exercises Introduction</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -210,6 +215,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">03 (Part 2) ‘2nd Order Spatial Point Pattern Analysis’</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../hands-on-exercise/ex04/hands-on-ex04.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">04 ‘Network Constrained Spatial Point Patterns Analysis’</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -224,7 +235,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../in-class-exercise/in-class-ex-intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">00 Introduction</span></a>
+ <span class="menu-text">00 In-Class Exercises Introduction</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -243,6 +254,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="../../in-class-exercise/ex03/in-class-ex03.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">03 In-class Exercise 3 (Review)</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Take Home Exercises</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../take-home-exercise/take-home-ex-intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">00 Take Home Exercise Introduction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../take-home-exercise/ex01/take-home-ex01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">01 Take Home Exercise 1</span></a>
   </div>
 </li>
       </ul>
@@ -294,7 +328,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../in-class-exercise/in-class-ex-intro.html">In-class Exercises</a></li><li class="breadcrumb-item"><a href="../../in-class-exercise/ex03/in-class-ex03.html">03 In-class Exercise 3 (Review)</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">03 Exercise Review 3</h1>
+<h1 class="title">03 In-class Exercise 3 (Review)</h1>
 </div>
 
 
@@ -318,7 +352,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">September 2, 2024</p>
+      <p class="date-modified">September 4, 2024</p>
     </div>
   </div>
     
@@ -1048,7 +1082,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       &nbsp;
     </div>
     <div class="nav-footer-right">
-<p>This website is built with <a href="https://www.r-project.org/about.html">R</a>, <a href="https://quarto.org/">Quarto</a>, and <a href="https://www.netlify.com/">Netlify</a></p>
+<p>This website is built with <a href="https://www.r-project.org/about.html">R</a>, <a href="https://quarto.org/">Quarto</a>, <a href="https://www.netlify.com/">Netlify</a>. <br> Compass Icon created by <a href="https://www.flaticon.com/free-icons/compass">justicon</a></p>
 </div>
   </div>
 </footer>

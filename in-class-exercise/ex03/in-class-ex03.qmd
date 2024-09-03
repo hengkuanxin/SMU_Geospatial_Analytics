@@ -119,8 +119,7 @@ pacman::p_load(tidyverse, sf, spatstat, tmap, rvest, maptools)
 
 #### Issue 1: Installing maptools
 
-Note that maptools is retired, so we have issues converting from simplefeatures object to spatstat's ppp object.
-For subsequent use, don't re-install everytime, include 'eval: false' once installed.
+Note that maptools is retired, so we have issues converting from simplefeatures object to spatstat's ppp object. For subsequent use, don't re-install everytime, include 'eval: false' once installed.
 
 ```{r}
 #| eval: false
@@ -144,8 +143,8 @@ mpsz_sf <- st_read(dsn="data/geospatial", layer = "MP14_SUBZONE_WEB_PL")
 
 In sf package, there are two methods to combine multiple sf features into one simple feature object.
 
-- st_combine() -- combine without unioning or resolving internal boundaries
-- st_union() -- combine and remove all itnernal boundaries
+-   st_combine() -- combine without unioning or resolving internal boundaries
+-   st_union() -- combine and remove all itnernal boundaries
 
 Always note that the data we want is not always provided in the most suitable form or format. Therefore, we should always look into manipulating and 'massaging' our data to extract whatever useful information we need.
 
@@ -165,13 +164,14 @@ st_transform(mpsz_sf, crs = 3414)
 st_transform(sg_sf, crs = 3414)
 ```
 
-
 ```{r}
 st_crs(mpsz_sf) <- 3414
 st_crs(childcare_sf) <- 3414
 st_crs(sg_sf) <- 3414
 ```
+
 ### Issue 3: Conflicts with Maptools
+
 ```{r}
 #| eval: false
 gridded_kde_childcareSG_bw <- maptools::as.SpatialGridDataFrame.im(kde_childcareSG.bw) 
@@ -214,4 +214,3 @@ acled_sf %>%
   tm_dots()
 tmap_mode("plot")
 ```
-

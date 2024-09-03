@@ -191,7 +191,7 @@ Reminder: Always remember to switch back to plot mode after the interactive map.
 
 ## 3 Geospatial Data Wrangling
 
-### [Handling sp objects (Optional)] Convert sf DataFrame to sp’s **Spatial\*** class (and **Spatial\*DataFrame**).
+### \[Handling sp objects (Optional)\] Convert sf DataFrame to sp’s **Spatial\*** class (and **Spatial\*DataFrame**).
 
 "Many geospatial analysis packages require the input geospatial data in sp’s **Spatial\***classes. But it is not always required, you can use sf instead."
 
@@ -217,7 +217,7 @@ mpsz
 sg
 ```
 
-### [Handling sp objects (Optional)] Converting the Spatial\* class into generic sp format
+### \[Handling sp objects (Optional)\] Converting the Spatial\* class into generic sp format
 
 "**spatstat** requires the analytical data in **ppp** object form. There is no direct way to convert a Spatial\* classes into **ppp** object. We need to convert the **Spatial classes\*** into a **Spatial(sp)** object first."
 
@@ -234,7 +234,7 @@ childcare_sp
 
 At a glance, we can see that by converting Spatial\*DataFrame to SpatialPoints or SpatialPolygons, we have lost all attribute information except the geometry features.
 
-### [Handling sp objects (Optional)] Converting the generic sp format into spatstat’s ppp format
+### \[Handling sp objects (Optional)\] Converting the generic sp format into spatstat’s ppp format
 
 Now, we will use **as.ppp()** function of spatstat to convert the spatial data into spatstat’s **ppp** object format
 

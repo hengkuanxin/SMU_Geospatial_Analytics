@@ -493,6 +493,6 @@ Estimate Functions we went through:
 
 Followed by a Complete Spatial Randomness Test:
 
-- If the data exhibits complete spatial randomness, this implies that there is no underlying structure in the data.
-- first compute simulation envelopes of a summary function.
-- TO BE STUDIED
+-   If the data exhibits complete spatial randomness, this implies that there is no underlying structure in the data.
+-   first compute simulation envelopes of a summary function.
+-   TO BE STUDIED

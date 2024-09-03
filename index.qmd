@@ -4,19 +4,19 @@ author: "Heng Kuan Xin"
 date: 2024-08-20
 date-modified: "last-modified"
 sidebar: false
-execute: 
-  eval: true
-  echo: true
-  freeze: true
   
 listing:
-  field-display-names:
-    title: "Posts"
-    contents:
-      - "/in-class-exercise/*/*.html"
-      - "/hands-on-exercise/*/*.html"
   type: "table"
-  sort: "date desc"
+  sort: "file-modified desc"
+  table-striped: true
+  table-hover: true
+  page-size: 5
+  fields: [date, file-modified, title]
+  filter-ui: [date, file-modified, title]
+  contents:
+    - "in-class-exercise/*/*.qmd"
+    - "hands-on-exercise/*/*.qmd"
+  
 ---
 
 Contents overview:
@@ -25,3 +25,6 @@ Contents overview:
 2.  About
 3.  Hands-on exercises
 4.  In-class exercises
+5.  Take-home Assignment
+
+The table below shows the latest edits I have added.

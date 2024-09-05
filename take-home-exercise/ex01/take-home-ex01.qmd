@@ -16,7 +16,11 @@ toc-depth: 5
 
 Data sets:
 
-- ACLED_Myamar
+- [Data Set Columns Information](https://acleddata.com/knowledge-base/codebook/)
+- [Data Set Myanmar Overview](https://acleddata.com/knowledge-base/acled-methodology-and-coding-decisions-around-political-violence-and-demonstrations-in-myanmar/)
+- Categories by Event Type: Battles, Explosion/Remote violence, Strategic developments, and Violence against civilians.
+- In terms of study period, students should focus on quarterly armed conflict events from January 2021 until June 2024.
+
 
 Case Study:
 

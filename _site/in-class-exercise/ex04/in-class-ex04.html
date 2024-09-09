@@ -313,10 +313,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#generate-the-window-owin-class-of-study-area." id="toc-generate-the-window-owin-class-of-study-area." class="nav-link" data-scroll-target="#generate-the-window-owin-class-of-study-area.">2.1 Generate the window Owin Class of Study Area.</a></li>
   <li><a href="#quick-glance-at-the-data" id="toc-quick-glance-at-the-data" class="nav-link" data-scroll-target="#quick-glance-at-the-data">2.2 Quick Glance at the Data</a></li>
-  <li><a href="#computing-stkde-by-month" id="toc-computing-stkde-by-month" class="nav-link" data-scroll-target="#computing-stkde-by-month">3.0 Computing STKDE by Month</a>
-  <ul class="collapse">
-  <li><a href="#computing-spatio-temporal-kde" id="toc-computing-spatio-temporal-kde" class="nav-link" data-scroll-target="#computing-spatio-temporal-kde">3.1 Computing Spatio-Temporal KDE</a></li>
   </ul></li>
+  <li><a href="#computing-stkde-by-month" id="toc-computing-stkde-by-month" class="nav-link" data-scroll-target="#computing-stkde-by-month">3.0 Computing STKDE by Month</a>
+  <ul>
+  <li><a href="#computing-spatio-temporal-kde" id="toc-computing-spatio-temporal-kde" class="nav-link" data-scroll-target="#computing-spatio-temporal-kde">3.1 Computing Spatio-Temporal KDE</a></li>
   </ul></li>
   </ul></li>
   </ul>
@@ -483,8 +483,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tmap_mode</span>(<span class="st">"plot"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="computing-stkde-by-month" class="level3">
-<h3 class="anchored" data-anchor-id="computing-stkde-by-month">3.0 Computing STKDE by Month</h3>
+</section>
+<section id="computing-stkde-by-month" class="level2">
+<h2 class="anchored" data-anchor-id="computing-stkde-by-month">3.0 Computing STKDE by Month</h2>
 <p>sparr is designed for events vs control comparison (used in medical science)</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>fire_month <span class="ot">&lt;-</span> forestFire_sf <span class="sc">%&gt;%</span></span>
@@ -501,8 +502,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>fire_month_owin <span class="ot">&lt;-</span> fire_month_ppp[studyArea_owin]</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fire_month_owin)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="computing-spatio-temporal-kde" class="level4">
-<h4 class="anchored" data-anchor-id="computing-spatio-temporal-kde">3.1 Computing Spatio-Temporal KDE</h4>
+<section id="computing-spatio-temporal-kde" class="level3">
+<h3 class="anchored" data-anchor-id="computing-spatio-temporal-kde">3.1 Computing Spatio-Temporal KDE</h3>
 <p>Reading the results:</p>
 <p>function gives you bandwidths:</p>
 <p>h (spatial) -&gt; 15102.47 metres</p>
@@ -540,7 +541,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>refer to <a href="https://github.com/tilmandavies/sparr/blob/HEAD/vignettes/fmd_animation/fmd_animation.Rmd" class="uri">https://github.com/tilmandavies/sparr/blob/HEAD/vignettes/fmd_animation/fmd_animation.Rmd</a></p>
 
 
-</section>
 </section>
 </section>
 </section>

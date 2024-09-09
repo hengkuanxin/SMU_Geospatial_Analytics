@@ -103,7 +103,7 @@ Caution: when you use read.csv, your fieldnames cannot contain whitespaces, any 
 
 ## 2.0 Data Wrangling
 
-### 2.1 Generate the window Owin Class of Study Area. 
+### 2.1 Generate the window Owin Class of Study Area.
 
 ```{r}
 studyArea_owin <- as.owin(studyArea_sf)
@@ -154,7 +154,7 @@ tm_shape(studyArea_sf) +
   tmap_mode("plot")
 ```
 
-### 3.0 Computing STKDE by Month
+## 3.0 Computing STKDE by Month
 
 sparr is designed for events vs control comparison (used in medical science)
 
@@ -177,7 +177,7 @@ fire_month_owin <- fire_month_ppp[studyArea_owin]
 summary(fire_month_owin)
 ```
 
-#### 3.1 Computing Spatio-Temporal KDE
+### 3.1 Computing Spatio-Temporal KDE
 
 Reading the results:
 

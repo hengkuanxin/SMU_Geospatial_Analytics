@@ -52,6 +52,8 @@ website:
           href: "in-class-exercise/ex02/in-class-ex02.html"
         - text: "03 In-class Exercise 3 (Review)"
           href: "in-class-exercise/ex03/in-class-ex03.html"
+        - text: "04 In-class Exercise 4 (Review)"
+          href: "in-class-exercise/ex04/in-class-ex04.html"
       
       - section: "Take Home Exercises"
         contents:

@@ -1,0 +1,227 @@
+---
+title: "04 In-class Exercise 4 (Review)"
+author: "Heng Kuan Xin"
+date: 2024-09-09
+date-modified: "last-modified"
+execute:
+  eval: false
+  echo: true
+  freeze: true
+  output: true
+  warning: false
+  error: false
+toc-depth: 5
+---
+
+Eval set to False
+
+# Previous Lessons' Notes
+
+Issue 1: Rendering ICE3 Map -\> rendering tmap view for ICE3
+
+problem is in the leaflet library packages try development version 3.99.9 -\> rather than version 4 but it is likely to contain unexpected bugs, feel free to try it out
+
+Expose you to different data portals, open sources, open data access Get used to different data types, knowing what to use, when to use.
+
+## Starting you with Takehome Exercise 1
+
+General knowledge on Myanmar-Singapore economy:
+
+-   Sand import from Myanmar
+-   Jade import from Myanmar
+
+--\> refer to Take Home Exercise 01 for further notes.
+
+# In-class Exercise
+
+refer to website:
+
+## 0.0 Install and Loading R Packages
+
+The main package we want to use for spatial-temporal point pattern analysis is sparr:
+
+**sparr** provides functions to estimate fixed and adaptive kernel-smoothed spatial relative risk surfaces via the density-ratio method and perform subsequent inference. Fixed-bandwidth spatiotemporal density and relative risk estimation is also supported.
+
+```{r}
+
+##| eval: false
+
+pacman::p_load(sf, tidyverse, tmap, sparr, spatstat, raster)
+```
+
+Spatio-Temporal Patterns
+
+Note that when we are studying patterns, we are not necessarily studying causation, we want to identify whether there are any underlying patterns of the spread of spatial-temporal points, and whether there are correlation between the factors; such factors can be socio-economic levels, terrain, culture, etc.
+
+## 1.0 Importing Data
+
+(Copied from Exercise) The data:
+
+For the purpose of this exercise, two data sets are used, they are:
+
+-   forestfires, a csv file provides locations of forest fire detected from the Moderate Resolution Imaging Spectroradiometer (MODIS) sensor data. The data are downloaded from [Fire Information for Resource Management System](https://firms.modaps.eosdis.nasa.gov/download/). For the purpose of this exercise, only forest fires within Kepulauan Bangka Belitung will be used.
+
+-   Kepulauan_Bangka_Belitung, an ESRI shapefile showing the sub-district (i.e. [kelurahan](https://en.wikipedia.org/wiki/Villages_of_Indonesia)) boundary of Kepulauan Bangka Belitung. The data set was downloaded from [Indonesia Geospatial](https://www.indonesia-geospasial.com/2023/05/download-shapefile-batas-administrasi.html) portal. The original data covers the whole Indonesia. For the purpose of this exercise, only **sub-districts within Kepulauan Bangka Belitung** are extracted.
+
+### 1.1 Load in the Study Area Shapefile
+
+```{r}
+##| eval: false
+# load in the study area. Note Kota refer to urban village/city. Desa refer to rural village.
+# note the Polygon contains a Z dimension, which will interfere with analysis if you try to convert to PPP.
+# you can drop away the Z if not needed.
+# kbb_raw <- st_read(dsn = "data/rawdata/", layer = "Kepulauan_Bangka_Belitung")
+
+studyArea_sf <- st_read(dsn = "data/rawdata/", layer = "Kepulauan_Bangka_Belitung")  %>%
+  st_union() %>% # union all the boundaries so you only have an outline
+  st_zm(drop = TRUE, what = "ZM") %>% # remove Z dimension
+  st_transform(crs= 32748) # transform to the appropriate projected CRS
+```
+
+### 1.2 Load in the Forest Fire Data
+
+```{r}
+
+##| eval: false
+# load in the the forest fire points.
+# forestFire_raw <- read_csv(file="data/rawdata/forestfires.csv")
+
+forestFire_sf <- read_csv(file="data/rawdata/forestfires.csv") %>%
+  st_as_sf(coords = c("longitude","latitude"),
+           crs = 4326) %>%
+  st_transform(crs=32748)
+
+
+```
+
+Caution: when you use read.csv, your fieldnames cannot contain whitespaces, any whitespaces, it will insert a dot; your fieldnames will change. Instead, when you use read_csv from the readr package (part of tidyverse), the output is a tibble dataframe, though without geometry (which we will assign when we transform it into sf). In this case, since all the fieldnames contain no whitespaces, there are no issues with using read.csv()
+
+```{r}
+# forestfire_test <- read.csv(file="data/rawdata/forestfires.csv")
+# class(forestfire_test)
+```
+
+## 2.0 Data Wrangling
+
+### 2.1 Generate the window Owin Class of Study Area. 
+
+```{r}
+studyArea_owin <- as.owin(studyArea_sf)
+studyArea_owin
+class(studyArea_owin)
+```
+
+```{r}
+forestFire_sf <- forestFire_sf %>%
+  mutate(DayofYear = yday(acq_date)) %>% # day of the year from 1 to 365
+  mutate(Month_num = month(acq_date)) %>% # month of the year returned as numbers from 1 to 12
+  mutate(Month_fac = month(acq_date, # month of the year returned as factors and not abbreviated -> January, February
+                           label = TRUE,
+                           abbr = FALSE))
+```
+
+The tool we are using to handle the dates is called [lubridate](https://lubridate.tidyverse.org/)(part of tidyverse) -\> useful for all sorts of manipulations on dates and time, including quarter years, ewidth, and so on.
+
+The tool for data manipulation (e.g. mutate) is called [dyplr](https://dplyr.tidyverse.org/)-\> useful for data manipulations
+
+### 2.2 Quick Glance at the Data
+
+[tmap](https://r-tmap.github.io/tmap/) allows us to make cartographic quality map, including interactive maps (not always loadable)
+
+```{r}
+tmap_mode("plot")
+
+tm_shape(studyArea_sf) +
+    tm_polygons() +
+  tm_shape(forestFire_sf) +
+    tm_dots(size= 0.1) + # make sizes a bit bigger so that it can be seen
+  tm_facets(by="Month_fac",
+            free.coords = TRUE,# if TRUE, all maps will be zoomed in on data points extent
+            drop.units = TRUE)
+  tmap_mode("plot")
+```
+
+```{r}
+tmap_mode("plot")
+
+tm_shape(studyArea_sf) +
+    tm_polygons() +
+  tm_shape(forestFire_sf) +
+    tm_dots(size= 0.1) + # make sizes a bit bigger so that it can be seen
+  tm_facets(by="Month_fac",
+            free.coords = FALSE,# if TRUE, all maps will be zoomed in on data points extent
+            drop.units = TRUE)
+  tmap_mode("plot")
+```
+
+### 3.0 Computing STKDE by Month
+
+sparr is designed for events vs control comparison (used in medical science)
+
+```{r}
+fire_month <- forestFire_sf %>%
+  select(`Month_num`)
+```
+
+```{r}
+fire_month_ppp <- as.ppp(fire_month)
+fire_month_ppp
+```
+
+```{r}
+summary(fire_month_ppp)
+```
+
+```{r}
+fire_month_owin <- fire_month_ppp[studyArea_owin]
+summary(fire_month_owin)
+```
+
+#### 3.1 Computing Spatio-Temporal KDE
+
+Reading the results:
+
+function gives you bandwidths:
+
+h (spatial) -\> 15102.47 metres
+
+lambda (temporal) -\> 0.03months
+
+```{r}
+st_kde <- spattemp.density(fire_month_owin)
+summary(st_kde)
+```
+
+```{r}
+
+#| fig-width: 12
+#| fig-height: 10
+
+# you can specify your plot area so that the graph features are not crammed together
+
+trims <- c(7,8,9,10,11,12) # trim, since we saw that most fires only started July onwards
+
+par(mfcol=c(2,3)) # result will have 2 rows, 3 columns
+
+for(i in trims){
+  plot(st_kde, i,
+       override.par=FALSE,
+       fix.range=TRUE,
+       main=paste("KDE at month", i))
+}
+```
+
+Reading the results:
+
+```{r}
+kde_yday <- spattemp.density(
+  fire_yday_owin)
+
+summary(kde_yday)
+```
+
+Rather than visualising a static image, try to plot it on an animated image:
+
+refer to <https://tilmandavies.github.io/sparr/articles/fmd_animation/fmd_animation.html>
+
+refer to <https://github.com/tilmandavies/sparr/blob/HEAD/vignettes/fmd_animation/fmd_animation.Rmd>

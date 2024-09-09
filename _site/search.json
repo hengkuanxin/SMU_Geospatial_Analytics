@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "R for Geospatial Analytics",
     "section": "",
-    "text": "Contents overview:\n\nHome (this page)\nAbout\nHands-on exercises\nIn-class exercises\nTake-home Assignment\n\nThe table below shows the latest edits I have added.\n\n\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nDate\n\n\nModified\n\n\nTitle\n\n\n\n\n\n\nSep 4, 2024\n\n\n9/5/24, 11:45:28 PM\n\n\n01 Take Home Exercise 1\n\n\n\n\nAug 29, 2024\n\n\n9/4/24, 1:06:04 AM\n\n\n03 (Part 1) ‘1st Order Spatial Point Patterns Analysis Methods’\n\n\n\n\nAug 29, 2024\n\n\n9/4/24, 1:02:08 AM\n\n\n03 (Part 2) ‘2nd Order Spatial Point Patterns Analysis Methods’\n\n\n\n\nSep 2, 2024\n\n\n9/4/24, 12:47:23 AM\n\n\n03 In-class Exercise 3 (Review)\n\n\n\n\nSep 3, 2024\n\n\n9/3/24, 10:51:07 PM\n\n\n04 ‘Network Constrained Spatial Point Patterns Analysis’\n\n\n\n\nAug 21, 2024\n\n\n9/2/24, 12:50:39 PM\n\n\n01 In-class Exercise 1 (Review)\n\n\n\n\nAug 26, 2024\n\n\n9/2/24, 12:50:06 PM\n\n\n02 In-class Exercise 2 (Review)\n\n\n\n\nAug 21, 2024\n\n\n8/28/24, 12:59:02 AM\n\n\n02 ‘Thematic Mapping and GeoVisualisation with R’\n\n\n\n\nAug 20, 2024\n\n\n8/28/24, 12:58:55 AM\n\n\n01 ‘Geospatial Data Science with R’\n\n\n\n\n\nNo matching items"
+    "text": "Contents overview:\n\nHome (this page)\nAbout\nHands-on exercises\nIn-class exercises\nTake-home Assignment\n\nThe table below shows the latest edits I have added.\n\n\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nDate\n\n\nModified\n\n\nTitle\n\n\n\n\n\n\nSep 9, 2024\n\n\n9/9/24, 11:27:14 AM\n\n\n04 In-class Exercise 4 (Review)\n\n\n\n\nSep 3, 2024\n\n\n9/9/24, 9:45:13 AM\n\n\n04 ‘Network Constrained Spatial Point Patterns Analysis’\n\n\n\n\nSep 4, 2024\n\n\n9/9/24, 8:47:46 AM\n\n\n01 Take Home Exercise 1\n\n\n\n\nAug 29, 2024\n\n\n9/4/24, 1:06:04 AM\n\n\n03 (Part 1) ‘1st Order Spatial Point Patterns Analysis Methods’\n\n\n\n\nAug 29, 2024\n\n\n9/4/24, 1:02:08 AM\n\n\n03 (Part 2) ‘2nd Order Spatial Point Patterns Analysis Methods’\n\n\n\n\nSep 2, 2024\n\n\n9/4/24, 12:47:23 AM\n\n\n03 In-class Exercise 3 (Review)\n\n\n\n\nAug 21, 2024\n\n\n9/2/24, 12:50:39 PM\n\n\n01 In-class Exercise 1 (Review)\n\n\n\n\nAug 26, 2024\n\n\n9/2/24, 12:50:06 PM\n\n\n02 In-class Exercise 2 (Review)\n\n\n\n\nAug 21, 2024\n\n\n8/28/24, 12:59:02 AM\n\n\n02 ‘Thematic Mapping and GeoVisualisation with R’\n\n\n\n\nAug 20, 2024\n\n\n8/28/24, 12:58:55 AM\n\n\n01 ‘Geospatial Data Science with R’\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "about.html",
@@ -490,7 +490,7 @@
     "href": "take-home-exercise/ex01/take-home-ex01.html",
     "title": "01 Take Home Exercise 1",
     "section": "",
-    "text": "Data sets:\n\nData Set Columns Information\nData Set Myanmar Overview\nCategories by Event Type: Battles, Explosion/Remote violence, Strategic developments, and Violence against civilians.\nIn terms of study period, students should focus on quarterly armed conflict events from January 2021 until June 2024.\n\nCase Study:\nHistory of Myanmar Armed Conflict:\nCurrent Situation:\nStudy Area:\nFocus and Objective:\nAnalysis Methods Used:",
+    "text": "Data sets:\n\nData Set Columns Information\nData Set Myanmar Overview\nCategories by Event Type: Battles, Explosion/Remote violence, Strategic developments, and Violence against civilians.\nIn terms of study period, students should focus on quarterly armed conflict events from January 2021 until June 2024.\n\nImporting Data sets:\nBullet points:\n\npoint 1 on lesson 1 (dataset: administrative boundary data -&gt; sf tibble dataframe)\npoint 2 and 3 last week lesson 3 (dataset: ACLED point data -&gt; derive KDE & 2nd-Order Point Pattern Analysis)\n\nCaution! dataset is very large! For point 2, it may take 8 mins. For point 3, it may take half a day.\nMake sure to estimate the time, effort you require -&gt; plan ahead\n\n\nCase Study:\nHistory of Myanmar Armed Conflict:\nCurrent Situation:\nStudy Area:\nFocus and Objective:\nAnalysis Methods Used:",
     "crumbs": [
       "Home",
       "Take Home Exercises",
@@ -507,6 +507,97 @@
       "Home",
       "Take Home Exercises",
       "00 Take Home Exercise Introduction"
+    ]
+  },
+  {
+    "objectID": "in-class-exercise/ex04/in-class-ex04.html",
+    "href": "in-class-exercise/ex04/in-class-ex04.html",
+    "title": "04 In-class Exercise 4 (Review)",
+    "section": "",
+    "text": "Eval set to False",
+    "crumbs": [
+      "Home",
+      "In-class Exercises",
+      "04 In-class Exercise 4 (Review)"
+    ]
+  },
+  {
+    "objectID": "in-class-exercise/ex04/in-class-ex04.html#issue-1-rendering-ice3-map",
+    "href": "in-class-exercise/ex04/in-class-ex04.html#issue-1-rendering-ice3-map",
+    "title": "04 In-class Exercise 4 (Review)",
+    "section": "",
+    "text": "# rendering tmap view for ICE3\n\n# problem is in the leaflet library packages\n\n# try development version 3.99.9 -&gt; rather than version 4\n# but it is likely to contain unexpected bugs, feel free to try it out\n\nExpose you to different data portals, open sources, open data access Get used to different data types, knowing what to use, when to use.",
+    "crumbs": [
+      "Home",
+      "In-class Exercises",
+      "04 In-class Exercise 4 (Review)"
+    ]
+  },
+  {
+    "objectID": "in-class-exercise/ex04/in-class-ex04.html#starting-you-with-takehome-exercise-1",
+    "href": "in-class-exercise/ex04/in-class-ex04.html#starting-you-with-takehome-exercise-1",
+    "title": "04 In-class Exercise 4 (Review)",
+    "section": "Starting you with Takehome Exercise 1",
+    "text": "Starting you with Takehome Exercise 1\nGeneral knowledge on Myanmar-Singapore economy:\n\nSand import from Myanmar\nJade import from Myanmar\n\n–&gt; refer to Take Home Exercise 01 for further notes.",
+    "crumbs": [
+      "Home",
+      "In-class Exercises",
+      "04 In-class Exercise 4 (Review)"
+    ]
+  },
+  {
+    "objectID": "hands-on-exercise/ex04/hands-on-ex04.html",
+    "href": "hands-on-exercise/ex04/hands-on-ex04.html",
+    "title": "04 ‘Network Constrained Spatial Point Patterns Analysis’",
+    "section": "",
+    "text": "None.\nRefer to In-class Exercise 04.\nTopic: Spatio-Temporal Point Patterns Analysis",
+    "crumbs": [
+      "Home",
+      "Hands-on Exercises",
+      "04 ‘Network Constrained Spatial Point Patterns Analysis’"
+    ]
+  },
+  {
+    "objectID": "in-class-exercise/ex04/data/rawdata/Kepulauan_Bangka_Belitung.html",
+    "href": "in-class-exercise/ex04/data/rawdata/Kepulauan_Bangka_Belitung.html",
+    "title": "R for Geospatial Analytics",
+    "section": "",
+    "text": "&lt;!DOCTYPE qgis PUBLIC ‘http://mrcc.com/qgis.dtd’ ‘SYSTEM’&gt;     \n\n\n       GEOGCRS[“WGS 84”,ENSEMBLE[“World Geodetic System 1984 ensemble”,MEMBER[“World Geodetic System 1984 (Transit)”],MEMBER[“World Geodetic System 1984 (G730)”],MEMBER[“World Geodetic System 1984 (G873)”],MEMBER[“World Geodetic System 1984 (G1150)”],MEMBER[“World Geodetic System 1984 (G1674)”],MEMBER[“World Geodetic System 1984 (G1762)”],MEMBER[“World Geodetic System 1984 (G2139)”],ELLIPSOID[“WGS 84”,6378137,298.257223563,LENGTHUNIT[“metre”,1]],ENSEMBLEACCURACY[2.0]],PRIMEM[“Greenwich”,0,ANGLEUNIT[“degree”,0.0174532925199433]],CS[ellipsoidal,2],AXIS[“geodetic latitude (Lat)”,north,ORDER[1],ANGLEUNIT[“degree”,0.0174532925199433]],AXIS[“geodetic longitude (Lon)”,east,ORDER[2],ANGLEUNIT[“degree”,0.0174532925199433]],USAGE[SCOPE[“Horizontal component of 3D system.”],AREA[“World.”],BBOX[-90,-180,90,180]],ID[“EPSG”,4326]] +proj=longlat +datum=WGS84 +no_defs 3452 4326 EPSG:4326 WGS 84 longlat EPSG:7030 true"
+  },
+  {
+    "objectID": "in-class-exercise/ex04/in-class-ex04.html#install-and-loading-r-packages",
+    "href": "in-class-exercise/ex04/in-class-ex04.html#install-and-loading-r-packages",
+    "title": "04 In-class Exercise 4 (Review)",
+    "section": "0.0 Install and Loading R Packages",
+    "text": "0.0 Install and Loading R Packages\nThe main package we want to use for spatial-temporal point pattern analysis is sparr:\nsparr provides functions to estimate fixed and adaptive kernel-smoothed spatial relative risk surfaces via the density-ratio method and perform subsequent inference. Fixed-bandwidth spatiotemporal density and relative risk estimation is also supported.\n\n##| eval: false\n\npacman::p_load(sf, tidyverse, tmap, sparr, spatstat, raster)\n\nSpatio-Temporal Patterns\nNote that when we are studying patterns, we are not necessarily studying causation, we want to identify whether there are any underlying patterns of the spread of spatial-temporal points, and whether there are correlation between the factors; such factors can be socio-economic levels, terrain, culture, etc.",
+    "crumbs": [
+      "Home",
+      "In-class Exercises",
+      "04 In-class Exercise 4 (Review)"
+    ]
+  },
+  {
+    "objectID": "in-class-exercise/ex04/in-class-ex04.html#importing-data",
+    "href": "in-class-exercise/ex04/in-class-ex04.html#importing-data",
+    "title": "04 In-class Exercise 4 (Review)",
+    "section": "1.0 Importing Data",
+    "text": "1.0 Importing Data\n(Copied from Exercise) The data:\nFor the purpose of this exercise, two data sets are used, they are:\n\nforestfires, a csv file provides locations of forest fire detected from the Moderate Resolution Imaging Spectroradiometer (MODIS) sensor data. The data are downloaded from Fire Information for Resource Management System. For the purpose of this exercise, only forest fires within Kepulauan Bangka Belitung will be used.\nKepulauan_Bangka_Belitung, an ESRI shapefile showing the sub-district (i.e. kelurahan) boundary of Kepulauan Bangka Belitung. The data set was downloaded from Indonesia Geospatial portal. The original data covers the whole Indonesia. For the purpose of this exercise, only sub-districts within Kepulauan Bangka Belitung are extracted.\n\n\n1.1 Load in the Study Area Shapefile\n\n##| eval: false\n# load in the study area. Note Kota refer to urban village/city. Desa refer to rural village.\n# note the Polygon contains a Z dimension, which will interfere with analysis if you try to convert to PPP.\n# you can drop away the Z if not needed.\n# kbb_raw &lt;- st_read(dsn = \"data/rawdata/\", layer = \"Kepulauan_Bangka_Belitung\")\n\nstudyArea_sf &lt;- st_read(dsn = \"data/rawdata/\", layer = \"Kepulauan_Bangka_Belitung\")  %&gt;%\n  st_union() %&gt;% # union all the boundaries so you only have an outline\n  st_zm(drop = TRUE, what = \"ZM\") %&gt;% # remove Z dimension\n  st_transform(crs= 32748) # transform to the appropriate projected CRS\n\n\n\n1.2 Load in the Forest Fire Data\n\n##| eval: false\n# load in the the forest fire points.\n# forestFire_raw &lt;- read_csv(file=\"data/rawdata/forestfires.csv\")\n\nforestFire_sf &lt;- read_csv(file=\"data/rawdata/forestfires.csv\") %&gt;%\n  st_as_sf(coords = c(\"longitude\",\"latitude\"),\n           crs = 4326) %&gt;%\n  st_transform(crs=32748)\n\nCaution: when you use read.csv, your fieldnames cannot contain whitespaces, any whitespaces, it will insert a dot; your fieldnames will change. Instead, when you use read_csv from the readr package (part of tidyverse), the output is a tibble dataframe, though without geometry (which we will assign when we transform it into sf). In this case, since all the fieldnames contain no whitespaces, there are no issues with using read.csv()\n\n# forestfire_test &lt;- read.csv(file=\"data/rawdata/forestfires.csv\")\n# class(forestfire_test)",
+    "crumbs": [
+      "Home",
+      "In-class Exercises",
+      "04 In-class Exercise 4 (Review)"
+    ]
+  },
+  {
+    "objectID": "in-class-exercise/ex04/in-class-ex04.html#data-wrangling",
+    "href": "in-class-exercise/ex04/in-class-ex04.html#data-wrangling",
+    "title": "04 In-class Exercise 4 (Review)",
+    "section": "2.0 Data Wrangling",
+    "text": "2.0 Data Wrangling\n\n2.1 Generate the window Owin Class of Study Area.\n\nstudyArea_owin &lt;- as.owin(studyArea_sf)\nstudyArea_owin\nclass(studyArea_owin)\n\n\nforestFire_sf &lt;- forestFire_sf %&gt;%\n  mutate(DayofYear = yday(acq_date)) %&gt;% # day of the year from 1 to 365\n  mutate(Month_num = month(acq_date)) %&gt;% # month of the year returned as numbers from 1 to 12\n  mutate(Month_fac = month(acq_date, # month of the year returned as factors and not abbreviated -&gt; January, February\n                           label = TRUE,\n                           abbr = FALSE))\n\nThe tool we are using to handle the dates is called lubridate(part of tidyverse) -&gt; useful for all sorts of manipulations on dates and time, including quarter years, ewidth, and so on.\nThe tool for data manipulation (e.g. mutate) is called dyplr-&gt; useful for data manipulations\n\n\n2.2 Quick Glance at the Data\ntmap allows us to make cartographic quality map, including interactive maps (not always loadable)\n\ntmap_mode(\"plot\")\n\ntm_shape(studyArea_sf) +\n    tm_polygons() +\n  tm_shape(forestFire_sf) +\n    tm_dots(size= 0.1) + # make sizes a bit bigger so that it can be seen\n  tm_facets(by=\"Month_fac\",\n            free.coords = TRUE,# if TRUE, all maps will be zoomed in on data points extent\n            drop.units = TRUE)\n  tmap_mode(\"plot\")\n\n\ntmap_mode(\"plot\")\n\ntm_shape(studyArea_sf) +\n    tm_polygons() +\n  tm_shape(forestFire_sf) +\n    tm_dots(size= 0.1) + # make sizes a bit bigger so that it can be seen\n  tm_facets(by=\"Month_fac\",\n            free.coords = FALSE,# if TRUE, all maps will be zoomed in on data points extent\n            drop.units = TRUE)\n  tmap_mode(\"plot\")\n\n\n\n3.0 Computing STKDE by Month\nsparr is designed for events vs control comparison (used in medical science)\n\nfire_month &lt;- forestFire_sf %&gt;%\n  select(`Month_num`)\n\n\nfire_month_ppp &lt;- as.ppp(fire_month)\nfire_month_ppp\n\n\nsummary(fire_month_ppp)\n\n\nfire_month_owin &lt;- fire_month_ppp[studyArea_owin]\nsummary(fire_month_owin)\n\n\n3.1 Computing Spatio-Temporal KDE\nReading the results:\nfunction gives you bandwidths:\nh (spatial) -&gt; 15102.47 metres\nlambda (temporal) -&gt; 0.03months\n\nst_kde &lt;- spattemp.density(fire_month_owin)\nsummary(st_kde)\n\n\n#| fig-width: 12\n#| fig-height: 10\n\n# you can specify your plot area so that the graph features are not crammed together\n\ntrims &lt;- c(7,8,9,10,11,12) # trim, since we saw that most fires only started July onwards\n\npar(mfcol=c(2,3)) # result will have 2 rows, 3 columns\n\nfor(i in trims){\n  plot(st_kde, i,\n       override.par=FALSE,\n       fix.range=TRUE,\n       main=paste(\"KDE at month\", i))\n}\n\nReading the results:\n\nkde_yday &lt;- spattemp.density(\n  fire_yday_owin)\n\nsummary(kde_yday)\n\nRather than visualising a static image, try to plot it on an animated image:\nrefer to https://tilmandavies.github.io/sparr/articles/fmd_animation/fmd_animation.html\nrefer to https://github.com/tilmandavies/sparr/blob/HEAD/vignettes/fmd_animation/fmd_animation.Rmd",
+    "crumbs": [
+      "Home",
+      "In-class Exercises",
+      "04 In-class Exercise 4 (Review)"
     ]
   }
 ]

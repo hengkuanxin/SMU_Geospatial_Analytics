@@ -16,11 +16,19 @@ toc-depth: 5
 
 Data sets:
 
-- [Data Set Columns Information](https://acleddata.com/knowledge-base/codebook/)
-- [Data Set Myanmar Overview](https://acleddata.com/knowledge-base/acled-methodology-and-coding-decisions-around-political-violence-and-demonstrations-in-myanmar/)
-- Categories by Event Type: Battles, Explosion/Remote violence, Strategic developments, and Violence against civilians.
-- In terms of study period, students should focus on quarterly armed conflict events from January 2021 until June 2024.
+-   [Data Set Columns Information](https://acleddata.com/knowledge-base/codebook/)
+-   [Data Set Myanmar Overview](https://acleddata.com/knowledge-base/acled-methodology-and-coding-decisions-around-political-violence-and-demonstrations-in-myanmar/)
+-   Categories by Event Type: Battles, Explosion/Remote violence, Strategic developments, and Violence against civilians.
+-   In terms of study period, students should focus on quarterly armed conflict events from January 2021 until June 2024.
 
+Importing Data sets:
+
+Bullet points:
+
+-   point 1 on lesson 1 (dataset: administrative boundary data -\> sf tibble dataframe)
+-   point 2 and 3 last week lesson 3 (dataset: ACLED point data -\> derive KDE & 2nd-Order Point Pattern Analysis)
+    -   **Caution!** dataset is very large! For point 2, it may take 8 mins. For point 3, it may take half a day.
+    - Make sure to estimate the time, effort you require -> plan ahead
 
 Case Study:
 
@@ -33,4 +41,3 @@ Study Area:
 Focus and Objective:
 
 Analysis Methods Used:
-

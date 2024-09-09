@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Heng Kuan Xin">
-<meta name="dcterms.date" content="2024-09-04">
+<meta name="dcterms.date" content="2024-09-09">
 
-<title>01 Take Home Exercise 1 – R for Geospatial Analytics</title>
+<title>04 In-class Exercise 4 (Review) – R for Geospatial Analytics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -130,7 +164,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../take-home-exercise/take-home-ex-intro.html">Take Home Exercises</a></li><li class="breadcrumb-item"><a href="../../take-home-exercise/ex01/take-home-ex01.html">01 Take Home Exercise 1</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../in-class-exercise/in-class-ex-intro.html">In-class Exercises</a></li><li class="breadcrumb-item"><a href="../../in-class-exercise/ex04/in-class-ex04.html">04 In-class Exercise 4 (Review)</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -224,7 +258,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../in-class-exercise/ex03/in-class-ex04.html" class="sidebar-item-text sidebar-link">
+  <a href="../../in-class-exercise/ex04/in-class-ex04.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">04 In-class Exercise 4 (Review)</span></a>
   </div>
 </li>
@@ -247,7 +281,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../take-home-exercise/ex01/take-home-ex01.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../take-home-exercise/ex01/take-home-ex01.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">01 Take Home Exercise 1</span></a>
   </div>
 </li>
@@ -258,16 +292,42 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#previous-lessons-notes" id="toc-previous-lessons-notes" class="nav-link active" data-scroll-target="#previous-lessons-notes">Previous Lessons’ Notes</a>
+  <ul>
+  <li><a href="#starting-you-with-takehome-exercise-1" id="toc-starting-you-with-takehome-exercise-1" class="nav-link" data-scroll-target="#starting-you-with-takehome-exercise-1">Starting you with Takehome Exercise 1</a></li>
+  </ul></li>
+  <li><a href="#in-class-exercise" id="toc-in-class-exercise" class="nav-link" data-scroll-target="#in-class-exercise">In-class Exercise</a>
+  <ul>
+  <li><a href="#install-and-loading-r-packages" id="toc-install-and-loading-r-packages" class="nav-link" data-scroll-target="#install-and-loading-r-packages">0.0 Install and Loading R Packages</a></li>
+  <li><a href="#importing-data" id="toc-importing-data" class="nav-link" data-scroll-target="#importing-data">1.0 Importing Data</a>
+  <ul>
+  <li><a href="#load-in-the-study-area-shapefile" id="toc-load-in-the-study-area-shapefile" class="nav-link" data-scroll-target="#load-in-the-study-area-shapefile">1.1 Load in the Study Area Shapefile</a></li>
+  <li><a href="#load-in-the-forest-fire-data" id="toc-load-in-the-forest-fire-data" class="nav-link" data-scroll-target="#load-in-the-forest-fire-data">1.2 Load in the Forest Fire Data</a></li>
+  </ul></li>
+  <li><a href="#data-wrangling" id="toc-data-wrangling" class="nav-link" data-scroll-target="#data-wrangling">2.0 Data Wrangling</a>
+  <ul>
+  <li><a href="#generate-the-window-owin-class-of-study-area." id="toc-generate-the-window-owin-class-of-study-area." class="nav-link" data-scroll-target="#generate-the-window-owin-class-of-study-area.">2.1 Generate the window Owin Class of Study Area.</a></li>
+  <li><a href="#quick-glance-at-the-data" id="toc-quick-glance-at-the-data" class="nav-link" data-scroll-target="#quick-glance-at-the-data">2.2 Quick Glance at the Data</a></li>
+  <li><a href="#computing-stkde-by-month" id="toc-computing-stkde-by-month" class="nav-link" data-scroll-target="#computing-stkde-by-month">3.0 Computing STKDE by Month</a>
+  <ul class="collapse">
+  <li><a href="#computing-spatio-temporal-kde" id="toc-computing-spatio-temporal-kde" class="nav-link" data-scroll-target="#computing-spatio-temporal-kde">3.1 Computing Spatio-Temporal KDE</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../take-home-exercise/take-home-ex-intro.html">Take Home Exercises</a></li><li class="breadcrumb-item"><a href="../../take-home-exercise/ex01/take-home-ex01.html">01 Take Home Exercise 1</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../in-class-exercise/in-class-ex-intro.html">In-class Exercises</a></li><li class="breadcrumb-item"><a href="../../in-class-exercise/ex04/in-class-ex04.html">04 In-class Exercise 4 (Review)</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">01 Take Home Exercise 1</h1>
-<p class="subtitle lead">Geospatial Analytics for Social Good: Application of Spatial and Spatio-temporal Point Patterns Analysis to discover the geographical distribution of Armed Conflict in Myanmar</p>
+<h1 class="title">04 In-class Exercise 4 (Review)</h1>
 </div>
 
 
@@ -284,7 +344,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 4, 2024</p>
+      <p class="date">September 9, 2024</p>
     </div>
   </div>
   
@@ -302,31 +362,188 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Data sets:</p>
+<p>Eval set to False</p>
+<section id="previous-lessons-notes" class="level1">
+<h1>Previous Lessons’ Notes</h1>
+<p>Issue 1: Rendering ICE3 Map -&gt; rendering tmap view for ICE3</p>
+<p>problem is in the leaflet library packages try development version 3.99.9 -&gt; rather than version 4 but it is likely to contain unexpected bugs, feel free to try it out</p>
+<p>Expose you to different data portals, open sources, open data access Get used to different data types, knowing what to use, when to use.</p>
+<section id="starting-you-with-takehome-exercise-1" class="level2">
+<h2 class="anchored" data-anchor-id="starting-you-with-takehome-exercise-1">Starting you with Takehome Exercise 1</h2>
+<p>General knowledge on Myanmar-Singapore economy:</p>
 <ul>
-<li><a href="https://acleddata.com/knowledge-base/codebook/">Data Set Columns Information</a></li>
-<li><a href="https://acleddata.com/knowledge-base/acled-methodology-and-coding-decisions-around-political-violence-and-demonstrations-in-myanmar/">Data Set Myanmar Overview</a></li>
-<li>Categories by Event Type: Battles, Explosion/Remote violence, Strategic developments, and Violence against civilians.</li>
-<li>In terms of study period, students should focus on quarterly armed conflict events from January 2021 until June 2024.</li>
+<li>Sand import from Myanmar</li>
+<li>Jade import from Myanmar</li>
 </ul>
-<p>Importing Data sets:</p>
-<p>Bullet points:</p>
+<p>–&gt; refer to Take Home Exercise 01 for further notes.</p>
+</section>
+</section>
+<section id="in-class-exercise" class="level1">
+<h1>In-class Exercise</h1>
+<p>refer to website:</p>
+<section id="install-and-loading-r-packages" class="level2">
+<h2 class="anchored" data-anchor-id="install-and-loading-r-packages">0.0 Install and Loading R Packages</h2>
+<p>The main package we want to use for spatial-temporal point pattern analysis is sparr:</p>
+<p><strong>sparr</strong> provides functions to estimate fixed and adaptive kernel-smoothed spatial relative risk surfaces via the density-ratio method and perform subsequent inference. Fixed-bandwidth spatiotemporal density and relative risk estimation is also supported.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="do">##| eval: false</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(sf, tidyverse, tmap, sparr, spatstat, raster)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Spatio-Temporal Patterns</p>
+<p>Note that when we are studying patterns, we are not necessarily studying causation, we want to identify whether there are any underlying patterns of the spread of spatial-temporal points, and whether there are correlation between the factors; such factors can be socio-economic levels, terrain, culture, etc.</p>
+</section>
+<section id="importing-data" class="level2">
+<h2 class="anchored" data-anchor-id="importing-data">1.0 Importing Data</h2>
+<p>(Copied from Exercise) The data:</p>
+<p>For the purpose of this exercise, two data sets are used, they are:</p>
 <ul>
-<li>point 1 on lesson 1 (dataset: administrative boundary data -&gt; sf tibble dataframe)</li>
-<li>point 2 and 3 last week lesson 3 (dataset: ACLED point data -&gt; derive KDE &amp; 2nd-Order Point Pattern Analysis)
-<ul>
-<li><strong>Caution!</strong> dataset is very large! For point 2, it may take 8 mins. For point 3, it may take half a day.</li>
-<li>Make sure to estimate the time, effort you require -&gt; plan ahead</li>
-</ul></li>
+<li><p>forestfires, a csv file provides locations of forest fire detected from the Moderate Resolution Imaging Spectroradiometer (MODIS) sensor data. The data are downloaded from <a href="https://firms.modaps.eosdis.nasa.gov/download/">Fire Information for Resource Management System</a>. For the purpose of this exercise, only forest fires within Kepulauan Bangka Belitung will be used.</p></li>
+<li><p>Kepulauan_Bangka_Belitung, an ESRI shapefile showing the sub-district (i.e.&nbsp;<a href="https://en.wikipedia.org/wiki/Villages_of_Indonesia">kelurahan</a>) boundary of Kepulauan Bangka Belitung. The data set was downloaded from <a href="https://www.indonesia-geospasial.com/2023/05/download-shapefile-batas-administrasi.html">Indonesia Geospatial</a> portal. The original data covers the whole Indonesia. For the purpose of this exercise, only <strong>sub-districts within Kepulauan Bangka Belitung</strong> are extracted.</p></li>
 </ul>
-<p>Case Study:</p>
-<p>History of Myanmar Armed Conflict:</p>
-<p>Current Situation:</p>
-<p>Study Area:</p>
-<p>Focus and Objective:</p>
-<p>Analysis Methods Used:</p>
+<section id="load-in-the-study-area-shapefile" class="level3">
+<h3 class="anchored" data-anchor-id="load-in-the-study-area-shapefile">1.1 Load in the Study Area Shapefile</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="do">##| eval: false</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># load in the study area. Note Kota refer to urban village/city. Desa refer to rural village.</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># note the Polygon contains a Z dimension, which will interfere with analysis if you try to convert to PPP.</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># you can drop away the Z if not needed.</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># kbb_raw &lt;- st_read(dsn = "data/rawdata/", layer = "Kepulauan_Bangka_Belitung")</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>studyArea_sf <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="at">dsn =</span> <span class="st">"data/rawdata/"</span>, <span class="at">layer =</span> <span class="st">"Kepulauan_Bangka_Belitung"</span>)  <span class="sc">%&gt;%</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_union</span>() <span class="sc">%&gt;%</span> <span class="co"># union all the boundaries so you only have an outline</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_zm</span>(<span class="at">drop =</span> <span class="cn">TRUE</span>, <span class="at">what =</span> <span class="st">"ZM"</span>) <span class="sc">%&gt;%</span> <span class="co"># remove Z dimension</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_transform</span>(<span class="at">crs=</span> <span class="dv">32748</span>) <span class="co"># transform to the appropriate projected CRS</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="load-in-the-forest-fire-data" class="level3">
+<h3 class="anchored" data-anchor-id="load-in-the-forest-fire-data">1.2 Load in the Forest Fire Data</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="do">##| eval: false</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># load in the the forest fire points.</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># forestFire_raw &lt;- read_csv(file="data/rawdata/forestfires.csv")</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>forestFire_sf <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">file=</span><span class="st">"data/rawdata/forestfires.csv"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_as_sf</span>(<span class="at">coords =</span> <span class="fu">c</span>(<span class="st">"longitude"</span>,<span class="st">"latitude"</span>),</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>           <span class="at">crs =</span> <span class="dv">4326</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_transform</span>(<span class="at">crs=</span><span class="dv">32748</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Caution: when you use read.csv, your fieldnames cannot contain whitespaces, any whitespaces, it will insert a dot; your fieldnames will change. Instead, when you use read_csv from the readr package (part of tidyverse), the output is a tibble dataframe, though without geometry (which we will assign when we transform it into sf). In this case, since all the fieldnames contain no whitespaces, there are no issues with using read.csv()</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># forestfire_test &lt;- read.csv(file="data/rawdata/forestfires.csv")</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># class(forestfire_test)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="data-wrangling" class="level2">
+<h2 class="anchored" data-anchor-id="data-wrangling">2.0 Data Wrangling</h2>
+<section id="generate-the-window-owin-class-of-study-area." class="level3">
+<h3 class="anchored" data-anchor-id="generate-the-window-owin-class-of-study-area.">2.1 Generate the window Owin Class of Study Area.</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>studyArea_owin <span class="ot">&lt;-</span> <span class="fu">as.owin</span>(studyArea_sf)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>studyArea_owin</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(studyArea_owin)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>forestFire_sf <span class="ot">&lt;-</span> forestFire_sf <span class="sc">%&gt;%</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">DayofYear =</span> <span class="fu">yday</span>(acq_date)) <span class="sc">%&gt;%</span> <span class="co"># day of the year from 1 to 365</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Month_num =</span> <span class="fu">month</span>(acq_date)) <span class="sc">%&gt;%</span> <span class="co"># month of the year returned as numbers from 1 to 12</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Month_fac =</span> <span class="fu">month</span>(acq_date, <span class="co"># month of the year returned as factors and not abbreviated -&gt; January, February</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>                           <span class="at">label =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>                           <span class="at">abbr =</span> <span class="cn">FALSE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The tool we are using to handle the dates is called <a href="https://lubridate.tidyverse.org/">lubridate</a>(part of tidyverse) -&gt; useful for all sorts of manipulations on dates and time, including quarter years, ewidth, and so on.</p>
+<p>The tool for data manipulation (e.g.&nbsp;mutate) is called <a href="https://dplyr.tidyverse.org/">dyplr</a>-&gt; useful for data manipulations</p>
+</section>
+<section id="quick-glance-at-the-data" class="level3">
+<h3 class="anchored" data-anchor-id="quick-glance-at-the-data">2.2 Quick Glance at the Data</h3>
+<p><a href="https://r-tmap.github.io/tmap/">tmap</a> allows us to make cartographic quality map, including interactive maps (not always loadable)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tmap_mode</span>(<span class="st">"plot"</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_shape</span>(studyArea_sf) <span class="sc">+</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tm_polygons</span>() <span class="sc">+</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_shape</span>(forestFire_sf) <span class="sc">+</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tm_dots</span>(<span class="at">size=</span> <span class="fl">0.1</span>) <span class="sc">+</span> <span class="co"># make sizes a bit bigger so that it can be seen</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_facets</span>(<span class="at">by=</span><span class="st">"Month_fac"</span>,</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">free.coords =</span> <span class="cn">TRUE</span>,<span class="co"># if TRUE, all maps will be zoomed in on data points extent</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>            <span class="at">drop.units =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tmap_mode</span>(<span class="st">"plot"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tmap_mode</span>(<span class="st">"plot"</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_shape</span>(studyArea_sf) <span class="sc">+</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tm_polygons</span>() <span class="sc">+</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_shape</span>(forestFire_sf) <span class="sc">+</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tm_dots</span>(<span class="at">size=</span> <span class="fl">0.1</span>) <span class="sc">+</span> <span class="co"># make sizes a bit bigger so that it can be seen</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_facets</span>(<span class="at">by=</span><span class="st">"Month_fac"</span>,</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">free.coords =</span> <span class="cn">FALSE</span>,<span class="co"># if TRUE, all maps will be zoomed in on data points extent</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>            <span class="at">drop.units =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tmap_mode</span>(<span class="st">"plot"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="computing-stkde-by-month" class="level3">
+<h3 class="anchored" data-anchor-id="computing-stkde-by-month">3.0 Computing STKDE by Month</h3>
+<p>sparr is designed for events vs control comparison (used in medical science)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>fire_month <span class="ot">&lt;-</span> forestFire_sf <span class="sc">%&gt;%</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="st">`</span><span class="at">Month_num</span><span class="st">`</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>fire_month_ppp <span class="ot">&lt;-</span> <span class="fu">as.ppp</span>(fire_month)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>fire_month_ppp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fire_month_ppp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>fire_month_owin <span class="ot">&lt;-</span> fire_month_ppp[studyArea_owin]</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fire_month_owin)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="computing-spatio-temporal-kde" class="level4">
+<h4 class="anchored" data-anchor-id="computing-spatio-temporal-kde">3.1 Computing Spatio-Temporal KDE</h4>
+<p>Reading the results:</p>
+<p>function gives you bandwidths:</p>
+<p>h (spatial) -&gt; 15102.47 metres</p>
+<p>lambda (temporal) -&gt; 0.03months</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>st_kde <span class="ot">&lt;-</span> <span class="fu">spattemp.density</span>(fire_month_owin)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(st_kde)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-width: 12</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-height: 10</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co"># you can specify your plot area so that the graph features are not crammed together</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>trims <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>,<span class="dv">11</span>,<span class="dv">12</span>) <span class="co"># trim, since we saw that most fires only started July onwards</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfcol=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>)) <span class="co"># result will have 2 rows, 3 columns</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> trims){</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot</span>(st_kde, i,</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">override.par=</span><span class="cn">FALSE</span>,</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">fix.range=</span><span class="cn">TRUE</span>,</span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">main=</span><span class="fu">paste</span>(<span class="st">"KDE at month"</span>, i))</span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Reading the results:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>kde_yday <span class="ot">&lt;-</span> <span class="fu">spattemp.density</span>(</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  fire_yday_owin)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(kde_yday)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Rather than visualising a static image, try to plot it on an animated image:</p>
+<p>refer to <a href="https://tilmandavies.github.io/sparr/articles/fmd_animation/fmd_animation.html" class="uri">https://tilmandavies.github.io/sparr/articles/fmd_animation/fmd_animation.html</a></p>
+<p>refer to <a href="https://github.com/tilmandavies/sparr/blob/HEAD/vignettes/fmd_animation/fmd_animation.Rmd" class="uri">https://github.com/tilmandavies/sparr/blob/HEAD/vignettes/fmd_animation/fmd_animation.Rmd</a></p>
 
 
+</section>
+</section>
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

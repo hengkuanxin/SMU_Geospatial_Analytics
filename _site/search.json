@@ -30,7 +30,7 @@
     "href": "in-class-exercise/ex01/in-class-ex01.html",
     "title": "01 In-class Exercise 1 (Review)",
     "section": "",
-    "text": "1 Import packages & data\n\n\npacman::p_load(tidyverse, sf)\n\n\nmpsz &lt;- st_read(\n  dsn = \"data/geospatial/MPSZ-2019\",\n  layer = \"MPSZ-2019\")\n\nReading layer `MPSZ-2019' from data source \n  `C:\\hengkuanxin\\SMU_Geospatial_Analytics\\in-class-exercise\\ex01\\data\\geospatial\\MPSZ-2019' \n  using driver `ESRI Shapefile'\nSimple feature collection with 332 features and 6 fields\nGeometry type: MULTIPOLYGON\nDimension:     XY\nBounding box:  xmin: 103.6057 ymin: 1.158699 xmax: 104.0885 ymax: 1.470775\nGeodetic CRS:  WGS 84\n\n\n\n\n2 Reading Data\n\n\nst_geometry(mpsz)\n\nGeometry set for 332 features \nGeometry type: MULTIPOLYGON\nDimension:     XY\nBounding box:  xmin: 103.6057 ymin: 1.158699 xmax: 104.0885 ymax: 1.470775\nGeodetic CRS:  WGS 84\nFirst 5 geometries:\n\nplot(mpsz)",
+    "text": "1 Import packages & data\n\n\npacman::p_load(tidyverse, sf)\n\n\nmpsz &lt;- st_read(\n  dsn = \"data/geospatial/MPSZ-2019\",\n  layer = \"MPSZ-2019\")\n\nReading layer `MPSZ-2019' from data source \n  `C:\\hengkuanxin\\SMU_Geospatial_Analytics\\in-class-exercise\\ex01\\data\\geospatial\\MPSZ-2019' \n  using driver `ESRI Shapefile'\nSimple feature collection with 332 features and 6 fields\nGeometry type: MULTIPOLYGON\nDimension:     XY\nBounding box:  xmin: 103.6057 ymin: 1.158699 xmax: 104.0885 ymax: 1.470775\nGeodetic CRS:  WGS 84\n\n\n\n\n2 Reading Data\n\n\nst_geometry(mpsz)\n\nGeometry set for 332 features \nGeometry type: MULTIPOLYGON\nDimension:     XY\nBounding box:  xmin: 103.6057 ymin: 1.158699 xmax: 104.0885 ymax: 1.470775\nGeodetic CRS:  WGS 84\nFirst 5 geometries:\n\nplot(mpsz)\n\n\n\n\n\n\n\n\n\n\n\n\n Back to top",
     "crumbs": [
       "Home",
       "In-class Exercises",
@@ -490,7 +490,7 @@
     "href": "take-home-exercise/ex01/take-home-ex01.html",
     "title": "01 Take Home Exercise 1",
     "section": "",
-    "text": "Data sets:\n\nData Set Columns Information\nData Set Myanmar Overview\nCategories by Event Type: Battles, Explosion/Remote violence, Strategic developments, and Violence against civilians.\nIn terms of study period, students should focus on quarterly armed conflict events from January 2021 until June 2024.\n\nImporting Data sets:\nBullet points:\n\npoint 1 on lesson 1 (dataset: administrative boundary data -&gt; sf tibble dataframe)\npoint 2 and 3 last week lesson 3 (dataset: ACLED point data -&gt; derive KDE & 2nd-Order Point Pattern Analysis)\n\nCaution! dataset is very large! For point 2, it may take 8 mins. For point 3, it may take half a day.\nMake sure to estimate the time, effort you require -&gt; plan ahead\n\n\nCase Study:\nHistory of Myanmar Armed Conflict:\nCurrent Situation:\nStudy Area:\nFocus and Objective:\nAnalysis Methods Used:",
+    "text": "Data sets:\n\nData Set Columns Information\nData Set Myanmar Overview\nCategories by Event Type: Battles, Explosion/Remote violence, Strategic developments, and Violence against civilians.\nIn terms of study period, students should focus on quarterly armed conflict events from January 2021 until June 2024.\n\nImporting Data sets:\nBullet points:\n\npoint 1 on lesson 1 (dataset: administrative boundary data -&gt; sf tibble dataframe)\npoint 2 and 3 last week lesson 3 (dataset: ACLED point data -&gt; derive KDE & 2nd-Order Point Pattern Analysis)\n\nCaution! dataset is very large! For point 2, it may take 8 mins. For point 3, it may take half a day.\nMake sure to estimate the time, effort you require -&gt; plan ahead\n\n\nCase Study:\nHistory of Myanmar Armed Conflict:\nCurrent Situation:\nStudy Area:\nFocus and Objective:\nAnalysis Methods Used:\n\n\n\n Back to top",
     "crumbs": [
       "Home",
       "Take Home Exercises",
@@ -502,7 +502,7 @@
     "href": "take-home-exercise/take-home-ex-intro.html",
     "title": "00 Take Home Exercise Introduction",
     "section": "",
-    "text": "There are three take-home exercises that are due throughout the term. They aim to provide students the opportunities to apply the methods learned in class by working through mini real-world cases. Each take-home exercise is an extension of the hands-on and in-class exercises.",
+    "text": "There are three take-home exercises that are due throughout the term. They aim to provide students the opportunities to apply the methods learned in class by working through mini real-world cases. Each take-home exercise is an extension of the hands-on and in-class exercises.\n\n\n\n Back to top",
     "crumbs": [
       "Home",
       "Take Home Exercises",

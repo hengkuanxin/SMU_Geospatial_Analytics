@@ -5,6 +5,8 @@ website:
   title: "R for Geospatial Analytics"
   reader-mode: true
   bread-crumbs: true
+  back-to-top-navigation: true
+  page-navigation: true
   
   favicon: "images/compass.png"
   
@@ -41,7 +43,7 @@ website:
           href: "hands-on-exercise/ex03/hands-on-ex03_02.html"
         - text: "04 ‘Network Constrained Spatial Point Patterns Analysis’"
           href: "hands-on-exercise/ex04/hands-on-ex04.html"
-          
+      - text: "---"
       - section: "In-class Exercises"
         contents:
         - text: "00 In-Class Exercises Introduction"

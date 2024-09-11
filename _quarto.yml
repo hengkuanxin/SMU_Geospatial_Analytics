@@ -8,10 +8,10 @@ website:
   back-to-top-navigation: true
   page-navigation: true
   
-  favicon: "images/compass.png"
+  favicon: "images/logo.png"
   
   navbar:
-    logo: "images/compass.png"
+    logo: "images/logo.png"
     search: true
     background: dark
     left:

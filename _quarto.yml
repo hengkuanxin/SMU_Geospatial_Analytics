@@ -3,6 +3,19 @@ project:
 
 website:
   title: "R for Geospatial Analytics"
+  description: "A student's work on basic geospatial analyses"
+  site-url: "https://smu-is415-kxheng-ay2024-25.netlify.app/"
+  
+  twitter-card:
+    title: "R for Geospatial Analytics"
+    description: "A student's work on basic geospatial analyses"
+    card-style: "summary"
+    
+  open-graph:
+    site-name: "R for Geospatial Analytics"
+    description: "A student's work on basic geospatial analyses"
+    locale: "en_GB"
+  
   reader-mode: true
   bread-crumbs: true
   back-to-top-navigation: true

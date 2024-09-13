@@ -4,6 +4,11 @@ subtitle: "Geospatial Analytics for Social Good: Application of Spatial and Spat
 author: "Heng Kuan Xin"
 date: 2024-09-04
 date-modified: "last-modified"
+
+toc: true
+toc-expand: true
+number-sections: true
+
 execute:
   eval: true
   echo: true
@@ -11,7 +16,6 @@ execute:
   output: true
   warning: false
   error: false
-toc-depth: 5
 ---
 
 Data sets:
@@ -44,59 +48,59 @@ Analysis Methods Used:
 
 Our main purpose here this time is to study the **quarterly spatio-temporal distribution of armed conflict events in Myanmar**. Therefore, the focus is mainly on the **types of events**, **date of events**, and the **location of events**. We will not be focusing on other matters in this exercise.
 
-# 1.0 Importing the Necessary
+# Importing the Necessary
 
-## 1.1 Importing Libraries / Packages
+## Importing Libraries / Packages
 
 ```{r}
-pacman::p_load(tidyverse, sf, spatstat, tmap)
+pacman::p_load(tidyverse, sf, spatstat, ggplot2, tmap)
 ```
 
-## 1.2 Importing Raw Data
+## Importing Raw Data
 
-### 1.2.1 ACLED Dataset
+### ACLED Data Set
 
-We will select only the following columns as other columns are not relevant to our study (yet): event_date,year,disorder_type,sub_event_type,admin1,admin2,admin3
+Before we start manipulating the data, it is important that we understand what each data column and data type mean and how valuable it is for our analysis.
+
+To begin, let us refer to the [ACLED data set codebook](https://acleddata.com/acleddatanew/wp-content/uploads/dlm_uploads/2023/06/ACLED_Codebook_2023.pdf)
+
+Now, let us first import the data.
 
 ```{r}
 ##| eval: false
 
-filter_columns <- c("event_date","year","disorder_type","sub_event_type","admin1","admin2","admin3")
+# filter_columns <- c("event_date","year","disorder_type","sub_event_type","admin1","admin2","admin3")
 
 violence_against_civ <- read_csv("data/raw/aspatial/ACLED/violence-against-civilians.csv") %>%
   st_as_sf(coords =c(
     "longitude", "latitude"),
     crs=4326) %>%
     st_transform(crs = 32647) %>%
-    mutate(event_date = dmy(event_date)) %>%
-  select(filter_columns)
+    mutate(event_date = dmy(event_date))
 
 strategic_dev <- read_csv("data/raw/aspatial/ACLED/strategic-developments.csv") %>%
   st_as_sf(coords =c(
     "longitude", "latitude"),
     crs=4326) %>%
     st_transform(crs = 32647) %>%
-    mutate(event_date = dmy(event_date)) %>%
-  select(filter_columns)
+    mutate(event_date = dmy(event_date))
 
 battles <- read_csv("data/raw/aspatial/ACLED/battles.csv") %>%
   st_as_sf(coords =c(
     "longitude", "latitude"),
     crs=4326) %>%
     st_transform(crs = 32647) %>%
-    mutate(event_date = dmy(event_date)) %>%
-  select(filter_columns)
+    mutate(event_date = dmy(event_date))
 
 explosion_or_remote_vio <- read_csv("data/raw/aspatial/ACLED/explosion-or-remoteviolence.csv") %>%
   st_as_sf(coords =c(
     "longitude", "latitude"),
     crs=4326) %>%
     st_transform(crs = 32647) %>%
-    mutate(event_date = dmy(event_date)) %>%
-  select(filter_columns)
+    mutate(event_date = dmy(event_date))
 ```
 
-### 1.2.2 Administrative Boundary Dataset
+### Administrative Boundary Dataset
 
 [![Myamar's Administrative Division Hierachy (source: Wikipedia)](images/clipboard-2034245623.png){fig-alt="Myamar's Administrative Division Hierachy"}](https://en.wikipedia.org/wiki/Administrative_divisions_of_Myanmar)
 
@@ -147,11 +151,19 @@ admin_3 <- read_csv("data/raw/geospatial/mimu_admin_boundary/mmr_polbnda_adm3_25
     st_transform(crs = 32647)
 ```
 
-### 1.2.3 Quick Plot To Visualise Data Sets
+### Quick Plot To Visualise Data Sets
 
-Before we continue, let's get a visual sense of the data by plotting it on a map to ensure we are working with the right dataset.
+Before we continue, let's get a visual sense of the data by plotting it on a map to ensure we are working with the right dataset. In this step, we will also try to see if there are any erranous data that we have to clean later.
 
-From the left to right, we are able to see the increase in degree of administrative boundary division; respectively, they represent "**National**", "**Region/State/Union Territory**", "**Sub-Region/State/Union Territory**", "**District/Self-Administered Zone**", and "**Township**"
+**Check the Administrative Boundaries Data Set**
+
+From the left to right, we are able to see the increase in degree of administrative boundary division; respectively, they represent
+
+1.  "**National**",
+2.  "**Region/State/Union Territory**",
+3.  "**Sub-Region/State/Union Territory**",
+4.  "**District/Self-Administered Zone**", and
+5.  "**Township**"
 
 ```{r}
 tmap_mode("plot")
@@ -167,7 +179,20 @@ tmap_arrange(
 )
 ```
 
-Let's also plot out the point datasets from ACLED, namely (from left to right): "**Violence against Civilians**", "**Strategic Developments**", "**Explosion/Remote Violence**", and "**Battles**"
+**Conclusion: Administrative Boundaries Looks Okay**
+
+Looking at both the attribute table and the plot, the administrative boundaries data seem quite alright, so we might not need to do any cleaning. Anyway, the precision of the polygons it not as critical as the precision of the ACLED data (which will be used for our spatial point patterns analysis).
+
+**Check ACLED Data Set**
+
+Since the ACLED data is our main focus, let us now plot the data points onto the map of Myanmar.
+
+In the code chunk below, we plot out the various types of data points from ACLED, namely (from left to right):
+
+1.  "**Violence against Civilians**",
+2.  "**Strategic Developments**",
+3.  "**Explosion/Remote Violence**", and
+4.  "**Battles**"
 
 ```{r}
 tmap_mode("plot")
@@ -182,9 +207,104 @@ tmap_arrange(
 )
 ```
 
-# 2.0 Geospatial Data Wrangling
+**Observation: ACLED Data Set needs further study, may need to clean**
 
-## 2.1 Extract Quarterly Data from ACLED Dataset
+Nothing looks very off at a glance, but we should look into the attribute columns to see if the data set is truly clean. Let us refer to the [codebook](https://acleddata.com/acleddatanew/wp-content/uploads/dlm_uploads/2023/06/ACLED_Codebook_2023.pdf) again, and see if we can spot any potentially critical problems.
+
+Referring to the attribute columns and the codebook, we can see potentially critical concerns:
+
+1.  **geo_precision** – The precision of the geocoded coordinates ranges from code 1 to code 3; where lower level implies higher precision.
+    -   In particular, "\[if\] a larger region is mentioned, the closest natural location noted in reporting (like “border area,” “forest,” or “sea,” among others) – or a provincial capital is used if no other information at all is available – is chosen to represent the region, and ‘Geo-precision’ code 3 is recorded." (page 36)
+2.  **time_precision** – The precision of the recorded datetime ranges from code 1 to code 3; where lower level implies higher precision.
+    -   In particular, "if the source material only indicates that an event took place sometime during a month (i.e. in the past two or three weeks, or in January), without reference to the particular date, the month mid-point is chosen. If the beginning or end of the month is noted, the first and last date is used, respectively. In both of these cases, a ‘Time precision’ code of 3 is recorded." (page 36-37)
+
+In both cases, ACLED do not include events with less spatial or temporal precision.
+
+**Identifying code 3 precisions**
+
+Given that precision of our point data is crucial to our spatial-temporal point patterns analysis, we should see how much of our data is imprecise, and whether we should keep the imprecise data points.
+
+```{r}
+#| eval: false
+# Violence against Civilians
+violence_against_civ %>% count(geo_precision)
+violence_against_civ %>% count(time_precision)
+
+# Strategic Developments
+strategic_dev %>% count(geo_precision)
+strategic_dev %>% count(time_precision)
+
+# Explosion or Remote Violence
+explosion_or_remote_vio %>% count(geo_precision)
+explosion_or_remote_vio %>% count(time_precision)
+
+# Battles
+battles %>% count(geo_precision)
+battles %>% count(time_precision)
+```
+
+**Conclusion: Drop time and spatial precision code 3 data values from ACLED Data set**
+
+From this analysis, we can see that the count of precision code 3 in both time and spatial precision is actually very low, it might be worth dropping the values with low time and spatial precision.
+
+Let us start cleaning the data
+
+## Data Cleaning
+
+Let us filter out the data we want (time_precision and geo_precision codes \< 3), and see how many rows we have removed.
+
+```{r}
+# Extract all rows where either geo_precision or time_precision is not = 3 
+violence_against_civ_filtered <- violence_against_civ %>%
+  filter(!(geo_precision == 3 | time_precision == 3))
+
+strategic_dev_filtered <- strategic_dev %>%
+  filter(!(geo_precision == 3 | time_precision == 3))
+
+explosion_or_remote_vio_filtereed <- explosion_or_remote_vio %>%
+  filter(!(geo_precision == 3 | time_precision == 3))
+
+battles_filtered <- battles %>%
+  filter(!(geo_precision == 3 | time_precision == 3))
+
+cat("Number of rows dropped:", nrow(violence_against_civ) - nrow(violence_against_civ_filtered) , "\n")
+cat("Number of rows dropped:", nrow(strategic_dev) - nrow(strategic_dev_filtered) , "\n")
+cat("Number of rows dropped:", nrow(explosion_or_remote_vio) - nrow(explosion_or_remote_vio_filtereed) , "\n")
+cat("Number of rows dropped:", nrow(battles) - nrow(battles_filtered) , "\n")
+```
+
+**Overall, the result seems satisfactory**. Let us continue with our data cleaning. by keeping only columns that are important for our analysis.
+
+We will only **keep the following columns** as other columns are not relevant to our study:
+
+-   event_date,
+-   year,
+-   disorder_type,
+-   sub_event_type,
+-   admin1,
+-   admin2,
+-   admin3
+-   (also including the geometry data)
+
+```{r}
+filter_columns <- c("event_date","year","disorder_type","sub_event_type","admin1","admin2","admin3")
+
+violence_against_civ_filtered <- violence_against_civ_filtered %>%
+  select(all_of(filter_columns))
+
+strategic_dev_filtered <- strategic_dev_filtered %>%
+  select(all_of(filter_columns))
+
+explosion_or_remote_vio_filtereed <- explosion_or_remote_vio_filtereed %>%
+  select(all_of(filter_columns))
+
+battles_filtered <- battles_filtered %>%
+  select(all_of(filter_columns))
+```
+
+## Data Extraction
+
+### Extract Quarterly Data from ACLED Dataset
 
 Now, since we want to analyse the quarterly events, let us add a new column within the tibble DataFrame called **quarter** to represent the quarter of each date in numerical format, e.g. (1, 2, 3, or 4). After that, let us create another column called **year_quarter** to represent the quarter of every year in string format, e.g. ("2021-Q1", "2023-Q4").
 
@@ -192,24 +312,24 @@ The package we will be using here is called lubridate, a package within the tidy
 
 ```{r}
 
-violence_against_civ <- violence_against_civ %>% 
+violence_against_civ_filtered <- violence_against_civ_filtered %>% 
   mutate(quarter = quarter(event_date)) %>%
   mutate(year_quarter = paste0(year, "-Q", quarter))
 
-strategic_dev <- strategic_dev %>% 
+strategic_dev_filtered <- strategic_dev_filtered %>% 
   mutate(quarter = quarter(event_date)) %>%
   mutate(year_quarter = paste0(year, "-Q", quarter))
 
-explosion_or_remote_vio <- explosion_or_remote_vio %>% 
+explosion_or_remote_vio_filtereed <- explosion_or_remote_vio_filtereed %>% 
   mutate(quarter = quarter(event_date)) %>%
   mutate(year_quarter = paste0(year, "-Q", quarter))
 
-battles <- battles %>% 
+battles_filtered <- battles_filtered %>% 
   mutate(quarter = quarter(event_date)) %>%
   mutate(year_quarter = paste0(year, "-Q", quarter))
 ```
 
-## 2.2 Export Data Sets (RDS file format)
+## Export Data Sets (RDS file format)
 
 Before we continue, let's export our cleaned data sets so that our changes are saved. **We will export the data sets in the RDS format.**
 
@@ -231,9 +351,9 @@ saveRDS(battles, "data/rds/battles.rds")
 
 Now, let's continue to the next section.
 
-# 3.0 Kernel-Density Estimation
+# Kernel-Density Estimation
 
-## 3.1 Import Data Sets (RDS file format)
+## Import Data Sets (RDS file format)
 
 ```{r}
 violence_against_civ <- readRDS("data/rds/violence_against_civilians.rds")

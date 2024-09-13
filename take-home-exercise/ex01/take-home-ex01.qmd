@@ -28,7 +28,7 @@ Bullet points:
 -   point 1 on lesson 1 (dataset: administrative boundary data -\> sf tibble dataframe)
 -   point 2 and 3 last week lesson 3 (dataset: ACLED point data -\> derive KDE & 2nd-Order Point Pattern Analysis)
     -   **Caution!** dataset is very large! For point 2, it may take 8 mins. For point 3, it may take half a day.
-    - Make sure to estimate the time, effort you require -> plan ahead
+    -   Make sure to estimate the time, effort you require -\> plan ahead
 
 Case Study:
 
@@ -41,3 +41,205 @@ Study Area:
 Focus and Objective:
 
 Analysis Methods Used:
+
+Our main purpose here this time is to study the **quarterly spatio-temporal distribution of armed conflict events in Myanmar**. Therefore, the focus is mainly on the **types of events**, **date of events**, and the **location of events**. We will not be focusing on other matters in this exercise.
+
+# 1.0 Importing the Necessary
+
+## 1.1 Importing Libraries / Packages
+
+```{r}
+pacman::p_load(tidyverse, sf, spatstat, tmap)
+```
+
+## 1.2 Importing Raw Data
+
+### 1.2.1 ACLED Dataset
+
+We will select only the following columns as other columns are not relevant to our study (yet): event_date,year,disorder_type,sub_event_type,admin1,admin2,admin3
+
+```{r}
+##| eval: false
+
+filter_columns <- c("event_date","year","disorder_type","sub_event_type","admin1","admin2","admin3")
+
+violence_against_civ <- read_csv("data/raw/aspatial/ACLED/violence-against-civilians.csv") %>%
+  st_as_sf(coords =c(
+    "longitude", "latitude"),
+    crs=4326) %>%
+    st_transform(crs = 32647) %>%
+    mutate(event_date = dmy(event_date)) %>%
+  select(filter_columns)
+
+strategic_dev <- read_csv("data/raw/aspatial/ACLED/strategic-developments.csv") %>%
+  st_as_sf(coords =c(
+    "longitude", "latitude"),
+    crs=4326) %>%
+    st_transform(crs = 32647) %>%
+    mutate(event_date = dmy(event_date)) %>%
+  select(filter_columns)
+
+battles <- read_csv("data/raw/aspatial/ACLED/battles.csv") %>%
+  st_as_sf(coords =c(
+    "longitude", "latitude"),
+    crs=4326) %>%
+    st_transform(crs = 32647) %>%
+    mutate(event_date = dmy(event_date)) %>%
+  select(filter_columns)
+
+explosion_or_remote_vio <- read_csv("data/raw/aspatial/ACLED/explosion-or-remoteviolence.csv") %>%
+  st_as_sf(coords =c(
+    "longitude", "latitude"),
+    crs=4326) %>%
+    st_transform(crs = 32647) %>%
+    mutate(event_date = dmy(event_date)) %>%
+  select(filter_columns)
+```
+
+### 1.2.2 Administrative Boundary Dataset
+
+[![Myamar's Administrative Division Hierachy (source: Wikipedia)](images/clipboard-2034245623.png){fig-alt="Myamar's Administrative Division Hierachy"}](https://en.wikipedia.org/wiki/Administrative_divisions_of_Myanmar)
+
+In this exercise, we will only analyse geographical distribution of point data up to the 3rd degree administrative division, i.e. up to Township level.
+
+The following data are the administrative boundaries of Myanmar, obtained from [MIMU Vector Boundaries](https://geonode.themimu.info/layers/?limit=100&offset=0&type__in=vector&category__identifier__in=boundaries), a common data and information repository by a NGO (related to UN).
+
+While many data formats exist, we will choose `.csv` files when downloading as they are easier to read and work with. A suitable alternative is the `.shp` file format available on the website.
+
+Datasets:
+
+-   `mmr_polbnda_adm0_250k_mimu_1.csv` National boundary of Myanmar
+
+-   `mmr_polbnda_adm1_250k_mimu_1.csv` **Region/State/Union Territory** level boundary of Myanmar
+
+-   `mmr_polbnda2_adm1_250k_mimu_1.csv` **Sub-Region/State/Union Territory** level boundary of Myanmar; Sub-region divides a region into smaller divisions, such as "Bago (East)" and "Bago (West)" instead of "Bago"
+
+-   `mmr_polbnda_adm2_250k_mimu.csv` **District/Self-Administered Zone** level boundary of Myanmar
+
+-   `mmr_polbnda_adm3_250k_mimu_1.csv` **Township** level boundary of Myanmar
+
+```{r}
+
+# kml file not easy to read due to nested columns for attributes data
+admin_0 <- read_csv("data/raw/geospatial/mimu_admin_boundary/mmr_polbnda_adm0_250k_mimu_1.csv") %>%
+  st_as_sf(wkt = "the_geom",
+    crs=4326) %>%
+    st_transform(crs = 32647)
+    
+admin_1 <- read_csv("data/raw/geospatial/mimu_admin_boundary/mmr_polbnda_adm1_250k_mimu_1.csv") %>%
+  st_as_sf(wkt = "the_geom",
+    crs=4326) %>%
+    st_transform(crs = 32647)
+
+admin_1_sub <- read_csv("data/raw/geospatial/mimu_admin_boundary/mmr_polbnda2_adm1_250k_mimu_1.csv") %>%
+  st_as_sf(wkt = "the_geom",
+    crs=4326) %>%
+    st_transform(crs = 32647)
+
+admin_2 <- read_csv("data/raw/geospatial/mimu_admin_boundary/mmr_polbnda_adm2_250k_mimu.csv") %>%
+  st_as_sf(wkt = "the_geom",
+    crs=4326) %>%
+    st_transform(crs = 32647)
+
+admin_3 <- read_csv("data/raw/geospatial/mimu_admin_boundary/mmr_polbnda_adm3_250k_mimu_1.csv") %>%
+  st_as_sf(wkt = "the_geom",
+    crs=4326) %>%
+    st_transform(crs = 32647)
+```
+
+### 1.2.3 Quick Plot To Visualise Data Sets
+
+Before we continue, let's get a visual sense of the data by plotting it on a map to ensure we are working with the right dataset.
+
+From the left to right, we are able to see the increase in degree of administrative boundary division; respectively, they represent "**National**", "**Region/State/Union Territory**", "**Sub-Region/State/Union Territory**", "**District/Self-Administered Zone**", and "**Township**"
+
+```{r}
+tmap_mode("plot")
+tmap_style("classic")
+
+tmap_arrange(
+  qtm(admin_0, title="National"), 
+  qtm(admin_1, title="Region/State/Union\nTerritory"), 
+  qtm(admin_1_sub, title="Sub-Region/State/Union\nTerritory"), 
+  qtm(admin_2, title="District/Self-\nAdministered Zone"), 
+  qtm(admin_3, title="Township"), 
+  ncol = 5
+)
+```
+
+Let's also plot out the point datasets from ACLED, namely (from left to right): "**Violence against Civilians**", "**Strategic Developments**", "**Explosion/Remote Violence**", and "**Battles**"
+
+```{r}
+tmap_mode("plot")
+tmap_style("cobalt")
+
+tmap_arrange(
+  qtm(admin_0) + qtm(violence_against_civ, title="Violence against\nCivilians"), 
+  qtm(admin_0) + qtm(strategic_dev, title="Strategic\nDevelopments"), 
+  qtm(admin_0) + qtm(explosion_or_remote_vio, title="Explosion/\nRemote Violence"), 
+  qtm(admin_0) + qtm(battles, title="Battles"), 
+  ncol = 4
+)
+```
+
+# 2.0 Geospatial Data Wrangling
+
+## 2.1 Extract Quarterly Data from ACLED Dataset
+
+Now, since we want to analyse the quarterly events, let us add a new column within the tibble DataFrame called **quarter** to represent the quarter of each date in numerical format, e.g. (1, 2, 3, or 4). After that, let us create another column called **year_quarter** to represent the quarter of every year in string format, e.g. ("2021-Q1", "2023-Q4").
+
+The package we will be using here is called lubridate, a package within the tidyverse library.
+
+```{r}
+
+violence_against_civ <- violence_against_civ %>% 
+  mutate(quarter = quarter(event_date)) %>%
+  mutate(year_quarter = paste0(year, "-Q", quarter))
+
+strategic_dev <- strategic_dev %>% 
+  mutate(quarter = quarter(event_date)) %>%
+  mutate(year_quarter = paste0(year, "-Q", quarter))
+
+explosion_or_remote_vio <- explosion_or_remote_vio %>% 
+  mutate(quarter = quarter(event_date)) %>%
+  mutate(year_quarter = paste0(year, "-Q", quarter))
+
+battles <- battles %>% 
+  mutate(quarter = quarter(event_date)) %>%
+  mutate(year_quarter = paste0(year, "-Q", quarter))
+```
+
+## 2.2 Export Data Sets (RDS file format)
+
+Before we continue, let's export our cleaned data sets so that our changes are saved. **We will export the data sets in the RDS format.**
+
+RDS stands for R Data Serialization. It’s a binary serialization format in R used to save R objects to a file. This format preserves the class, attributes, and structure of the R object, making it useful for saving and loading data while maintaining its integrity.
+
+::: {.callout-tip collapse="true"}
+By exporting the data, and importing it again, it also serves as a *checkpoint* for our analysis. We will be able to stop loading old variables in our environment, and only load in the new variables. It also allows readers who are trying to reproduce the analysis verify their own results with our analysis results.
+:::
+
+```{r}
+#| eval: false
+
+# Save the sf object to an RDS file
+saveRDS(violence_against_civ, "data/rds/violence_against_civilians.rds")
+saveRDS(strategic_dev, "data/rds/strategic_developments.rds")
+saveRDS(explosion_or_remote_vio, "data/rds/explosion_or_remoteviolence.rds")
+saveRDS(battles, "data/rds/battles.rds")
+```
+
+Now, let's continue to the next section.
+
+# 3.0 Kernel-Density Estimation
+
+## 3.1 Import Data Sets (RDS file format)
+
+```{r}
+violence_against_civ <- readRDS("data/rds/violence_against_civilians.rds")
+strategic_dev <- readRDS("data/rds/strategic_developments.rds")
+explosion_or_remote_vio <- readRDS("data/rds/explosion_or_remoteviolence.rds")
+battles <- readRDS("data/rds/battles.rds")
+```
+
+TO BE COMPLETED

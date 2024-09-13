@@ -41,6 +41,7 @@ website:
 
   sidebar:
     style: "floating"
+    collapse-level: 1
     contents:
       - section: "Hands-on Exercises"
         contents:

@@ -361,5 +361,3 @@ strategic_dev <- readRDS("data/rds/strategic_developments.rds")
 explosion_or_remote_vio <- readRDS("data/rds/explosion_or_remoteviolence.rds")
 battles <- readRDS("data/rds/battles.rds")
 ```
-
-TO BE COMPLETED

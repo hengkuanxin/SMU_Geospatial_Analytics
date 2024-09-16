@@ -1,0 +1,15 @@
+{
+  "hash": "51e9eecc74298b3977f9de1b124150d3",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"05 In-class Exercise (Review)\"\nauthor: \"Heng Kuan Xin\"\ndate: 2024-09-16\ndate-modified: \"last-modified\"\n\ntoc: true\ntoc-expand: true\nnumber-sections: true\n\nexecute:\n  eval: true\n  echo: true\n  freeze: true\n  output: true\n  warning: false\n  error: false\n---\n\n\n\n# Recap:\n\nGeographically referenced attributes\n\n-\\> entities are geographically referenced/have a location -\\> either polygons or points.\n\nPreliminary Visualisation -\\> Just map it out on a map, then obtain\n\n## Spatial Weights\n\nTypes of Relationships to define Spatial Weights:\n\n-   Adjacent relationships (common boundary), also called Adjacency.\n    -   if polygon data, there are also concerns that if a polygon is very long, then they will have a high adjacency count.\n-   Distance based relationships;\n    -   if **polygon data**, the algorithm will find the centroids of each polygon. However, limitation: large and irregularly shaped polygons will result in centroids being extremely far away from others. To 'fix' this, we can shift the centroids of these large polygons closer to the other neighbours (depends on context.)\n    -   if **multipolygon/multipoint data**, then you should choose the only necessary points so that your centroids or points are not in the middle of nowhere.\n    -   If points, it will be easier --\\> just distance between points.\n\n### When defining Spatial Weights\n\n-   we can use binary metrics (whether within a search radius/distance)\n-   a continuous metrics (higher weights if near, lower weights if further)\n\n### Adjacency methods of Choosing Neighbours\n\n-   See: Rooks Case, Bishops Case, Queens/Kings Case\n-   Lagged Adjacency for continuity metric, see first order adjacency, second order adjacency, i.e. (neighbour of neighbour)\n\n### Standardising Weights\n\n-   In practice, we will not use spatial weights as-is, we will standardise the weights by row or by columns (gives the same final results as the matrix is symmetrical).\n-   The summation of standardised weights will therefore be an average average.\n\n\\*GDPPC –\\> GDP per capita\n\n# Importing the necessary\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\npacman::p_load(sf,spdep, tmap, tidyverse, knitr)\n```\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

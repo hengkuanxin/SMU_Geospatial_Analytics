@@ -1,0 +1,60 @@
+---
+title: "05 In-class Exercise (Review)"
+author: "Heng Kuan Xin"
+date: 2024-09-16
+date-modified: "last-modified"
+
+toc: true
+toc-expand: true
+number-sections: true
+
+execute:
+  eval: true
+  echo: true
+  freeze: true
+  output: true
+  warning: false
+  error: false
+---
+
+# Recap:
+
+Geographically referenced attributes
+
+-\> entities are geographically referenced/have a location -\> either polygons or points.
+
+Preliminary Visualisation -\> Just map it out on a map, then obtain
+
+## Spatial Weights
+
+Types of Relationships to define Spatial Weights:
+
+-   Adjacent relationships (common boundary), also called Adjacency.
+    -   if polygon data, there are also concerns that if a polygon is very long, then they will have a high adjacency count.
+-   Distance based relationships;
+    -   if **polygon data**, the algorithm will find the centroids of each polygon. However, limitation: large and irregularly shaped polygons will result in centroids being extremely far away from others. To 'fix' this, we can shift the centroids of these large polygons closer to the other neighbours (depends on context.)
+    -   if **multipolygon/multipoint data**, then you should choose the only necessary points so that your centroids or points are not in the middle of nowhere.
+    -   If points, it will be easier --\> just distance between points.
+
+### When defining Spatial Weights
+
+-   we can use binary metrics (whether within a search radius/distance)
+-   a continuous metrics (higher weights if near, lower weights if further)
+
+### Adjacency methods of Choosing Neighbours
+
+-   See: Rooks Case, Bishops Case, Queens/Kings Case
+-   Lagged Adjacency for continuity metric, see first order adjacency, second order adjacency, i.e. (neighbour of neighbour)
+
+### Standardising Weights
+
+-   In practice, we will not use spatial weights as-is, we will standardise the weights by row or by columns (gives the same final results as the matrix is symmetrical).
+-   The summation of standardised weights will therefore be an average average.
+
+\*GDPPC –\> GDP per capita
+
+# Importing the necessary
+
+```{r}
+pacman::p_load(sf,spdep, tmap, tidyverse, knitr)
+```

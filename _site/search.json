@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "R for Geospatial Analytics",
     "section": "",
-    "text": "Contents overview:\n\nHome (this page)\nAbout\nHands-on exercises\nIn-class exercises\nTake-home Assignment\n\nThe table below shows the latest edits I have added.\n\n\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nDate\n\n\nModified\n\n\nTitle\n\n\n\n\n\n\nSep 4, 2024\n\n\n9/14/24, 1:20:19 AM\n\n\n01 Take Home Exercise 1\n\n\n\n\nSep 9, 2024\n\n\n9/9/24, 4:43:44 PM\n\n\n04 In-class Exercise 4 (Review)\n\n\n\n\nSep 3, 2024\n\n\n9/9/24, 9:45:13 AM\n\n\n04 ‘Network Constrained Spatial Point Patterns Analysis’\n\n\n\n\nAug 29, 2024\n\n\n9/4/24, 1:06:04 AM\n\n\n03 (Part 1) ‘1st Order Spatial Point Patterns Analysis Methods’\n\n\n\n\nAug 29, 2024\n\n\n9/4/24, 1:02:08 AM\n\n\n03 (Part 2) ‘2nd Order Spatial Point Patterns Analysis Methods’\n\n\n\n\nSep 2, 2024\n\n\n9/4/24, 12:47:23 AM\n\n\n03 In-class Exercise 3 (Review)\n\n\n\n\nAug 21, 2024\n\n\n9/2/24, 12:50:39 PM\n\n\n01 In-class Exercise 1 (Review)\n\n\n\n\nAug 26, 2024\n\n\n9/2/24, 12:50:06 PM\n\n\n02 In-class Exercise 2 (Review)\n\n\n\n\nAug 21, 2024\n\n\n8/28/24, 12:59:02 AM\n\n\n02 ‘Thematic Mapping and GeoVisualisation with R’\n\n\n\n\nAug 20, 2024\n\n\n8/28/24, 12:58:55 AM\n\n\n01 ‘Geospatial Data Science with R’\n\n\n\n\n\nNo matching items\n\n\n  \n\n Back to top"
+    "text": "Contents overview:\n\nHome (this page)\nAbout\nHands-on exercises\nIn-class exercises\nTake-home Assignment\n\nThe table below shows the latest edits I have added.\n\n\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nDate\n\n\nModified\n\n\nTitle\n\n\n\n\n\n\nSep 4, 2024\n\n\n9/16/24, 9:47:30 AM\n\n\n01 Take Home Exercise 1\n\n\n\n\nSep 16, 2024\n\n\n9/16/24, 9:45:41 AM\n\n\n05 In-class Exercise (Review)\n\n\n\n\nSep 9, 2024\n\n\n9/9/24, 4:43:44 PM\n\n\n04 In-class Exercise 4 (Review)\n\n\n\n\nSep 3, 2024\n\n\n9/9/24, 9:45:13 AM\n\n\n04 ‘Network Constrained Spatial Point Patterns Analysis’\n\n\n\n\nAug 29, 2024\n\n\n9/4/24, 1:06:04 AM\n\n\n03 (Part 1) ‘1st Order Spatial Point Patterns Analysis Methods’\n\n\n\n\nAug 29, 2024\n\n\n9/4/24, 1:02:08 AM\n\n\n03 (Part 2) ‘2nd Order Spatial Point Patterns Analysis Methods’\n\n\n\n\nSep 2, 2024\n\n\n9/4/24, 12:47:23 AM\n\n\n03 In-class Exercise 3 (Review)\n\n\n\n\nAug 21, 2024\n\n\n9/2/24, 12:50:39 PM\n\n\n01 In-class Exercise 1 (Review)\n\n\n\n\nAug 26, 2024\n\n\n9/2/24, 12:50:06 PM\n\n\n02 In-class Exercise 2 (Review)\n\n\n\n\nAug 21, 2024\n\n\n8/28/24, 12:59:02 AM\n\n\n02 ‘Thematic Mapping and GeoVisualisation with R’\n\n\n\n\nAug 20, 2024\n\n\n8/28/24, 12:58:55 AM\n\n\n01 ‘Geospatial Data Science with R’\n\n\n\n\n\nNo matching items\n\n\n  \n\n Back to top"
   },
   {
     "objectID": "about.html",
@@ -694,6 +694,30 @@
       "Home",
       "Take Home Exercises",
       "01 Take Home Exercise 1"
+    ]
+  },
+  {
+    "objectID": "in-class-exercise/ex05/in-class-ex05.html",
+    "href": "in-class-exercise/ex05/in-class-ex05.html",
+    "title": "05 In-class Exercise (Review)",
+    "section": "",
+    "text": "Geographically referenced attributes\n-&gt; entities are geographically referenced/have a location -&gt; either polygons or points.\nPreliminary Visualisation -&gt; Just map it out on a map, then obtain\n\n\nTypes of Relationships to define Spatial Weights:\n\nAdjacent relationships (common boundary), also called Adjacency.\n\nif polygon data, there are also concerns that if a polygon is very long, then they will have a high adjacency count.\n\nDistance based relationships;\n\nif polygon data, the algorithm will find the centroids of each polygon. However, limitation: large and irregularly shaped polygons will result in centroids being extremely far away from others. To ‘fix’ this, we can shift the centroids of these large polygons closer to the other neighbours (depends on context.)\nif multipolygon/multipoint data, then you should choose the only necessary points so that your centroids or points are not in the middle of nowhere.\nIf points, it will be easier –&gt; just distance between points.\n\n\n\n\n\nwe can use binary metrics (whether within a search radius/distance)\na continuous metrics (higher weights if near, lower weights if further)\n\n\n\n\n\nSee: Rooks Case, Bishops Case, Queens/Kings Case\nLagged Adjacency for continuity metric, see first order adjacency, second order adjacency, i.e. (neighbour of neighbour)\n\n\n\n\n\nIn practice, we will not use spatial weights as-is, we will standardise the weights by row or by columns (gives the same final results as the matrix is symmetrical).\nThe summation of standardised weights will therefore be an average average.\n\n*GDPPC –&gt; GDP per capita",
+    "crumbs": [
+      "Home",
+      "In-class Exercises",
+      "05 In-class Exercise 5 (Review)"
+    ]
+  },
+  {
+    "objectID": "in-class-exercise/ex05/in-class-ex05.html#spatial-weights",
+    "href": "in-class-exercise/ex05/in-class-ex05.html#spatial-weights",
+    "title": "05 In-class Exercise (Review)",
+    "section": "",
+    "text": "Types of Relationships to define Spatial Weights:\n\nAdjacent relationships (common boundary), also called Adjacency.\n\nif polygon data, there are also concerns that if a polygon is very long, then they will have a high adjacency count.\n\nDistance based relationships;\n\nif polygon data, the algorithm will find the centroids of each polygon. However, limitation: large and irregularly shaped polygons will result in centroids being extremely far away from others. To ‘fix’ this, we can shift the centroids of these large polygons closer to the other neighbours (depends on context.)\nif multipolygon/multipoint data, then you should choose the only necessary points so that your centroids or points are not in the middle of nowhere.\nIf points, it will be easier –&gt; just distance between points.\n\n\n\n\n\nwe can use binary metrics (whether within a search radius/distance)\na continuous metrics (higher weights if near, lower weights if further)\n\n\n\n\n\nSee: Rooks Case, Bishops Case, Queens/Kings Case\nLagged Adjacency for continuity metric, see first order adjacency, second order adjacency, i.e. (neighbour of neighbour)\n\n\n\n\n\nIn practice, we will not use spatial weights as-is, we will standardise the weights by row or by columns (gives the same final results as the matrix is symmetrical).\nThe summation of standardised weights will therefore be an average average.\n\n*GDPPC –&gt; GDP per capita",
+    "crumbs": [
+      "Home",
+      "In-class Exercises",
+      "05 In-class Exercise 5 (Review)"
     ]
   }
 ]

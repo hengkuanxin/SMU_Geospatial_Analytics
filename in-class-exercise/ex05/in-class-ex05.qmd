@@ -53,8 +53,160 @@ Types of Relationships to define Spatial Weights:
 
 \*GDPPC –\> GDP per capita
 
-# Importing the necessary
+# In-class Exercise 05
+
+Focus: Geographically Weighted Summary Statitstics with adaptive Bandwidth
+
+## Importing the necessary
+
+We will be using a different version called [GWmodel](https://cran.r-project.org/web/packages/GWmodel/index.html); Geographically-Weighted Models The latest date as of writing, is 2.4-1.
 
 ```{r}
-pacman::p_load(sf,spdep, tmap, tidyverse, knitr)
+pacman::p_load(sf,spdep, tmap, tidyverse, knitr, GWmodel)
 ```
+
+```{r}
+#| eval: false
+hunan_sf <- st_read(dsn="data/geospatial", layer="Hunan")
+hunan_2012 <- read_csv("data/aspatial/Hunan_2012.csv")
+```
+
+If we have a dataset where we do not exactly know the projection CRS, there is no choice but to use non-projected CRS. But in this case, we should search for the EPSG Code for projected CRS at Hunan, China
+
+### Join and Filter Out Unwanted Attributes
+
+```{r}
+#| eval: false
+hunan <- left_join(hunan_sf, hunan_2012, by="County") %>%
+  select(1:3,7,15,16,31,32) # Selecting NAME_2, ID_3, NAME_3, County, GDPPC, GIO, Agri, Service
+```
+
+### Exporting our data
+
+Once done, we will export our cleaned data set as a RDS file, so that we only to load in our final
+
+```{r}
+#| eval: false
+write_rds(hunan,"data/rds/hunan_sf.rds")
+```
+
+### Reading back our data
+
+```{r}
+#| echo: false
+hunan_sf <- read_rds("data/rds/hunan_sf.rds")
+```
+
+### Converting to SpatialPolygonDataFrame
+
+Note: if we try to run GWmodel, we realise that GWmodel is built around the older sp and not sf formats for handling spatial data in R.
+
+In sp, we have multiple lists –\> **data polygons** **proj4string**
+
+Looking through, we are able to see that the attributes are
+
+```{r}
+hunan_sp <- hunan_sf %>% as_Spatial()
+```
+
+### Determine adaptive bandwidth.
+
+Note that .gwr is used for regression, but we just want to use their model. Without providing an actual function, we write GDPPC \~ 1 –\> which means GDPPC is a function of 1, i.e. GDPPC = GDPPC.
+
+::: callout-caution
+Our data is in lat,long, when we pass it through the algorithm, the algorithm will use the Great Circle projection. **The output will be in kilometers (rather than metres)!**
+:::
+
+GDPPC \~ 1
+
+```{r}
+bw_AIC <- bw.gwr(GDPPC ~ 1,
+                 data= hunan_sp,
+                 approach = "AIC",    # or use CV (Cross-Validation) the AI models
+                 adaptive = TRUE,     # calculate 
+                 kernel = "bisquare", #
+                 longlat = TRUE)      # Given that our data is in latlong, the great circle  
+```
+
+Note that we can see 22 Nearest Neighbours
+
+```{r}
+bw_CV <- bw.gwr(GDPPC ~ 1,
+                 data= hunan_sp,
+                 approach = "CV",
+                 adaptive = TRUE,     # calculate 
+                 kernel = "bisquare", #
+                 longlat = TRUE)      # Given that our data is in latlong, the great circle  
+```
+
+```{r}
+bw_CV_fix <- bw.gwr(GDPPC ~ 1,
+                 data= hunan_sp,
+                 approach = "CV",
+                 adaptive = FALSE,
+                 kernel = "bisquare", #
+                 longlat = TRUE)      # Given that our data is in latlong, the great circle
+```
+
+```{r}
+bw_AIC_fix <- bw.gwr(GDPPC ~ 1,
+                 data= hunan_sp,
+                 approach = "AIC",
+                 adaptive = FALSE,
+                 kernel = "bisquare", #
+                 longlat = TRUE)      # Given that our data is in latlong, the great circle
+```
+
+### Computing geographically weighted summary statistics
+
+We will now calculate the summary statistics. Note that your parameters must be the same! If you used adaptive bandwidth, your parameter here should be parameter as well. Otherwise,
+
+![](images/clipboard-86795315.png)
+
+Note, under the list SDF \> data, we open the table and see:
+
+![](images/clipboard-3601422582.png)
+
+L means Local (note remember that we have 22 nearest neighbours)
+
+LM means local mean, LSD means local standard deviation
+
+```{r}
+gwstat <- gwss(data= hunan_sp,
+               vars= "GDPPC",
+               bw = bw_AIC,
+               kernel = "bisquare",
+               adaptive = TRUE,
+               longlat = TRUE)
+```
+
+```{r}
+gwstat_df <- as.data.frame(gwstat$SDF)
+hunan_gstat <- cbind(hunan_sf, gwstat_df) # we are appending both tables together based on their index. CAUTION: not to change the sequence of your data during this process.
+```
+
+### Visual Map of the Summary Statistics (Mean)
+
+```{r}
+tmap_mode("plot")
+tm_shape(hunan_gstat) + #
+  tm_fill("GDPPC_LM",
+          n = 5,
+          style = "quantile") +
+  tm_borders( alpha = 0.5 ) +
+  tm_layout(main.title = "Distribution of geographically weighted mean",
+            main.title.position = "center",
+            main.title.size = 1,
+            legend.text.size = 0.7,
+            legend.height = 1,
+            legend.width = 1,
+            frame = TRUE)
+```
+
+Further notes for Take-Home-Exercise01
+
+You do not need to do the analysis for the whole of Myanmar. It will require an extremely large computational power.
+
+You can scale down the study area into specific regions, and try to find out what are the localised spatial point patterns.
+
+In fact, that will allow us to see the localised patterns better. See previous work on Take-Home Exercises.

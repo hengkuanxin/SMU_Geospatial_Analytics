@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "R for Geospatial Analytics",
     "section": "",
-    "text": "Contents overview:\n\nHome (this page)\nAbout\nHands-on exercises\nIn-class exercises\nTake-home Assignment\n\nThe table below shows the latest edits I have added.\n\n\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nDate\n\n\nModified\n\n\nTitle\n\n\n\n\n\n\nSep 4, 2024\n\n\n9/21/24, 7:30:16 PM\n\n\n01 Take Home Exercise 1\n\n\n\n\nSep 16, 2024\n\n\n9/16/24, 11:21:43 AM\n\n\n05 In-class Exercise (Review)\n\n\n\n\nSep 9, 2024\n\n\n9/9/24, 4:43:44 PM\n\n\n04 In-class Exercise 4 (Review)\n\n\n\n\nSep 3, 2024\n\n\n9/9/24, 9:45:13 AM\n\n\n04 ‘Network Constrained Spatial Point Patterns Analysis’\n\n\n\n\nAug 29, 2024\n\n\n9/4/24, 1:06:04 AM\n\n\n03 (Part 1) ‘1st Order Spatial Point Patterns Analysis Methods’\n\n\n\n\nAug 29, 2024\n\n\n9/4/24, 1:02:08 AM\n\n\n03 (Part 2) ‘2nd Order Spatial Point Patterns Analysis Methods’\n\n\n\n\nSep 2, 2024\n\n\n9/4/24, 12:47:23 AM\n\n\n03 In-class Exercise 3 (Review)\n\n\n\n\nAug 21, 2024\n\n\n9/2/24, 12:50:39 PM\n\n\n01 In-class Exercise 1 (Review)\n\n\n\n\nAug 26, 2024\n\n\n9/2/24, 12:50:06 PM\n\n\n02 In-class Exercise 2 (Review)\n\n\n\n\nAug 21, 2024\n\n\n8/28/24, 12:59:02 AM\n\n\n02 ‘Thematic Mapping and GeoVisualisation with R’\n\n\n\n\nAug 20, 2024\n\n\n8/28/24, 12:58:55 AM\n\n\n01 ‘Geospatial Data Science with R’\n\n\n\n\n\nNo matching items\n\n\n  \n\n Back to top"
+    "text": "Contents overview:\n\nHome (this page)\nAbout\nHands-on exercises\nIn-class exercises\nTake-home Assignment\n\nThe table below shows the latest edits I have added.\n\n\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nDate\n\n\nModified\n\n\nTitle\n\n\n\n\n\n\nSep 21, 2024\n\n\n9/21/24, 11:41:57 PM\n\n\n06 (Part 1) ‘Global Measures of Spatial Autocorrelation’\n\n\n\n\nSep 4, 2024\n\n\n9/21/24, 7:30:16 PM\n\n\n01 Take Home Exercise 1\n\n\n\n\nSep 16, 2024\n\n\n9/16/24, 11:21:43 AM\n\n\n05 In-class Exercise (Review)\n\n\n\n\nSep 9, 2024\n\n\n9/9/24, 4:43:44 PM\n\n\n04 In-class Exercise 4 (Review)\n\n\n\n\nSep 3, 2024\n\n\n9/9/24, 9:45:13 AM\n\n\n04 ‘Network Constrained Spatial Point Patterns Analysis’\n\n\n\n\nAug 29, 2024\n\n\n9/4/24, 1:06:04 AM\n\n\n03 (Part 1) ‘1st Order Spatial Point Patterns Analysis Methods’\n\n\n\n\nAug 29, 2024\n\n\n9/4/24, 1:02:08 AM\n\n\n03 (Part 2) ‘2nd Order Spatial Point Patterns Analysis Methods’\n\n\n\n\nSep 2, 2024\n\n\n9/4/24, 12:47:23 AM\n\n\n03 In-class Exercise 3 (Review)\n\n\n\n\nAug 21, 2024\n\n\n9/2/24, 12:50:39 PM\n\n\n01 In-class Exercise 1 (Review)\n\n\n\n\nAug 26, 2024\n\n\n9/2/24, 12:50:06 PM\n\n\n02 In-class Exercise 2 (Review)\n\n\n\n\nAug 21, 2024\n\n\n8/28/24, 12:59:02 AM\n\n\n02 ‘Thematic Mapping and GeoVisualisation with R’\n\n\n\n\nAug 20, 2024\n\n\n8/28/24, 12:58:55 AM\n\n\n01 ‘Geospatial Data Science with R’\n\n\n\n\n\nNo matching items\n\n\n  \n\n Back to top"
   },
   {
     "objectID": "about.html",
@@ -850,6 +850,138 @@
       "Home",
       "Take Home Exercises",
       "01 Take Home Exercise 1"
+    ]
+  },
+  {
+    "objectID": "hands-on-exercise/ex06/hands-on-ex06_01.html",
+    "href": "hands-on-exercise/ex06/hands-on-ex06_01.html",
+    "title": "06 (Part 1) ‘Global Measures of Spatial Autocorrelation’",
+    "section": "",
+    "text": "(Copied from Exercise)\nIn this hands-on exercise, you will learn how to compute Global Measures of Spatial Autocorrelation (GMSA) by using spdep package. By the end to this hands-on exercise, you will be able to:\n\nimport geospatial data using appropriate function(s) of sf package,\nimport csv file using appropriate function of readr package,\nperform relational join using appropriate join function of dplyr package,\ncompute Global Spatial Autocorrelation (GSA) statistics by using appropriate functions of spdep package,\n\nplot Moran scatterplot,\ncompute and plot spatial correlogram using appropriate function of spdep package.\n\nprovide statistically correct interpretation of GSA statistics.\n\n\n\n(Copied from Exercise)\nTwo data sets will be used in this hands-on exercise, they are:\n\nHunan province administrative boundary layer at county level. This is a geospatial data set in ESRI shapefile format.\nHunan_2012.csv: This csv file contains selected Hunan’s local development indicators in 2012.",
+    "crumbs": [
+      "Home",
+      "Hands-on Exercises",
+      "06 (Part 1) ‘Global Measures of Spatial Autocorrelation’"
+    ]
+  },
+  {
+    "objectID": "hands-on-exercise/ex06/hands-on-ex06_01.html#import-packages",
+    "href": "hands-on-exercise/ex06/hands-on-ex06_01.html#import-packages",
+    "title": "06 (Part 1) ‘Global Measures of Spatial Autocorrelation’",
+    "section": "Import packages",
+    "text": "Import packages\n\npacman::p_load(sf, spdep, tmap, tidyverse)\n\n\nImport Data\n\n# geospatial polygon feature layer\nhunan &lt;- st_read(dsn = \"data/geospatial\", \n                 layer = \"Hunan\") # Note that crs is in WGS84, need to convert (TO BE COMPLETED)\n\nReading layer `Hunan' from data source \n  `C:\\hengkuanxin\\SMU_Geospatial_Analytics\\hands-on-exercise\\ex06\\data\\geospatial' \n  using driver `ESRI Shapefile'\nSimple feature collection with 88 features and 7 fields\nGeometry type: POLYGON\nDimension:     XY\nBounding box:  xmin: 108.7831 ymin: 24.6342 xmax: 114.2544 ymax: 30.12812\nGeodetic CRS:  WGS 84\n\n# statistics data\nhunan2012 &lt;- read_csv(\"data/aspatial/Hunan_2012.csv\")\n\n\n# do a relational join to add statistics to sf object\nhunan &lt;- left_join(hunan,hunan2012) %&gt;%\n  select(1:4, 7, 15)\n\n\n\nVisualising Regional Development Indicator\n\nequal &lt;- tm_shape(hunan) +\n  tm_fill(\"GDPPC\",\n          n = 5,\n          style = \"equal\") +\n  tm_borders(alpha = 0.5) +\n  tm_layout(main.title = \"Equal interval classification\")\n\nquantile &lt;- tm_shape(hunan) +\n  tm_fill(\"GDPPC\",\n          n = 5,\n          style = \"quantile\") +\n  tm_borders(alpha = 0.5) +\n  tm_layout(main.title = \"Equal quantile classification\")\n\ntmap_arrange(equal, \n             quantile, \n             asp=1, \n             ncol=2)",
+    "crumbs": [
+      "Home",
+      "Hands-on Exercises",
+      "06 (Part 1) ‘Global Measures of Spatial Autocorrelation’"
+    ]
+  },
+  {
+    "objectID": "hands-on-exercise/ex06/hands-on-ex06_01.html#spatial-weights-queen",
+    "href": "hands-on-exercise/ex06/hands-on-ex06_01.html#spatial-weights-queen",
+    "title": "06 (Part 1) ‘Global Measures of Spatial Autocorrelation’",
+    "section": "Spatial Weights (Queen)",
+    "text": "Spatial Weights (Queen)\n\nwm_q &lt;- poly2nb(hunan, \n                queen=TRUE)\nsummary(wm_q)\n\nNeighbour list object:\nNumber of regions: 88 \nNumber of nonzero links: 448 \nPercentage nonzero weights: 5.785124 \nAverage number of links: 5.090909 \nLink number distribution:\n\n 1  2  3  4  5  6  7  8  9 11 \n 2  2 12 16 24 14 11  4  2  1 \n2 least connected regions:\n30 65 with 1 link\n1 most connected region:\n85 with 11 links",
+    "crumbs": [
+      "Home",
+      "Hands-on Exercises",
+      "06 (Part 1) ‘Global Measures of Spatial Autocorrelation’"
+    ]
+  },
+  {
+    "objectID": "hands-on-exercise/ex06/hands-on-ex06_01.html#standardise-weights-row",
+    "href": "hands-on-exercise/ex06/hands-on-ex06_01.html#standardise-weights-row",
+    "title": "06 (Part 1) ‘Global Measures of Spatial Autocorrelation’",
+    "section": "Standardise Weights (Row)",
+    "text": "Standardise Weights (Row)\n\nrswm_q &lt;- nb2listw(wm_q, \n                   style=\"W\", \n                   zero.policy = TRUE)\nrswm_q\n\nCharacteristics of weights list object:\nNeighbour list object:\nNumber of regions: 88 \nNumber of nonzero links: 448 \nPercentage nonzero weights: 5.785124 \nAverage number of links: 5.090909 \n\nWeights style: W \nWeights constants summary:\n   n   nn S0       S1       S2\nW 88 7744 88 37.86334 365.9147",
+    "crumbs": [
+      "Home",
+      "Hands-on Exercises",
+      "06 (Part 1) ‘Global Measures of Spatial Autocorrelation’"
+    ]
+  },
+  {
+    "objectID": "hands-on-exercise/ex06/hands-on-ex06_01.html#conduct-a-monte-carlo-simulation-of-morans-i-test",
+    "href": "hands-on-exercise/ex06/hands-on-ex06_01.html#conduct-a-monte-carlo-simulation-of-morans-i-test",
+    "title": "06 (Part 1) ‘Global Measures of Spatial Autocorrelation’",
+    "section": "Conduct a Monte-Carlo simulation of Moran’s I test",
+    "text": "Conduct a Monte-Carlo simulation of Moran’s I test\n\nset.seed(1234)\nbperm= moran.mc(hunan$GDPPC, \n                listw=rswm_q, \n                nsim=999, \n                zero.policy = TRUE, \n                na.action=na.omit)\nbperm\n\n\n    Monte-Carlo simulation of Moran I\n\ndata:  hunan$GDPPC \nweights: rswm_q  \nnumber of simulations + 1: 1000 \n\nstatistic = 0.30075, observed rank = 1000, p-value = 0.001\nalternative hypothesis: greater",
+    "crumbs": [
+      "Home",
+      "Hands-on Exercises",
+      "06 (Part 1) ‘Global Measures of Spatial Autocorrelation’"
+    ]
+  },
+  {
+    "objectID": "hands-on-exercise/ex06/hands-on-ex06_01.html#visualising-monte-carlo-morans-i",
+    "href": "hands-on-exercise/ex06/hands-on-ex06_01.html#visualising-monte-carlo-morans-i",
+    "title": "06 (Part 1) ‘Global Measures of Spatial Autocorrelation’",
+    "section": "Visualising Monte Carlo Moran’s I",
+    "text": "Visualising Monte Carlo Moran’s I\n\nmean(bperm$res[1:999])\n\n[1] -0.01504572\n\nvar(bperm$res[1:999])\n\n[1] 0.004371574\n\nsummary(bperm$res[1:999])\n\n    Min.  1st Qu.   Median     Mean  3rd Qu.     Max. \n-0.18339 -0.06168 -0.02125 -0.01505  0.02611  0.27593 \n\n\n\nhist(bperm$res, \n     freq=TRUE, \n     breaks=20, \n     xlab=\"Simulated Moran's I\")\nabline(v=0, \n       col=\"red\")",
+    "crumbs": [
+      "Home",
+      "Hands-on Exercises",
+      "06 (Part 1) ‘Global Measures of Spatial Autocorrelation’"
+    ]
+  },
+  {
+    "objectID": "hands-on-exercise/ex06/hands-on-ex06_01.html#gearys-c-test",
+    "href": "hands-on-exercise/ex06/hands-on-ex06_01.html#gearys-c-test",
+    "title": "06 (Part 1) ‘Global Measures of Spatial Autocorrelation’",
+    "section": "Geary’s C test",
+    "text": "Geary’s C test\n\ngeary.test(hunan$GDPPC, listw=rswm_q)\n\n\n    Geary C test under randomisation\n\ndata:  hunan$GDPPC \nweights: rswm_q   \n\nGeary C statistic standard deviate = 3.6108, p-value = 0.0001526\nalternative hypothesis: Expectation greater than statistic\nsample estimates:\nGeary C statistic       Expectation          Variance \n        0.6907223         1.0000000         0.0073364",
+    "crumbs": [
+      "Home",
+      "Hands-on Exercises",
+      "06 (Part 1) ‘Global Measures of Spatial Autocorrelation’"
+    ]
+  },
+  {
+    "objectID": "hands-on-exercise/ex06/hands-on-ex06_01.html#computing-monte-carlo-gearys-c",
+    "href": "hands-on-exercise/ex06/hands-on-ex06_01.html#computing-monte-carlo-gearys-c",
+    "title": "06 (Part 1) ‘Global Measures of Spatial Autocorrelation’",
+    "section": "Computing Monte Carlo Geary’s C",
+    "text": "Computing Monte Carlo Geary’s C\n\nset.seed(1234)\nbperm=geary.mc(hunan$GDPPC, \n               listw=rswm_q, \n               nsim=999)\nbperm\n\n\n    Monte-Carlo simulation of Geary C\n\ndata:  hunan$GDPPC \nweights: rswm_q  \nnumber of simulations + 1: 1000 \n\nstatistic = 0.69072, observed rank = 1, p-value = 0.001\nalternative hypothesis: greater",
+    "crumbs": [
+      "Home",
+      "Hands-on Exercises",
+      "06 (Part 1) ‘Global Measures of Spatial Autocorrelation’"
+    ]
+  },
+  {
+    "objectID": "hands-on-exercise/ex06/hands-on-ex06_01.html#visualising-the-monte-carlo-gearys-c",
+    "href": "hands-on-exercise/ex06/hands-on-ex06_01.html#visualising-the-monte-carlo-gearys-c",
+    "title": "06 (Part 1) ‘Global Measures of Spatial Autocorrelation’",
+    "section": "Visualising the Monte Carlo Geary’s C",
+    "text": "Visualising the Monte Carlo Geary’s C\n\nmean(bperm$res[1:999])\n\n[1] 1.004402\n\nvar(bperm$res[1:999])\n\n[1] 0.007436493\n\nsummary(bperm$res[1:999])\n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n 0.7142  0.9502  1.0052  1.0044  1.0595  1.2722 \n\n\n\nhist(bperm$res, \n     freq=TRUE, \n     breaks=20, \n     xlab=\"Simulated Geary c\")\n\nabline(v=1, col=\"red\")",
+    "crumbs": [
+      "Home",
+      "Hands-on Exercises",
+      "06 (Part 1) ‘Global Measures of Spatial Autocorrelation’"
+    ]
+  },
+  {
+    "objectID": "hands-on-exercise/ex06/hands-on-ex06_01.html#compute-morans-i-correlogram",
+    "href": "hands-on-exercise/ex06/hands-on-ex06_01.html#compute-morans-i-correlogram",
+    "title": "06 (Part 1) ‘Global Measures of Spatial Autocorrelation’",
+    "section": "Compute Moran’s I correlogram",
+    "text": "Compute Moran’s I correlogram\n\n# Compute a 6 lag correlogram\nMI_corr &lt;- sp.correlogram(wm_q, \n                          hunan$GDPPC, \n                          order=6, \n                          method=\"I\", \n                          style=\"W\")\nplot(MI_corr)\n\n\n\n\n\n\n\n\n\nprint(MI_corr)\n\nSpatial correlogram for hunan$GDPPC \nmethod: Moran's I\n         estimate expectation   variance standard deviate Pr(I) two sided    \n1 (88)  0.3007500  -0.0114943  0.0043484           4.7351       2.189e-06 ***\n2 (88)  0.2060084  -0.0114943  0.0020962           4.7505       2.029e-06 ***\n3 (88)  0.0668273  -0.0114943  0.0014602           2.0496        0.040400 *  \n4 (88)  0.0299470  -0.0114943  0.0011717           1.2107        0.226015    \n5 (88) -0.1530471  -0.0114943  0.0012440          -4.0134       5.984e-05 ***\n6 (88) -0.1187070  -0.0114943  0.0016791          -2.6164        0.008886 ** \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1",
+    "crumbs": [
+      "Home",
+      "Hands-on Exercises",
+      "06 (Part 1) ‘Global Measures of Spatial Autocorrelation’"
+    ]
+  },
+  {
+    "objectID": "hands-on-exercise/ex06/hands-on-ex06_01.html#compute-gearys-c-correlogram-and-plo",
+    "href": "hands-on-exercise/ex06/hands-on-ex06_01.html#compute-gearys-c-correlogram-and-plo",
+    "title": "06 (Part 1) ‘Global Measures of Spatial Autocorrelation’",
+    "section": "Compute Geary’s C correlogram and plo",
+    "text": "Compute Geary’s C correlogram and plo\n\nGC_corr &lt;- sp.correlogram(wm_q, \n                          hunan$GDPPC, \n                          order=6, \n                          method=\"C\", \n                          style=\"W\")\nplot(GC_corr)\n\n\n\n\n\n\n\n\n\nprint(GC_corr)\n\nSpatial correlogram for hunan$GDPPC \nmethod: Geary's C\n        estimate expectation  variance standard deviate Pr(I) two sided    \n1 (88) 0.6907223   1.0000000 0.0073364          -3.6108       0.0003052 ***\n2 (88) 0.7630197   1.0000000 0.0049126          -3.3811       0.0007220 ***\n3 (88) 0.9397299   1.0000000 0.0049005          -0.8610       0.3892612    \n4 (88) 1.0098462   1.0000000 0.0039631           0.1564       0.8757128    \n5 (88) 1.2008204   1.0000000 0.0035568           3.3673       0.0007592 ***\n6 (88) 1.0773386   1.0000000 0.0058042           1.0151       0.3100407    \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1",
+    "crumbs": [
+      "Home",
+      "Hands-on Exercises",
+      "06 (Part 1) ‘Global Measures of Spatial Autocorrelation’"
     ]
   }
 ]

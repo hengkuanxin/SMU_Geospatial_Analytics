@@ -1,0 +1,220 @@
+---
+title: "06 (Part 1) ‘Global Measures of Spatial Autocorrelation’"
+author: "Heng Kuan Xin"
+date: 2024-09-21
+date-modified: "last-modified"
+execute:
+  eval: true
+  echo: true
+  freeze: true
+  output: true
+  warning: false
+  error: false
+
+toc: true
+toc-depth: 4
+---
+
+# Overview:
+
+(Copied from Exercise)
+
+In this hands-on exercise, you will learn how to compute Global Measures of Spatial Autocorrelation (GMSA) by using **spdep** package. By the end to this hands-on exercise, you will be able to:
+
+-   import geospatial data using appropriate function(s) of **sf** package,
+
+-   import csv file using appropriate function of **readr** package,
+
+-   perform relational join using appropriate join function of **dplyr** package,
+
+-   compute Global Spatial Autocorrelation (GSA) statistics by using appropriate functions of **spdep** package,
+
+    -   plot Moran scatterplot,
+
+    -   compute and plot spatial correlogram using appropriate function of **spdep** package.
+
+-   provide statistically correct interpretation of GSA statistics.
+
+### The Study Area and Data
+
+(Copied from Exercise)
+
+Two data sets will be used in this hands-on exercise, they are:
+
+-   Hunan province administrative boundary layer at county level. This is a geospatial data set in ESRI shapefile format.
+
+-   `Hunan_2012.csv`: This csv file contains selected Hunan’s local development indicators in 2012.
+
+# Import the necessary
+
+## Import packages
+
+```{r}
+pacman::p_load(sf, spdep, tmap, tidyverse)
+```
+
+### Import Data
+
+```{r}
+# geospatial polygon feature layer
+hunan <- st_read(dsn = "data/geospatial", 
+                 layer = "Hunan") # Note that crs is in WGS84, need to convert (TO BE COMPLETED)
+# statistics data
+hunan2012 <- read_csv("data/aspatial/Hunan_2012.csv")
+
+```
+
+```{r}
+# do a relational join to add statistics to sf object
+hunan <- left_join(hunan,hunan2012) %>%
+  select(1:4, 7, 15)
+
+```
+
+### Visualising Regional Development Indicator
+
+```{r}
+equal <- tm_shape(hunan) +
+  tm_fill("GDPPC",
+          n = 5,
+          style = "equal") +
+  tm_borders(alpha = 0.5) +
+  tm_layout(main.title = "Equal interval classification")
+
+quantile <- tm_shape(hunan) +
+  tm_fill("GDPPC",
+          n = 5,
+          style = "quantile") +
+  tm_borders(alpha = 0.5) +
+  tm_layout(main.title = "Equal quantile classification")
+
+tmap_arrange(equal, 
+             quantile, 
+             asp=1, 
+             ncol=2)
+```
+
+# Global Measures of Spatial Autocorrelation
+
+## Spatial Weights (Queen)
+
+```{r}
+wm_q <- poly2nb(hunan, 
+                queen=TRUE)
+summary(wm_q)
+```
+
+## Standardise Weights (Row)
+
+```{r}
+rswm_q <- nb2listw(wm_q, 
+                   style="W", 
+                   zero.policy = TRUE)
+rswm_q
+```
+
+# Global Measures of Spatial Autocorrelation: Moran’s I
+
+```{r}
+moran.test(hunan$GDPPC, 
+           listw=rswm_q, 
+           zero.policy = TRUE, 
+           na.action=na.omit)
+```
+
+## Conduct a Monte-Carlo simulation of Moran's I test
+
+```{r}
+set.seed(1234)
+bperm= moran.mc(hunan$GDPPC, 
+                listw=rswm_q, 
+                nsim=999, 
+                zero.policy = TRUE, 
+                na.action=na.omit)
+bperm
+```
+
+## Visualising Monte Carlo Moran’s I
+
+```{r}
+mean(bperm$res[1:999])
+var(bperm$res[1:999])
+summary(bperm$res[1:999])
+```
+
+```{r}
+hist(bperm$res, 
+     freq=TRUE, 
+     breaks=20, 
+     xlab="Simulated Moran's I")
+abline(v=0, 
+       col="red") 
+```
+
+# Global Measures of Spatial Autocorrelation: Geary’s C
+
+## Geary’s C test
+
+```{r}
+geary.test(hunan$GDPPC, listw=rswm_q)
+```
+
+## Computing Monte Carlo Geary’s C
+
+```{r}
+set.seed(1234)
+bperm=geary.mc(hunan$GDPPC, 
+               listw=rswm_q, 
+               nsim=999)
+bperm
+```
+
+## Visualising the Monte Carlo Geary’s C
+
+```{r}
+mean(bperm$res[1:999])
+var(bperm$res[1:999])
+summary(bperm$res[1:999])
+```
+
+```{r}
+hist(bperm$res, 
+     freq=TRUE, 
+     breaks=20, 
+     xlab="Simulated Geary c")
+
+abline(v=1, col="red") 
+```
+
+# Spatial Correlogram
+
+## Compute Moran’s I correlogram
+
+```{r}
+# Compute a 6 lag correlogram
+MI_corr <- sp.correlogram(wm_q, 
+                          hunan$GDPPC, 
+                          order=6, 
+                          method="I", 
+                          style="W")
+plot(MI_corr)
+```
+
+```{r}
+print(MI_corr)
+```
+
+## Compute Geary’s C correlogram and plo
+
+```{r}
+GC_corr <- sp.correlogram(wm_q, 
+                          hunan$GDPPC, 
+                          order=6, 
+                          method="C", 
+                          style="W")
+plot(GC_corr)
+```
+
+```{r}
+print(GC_corr)
+```

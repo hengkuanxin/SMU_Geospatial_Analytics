@@ -57,6 +57,9 @@ website:
           href: "hands-on-exercise/ex03/hands-on-ex03_02.html"
         - text: "04 ‘Network Constrained Spatial Point Patterns Analysis’"
           href: "hands-on-exercise/ex04/hands-on-ex04.html"
+        - text: "05 INCOMPLETE"
+        - text: "06 (Part 1) ‘Global Measures of Spatial Autocorrelation’"
+          href: "hands-on-exercise/ex06/hands-on-ex06_01.html"
       - text: "---"
       - section: "In-class Exercises"
         contents:

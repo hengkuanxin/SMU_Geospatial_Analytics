@@ -60,6 +60,8 @@ website:
         - text: "05 INCOMPLETE"
         - text: "06 (Part 1) ‘Global Measures of Spatial Autocorrelation’"
           href: "hands-on-exercise/ex06/hands-on-ex06_01.html"
+        - text: "06 (Part 2) ‘Local Measures of Spatial Autocorrelation’"
+          href: "hands-on-exercise/ex06/hands-on-ex06_02.html"
       - text: "---"
       - section: "In-class Exercises"
         contents:

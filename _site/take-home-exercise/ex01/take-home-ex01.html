@@ -309,14 +309,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
+        <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#importing-the-necessary" id="toc-importing-the-necessary" class="nav-link active" data-scroll-target="#importing-the-necessary"><span class="header-section-number">1</span> Importing the Necessary</a>
+  <li><a href="#import-the-necessary" id="toc-import-the-necessary" class="nav-link active" data-scroll-target="#import-the-necessary"><span class="header-section-number">1</span> Import the Necessary</a>
   <ul class="collapse">
-  <li><a href="#importing-libraries-packages" id="toc-importing-libraries-packages" class="nav-link" data-scroll-target="#importing-libraries-packages"><span class="header-section-number">1.1</span> Importing Libraries / Packages</a></li>
-  <li><a href="#importing-raw-data" id="toc-importing-raw-data" class="nav-link" data-scroll-target="#importing-raw-data"><span class="header-section-number">1.2</span> Importing Raw Data</a>
+  <li><a href="#import-libraries-packages" id="toc-import-libraries-packages" class="nav-link" data-scroll-target="#import-libraries-packages"><span class="header-section-number">1.1</span> Import Libraries / Packages</a></li>
+  <li><a href="#import-raw-data" id="toc-import-raw-data" class="nav-link" data-scroll-target="#import-raw-data"><span class="header-section-number">1.2</span> Import Raw Data</a>
   <ul class="collapse">
   <li><a href="#acled-data-set" id="toc-acled-data-set" class="nav-link" data-scroll-target="#acled-data-set"><span class="header-section-number">1.2.1</span> ACLED Data Set</a></li>
   <li><a href="#administrative-boundary-dataset" id="toc-administrative-boundary-dataset" class="nav-link" data-scroll-target="#administrative-boundary-dataset"><span class="header-section-number">1.2.2</span> Administrative Boundary Dataset</a></li>
@@ -329,9 +329,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#export-data-sets-rds-file-format" id="toc-export-data-sets-rds-file-format" class="nav-link" data-scroll-target="#export-data-sets-rds-file-format"><span class="header-section-number">1.5</span> Export Data Sets (RDS file format)</a></li>
   </ul></li>
-  <li><a href="#kernel-density-estimation" id="toc-kernel-density-estimation" class="nav-link" data-scroll-target="#kernel-density-estimation"><span class="header-section-number">2</span> Kernel-Density Estimation</a>
+  <li><a href="#import-data-sets-rds-file-format" id="toc-import-data-sets-rds-file-format" class="nav-link" data-scroll-target="#import-data-sets-rds-file-format"><span class="header-section-number">2</span> Import Data Sets (RDS file format)</a>
   <ul class="collapse">
-  <li><a href="#import-data-sets-rds-file-format" id="toc-import-data-sets-rds-file-format" class="nav-link" data-scroll-target="#import-data-sets-rds-file-format"><span class="header-section-number">2.1</span> Import Data Sets (RDS file format)</a></li>
+  <li><a href="#identify-study-areas" id="toc-identify-study-areas" class="nav-link" data-scroll-target="#identify-study-areas"><span class="header-section-number">2.1</span> Identify Study Area(s)</a>
+  <ul class="collapse">
+  <li><a href="#visualise-acled-data" id="toc-visualise-acled-data" class="nav-link" data-scroll-target="#visualise-acled-data"><span class="header-section-number">2.1.1</span> Visualise ACLED data</a></li>
+  <li><a href="#decision-study-areas-in-the-western-region-rakhine-chin-magway" id="toc-decision-study-areas-in-the-western-region-rakhine-chin-magway" class="nav-link" data-scroll-target="#decision-study-areas-in-the-western-region-rakhine-chin-magway"><span class="header-section-number">2.1.2</span> Decision: Study Area(s) in the Western Region (Rakhine, Chin, Magway)</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#preparing-study-areas-data" id="toc-preparing-study-areas-data" class="nav-link" data-scroll-target="#preparing-study-areas-data"><span class="header-section-number">3</span> Preparing Study Area(s) Data</a>
+  <ul class="collapse">
+  <li><a href="#select-study-areas-boundary" id="toc-select-study-areas-boundary" class="nav-link" data-scroll-target="#select-study-areas-boundary"><span class="header-section-number">3.1</span> Select Study Area(s) Boundary</a></li>
+  <li><a href="#select-study-areas-acled-data" id="toc-select-study-areas-acled-data" class="nav-link" data-scroll-target="#select-study-areas-acled-data"><span class="header-section-number">3.2</span> Select Study Area(s) ACLED Data</a></li>
+  <li><a href="#export-and-save-data-sets-rds-file-format" id="toc-export-and-save-data-sets-rds-file-format" class="nav-link" data-scroll-target="#export-and-save-data-sets-rds-file-format"><span class="header-section-number">3.3</span> Export and Save Data Sets (RDS file format)</a></li>
+  </ul></li>
+  <li><a href="#kernel-density-estimation" id="toc-kernel-density-estimation" class="nav-link" data-scroll-target="#kernel-density-estimation"><span class="header-section-number">4</span> Kernel Density Estimation</a>
+  <ul class="collapse">
+  <li><a href="#import-previous-data" id="toc-import-previous-data" class="nav-link" data-scroll-target="#import-previous-data"><span class="header-section-number">4.1</span> Import Previous Data</a></li>
+  <li><a href="#separate-analysis" id="toc-separate-analysis" class="nav-link" data-scroll-target="#separate-analysis"><span class="header-section-number">4.2</span> Separate Analysis</a>
+  <ul class="collapse">
+  <li><a href="#create-owin-objects" id="toc-create-owin-objects" class="nav-link" data-scroll-target="#create-owin-objects"><span class="header-section-number">4.2.1</span> Create Owin Objects</a></li>
+  <li><a href="#separate-acled-points-by-region-using-owin" id="toc-separate-acled-points-by-region-using-owin" class="nav-link" data-scroll-target="#separate-acled-points-by-region-using-owin"><span class="header-section-number">4.2.2</span> Separate ACLED Points by Region (using Owin)</a></li>
+  <li><a href="#computing-kde-adaptive-bandwidth-for-each-region" id="toc-computing-kde-adaptive-bandwidth-for-each-region" class="nav-link" data-scroll-target="#computing-kde-adaptive-bandwidth-for-each-region"><span class="header-section-number">4.2.3</span> Computing KDE (adaptive bandwidth) for each Region</a></li>
+  <li><a href="#separating-study-areas" id="toc-separating-study-areas" class="nav-link" data-scroll-target="#separating-study-areas"><span class="header-section-number">4.2.4</span> Separating Study Areas</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 </nav>
@@ -401,60 +422,69 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Focus and Objective:</p>
 <p>Analysis Methods Used:</p>
 <p>Our main purpose here this time is to study the <strong>quarterly spatio-temporal distribution of armed conflict events in Myanmar</strong>. Therefore, the focus is mainly on the <strong>types of events</strong>, <strong>date of events</strong>, and the <strong>location of events</strong>. We will not be focusing on other matters in this exercise.</p>
-<section id="importing-the-necessary" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Importing the Necessary</h1>
-<section id="importing-libraries-packages" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="importing-libraries-packages"><span class="header-section-number">1.1</span> Importing Libraries / Packages</h2>
+<section id="import-the-necessary" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Import the Necessary</h1>
+<section id="import-libraries-packages" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="import-libraries-packages"><span class="header-section-number">1.1</span> Import Libraries / Packages</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(tidyverse, sf, spatstat, ggplot2, tmap)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(tidyverse, sf, spatstat, ggplot2, tmap, gifski)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="importing-raw-data" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="importing-raw-data"><span class="header-section-number">1.2</span> Importing Raw Data</h2>
+<section id="import-raw-data" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="import-raw-data"><span class="header-section-number">1.2</span> Import Raw Data</h2>
 <section id="acled-data-set" class="level3" data-number="1.2.1">
 <h3 data-number="1.2.1" class="anchored" data-anchor-id="acled-data-set"><span class="header-section-number">1.2.1</span> ACLED Data Set</h3>
 <p>Before we start manipulating the data, it is important that we understand what each data column and data type mean and how valuable it is for our analysis.</p>
 <p>To begin, let us refer to the <a href="https://acleddata.com/acleddatanew/wp-content/uploads/dlm_uploads/2023/06/ACLED_Codebook_2023.pdf">ACLED data set codebook</a></p>
-<p>Now, let us first import the data.</p>
+<p>The data was retrieved from the ACLED data portal. Specifically, the following types of data was retrieved:</p>
+<ol type="1">
+<li><code>violence-against-civilians.csv</code></li>
+<li><code>strategic-developments.csv</code></li>
+<li><code>battles.csv</code></li>
+<li><code>explosion-or-remoteviolence.csv</code></li>
+</ol>
+<p>In terms of event types, four main event types were retrieved: <strong>Battles</strong>, <strong>Explosion/Remote violence</strong>, <strong>Strategic developments</strong>, and <strong>Violence against civilians</strong>.</p>
+<p>In terms of study period, we are focused on quarterly armed conflict events from <strong>January 2021</strong> until <strong>June 2024.</strong></p>
+<p>The code chunk below imports the data for our analysis.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="do">##| eval: false</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># filter_columns &lt;- c("event_date","year","disorder_type","sub_event_type","admin1","admin2","admin3")</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>violence_against_civ <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/raw/aspatial/ACLED/violence-against-civilians.csv"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_as_sf</span>(<span class="at">coords =</span><span class="fu">c</span>(</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"longitude"</span>, <span class="st">"latitude"</span>),</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">crs=</span><span class="dv">4326</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">st_transform</span>(<span class="at">crs =</span> <span class="dv">32647</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">event_date =</span> <span class="fu">dmy</span>(event_date))</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>strategic_dev <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/raw/aspatial/ACLED/strategic-developments.csv"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_as_sf</span>(<span class="at">coords =</span><span class="fu">c</span>(</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">"longitude"</span>, <span class="st">"latitude"</span>),</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">crs=</span><span class="dv">4326</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">st_transform</span>(<span class="at">crs =</span> <span class="dv">32647</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">event_date =</span> <span class="fu">dmy</span>(event_date))</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>battles <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/raw/aspatial/ACLED/battles.csv"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_as_sf</span>(<span class="at">coords =</span><span class="fu">c</span>(</span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    <span class="st">"longitude"</span>, <span class="st">"latitude"</span>),</span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">crs=</span><span class="dv">4326</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    <span class="fu">st_transform</span>(<span class="at">crs =</span> <span class="dv">32647</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">event_date =</span> <span class="fu">dmy</span>(event_date))</span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>explosion_or_remote_vio <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/raw/aspatial/ACLED/explosion-or-remoteviolence.csv"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_as_sf</span>(<span class="at">coords =</span><span class="fu">c</span>(</span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>    <span class="st">"longitude"</span>, <span class="st">"latitude"</span>),</span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">crs=</span><span class="dv">4326</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>    <span class="fu">st_transform</span>(<span class="at">crs =</span> <span class="dv">32647</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">event_date =</span> <span class="fu">dmy</span>(event_date))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>violence_against_civilians <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/raw/aspatial/ACLED/violence-against-civilians.csv"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_as_sf</span>(<span class="at">coords =</span><span class="fu">c</span>(</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"longitude"</span>, <span class="st">"latitude"</span>),</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">crs=</span><span class="dv">4326</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">st_transform</span>(<span class="at">crs =</span> <span class="dv">32647</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">event_date =</span> <span class="fu">dmy</span>(event_date))</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>strategic_developments <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/raw/aspatial/ACLED/strategic-developments.csv"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_as_sf</span>(<span class="at">coords =</span><span class="fu">c</span>(</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"longitude"</span>, <span class="st">"latitude"</span>),</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">crs=</span><span class="dv">4326</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">st_transform</span>(<span class="at">crs =</span> <span class="dv">32647</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">event_date =</span> <span class="fu">dmy</span>(event_date))</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>battles <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/raw/aspatial/ACLED/battles.csv"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_as_sf</span>(<span class="at">coords =</span><span class="fu">c</span>(</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">"longitude"</span>, <span class="st">"latitude"</span>),</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">crs=</span><span class="dv">4326</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">st_transform</span>(<span class="at">crs =</span> <span class="dv">32647</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">event_date =</span> <span class="fu">dmy</span>(event_date))</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>explosion_or_remoteviolence <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/raw/aspatial/ACLED/explosion-or-remoteviolence.csv"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_as_sf</span>(<span class="at">coords =</span><span class="fu">c</span>(</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    <span class="st">"longitude"</span>, <span class="st">"latitude"</span>),</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">crs=</span><span class="dv">4326</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>    <span class="fu">st_transform</span>(<span class="at">crs =</span> <span class="dv">32647</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">event_date =</span> <span class="fu">dmy</span>(event_date))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="administrative-boundary-dataset" class="level3" data-number="1.2.2">
 <h3 data-number="1.2.2" class="anchored" data-anchor-id="administrative-boundary-dataset"><span class="header-section-number">1.2.2</span> Administrative Boundary Dataset</h3>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="https://en.wikipedia.org/wiki/Administrative_divisions_of_Myanmar"><img src="images/clipboard-2034245623.png" class="img-fluid figure-img" alt="Myamar's Administrative Division Hierachy"></a></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://en.wikipedia.org/wiki/Administrative_divisions_of_Myanmar"><img src="images/clipboard-2034245623.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Myamar's Administrative Division Hierachy"></a></p>
+</figure>
+</div>
 <figcaption>Myamar’s Administrative Division Hierachy (source: Wikipedia)</figcaption>
 </figure>
 </div>
@@ -521,13 +551,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">qtm</span>(admin_3, <span class="at">title=</span><span class="st">"Township"</span>), </span>
 <span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">ncol =</span> <span class="dv">5</span></span>
 <span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
+</div>
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="take-home-ex01_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="images/unnamed-chunk-4-1.png" class="img-fluid figure-img"></p>
+<figcaption>Plot of Admin Boundaries of Myanmar Raw Data</figcaption>
 </figure>
-</div>
-</div>
 </div>
 <p><strong>Conclusion: Administrative Boundaries Looks Okay</strong></p>
 <p>Looking at both the attribute table and the plot, the administrative boundaries data seem quite alright, so we might not need to do any cleaning. Anyway, the precision of the polygons it not as critical as the precision of the ACLED data (which will be used for our spatial point patterns analysis).</p>
@@ -545,19 +574,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tmap_style</span>(<span class="st">"cobalt"</span>)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">tmap_arrange</span>(</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">qtm</span>(admin_0) <span class="sc">+</span> <span class="fu">qtm</span>(violence_against_civ, <span class="at">title=</span><span class="st">"Violence against</span><span class="sc">\n</span><span class="st">Civilians"</span>), </span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">qtm</span>(admin_0) <span class="sc">+</span> <span class="fu">qtm</span>(strategic_dev, <span class="at">title=</span><span class="st">"Strategic</span><span class="sc">\n</span><span class="st">Developments"</span>), </span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">qtm</span>(admin_0) <span class="sc">+</span> <span class="fu">qtm</span>(explosion_or_remote_vio, <span class="at">title=</span><span class="st">"Explosion/</span><span class="sc">\n</span><span class="st">Remote Violence"</span>), </span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">qtm</span>(admin_0) <span class="sc">+</span> <span class="fu">qtm</span>(violence_against_civilians, <span class="at">title=</span><span class="st">"Violence against</span><span class="sc">\n</span><span class="st">Civilians"</span>), </span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">qtm</span>(admin_0) <span class="sc">+</span> <span class="fu">qtm</span>(strategic_developments, <span class="at">title=</span><span class="st">"Strategic</span><span class="sc">\n</span><span class="st">Developments"</span>), </span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">qtm</span>(admin_0) <span class="sc">+</span> <span class="fu">qtm</span>(explosion_or_remoteviolence, <span class="at">title=</span><span class="st">"Explosion/</span><span class="sc">\n</span><span class="st">Remote Violence"</span>), </span>
 <span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">qtm</span>(admin_0) <span class="sc">+</span> <span class="fu">qtm</span>(battles, <span class="at">title=</span><span class="st">"Battles"</span>), </span>
 <span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">ncol =</span> <span class="dv">4</span></span>
 <span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
+</div>
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="take-home-ex01_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="images/unnamed-chunk-5-1.png" class="img-fluid figure-img"></p>
+<figcaption>Plot of ACLED Raw Points Data</figcaption>
 </figure>
-</div>
-</div>
 </div>
 <p><strong>Observation: ACLED Data Set needs further study, may need to clean</strong></p>
 <p>Nothing looks very off at a glance, but we should look into the attribute columns to see if the data set is truly clean. Let us refer to the <a href="https://acleddata.com/acleddatanew/wp-content/uploads/dlm_uploads/2023/06/ACLED_Codebook_2023.pdf">codebook</a> again, and see if we can spot any potentially critical problems.</p>
@@ -577,16 +605,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Given that precision of our point data is crucial to our spatial-temporal point patterns analysis, we should see how much of our data is imprecise, and whether we should keep the imprecise data points.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Violence against Civilians</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>violence_against_civ <span class="sc">%&gt;%</span> <span class="fu">count</span>(geo_precision)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>violence_against_civ <span class="sc">%&gt;%</span> <span class="fu">count</span>(time_precision)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>violence_against_civilians <span class="sc">%&gt;%</span> <span class="fu">count</span>(geo_precision)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>violence_against_civilians <span class="sc">%&gt;%</span> <span class="fu">count</span>(time_precision)</span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Strategic Developments</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>strategic_dev <span class="sc">%&gt;%</span> <span class="fu">count</span>(geo_precision)</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>strategic_dev <span class="sc">%&gt;%</span> <span class="fu">count</span>(time_precision)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>strategic_developments <span class="sc">%&gt;%</span> <span class="fu">count</span>(geo_precision)</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>strategic_developments <span class="sc">%&gt;%</span> <span class="fu">count</span>(time_precision)</span>
 <span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Explosion or Remote Violence</span></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>explosion_or_remote_vio <span class="sc">%&gt;%</span> <span class="fu">count</span>(geo_precision)</span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>explosion_or_remote_vio <span class="sc">%&gt;%</span> <span class="fu">count</span>(time_precision)</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>explosion_or_remoteviolence <span class="sc">%&gt;%</span> <span class="fu">count</span>(geo_precision)</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>explosion_or_remoteviolence <span class="sc">%&gt;%</span> <span class="fu">count</span>(time_precision)</span>
 <span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Battles</span></span>
 <span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>battles <span class="sc">%&gt;%</span> <span class="fu">count</span>(geo_precision)</span>
@@ -602,34 +630,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Let us filter out the data we want (time_precision and geo_precision codes &lt; 3), and see how many rows we have removed.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract all rows where either geo_precision or time_precision is not = 3 </span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>violence_against_civ_filtered <span class="ot">&lt;-</span> violence_against_civ <span class="sc">%&gt;%</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>violence_against_civilians_filtered <span class="ot">&lt;-</span> violence_against_civilians <span class="sc">%&gt;%</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span>(geo_precision <span class="sc">==</span> <span class="dv">3</span> <span class="sc">|</span> time_precision <span class="sc">==</span> <span class="dv">3</span>))</span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>strategic_dev_filtered <span class="ot">&lt;-</span> strategic_dev <span class="sc">%&gt;%</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>strategic_developments_filtered <span class="ot">&lt;-</span> strategic_developments <span class="sc">%&gt;%</span></span>
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span>(geo_precision <span class="sc">==</span> <span class="dv">3</span> <span class="sc">|</span> time_precision <span class="sc">==</span> <span class="dv">3</span>))</span>
 <span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>explosion_or_remote_vio_filtereed <span class="ot">&lt;-</span> explosion_or_remote_vio <span class="sc">%&gt;%</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>explosion_or_remoteviolence_filtered <span class="ot">&lt;-</span> explosion_or_remoteviolence <span class="sc">%&gt;%</span></span>
 <span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span>(geo_precision <span class="sc">==</span> <span class="dv">3</span> <span class="sc">|</span> time_precision <span class="sc">==</span> <span class="dv">3</span>))</span>
 <span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>battles_filtered <span class="ot">&lt;-</span> battles <span class="sc">%&gt;%</span></span>
 <span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span>(geo_precision <span class="sc">==</span> <span class="dv">3</span> <span class="sc">|</span> time_precision <span class="sc">==</span> <span class="dv">3</span>))</span>
 <span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Number of rows dropped:"</span>, <span class="fu">nrow</span>(violence_against_civ) <span class="sc">-</span> <span class="fu">nrow</span>(violence_against_civ_filtered) , <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Number of rows dropped: 34 </code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Number of rows dropped:"</span>, <span class="fu">nrow</span>(strategic_dev) <span class="sc">-</span> <span class="fu">nrow</span>(strategic_dev_filtered) , <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Number of rows dropped: 227 </code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Number of rows dropped:"</span>, <span class="fu">nrow</span>(explosion_or_remote_vio) <span class="sc">-</span> <span class="fu">nrow</span>(explosion_or_remote_vio_filtereed) , <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Number of rows dropped: 22 </code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Number of rows dropped:"</span>, <span class="fu">nrow</span>(battles) <span class="sc">-</span> <span class="fu">nrow</span>(battles_filtered) , <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Number of rows dropped: 42 </code></pre>
-</div>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Number of rows dropped:"</span>, <span class="fu">nrow</span>(violence_against_civilians) <span class="sc">-</span> <span class="fu">nrow</span>(violence_against_civilians_filtered) , <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Number of rows dropped:"</span>, <span class="fu">nrow</span>(strategic_developments) <span class="sc">-</span> <span class="fu">nrow</span>(strategic_developments_filtered) , <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Number of rows dropped:"</span>, <span class="fu">nrow</span>(explosion_or_remoteviolence) <span class="sc">-</span> <span class="fu">nrow</span>(explosion_or_remoteviolence_filtereed) , <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Number of rows dropped:"</span>, <span class="fu">nrow</span>(battles) <span class="sc">-</span> <span class="fu">nrow</span>(battles_filtered) , <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><strong>Overall, the result seems satisfactory</strong>. Let us continue with our data cleaning. by keeping only columns that are important for our analysis.</p>
 <p>We will only <strong>keep the following columns</strong> as other columns are not relevant to our study:</p>
@@ -644,19 +660,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>(also including the geometry data)</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>filter_columns <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"event_date"</span>,<span class="st">"year"</span>,<span class="st">"disorder_type"</span>,<span class="st">"sub_event_type"</span>,<span class="st">"admin1"</span>,<span class="st">"admin2"</span>,<span class="st">"admin3"</span>)</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>violence_against_civ_filtered <span class="ot">&lt;-</span> violence_against_civ_filtered <span class="sc">%&gt;%</span></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">all_of</span>(filter_columns))</span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>strategic_dev_filtered <span class="ot">&lt;-</span> strategic_dev_filtered <span class="sc">%&gt;%</span></span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">all_of</span>(filter_columns))</span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>explosion_or_remote_vio_filtereed <span class="ot">&lt;-</span> explosion_or_remote_vio_filtereed <span class="sc">%&gt;%</span></span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">all_of</span>(filter_columns))</span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>battles_filtered <span class="ot">&lt;-</span> battles_filtered <span class="sc">%&gt;%</span></span>
-<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">all_of</span>(filter_columns))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>filter_columns <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"event_date"</span>,<span class="st">"year"</span>,<span class="st">"disorder_type"</span>,<span class="st">"sub_event_type"</span>,<span class="st">"admin1"</span>,<span class="st">"admin2"</span>,<span class="st">"admin3"</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>violence_against_civilians_filtered <span class="ot">&lt;-</span> violence_against_civilians_filtered <span class="sc">%&gt;%</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">all_of</span>(filter_columns))</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>strategic_developments_filtered <span class="ot">&lt;-</span> strategic_developments_filtered <span class="sc">%&gt;%</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">all_of</span>(filter_columns))</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>explosion_or_remoteviolence_filtered <span class="ot">&lt;-</span> explosion_or_remoteviolence_filtered <span class="sc">%&gt;%</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">all_of</span>(filter_columns))</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>battles_filtered <span class="ot">&lt;-</span> battles_filtered <span class="sc">%&gt;%</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">all_of</span>(filter_columns))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="data-extraction" class="level2" data-number="1.4">
@@ -666,21 +682,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Now, since we want to analyse the quarterly events, let us add a new column within the tibble DataFrame called <strong>quarter</strong> to represent the quarter of each date in numerical format, e.g.&nbsp;(1, 2, 3, or 4). After that, let us create another column called <strong>year_quarter</strong> to represent the quarter of every year in string format, e.g.&nbsp;(“2021-Q1”, “2023-Q4”).</p>
 <p>The package we will be using here is called lubridate, a package within the tidyverse library.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>violence_against_civ_filtered <span class="ot">&lt;-</span> violence_against_civ_filtered <span class="sc">%&gt;%</span> </span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">quarter =</span> <span class="fu">quarter</span>(event_date)) <span class="sc">%&gt;%</span></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year_quarter =</span> <span class="fu">paste0</span>(year, <span class="st">"-Q"</span>, quarter))</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>strategic_dev_filtered <span class="ot">&lt;-</span> strategic_dev_filtered <span class="sc">%&gt;%</span> </span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">quarter =</span> <span class="fu">quarter</span>(event_date)) <span class="sc">%&gt;%</span></span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year_quarter =</span> <span class="fu">paste0</span>(year, <span class="st">"-Q"</span>, quarter))</span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>explosion_or_remote_vio_filtereed <span class="ot">&lt;-</span> explosion_or_remote_vio_filtereed <span class="sc">%&gt;%</span> </span>
-<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">quarter =</span> <span class="fu">quarter</span>(event_date)) <span class="sc">%&gt;%</span></span>
-<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year_quarter =</span> <span class="fu">paste0</span>(year, <span class="st">"-Q"</span>, quarter))</span>
-<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>battles_filtered <span class="ot">&lt;-</span> battles_filtered <span class="sc">%&gt;%</span> </span>
-<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">quarter =</span> <span class="fu">quarter</span>(event_date)) <span class="sc">%&gt;%</span></span>
-<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year_quarter =</span> <span class="fu">paste0</span>(year, <span class="st">"-Q"</span>, quarter))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>violence_against_civilians_filtered <span class="ot">&lt;-</span> violence_against_civilians_filtered <span class="sc">%&gt;%</span> </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">quarter =</span> <span class="fu">quarter</span>(event_date)) <span class="sc">%&gt;%</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year_quarter =</span> <span class="fu">paste0</span>(year, <span class="st">"-Q"</span>, quarter))</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>strategic_developments_filtered <span class="ot">&lt;-</span> strategic_developments_filtered <span class="sc">%&gt;%</span> </span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">quarter =</span> <span class="fu">quarter</span>(event_date)) <span class="sc">%&gt;%</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year_quarter =</span> <span class="fu">paste0</span>(year, <span class="st">"-Q"</span>, quarter))</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>explosion_or_remoteviolence_filtered <span class="ot">&lt;-</span> explosion_or_remoteviolence_filtered <span class="sc">%&gt;%</span> </span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">quarter =</span> <span class="fu">quarter</span>(event_date)) <span class="sc">%&gt;%</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year_quarter =</span> <span class="fu">paste0</span>(year, <span class="st">"-Q"</span>, quarter))</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>battles_filtered <span class="ot">&lt;-</span> battles_filtered <span class="sc">%&gt;%</span> </span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">quarter =</span> <span class="fu">quarter</span>(event_date)) <span class="sc">%&gt;%</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year_quarter =</span> <span class="fu">paste0</span>(year, <span class="st">"-Q"</span>, quarter))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
@@ -705,28 +721,425 @@ Tip
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Save the sf object to an RDS file</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(violence_against_civ, <span class="st">"data/rds/violence_against_civilians.rds"</span>)</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(strategic_dev, <span class="st">"data/rds/strategic_developments.rds"</span>)</span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(explosion_or_remote_vio, <span class="st">"data/rds/explosion_or_remoteviolence.rds"</span>)</span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(battles, <span class="st">"data/rds/battles.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Save the sf object to an RDS file</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(violence_against_civilians_filtered, <span class="st">"data/rds/violence_against_civilians.rds"</span>)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(strategic_developments_filtered, <span class="st">"data/rds/strategic_developments.rds"</span>)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(explosion_or_remoteviolence_filtered, <span class="st">"data/rds/explosion_or_remoteviolence.rds"</span>)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(battles_filtered, <span class="st">"data/rds/battles.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Save the sf object to an RDS file</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(admin_0, <span class="st">"data/rds/admin_boundary_national.rds"</span>)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(admin_1, <span class="st">"data/rds/admin_boundary_region-state-unionTerritory.rds"</span>)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(admin_1_sub, <span class="st">"data/rds/admin_boundary_subRegion-state-unionTerritory.rds"</span>)</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(admin_2, <span class="st">"data/rds/admin_boundary_district-selfAdministeredZone.rds"</span>)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(admin_3, <span class="st">"data/rds/admin_boundary_township.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now, let’s continue to the next section.</p>
 </section>
 </section>
-<section id="kernel-density-estimation" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Kernel-Density Estimation</h1>
-<section id="import-data-sets-rds-file-format" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="import-data-sets-rds-file-format"><span class="header-section-number">2.1</span> Import Data Sets (RDS file format)</h2>
+<section id="import-data-sets-rds-file-format" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Import Data Sets (RDS file format)</h1>
+<p>Let us import the data sets back.</p>
+<p>The code chunk below imports the cleaned and filtered ACLED data that was previously exported into RDS file format.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>violence_against_civ <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/rds/violence_against_civilians.rds"</span>)</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>strategic_dev <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/rds/strategic_developments.rds"</span>)</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>explosion_or_remote_vio <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/rds/explosion_or_remoteviolence.rds"</span>)</span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>battles <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/rds/battles.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>violence_against_civilians <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/rds/violence_against_civilians.rds"</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>strategic_developments <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/rds/strategic_developments.rds"</span>)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>explosion_or_remoteviolence <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/rds/explosion_or_remoteviolence.rds"</span>)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>battles <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/rds/battles.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>TO BE COMPLETED</p>
+<p>The code chunk below imports the transformed admin boundaries data that was previously exported into RDS file format. Note that we have yet to decide on a study area, so we will continue to import all the data for our analysis.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>admin_0 <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/rds/admin_boundary_national.rds"</span>)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>admin_1 <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/rds/admin_boundary_region-state-unionTerritory.rds"</span>)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>admin_1_sub <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/rds/admin_boundary_subRegion-state-unionTerritory.rds"</span>)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>admin_2 <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/rds/admin_boundary_district-selfAdministeredZone.rds"</span>)</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>admin_3 <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/rds/admin_boundary_township.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="identify-study-areas" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="identify-study-areas"><span class="header-section-number">2.1</span> Identify Study Area(s)</h2>
+<section id="visualise-acled-data" class="level3" data-number="2.1.1">
+<h3 data-number="2.1.1" class="anchored" data-anchor-id="visualise-acled-data"><span class="header-section-number">2.1.1</span> Visualise ACLED data</h3>
+<p>Now that we have categorised the ACLED points data into specific yearly quarters, let us plot them onto the map of myanmar to see if there are any obvious patterns.</p>
+<p>So far, we can have up to 14 temporal categories, with 4 quarters per year in <strong>Year 2021, 2022, 2023</strong>, and 2 quarters in the <strong>first half of 2024</strong>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tmap_mode</span>(<span class="st">"plot"</span>)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tmap_style</span>(<span class="st">"classic"</span>)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_shape</span>(admin_1) <span class="sc">+</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_polygons</span>() <span class="sc">+</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_shape</span>(violence_against_civilians) <span class="sc">+</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_dots</span>(<span class="at">size=</span> <span class="fl">0.05</span>, <span class="at">col =</span> <span class="st">"black"</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_facets</span>(<span class="at">by =</span> <span class="st">"year_quarter"</span>,</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>              <span class="at">free.coords =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>              <span class="at">drop.units =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_layout</span>(<span class="at">main.title=</span><span class="st">"Violence Against Civilians (Quarterly)"</span>)</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_shape</span>(admin_1) <span class="sc">+</span></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_polygons</span>() <span class="sc">+</span></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_shape</span>(strategic_developments) <span class="sc">+</span></span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_dots</span>(<span class="at">size=</span> <span class="fl">0.05</span>, <span class="at">col =</span> <span class="st">"black"</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_facets</span>(<span class="at">by =</span> <span class="st">"year_quarter"</span>,</span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>              <span class="at">free.coords =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>              <span class="at">drop.units =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_layout</span>(<span class="at">main.title=</span><span class="st">"Strategic Developments (Quarterly)"</span>)</span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_shape</span>(admin_1) <span class="sc">+</span></span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_polygons</span>() <span class="sc">+</span></span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_shape</span>(explosion_or_remoteviolence) <span class="sc">+</span></span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_dots</span>(<span class="at">size=</span> <span class="fl">0.05</span>, <span class="at">col =</span> <span class="st">"black"</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_facets</span>(<span class="at">by =</span> <span class="st">"year_quarter"</span>,</span>
+<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a>              <span class="at">free.coords =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a>              <span class="at">drop.units =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_layout</span>(<span class="at">main.title=</span><span class="st">"Explosion/Remote Violence (Quarterly)"</span>)</span>
+<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-31"><a href="#cb14-31" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_shape</span>(admin_1) <span class="sc">+</span></span>
+<span id="cb14-32"><a href="#cb14-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_polygons</span>() <span class="sc">+</span></span>
+<span id="cb14-33"><a href="#cb14-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_shape</span>(battles) <span class="sc">+</span></span>
+<span id="cb14-34"><a href="#cb14-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_dots</span>(<span class="at">size=</span> <span class="fl">0.05</span>, <span class="at">col =</span> <span class="st">"black"</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb14-35"><a href="#cb14-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_facets</span>(<span class="at">by =</span> <span class="st">"year_quarter"</span>,</span>
+<span id="cb14-36"><a href="#cb14-36" aria-hidden="true" tabindex="-1"></a>              <span class="at">free.coords =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb14-37"><a href="#cb14-37" aria-hidden="true" tabindex="-1"></a>              <span class="at">drop.units =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb14-38"><a href="#cb14-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_layout</span>(<span class="at">main.title=</span><span class="st">"Battles (Quarterly)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/unnamed-chunk-14-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/unnamed-chunk-14-2.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/unnamed-chunk-14-3.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/unnamed-chunk-14-4.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tmap_mode</span>(<span class="st">"plot"</span>)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>map_quarterly_ViolAgstCiv <span class="ot">&lt;-</span> <span class="fu">tm_shape</span>(admin_1) <span class="sc">+</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_style</span>(<span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_polygons</span>() <span class="sc">+</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_shape</span>(violence_against_civilians) <span class="sc">+</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_dots</span>(<span class="at">size=</span> <span class="fl">0.1</span>) <span class="sc">+</span> <span class="co"># make sizes a bit bigger so that it can be seen</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_facets</span>(<span class="at">along =</span> <span class="st">"year_quarter"</span>, <span class="co"># 1 separate map for each year quarter</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>              <span class="at">free.coords =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>              <span class="at">drop.units =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>map_quarterly_StratDev <span class="ot">&lt;-</span> <span class="fu">tm_shape</span>(admin_1) <span class="sc">+</span></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_style</span>(<span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_polygons</span>() <span class="sc">+</span></span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_shape</span>(strategic_developments) <span class="sc">+</span></span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_dots</span>(<span class="at">size=</span> <span class="fl">0.1</span>) <span class="sc">+</span> <span class="co"># make sizes a bit bigger so that it can be seen</span></span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_facets</span>(<span class="at">along =</span> <span class="st">"year_quarter"</span>, <span class="co"># 1 separate map for each year quarter</span></span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>              <span class="at">free.coords =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a>              <span class="at">drop.units =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a>map_quarterly_ExploOrRemoViol <span class="ot">&lt;-</span> <span class="fu">tm_shape</span>(admin_1) <span class="sc">+</span></span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_style</span>(<span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_polygons</span>() <span class="sc">+</span></span>
+<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_shape</span>(explosion_or_remoteviolence) <span class="sc">+</span></span>
+<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_dots</span>(<span class="at">size=</span> <span class="fl">0.1</span>) <span class="sc">+</span> <span class="co"># make sizes a bit bigger so that it can be seen</span></span>
+<span id="cb15-26"><a href="#cb15-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_facets</span>(<span class="at">along =</span> <span class="st">"year_quarter"</span>, <span class="co"># 1 separate map for each year quarter</span></span>
+<span id="cb15-27"><a href="#cb15-27" aria-hidden="true" tabindex="-1"></a>              <span class="at">free.coords =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb15-28"><a href="#cb15-28" aria-hidden="true" tabindex="-1"></a>              <span class="at">drop.units =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb15-29"><a href="#cb15-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-30"><a href="#cb15-30" aria-hidden="true" tabindex="-1"></a>map_quarterly_Battles <span class="ot">&lt;-</span> <span class="fu">tm_shape</span>(admin_1) <span class="sc">+</span></span>
+<span id="cb15-31"><a href="#cb15-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_style</span>(<span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb15-32"><a href="#cb15-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_polygons</span>() <span class="sc">+</span></span>
+<span id="cb15-33"><a href="#cb15-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_shape</span>(battles) <span class="sc">+</span></span>
+<span id="cb15-34"><a href="#cb15-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_dots</span>(<span class="at">size=</span> <span class="fl">0.1</span>) <span class="sc">+</span> <span class="co"># make sizes a bit bigger so that it can be seen</span></span>
+<span id="cb15-35"><a href="#cb15-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_facets</span>(<span class="at">along =</span> <span class="st">"year_quarter"</span>, <span class="co"># 1 separate map for each year quarter</span></span>
+<span id="cb15-36"><a href="#cb15-36" aria-hidden="true" tabindex="-1"></a>              <span class="at">free.coords =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb15-37"><a href="#cb15-37" aria-hidden="true" tabindex="-1"></a>              <span class="at">drop.units =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb15-38"><a href="#cb15-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-39"><a href="#cb15-39" aria-hidden="true" tabindex="-1"></a><span class="fu">tmap_animation</span>(map_quarterly_ViolAgstCiv,</span>
+<span id="cb15-40"><a href="#cb15-40" aria-hidden="true" tabindex="-1"></a>               <span class="at">filename=</span><span class="st">"images/quarterly_violenceAgainstCivilians.gif"</span>, <span class="at">delay=</span><span class="dv">100</span>)</span>
+<span id="cb15-41"><a href="#cb15-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-42"><a href="#cb15-42" aria-hidden="true" tabindex="-1"></a><span class="fu">tmap_animation</span>(map_quarterly_StratDev,</span>
+<span id="cb15-43"><a href="#cb15-43" aria-hidden="true" tabindex="-1"></a>               <span class="at">filename=</span><span class="st">"images/quarterly_strategicDevelopments.gif"</span>, <span class="at">delay=</span><span class="dv">100</span>)</span>
+<span id="cb15-44"><a href="#cb15-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-45"><a href="#cb15-45" aria-hidden="true" tabindex="-1"></a><span class="fu">tmap_animation</span>(map_quarterly_ExploOrRemoViol,</span>
+<span id="cb15-46"><a href="#cb15-46" aria-hidden="true" tabindex="-1"></a>               <span class="at">filename=</span><span class="st">"images/quarterly_explosionOrRemoteViolence.gif"</span>, <span class="at">delay=</span><span class="dv">100</span>)</span>
+<span id="cb15-47"><a href="#cb15-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-48"><a href="#cb15-48" aria-hidden="true" tabindex="-1"></a><span class="fu">tmap_animation</span>(map_quarterly_Battles,</span>
+<span id="cb15-49"><a href="#cb15-49" aria-hidden="true" tabindex="-1"></a>               <span class="at">filename=</span><span class="st">"images/quarterly_battles.gif"</span>, <span class="at">delay=</span><span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/quarterly_violenceAgainstCivilians.gif" class="img-fluid figure-img" alt="Quarterly events: Violence Against Civilians" width="200"></p>
+<figcaption>Quarterly events: Violence Against Civilians</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/quarterly_strategicDevelopments.gif" class="img-fluid figure-img" alt="Quarterly events: Strategic Developments" width="200"></p>
+<figcaption>Quarterly events: Strategic Developments</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/quarterly_explosionOrRemoteViolence.gif" class="img-fluid figure-img" alt="Quarterly events: Explosion / Remote Violence" width="200"></p>
+<figcaption>Quarterly events: Explosion / Remote Violence</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/quarterly_battles.gif" class="img-fluid figure-img" alt="Quarterly events: Battles" width="200"></p>
+<figcaption>Quarterly events: Battles</figcaption>
+</figure>
+</div>
+</section>
+<section id="decision-study-areas-in-the-western-region-rakhine-chin-magway" class="level3" data-number="2.1.2">
+<h3 data-number="2.1.2" class="anchored" data-anchor-id="decision-study-areas-in-the-western-region-rakhine-chin-magway"><span class="header-section-number">2.1.2</span> Decision: Study Area(s) in the Western Region (Rakhine, Chin, Magway)</h3>
+<p><strong>Deciding on a Study Area(s)</strong></p>
+<p>After a brief observation of the points data, I’ve decided to focus on the western regions/states which seems to have quite a variety of point patterns throughout time. According to the map generated by the code chunk below, we can see that the places are called <strong>Rakhine</strong>, <strong>Chin</strong>, and <strong>Magway</strong>. Throughout the data sets, we see quite a number of conflict events occurring in the area in northern Rakhine. Let us focus on this area for our analysis hereon.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_shape</span>(admin_1) <span class="sc">+</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_style</span>(<span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_polygons</span>(<span class="st">"ST"</span>, <span class="at">palette =</span> <span class="st">"Set3"</span>, <span class="at">title =</span> <span class="st">"States/Regions"</span>) <span class="sc">+</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_shape</span>(<span class="fu">st_centroid</span>(admin_1)) <span class="sc">+</span> <span class="co"># Find the centroids</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_text</span>(<span class="st">"ST"</span>, <span class="at">size =</span> <span class="fl">0.6</span>, <span class="at">col =</span> <span class="st">"black"</span>, <span class="at">shadow =</span> <span class="cn">TRUE</span>, <span class="at">just=</span><span class="st">"center"</span>) <span class="sc">+</span> <span class="co"># Add labels at centroids</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_layout</span>(<span class="at">title =</span> <span class="st">"Administrative Boundaries Level 1"</span>,</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">legend.outside =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><img src="images/unnamed-chunk-16-1.png" class="img-fluid"></p>
+</section>
+</section>
+</section>
+<section id="preparing-study-areas-data" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Preparing Study Area(s) Data</h1>
+<section id="select-study-areas-boundary" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="select-study-areas-boundary"><span class="header-section-number">3.1</span> Select Study Area(s) Boundary</h2>
+<p>Let us also select the study area(s) boundary</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>studyarea <span class="ot">&lt;-</span> admin_1 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(ST <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Rakhine"</span>, <span class="st">"Chin"</span>, <span class="st">"Magway"</span>))</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">qtm</span>(studyarea)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><img src="images/unnamed-chunk-17-1.png" class="img-fluid"></p>
+</section>
+<section id="select-study-areas-acled-data" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="select-study-areas-acled-data"><span class="header-section-number">3.2</span> Select Study Area(s) ACLED Data</h2>
+<p>Since ACLED already came with attributes admin1, admin2, and admin3, let us use it to help us filter the points data.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Violence Against Civilians</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>studyarea_vac <span class="ot">&lt;-</span> violence_against_civilians <span class="sc">%&gt;%</span> </span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(admin1 <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Rakhine"</span>, <span class="st">"Chin"</span>, <span class="st">"Magway"</span>))</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Strategic Deployment</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>studyarea_stdp <span class="ot">&lt;-</span> strategic_developments <span class="sc">%&gt;%</span> </span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(admin1 <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Rakhine"</span>, <span class="st">"Chin"</span>, <span class="st">"Magway"</span>))</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Explosions / Remote violence</span></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>studyarea_erv <span class="ot">&lt;-</span> explosion_or_remoteviolence <span class="sc">%&gt;%</span> </span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(admin1 <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Rakhine"</span>, <span class="st">"Chin"</span>, <span class="st">"Magway"</span>))</span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Battles</span></span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>studyarea_bat <span class="ot">&lt;-</span> battles <span class="sc">%&gt;%</span> </span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(admin1 <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Rakhine"</span>, <span class="st">"Chin"</span>, <span class="st">"Magway"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Let us visualise the data again.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tmap_mode</span>(<span class="st">"plot"</span>)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tmap_style</span>(<span class="st">"white"</span>)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_shape</span>(studyarea) <span class="sc">+</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_polygons</span>() <span class="sc">+</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_shape</span>(studyarea_vac) <span class="sc">+</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_dots</span>(<span class="at">size=</span> <span class="fl">0.1</span>, <span class="at">col =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_facets</span>(<span class="at">by =</span> <span class="st">"year_quarter"</span>,</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>            <span class="at">free.coords =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>            <span class="at">drop.units =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>            <span class="at">ncol =</span> <span class="dv">7</span>) <span class="sc">+</span></span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_layout</span>(<span class="at">main.title=</span><span class="st">"Violence Against Civilians (Quarterly)"</span>)</span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_shape</span>(studyarea) <span class="sc">+</span></span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_polygons</span>() <span class="sc">+</span></span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_shape</span>(studyarea_stdp) <span class="sc">+</span></span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_dots</span>(<span class="at">size=</span> <span class="fl">0.1</span>, <span class="at">col =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_facets</span>(<span class="at">by =</span> <span class="st">"year_quarter"</span>,</span>
+<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a>            <span class="at">free.coords =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a>            <span class="at">drop.units =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a>            <span class="at">ncol =</span> <span class="dv">7</span>) <span class="sc">+</span></span>
+<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_layout</span>(<span class="at">main.title=</span><span class="st">"Strategic Developments (Quarterly)"</span>)</span>
+<span id="cb19-23"><a href="#cb19-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-24"><a href="#cb19-24" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_shape</span>(studyarea) <span class="sc">+</span></span>
+<span id="cb19-25"><a href="#cb19-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_polygons</span>() <span class="sc">+</span></span>
+<span id="cb19-26"><a href="#cb19-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_shape</span>(studyarea_erv) <span class="sc">+</span></span>
+<span id="cb19-27"><a href="#cb19-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_dots</span>(<span class="at">size=</span> <span class="fl">0.1</span>, <span class="at">col =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb19-28"><a href="#cb19-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_facets</span>(<span class="at">by =</span> <span class="st">"year_quarter"</span>,</span>
+<span id="cb19-29"><a href="#cb19-29" aria-hidden="true" tabindex="-1"></a>            <span class="at">free.coords =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb19-30"><a href="#cb19-30" aria-hidden="true" tabindex="-1"></a>            <span class="at">drop.units =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb19-31"><a href="#cb19-31" aria-hidden="true" tabindex="-1"></a>            <span class="at">ncol =</span> <span class="dv">7</span>) <span class="sc">+</span></span>
+<span id="cb19-32"><a href="#cb19-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_layout</span>(<span class="at">main.title=</span><span class="st">"Explosion/Remote Violence (Quarterly)"</span>)</span>
+<span id="cb19-33"><a href="#cb19-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-34"><a href="#cb19-34" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_shape</span>(studyarea) <span class="sc">+</span></span>
+<span id="cb19-35"><a href="#cb19-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_polygons</span>() <span class="sc">+</span></span>
+<span id="cb19-36"><a href="#cb19-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_shape</span>(studyarea_bat) <span class="sc">+</span></span>
+<span id="cb19-37"><a href="#cb19-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_dots</span>(<span class="at">size=</span> <span class="fl">0.1</span>, <span class="at">col =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb19-38"><a href="#cb19-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_facets</span>(<span class="at">by =</span> <span class="st">"year_quarter"</span>,</span>
+<span id="cb19-39"><a href="#cb19-39" aria-hidden="true" tabindex="-1"></a>            <span class="at">free.coords =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb19-40"><a href="#cb19-40" aria-hidden="true" tabindex="-1"></a>            <span class="at">drop.units =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb19-41"><a href="#cb19-41" aria-hidden="true" tabindex="-1"></a>            <span class="at">ncol =</span> <span class="dv">7</span>) <span class="sc">+</span></span>
+<span id="cb19-42"><a href="#cb19-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_layout</span>(<span class="at">main.title=</span><span class="st">"Battles (Quarterly)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><img src="images/unnamed-chunk-19-1.png" class="img-fluid"></p>
+<p><img src="images/unnamed-chunk-19-2.png" class="img-fluid"></p>
+<p><img src="images/unnamed-chunk-19-3.png" class="img-fluid"></p>
+<p><img src="images/unnamed-chunk-19-4.png" class="img-fluid"></p>
+</section>
+<section id="export-and-save-data-sets-rds-file-format" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="export-and-save-data-sets-rds-file-format"><span class="header-section-number">3.3</span> Export and Save Data Sets (RDS file format)</h2>
+<p>Before we continue, let us export and save our data.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Study Areas</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(studyarea, <span class="st">"data/final_rds/studyarea.rds"</span>)</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co"># ACLED Data</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(studyarea_vac, </span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>        <span class="st">"data/final_rds/studyarea_violence_against_civilians.rds"</span>)</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(studyarea_stdp, </span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>        <span class="st">"data/final_rds/studyarea_strategic_developments.rds"</span>)</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(studyarea_erv, </span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>        <span class="st">"data/final_rds/studyarea_explosion_or_remoteviolence.rds"</span>)</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(studyarea_bat, </span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>        <span class="st">"data/final_rds/studyarea_battles.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="kernel-density-estimation" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Kernel Density Estimation</h1>
+<section id="import-previous-data" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="import-previous-data"><span class="header-section-number">4.1</span> Import Previous Data</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>studyarea <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/final_rds/studyarea.rds"</span>)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>studyarea_vac <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/final_rds/studyarea_violence_against_civilians.rds"</span>)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>studyarea_stdp <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/final_rds/studyarea_strategic_developments.rds"</span>)</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>studyarea_erv <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/final_rds/studyarea_explosion_or_remoteviolence.rds"</span>)</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>studyarea_bat <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/final_rds/studyarea_battles.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="separate-analysis" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="separate-analysis"><span class="header-section-number">4.2</span> Separate Analysis</h2>
+<section id="create-owin-objects" class="level3" data-number="4.2.1">
+<h3 data-number="4.2.1" class="anchored" data-anchor-id="create-owin-objects"><span class="header-section-number">4.2.1</span> Create Owin Objects</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating the Owin objects</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>Chin_owin <span class="ot">&lt;-</span> studyarea <span class="sc">%&gt;%</span> <span class="fu">filter</span>(ST <span class="sc">==</span> <span class="st">"Chin"</span>) <span class="sc">%&gt;%</span> <span class="fu">as.owin</span>()</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>Magway_owin <span class="ot">&lt;-</span> studyarea <span class="sc">%&gt;%</span> <span class="fu">filter</span>(ST <span class="sc">==</span> <span class="st">"Magway"</span>) <span class="sc">%&gt;%</span> <span class="fu">as.owin</span>()</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>Rakhine_owin <span class="ot">&lt;-</span> studyarea <span class="sc">%&gt;%</span> <span class="fu">filter</span>(ST <span class="sc">==</span> <span class="st">"Rakhine"</span>) <span class="sc">%&gt;%</span> <span class="fu">as.owin</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| output: false</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to split any sf object into a list of sf by year_quarter</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Outputs a list of ppp (converted from each sf in each year_quarter)</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>split_by_year_quarter <span class="ot">&lt;-</span> <span class="cf">function</span>(sf_object) {</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Get unique year_quarter values</span></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>  unique_quarters <span class="ot">&lt;-</span> <span class="fu">unique</span>(sf_object<span class="sc">$</span>year_quarter)</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Split the sf object into a list of sf objects by year_quarter,</span></span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Then, convert to ppp objects</span></span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Then, jittle the points (to handle the presence of duplicated points)</span></span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>  split_list <span class="ot">&lt;-</span> <span class="fu">lapply</span>(unique_quarters, <span class="cf">function</span>(unique_quarters) {</span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>    sf_object <span class="sc">%&gt;%</span> <span class="fu">filter</span>(year_quarter <span class="sc">==</span> unique_quarters) <span class="sc">%&gt;%</span> </span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>      <span class="fu">as.ppp</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>      <span class="fu">rjitter</span>(<span class="at">retry=</span><span class="cn">TRUE</span>, </span>
+<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a>              <span class="at">nsim=</span><span class="dv">1</span>, </span>
+<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a>              <span class="at">drop=</span><span class="cn">TRUE</span>)</span>
+<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Name the list elements by their year_quarter values</span></span>
+<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">names</span>(split_list) <span class="ot">&lt;-</span> unique_quarters</span>
+<span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-23"><a href="#cb23-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(split_list)</span>
+<span id="cb23-24"><a href="#cb23-24" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb23-25"><a href="#cb23-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-26"><a href="#cb23-26" aria-hidden="true" tabindex="-1"></a>vac_ppp_list <span class="ot">&lt;-</span> <span class="fu">split_by_year_quarter</span>(studyarea_vac)</span>
+<span id="cb23-27"><a href="#cb23-27" aria-hidden="true" tabindex="-1"></a>stdp_ppp_list <span class="ot">&lt;-</span> <span class="fu">split_by_year_quarter</span>(studyarea_stdp)</span>
+<span id="cb23-28"><a href="#cb23-28" aria-hidden="true" tabindex="-1"></a>erv_ppp_list <span class="ot">&lt;-</span> <span class="fu">split_by_year_quarter</span>(studyarea_erv)</span>
+<span id="cb23-29"><a href="#cb23-29" aria-hidden="true" tabindex="-1"></a>bat_ppp_list <span class="ot">&lt;-</span> <span class="fu">split_by_year_quarter</span>(studyarea_bat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="separate-acled-points-by-region-using-owin" class="level3" data-number="4.2.2">
+<h3 data-number="4.2.2" class="anchored" data-anchor-id="separate-acled-points-by-region-using-owin"><span class="header-section-number">4.2.2</span> Separate ACLED Points by Region (using Owin)</h3>
+<p>Now, let us use the Owin objects to filter the ACLED data points for each region.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to Extract ppp points within a specified Owin object</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>filter_ppp_within_window <span class="ot">&lt;-</span> <span class="cf">function</span>(ppp_list, window) {</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  filtered_list <span class="ot">&lt;-</span> <span class="fu">lapply</span>(ppp_list, <span class="cf">function</span>(ppp_item) {</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>    ppp_item[window]</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(filtered_list)</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>Chin_vac_ppp_list <span class="ot">&lt;-</span> <span class="fu">filter_ppp_within_window</span>(vac_ppp_list, Chin_owin)</span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>Chin_stdp_ppp_list <span class="ot">&lt;-</span> <span class="fu">filter_ppp_within_window</span>(stdp_ppp_list, Chin_owin)</span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>Chin_erv_ppp_list <span class="ot">&lt;-</span> <span class="fu">filter_ppp_within_window</span>(erv_ppp_list, Chin_owin)</span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>Chin_bat_ppp_list <span class="ot">&lt;-</span> <span class="fu">filter_ppp_within_window</span>(bat_ppp_list, Chin_owin)</span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>Magway_vac_ppp_list <span class="ot">&lt;-</span> <span class="fu">filter_ppp_within_window</span>(vac_ppp_list, Magway_owin)</span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a>Magway_stdp_ppp_list <span class="ot">&lt;-</span> <span class="fu">filter_ppp_within_window</span>(stdp_ppp_list, Magway_owin)</span>
+<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a>Magway_erv_ppp_list <span class="ot">&lt;-</span> <span class="fu">filter_ppp_within_window</span>(erv_ppp_list, Magway_owin)</span>
+<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a>Magway_bat_ppp_list <span class="ot">&lt;-</span> <span class="fu">filter_ppp_within_window</span>(bat_ppp_list, Magway_owin)</span>
+<span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-19"><a href="#cb24-19" aria-hidden="true" tabindex="-1"></a>Rakhine_vac_ppp_list <span class="ot">&lt;-</span> <span class="fu">filter_ppp_within_window</span>(vac_ppp_list, Rakhine_owin)</span>
+<span id="cb24-20"><a href="#cb24-20" aria-hidden="true" tabindex="-1"></a>Rakhine_stdp_ppp_list <span class="ot">&lt;-</span> <span class="fu">filter_ppp_within_window</span>(stdp_ppp_list, Rakhine_owin)</span>
+<span id="cb24-21"><a href="#cb24-21" aria-hidden="true" tabindex="-1"></a>Rakhine_erv_ppp_list <span class="ot">&lt;-</span> <span class="fu">filter_ppp_within_window</span>(erv_ppp_list, Rakhine_owin)</span>
+<span id="cb24-22"><a href="#cb24-22" aria-hidden="true" tabindex="-1"></a>Rakhine_bat_ppp_list <span class="ot">&lt;-</span> <span class="fu">filter_ppp_within_window</span>(bat_ppp_list, Rakhine_owin)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="computing-kde-adaptive-bandwidth-for-each-region" class="level3" data-number="4.2.3">
+<h3 data-number="4.2.3" class="anchored" data-anchor-id="computing-kde-adaptive-bandwidth-for-each-region"><span class="header-section-number">4.2.3</span> Computing KDE (adaptive bandwidth) for each Region</h3>
+</section>
+<section id="separating-study-areas" class="level3" data-number="4.2.4">
+<h3 data-number="4.2.4" class="anchored" data-anchor-id="separating-study-areas"><span class="header-section-number">4.2.4</span> Separating Study Areas</h3>
+<pre class="{# {r}"><code># # Function to filter sf object by admin1 values
+# filter_by_admin1 &lt;- function(sf_object, regions) {
+#   filtered_list &lt;- lapply(regions, function(region) {
+#     sf_object %&gt;% filter(admin1 == region)
+#   })
+#   
+#   # Name the list elements by their region names
+#   names(filtered_list) &lt;- regions
+#   
+#   return(filtered_list)
+# }
+# 
+# # Define the regions to filter by
+# regions &lt;- c("Chin", "Magway", "Rakhine")
+# 
+# # Each list is a list of lists of sfs for each region
+# vac_list &lt;- filter_by_admin1(studyarea_vac, regions)
+# stdp_list &lt;- filter_by_admin1(studyarea_stdp, regions)
+# erv_list &lt;- filter_by_admin1(studyarea_erv, regions)
+# bat_list &lt;- filter_by_admin1(studyarea_bat, regions)
+# 
+# Chin_vac &lt;- vac_list[["Chin"]]
+# Chin_stdp &lt;- stdp_list[["Chin"]]
+# Chin_erv &lt;- erv_list[["Chin"]]
+# Chin_bat &lt;- bat_vac_list[["Chin"]]
+# 
+# Magway_vac &lt;- vac_list[["Magway"]]
+# Magway_stdp &lt;- stdp_list[["Magway"]]
+# Magway_erv &lt;- erv_list[["Magway"]]
+# Magway_bat &lt;- bat_vac_list[["Magway"]]
+# 
+# Rakhine_vac &lt;- vac_list[["Rakhine"]]
+# Rakhine_stdp &lt;- stdp_list[["Rakhine"]]
+# Rakhine_erv &lt;- erv_list[["Rakhine"]]
+# Rakhine_bat &lt;- bat_vac_list[["Rakhine"]]</code></pre>
 
 
+</section>
 </section>
 </section>
 

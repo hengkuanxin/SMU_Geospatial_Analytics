@@ -5,8 +5,8 @@ author: "Heng Kuan Xin"
 date: 2024-09-04
 date-modified: "last-modified"
 
-toc: true
-toc-expand: true
+# toc: true
+#toc-expand: true
 number-sections: true
 
 execute:
@@ -48,15 +48,15 @@ Analysis Methods Used:
 
 Our main purpose here this time is to study the **quarterly spatio-temporal distribution of armed conflict events in Myanmar**. Therefore, the focus is mainly on the **types of events**, **date of events**, and the **location of events**. We will not be focusing on other matters in this exercise.
 
-# Importing the Necessary
+# Import the Necessary
 
-## Importing Libraries / Packages
+## Import Libraries / Packages
 
 ```{r}
-pacman::p_load(tidyverse, sf, spatstat, ggplot2, tmap)
+pacman::p_load(tidyverse, sf, spatstat, ggplot2, tmap, gifski)
 ```
 
-## Importing Raw Data
+## Import Raw Data
 
 ### ACLED Data Set
 
@@ -64,21 +64,31 @@ Before we start manipulating the data, it is important that we understand what e
 
 To begin, let us refer to the [ACLED data set codebook](https://acleddata.com/acleddatanew/wp-content/uploads/dlm_uploads/2023/06/ACLED_Codebook_2023.pdf)
 
-Now, let us first import the data.
+The data was retrieved from the ACLED data portal. Specifically, the following types of data was retrieved:
+
+1.  `violence-against-civilians.csv`
+2.  `strategic-developments.csv`
+3.  `battles.csv`
+4.  `explosion-or-remoteviolence.csv`
+
+In terms of event types, four main event types were retrieved: **Battles**, **Explosion/Remote violence**, **Strategic developments**, and **Violence against civilians**.
+
+In terms of study period, we are focused on quarterly armed conflict events from **January 2021** until **June 2024.**
+
+The code chunk below imports the data for our analysis.
 
 ```{r}
 #| eval: false
 
-# filter_columns <- c("event_date","year","disorder_type","sub_event_type","admin1","admin2","admin3")
 
-violence_against_civ <- read_csv("data/raw/aspatial/ACLED/violence-against-civilians.csv") %>%
+violence_against_civilians <- read_csv("data/raw/aspatial/ACLED/violence-against-civilians.csv") %>%
   st_as_sf(coords =c(
     "longitude", "latitude"),
     crs=4326) %>%
     st_transform(crs = 32647) %>%
     mutate(event_date = dmy(event_date))
 
-strategic_dev <- read_csv("data/raw/aspatial/ACLED/strategic-developments.csv") %>%
+strategic_developments <- read_csv("data/raw/aspatial/ACLED/strategic-developments.csv") %>%
   st_as_sf(coords =c(
     "longitude", "latitude"),
     crs=4326) %>%
@@ -92,7 +102,7 @@ battles <- read_csv("data/raw/aspatial/ACLED/battles.csv") %>%
     st_transform(crs = 32647) %>%
     mutate(event_date = dmy(event_date))
 
-explosion_or_remote_vio <- read_csv("data/raw/aspatial/ACLED/explosion-or-remoteviolence.csv") %>%
+explosion_or_remoteviolence <- read_csv("data/raw/aspatial/ACLED/explosion-or-remoteviolence.csv") %>%
   st_as_sf(coords =c(
     "longitude", "latitude"),
     crs=4326) %>%
@@ -102,7 +112,7 @@ explosion_or_remote_vio <- read_csv("data/raw/aspatial/ACLED/explosion-or-remote
 
 ### Administrative Boundary Dataset
 
-[![Myamar's Administrative Division Hierachy (source: Wikipedia)](images/clipboard-2034245623.png){fig-alt="Myamar's Administrative Division Hierachy"}](https://en.wikipedia.org/wiki/Administrative_divisions_of_Myanmar)
+[![Myamar's Administrative Division Hierachy (source: Wikipedia)](images/clipboard-2034245623.png){fig-alt="Myamar's Administrative Division Hierachy" fig-align="center"}](https://en.wikipedia.org/wiki/Administrative_divisions_of_Myanmar)
 
 In this exercise, we will only analyse geographical distribution of point data up to the 3rd degree administrative division, i.e. up to Township level.
 
@@ -184,6 +194,8 @@ tmap_arrange(
 )
 ```
 
+![Plot of Admin Boundaries of Myanmar Raw Data](images/unnamed-chunk-4-1.png){fig-align="center"}
+
 **Conclusion: Administrative Boundaries Looks Okay**
 
 Looking at both the attribute table and the plot, the administrative boundaries data seem quite alright, so we might not need to do any cleaning. Anyway, the precision of the polygons it not as critical as the precision of the ACLED data (which will be used for our spatial point patterns analysis).
@@ -207,13 +219,15 @@ tmap_mode("plot")
 tmap_style("cobalt")
 
 tmap_arrange(
-  qtm(admin_0) + qtm(violence_against_civ, title="Violence against\nCivilians"), 
-  qtm(admin_0) + qtm(strategic_dev, title="Strategic\nDevelopments"), 
-  qtm(admin_0) + qtm(explosion_or_remote_vio, title="Explosion/\nRemote Violence"), 
+  qtm(admin_0) + qtm(violence_against_civilians, title="Violence against\nCivilians"), 
+  qtm(admin_0) + qtm(strategic_developments, title="Strategic\nDevelopments"), 
+  qtm(admin_0) + qtm(explosion_or_remoteviolence, title="Explosion/\nRemote Violence"), 
   qtm(admin_0) + qtm(battles, title="Battles"), 
   ncol = 4
 )
 ```
+
+![Plot of ACLED Raw Points Data](images/unnamed-chunk-5-1.png){fig-align="center"}
 
 **Observation: ACLED Data Set needs further study, may need to clean**
 
@@ -237,16 +251,16 @@ Given that precision of our point data is crucial to our spatial-temporal point 
 
 
 # Violence against Civilians
-violence_against_civ %>% count(geo_precision)
-violence_against_civ %>% count(time_precision)
+violence_against_civilians %>% count(geo_precision)
+violence_against_civilians %>% count(time_precision)
 
 # Strategic Developments
-strategic_dev %>% count(geo_precision)
-strategic_dev %>% count(time_precision)
+strategic_developments %>% count(geo_precision)
+strategic_developments %>% count(time_precision)
 
 # Explosion or Remote Violence
-explosion_or_remote_vio %>% count(geo_precision)
-explosion_or_remote_vio %>% count(time_precision)
+explosion_or_remoteviolence %>% count(geo_precision)
+explosion_or_remoteviolence %>% count(time_precision)
 
 # Battles
 battles %>% count(geo_precision)
@@ -268,21 +282,21 @@ Let us filter out the data we want (time_precision and geo_precision codes \< 3)
 
 
 # Extract all rows where either geo_precision or time_precision is not = 3 
-violence_against_civ_filtered <- violence_against_civ %>%
+violence_against_civilians_filtered <- violence_against_civilians %>%
   filter(!(geo_precision == 3 | time_precision == 3))
 
-strategic_dev_filtered <- strategic_dev %>%
+strategic_developments_filtered <- strategic_developments %>%
   filter(!(geo_precision == 3 | time_precision == 3))
 
-explosion_or_remote_vio_filtereed <- explosion_or_remote_vio %>%
+explosion_or_remoteviolence_filtered <- explosion_or_remoteviolence %>%
   filter(!(geo_precision == 3 | time_precision == 3))
 
 battles_filtered <- battles %>%
   filter(!(geo_precision == 3 | time_precision == 3))
 
-cat("Number of rows dropped:", nrow(violence_against_civ) - nrow(violence_against_civ_filtered) , "\n")
-cat("Number of rows dropped:", nrow(strategic_dev) - nrow(strategic_dev_filtered) , "\n")
-cat("Number of rows dropped:", nrow(explosion_or_remote_vio) - nrow(explosion_or_remote_vio_filtereed) , "\n")
+cat("Number of rows dropped:", nrow(violence_against_civilians) - nrow(violence_against_civilians_filtered) , "\n")
+cat("Number of rows dropped:", nrow(strategic_developments) - nrow(strategic_developments_filtered) , "\n")
+cat("Number of rows dropped:", nrow(explosion_or_remoteviolence) - nrow(explosion_or_remoteviolence_filtereed) , "\n")
 cat("Number of rows dropped:", nrow(battles) - nrow(battles_filtered) , "\n")
 ```
 
@@ -305,13 +319,13 @@ We will only **keep the following columns** as other columns are not relevant to
 
 filter_columns <- c("event_date","year","disorder_type","sub_event_type","admin1","admin2","admin3")
 
-violence_against_civ_filtered <- violence_against_civ_filtered %>%
+violence_against_civilians_filtered <- violence_against_civilians_filtered %>%
   select(all_of(filter_columns))
 
-strategic_dev_filtered <- strategic_dev_filtered %>%
+strategic_developments_filtered <- strategic_developments_filtered %>%
   select(all_of(filter_columns))
 
-explosion_or_remote_vio_filtereed <- explosion_or_remote_vio_filtereed %>%
+explosion_or_remoteviolence_filtered <- explosion_or_remoteviolence_filtered %>%
   select(all_of(filter_columns))
 
 battles_filtered <- battles_filtered %>%
@@ -329,15 +343,15 @@ The package we will be using here is called lubridate, a package within the tidy
 ```{r}
 #| eval: false
 
-violence_against_civ_filtered <- violence_against_civ_filtered %>% 
+violence_against_civilians_filtered <- violence_against_civilians_filtered %>% 
   mutate(quarter = quarter(event_date)) %>%
   mutate(year_quarter = paste0(year, "-Q", quarter))
 
-strategic_dev_filtered <- strategic_dev_filtered %>% 
+strategic_developments_filtered <- strategic_developments_filtered %>% 
   mutate(quarter = quarter(event_date)) %>%
   mutate(year_quarter = paste0(year, "-Q", quarter))
 
-explosion_or_remote_vio_filtereed <- explosion_or_remote_vio_filtereed %>% 
+explosion_or_remoteviolence_filtered <- explosion_or_remoteviolence_filtered %>% 
   mutate(quarter = quarter(event_date)) %>%
   mutate(year_quarter = paste0(year, "-Q", quarter))
 
@@ -360,25 +374,439 @@ By exporting the data, and importing it again, it also serves as a *checkpoint* 
 #| eval: false
 
 # Save the sf object to an RDS file
-saveRDS(violence_against_civ, "data/rds/violence_against_civilians.rds")
-saveRDS(strategic_dev, "data/rds/strategic_developments.rds")
-saveRDS(explosion_or_remote_vio, "data/rds/explosion_or_remoteviolence.rds")
-saveRDS(battles, "data/rds/battles.rds")
+saveRDS(violence_against_civilians_filtered, "data/rds/violence_against_civilians.rds")
+saveRDS(strategic_developments_filtered, "data/rds/strategic_developments.rds")
+saveRDS(explosion_or_remoteviolence_filtered, "data/rds/explosion_or_remoteviolence.rds")
+saveRDS(battles_filtered, "data/rds/battles.rds")
+```
+
+```{r}
+#| eval: false
+
+# Save the sf object to an RDS file
+saveRDS(admin_0, "data/rds/admin_boundary_national.rds")
+saveRDS(admin_1, "data/rds/admin_boundary_region-state-unionTerritory.rds")
+saveRDS(admin_1_sub, "data/rds/admin_boundary_subRegion-state-unionTerritory.rds")
+saveRDS(admin_2, "data/rds/admin_boundary_district-selfAdministeredZone.rds")
+saveRDS(admin_3, "data/rds/admin_boundary_township.rds")
 ```
 
 Now, let's continue to the next section.
 
-# Kernel-Density Estimation
+# Import Data Sets (RDS file format)
 
-## Import Data Sets (RDS file format)
+Let us import the data sets back.
+
+The code chunk below imports the cleaned and filtered ACLED data that was previously exported into RDS file format.
 
 ```{r}
-violence_against_civ <- readRDS("data/rds/violence_against_civilians.rds")
-strategic_dev <- readRDS("data/rds/strategic_developments.rds")
-explosion_or_remote_vio <- readRDS("data/rds/explosion_or_remoteviolence.rds")
+#| eval: false
+violence_against_civilians <- readRDS("data/rds/violence_against_civilians.rds")
+strategic_developments <- readRDS("data/rds/strategic_developments.rds")
+explosion_or_remoteviolence <- readRDS("data/rds/explosion_or_remoteviolence.rds")
 battles <- readRDS("data/rds/battles.rds")
 ```
 
+The code chunk below imports the transformed admin boundaries data that was previously exported into RDS file format. Note that we have yet to decide on a study area, so we will continue to import all the data for our analysis.
+
 ```{r}
-violence_against_civ
+#| eval: false
+admin_0 <- readRDS("data/rds/admin_boundary_national.rds")
+admin_1 <- readRDS("data/rds/admin_boundary_region-state-unionTerritory.rds")
+admin_1_sub <- readRDS("data/rds/admin_boundary_subRegion-state-unionTerritory.rds")
+admin_2 <- readRDS("data/rds/admin_boundary_district-selfAdministeredZone.rds")
+admin_3 <- readRDS("data/rds/admin_boundary_township.rds")
+```
+
+## Identify Study Area(s)
+
+### Visualise ACLED data
+
+Now that we have categorised the ACLED points data into specific yearly quarters, let us plot them onto the map of myanmar to see if there are any obvious patterns.
+
+So far, we can have up to 14 temporal categories, with 4 quarters per year in **Year 2021, 2022, 2023**, and 2 quarters in the **first half of 2024**.
+
+```{r}
+#| eval: false
+
+
+tmap_mode("plot")
+tmap_style("classic")
+
+tm_shape(admin_1) +
+  tm_polygons() +
+  tm_shape(violence_against_civilians) +
+  tm_dots(size= 0.05, col = "black", alpha = 0.5) +
+  tm_facets(by = "year_quarter",
+              free.coords = FALSE,
+              drop.units = TRUE) +
+  tm_layout(main.title="Violence Against Civilians (Quarterly)")
+
+tm_shape(admin_1) +
+  tm_polygons() +
+  tm_shape(strategic_developments) +
+  tm_dots(size= 0.05, col = "black", alpha = 0.5) +
+  tm_facets(by = "year_quarter",
+              free.coords = FALSE,
+              drop.units = TRUE) +
+  tm_layout(main.title="Strategic Developments (Quarterly)")
+
+tm_shape(admin_1) +
+  tm_polygons() +
+  tm_shape(explosion_or_remoteviolence) +
+  tm_dots(size= 0.05, col = "black", alpha = 0.5) +
+  tm_facets(by = "year_quarter",
+              free.coords = FALSE,
+              drop.units = TRUE) +
+  tm_layout(main.title="Explosion/Remote Violence (Quarterly)")
+
+tm_shape(admin_1) +
+  tm_polygons() +
+  tm_shape(battles) +
+  tm_dots(size= 0.05, col = "black", alpha = 0.5) +
+  tm_facets(by = "year_quarter",
+              free.coords = FALSE,
+              drop.units = TRUE) +
+  tm_layout(main.title="Battles (Quarterly)")
+```
+
+![](images/unnamed-chunk-14-1.png){fig-align="center"}
+
+![](images/unnamed-chunk-14-2.png){fig-align="center"}
+
+![](images/unnamed-chunk-14-3.png){fig-align="center"}
+
+![](images/unnamed-chunk-14-4.png){fig-align="center"}
+
+```{r}
+#| eval: false
+
+tmap_mode("plot")
+
+map_quarterly_ViolAgstCiv <- tm_shape(admin_1) +
+  tm_style("white") +
+  tm_polygons() +
+  tm_shape(violence_against_civilians) +
+  tm_dots(size= 0.1) + # make sizes a bit bigger so that it can be seen
+  tm_facets(along = "year_quarter", # 1 separate map for each year quarter
+              free.coords = FALSE,
+              drop.units = TRUE)
+
+map_quarterly_StratDev <- tm_shape(admin_1) +
+  tm_style("white") +
+  tm_polygons() +
+  tm_shape(strategic_developments) +
+  tm_dots(size= 0.1) + # make sizes a bit bigger so that it can be seen
+  tm_facets(along = "year_quarter", # 1 separate map for each year quarter
+              free.coords = FALSE,
+              drop.units = TRUE)
+
+map_quarterly_ExploOrRemoViol <- tm_shape(admin_1) +
+  tm_style("white") +
+  tm_polygons() +
+  tm_shape(explosion_or_remoteviolence) +
+  tm_dots(size= 0.1) + # make sizes a bit bigger so that it can be seen
+  tm_facets(along = "year_quarter", # 1 separate map for each year quarter
+              free.coords = FALSE,
+              drop.units = TRUE)
+
+map_quarterly_Battles <- tm_shape(admin_1) +
+  tm_style("white") +
+  tm_polygons() +
+  tm_shape(battles) +
+  tm_dots(size= 0.1) + # make sizes a bit bigger so that it can be seen
+  tm_facets(along = "year_quarter", # 1 separate map for each year quarter
+              free.coords = FALSE,
+              drop.units = TRUE)
+
+tmap_animation(map_quarterly_ViolAgstCiv,
+               filename="images/quarterly_violenceAgainstCivilians.gif", delay=100)
+
+tmap_animation(map_quarterly_StratDev,
+               filename="images/quarterly_strategicDevelopments.gif", delay=100)
+
+tmap_animation(map_quarterly_ExploOrRemoViol,
+               filename="images/quarterly_explosionOrRemoteViolence.gif", delay=100)
+
+tmap_animation(map_quarterly_Battles,
+               filename="images/quarterly_battles.gif", delay=100)
+```
+
+![Quarterly events: Violence Against Civilians](images/quarterly_violenceAgainstCivilians.gif){fig-alt="Quarterly events: Violence Against Civilians" fig-align="center" width="200"}
+
+![Quarterly events: Strategic Developments](images/quarterly_strategicDevelopments.gif){fig-alt="Quarterly events: Strategic Developments" fig-align="center" width="200"}
+
+![Quarterly events: Explosion / Remote Violence](images/quarterly_explosionOrRemoteViolence.gif){fig-alt="Quarterly events: Explosion / Remote Violence" fig-align="center" width="200"}
+
+![Quarterly events: Battles](images/quarterly_battles.gif){fig-alt="Quarterly events: Battles" fig-align="center" width="200"}
+
+### Decision: Study Area(s) in the Western Region (Rakhine, Chin, Magway)
+
+**Deciding on a Study Area(s)**
+
+After a brief observation of the points data, I've decided to focus on the western regions/states which seems to have quite a variety of point patterns throughout time. According to the map generated by the code chunk below, we can see that the places are called **Rakhine**, **Chin**, and **Magway**. Throughout the data sets, we see quite a number of conflict events occurring in the area in northern Rakhine. Let us focus on this area for our analysis hereon.
+
+```{r}
+#| eval: false
+
+tm_shape(admin_1) +
+  tm_style("white") +
+  tm_polygons("ST", palette = "Set3", title = "States/Regions") +
+  tm_shape(st_centroid(admin_1)) + # Find the centroids
+  tm_text("ST", size = 0.6, col = "black", shadow = TRUE, just="center") + # Add labels at centroids
+  tm_layout(title = "Administrative Boundaries Level 1",
+            legend.outside = TRUE)
+```
+
+![](images/unnamed-chunk-16-1.png)
+
+# Preparing Study Area(s) Data
+
+## Select Study Area(s) Boundary
+
+Let us also select the study area(s) boundary
+
+```{r}
+#| eval: false
+
+
+studyarea <- admin_1 %>% filter(ST %in% c("Rakhine", "Chin", "Magway"))
+qtm(studyarea)
+```
+
+![](images/unnamed-chunk-17-1.png)
+
+## Select Study Area(s) ACLED Data
+
+Since ACLED already came with attributes admin1, admin2, and admin3, let us use it to help us filter the points data.
+
+```{r}
+#| eval: false
+
+# Violence Against Civilians
+studyarea_vac <- violence_against_civilians %>% 
+  filter(admin1 %in% c("Rakhine", "Chin", "Magway"))
+
+# Strategic Deployment
+studyarea_stdp <- strategic_developments %>% 
+  filter(admin1 %in% c("Rakhine", "Chin", "Magway"))
+
+# Explosions / Remote violence
+studyarea_erv <- explosion_or_remoteviolence %>% 
+  filter(admin1 %in% c("Rakhine", "Chin", "Magway"))
+
+# Battles
+studyarea_bat <- battles %>% 
+  filter(admin1 %in% c("Rakhine", "Chin", "Magway"))
+```
+
+Let us visualise the data again.
+
+```{r}
+#| eval: false
+
+tmap_mode("plot")
+tmap_style("white")
+
+tm_shape(studyarea) +
+  tm_polygons() +
+  tm_shape(studyarea_vac) +
+  tm_dots(size= 0.1, col = "black") +
+  tm_facets(by = "year_quarter",
+            free.coords = FALSE,
+            drop.units = TRUE,
+            ncol = 7) +
+  tm_layout(main.title="Violence Against Civilians (Quarterly)")
+
+tm_shape(studyarea) +
+  tm_polygons() +
+  tm_shape(studyarea_stdp) +
+  tm_dots(size= 0.1, col = "black") +
+  tm_facets(by = "year_quarter",
+            free.coords = FALSE,
+            drop.units = TRUE,
+            ncol = 7) +
+  tm_layout(main.title="Strategic Developments (Quarterly)")
+
+tm_shape(studyarea) +
+  tm_polygons() +
+  tm_shape(studyarea_erv) +
+  tm_dots(size= 0.1, col = "black") +
+  tm_facets(by = "year_quarter",
+            free.coords = FALSE,
+            drop.units = TRUE,
+            ncol = 7) +
+  tm_layout(main.title="Explosion/Remote Violence (Quarterly)")
+
+tm_shape(studyarea) +
+  tm_polygons() +
+  tm_shape(studyarea_bat) +
+  tm_dots(size= 0.1, col = "black") +
+  tm_facets(by = "year_quarter",
+            free.coords = FALSE,
+            drop.units = TRUE,
+            ncol = 7) +
+  tm_layout(main.title="Battles (Quarterly)")
+```
+
+![](images/unnamed-chunk-19-1.png)
+
+![](images/unnamed-chunk-19-2.png)
+
+![](images/unnamed-chunk-19-3.png)
+
+![](images/unnamed-chunk-19-4.png)
+
+## Export and Save Data Sets (RDS file format)
+
+Before we continue, let us export and save our data.
+
+```{r}
+#| eval: false
+
+# Study Areas
+saveRDS(studyarea, "data/final_rds/studyarea.rds")
+
+# ACLED Data
+saveRDS(studyarea_vac, 
+        "data/final_rds/studyarea_violence_against_civilians.rds")
+saveRDS(studyarea_stdp, 
+        "data/final_rds/studyarea_strategic_developments.rds")
+saveRDS(studyarea_erv, 
+        "data/final_rds/studyarea_explosion_or_remoteviolence.rds")
+saveRDS(studyarea_bat, 
+        "data/final_rds/studyarea_battles.rds")
+```
+
+# Kernel Density Estimation
+
+## Import Previous Data
+
+```{r}
+studyarea <- readRDS("data/final_rds/studyarea.rds")
+studyarea_vac <- readRDS("data/final_rds/studyarea_violence_against_civilians.rds")
+studyarea_stdp <- readRDS("data/final_rds/studyarea_strategic_developments.rds")
+studyarea_erv <- readRDS("data/final_rds/studyarea_explosion_or_remoteviolence.rds")
+studyarea_bat <- readRDS("data/final_rds/studyarea_battles.rds")
+```
+
+## Separate Analysis
+
+### Create Owin Objects
+
+```{r}
+# Creating the Owin objects
+Chin_owin <- studyarea %>% filter(ST == "Chin") %>% as.owin()
+Magway_owin <- studyarea %>% filter(ST == "Magway") %>% as.owin()
+Rakhine_owin <- studyarea %>% filter(ST == "Rakhine") %>% as.owin()
+```
+
+```{r}
+
+#| output: false
+
+# Function to split any sf object into a list of sf by year_quarter
+# Outputs a list of ppp (converted from each sf in each year_quarter)
+split_by_year_quarter <- function(sf_object) {
+  # Get unique year_quarter values
+  unique_quarters <- unique(sf_object$year_quarter)
+  
+  # Split the sf object into a list of sf objects by year_quarter,
+  # Then, convert to ppp objects
+  # Then, jittle the points (to handle the presence of duplicated points)
+  split_list <- lapply(unique_quarters, function(unique_quarters) {
+    sf_object %>% filter(year_quarter == unique_quarters) %>% 
+      as.ppp() %>% 
+      rjitter(retry=TRUE, 
+              nsim=1, 
+              drop=TRUE)
+  })
+  
+  # Name the list elements by their year_quarter values
+  names(split_list) <- unique_quarters
+  
+  return(split_list)
+}
+
+vac_ppp_list <- split_by_year_quarter(studyarea_vac)
+stdp_ppp_list <- split_by_year_quarter(studyarea_stdp)
+erv_ppp_list <- split_by_year_quarter(studyarea_erv)
+bat_ppp_list <- split_by_year_quarter(studyarea_bat)
+```
+
+### Separate ACLED Points by Region (using Owin)
+
+Now, let us use the Owin objects to filter the ACLED data points for each region.
+
+```{r}
+# Function to Extract ppp points within a specified Owin object
+filter_ppp_within_window <- function(ppp_list, window) {
+  filtered_list <- lapply(ppp_list, function(ppp_item) {
+    ppp_item[window]
+  })
+  return(filtered_list)
+}
+
+Chin_vac_ppp_list <- filter_ppp_within_window(vac_ppp_list, Chin_owin)
+Chin_stdp_ppp_list <- filter_ppp_within_window(stdp_ppp_list, Chin_owin)
+Chin_erv_ppp_list <- filter_ppp_within_window(erv_ppp_list, Chin_owin)
+Chin_bat_ppp_list <- filter_ppp_within_window(bat_ppp_list, Chin_owin)
+
+Magway_vac_ppp_list <- filter_ppp_within_window(vac_ppp_list, Magway_owin)
+Magway_stdp_ppp_list <- filter_ppp_within_window(stdp_ppp_list, Magway_owin)
+Magway_erv_ppp_list <- filter_ppp_within_window(erv_ppp_list, Magway_owin)
+Magway_bat_ppp_list <- filter_ppp_within_window(bat_ppp_list, Magway_owin)
+
+Rakhine_vac_ppp_list <- filter_ppp_within_window(vac_ppp_list, Rakhine_owin)
+Rakhine_stdp_ppp_list <- filter_ppp_within_window(stdp_ppp_list, Rakhine_owin)
+Rakhine_erv_ppp_list <- filter_ppp_within_window(erv_ppp_list, Rakhine_owin)
+Rakhine_bat_ppp_list <- filter_ppp_within_window(bat_ppp_list, Rakhine_owin)
+
+```
+
+### Computing KDE (adaptive bandwidth) for each Region
+
+```{r}
+
+```
+
+
+### Separating Study Areas
+
+```{# {r}
+# # Function to filter sf object by admin1 values
+# filter_by_admin1 <- function(sf_object, regions) {
+#   filtered_list <- lapply(regions, function(region) {
+#     sf_object %>% filter(admin1 == region)
+#   })
+#   
+#   # Name the list elements by their region names
+#   names(filtered_list) <- regions
+#   
+#   return(filtered_list)
+# }
+# 
+# # Define the regions to filter by
+# regions <- c("Chin", "Magway", "Rakhine")
+# 
+# # Each list is a list of lists of sfs for each region
+# vac_list <- filter_by_admin1(studyarea_vac, regions)
+# stdp_list <- filter_by_admin1(studyarea_stdp, regions)
+# erv_list <- filter_by_admin1(studyarea_erv, regions)
+# bat_list <- filter_by_admin1(studyarea_bat, regions)
+# 
+# Chin_vac <- vac_list[["Chin"]]
+# Chin_stdp <- stdp_list[["Chin"]]
+# Chin_erv <- erv_list[["Chin"]]
+# Chin_bat <- bat_vac_list[["Chin"]]
+# 
+# Magway_vac <- vac_list[["Magway"]]
+# Magway_stdp <- stdp_list[["Magway"]]
+# Magway_erv <- erv_list[["Magway"]]
+# Magway_bat <- bat_vac_list[["Magway"]]
+# 
+# Rakhine_vac <- vac_list[["Rakhine"]]
+# Rakhine_stdp <- stdp_list[["Rakhine"]]
+# Rakhine_erv <- erv_list[["Rakhine"]]
+# Rakhine_bat <- bat_vac_list[["Rakhine"]]
 ```

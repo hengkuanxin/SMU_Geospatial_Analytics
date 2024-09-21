@@ -67,7 +67,7 @@ To begin, let us refer to the [ACLED data set codebook](https://acleddata.com/ac
 Now, let us first import the data.
 
 ```{r}
-##| eval: false
+#| eval: false
 
 # filter_columns <- c("event_date","year","disorder_type","sub_event_type","admin1","admin2","admin3")
 
@@ -123,6 +123,8 @@ Datasets:
 -   `mmr_polbnda_adm3_250k_mimu_1.csv` **Township** level boundary of Myanmar
 
 ```{r}
+#| eval: false
+
 
 # kml file not easy to read due to nested columns for attributes data
 admin_0 <- read_csv("data/raw/geospatial/mimu_admin_boundary/mmr_polbnda_adm0_250k_mimu_1.csv") %>%
@@ -166,6 +168,9 @@ From the left to right, we are able to see the increase in degree of administrat
 5.  "**Township**"
 
 ```{r}
+#| eval: false
+
+
 tmap_mode("plot")
 tmap_style("classic")
 
@@ -195,6 +200,9 @@ In the code chunk below, we plot out the various types of data points from ACLED
 4.  "**Battles**"
 
 ```{r}
+#| eval: false
+
+
 tmap_mode("plot")
 tmap_style("cobalt")
 
@@ -226,6 +234,8 @@ Given that precision of our point data is crucial to our spatial-temporal point 
 
 ```{r}
 #| eval: false
+
+
 # Violence against Civilians
 violence_against_civ %>% count(geo_precision)
 violence_against_civ %>% count(time_precision)
@@ -254,6 +264,9 @@ Let us start cleaning the data
 Let us filter out the data we want (time_precision and geo_precision codes \< 3), and see how many rows we have removed.
 
 ```{r}
+#| eval: false
+
+
 # Extract all rows where either geo_precision or time_precision is not = 3 
 violence_against_civ_filtered <- violence_against_civ %>%
   filter(!(geo_precision == 3 | time_precision == 3))
@@ -287,6 +300,9 @@ We will only **keep the following columns** as other columns are not relevant to
 -   (also including the geometry data)
 
 ```{r}
+#| eval: false
+
+
 filter_columns <- c("event_date","year","disorder_type","sub_event_type","admin1","admin2","admin3")
 
 violence_against_civ_filtered <- violence_against_civ_filtered %>%
@@ -311,6 +327,7 @@ Now, since we want to analyse the quarterly events, let us add a new column with
 The package we will be using here is called lubridate, a package within the tidyverse library.
 
 ```{r}
+#| eval: false
 
 violence_against_civ_filtered <- violence_against_civ_filtered %>% 
   mutate(quarter = quarter(event_date)) %>%

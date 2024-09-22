@@ -18,35 +18,27 @@ execute:
   error: false
 ---
 
-Data sets:
+# Objective
 
--   [Data Set Columns Information](https://acleddata.com/knowledge-base/codebook/)
--   [Data Set Myanmar Overview](https://acleddata.com/knowledge-base/acled-methodology-and-coding-decisions-around-political-violence-and-demonstrations-in-myanmar/)
--   Categories by Event Type: Battles, Explosion/Remote violence, Strategic developments, and Violence against civilians.
--   In terms of study period, students should focus on quarterly armed conflict events from January 2021 until June 2024.
+Geospatial analytics hold tremendous potential to address complex problems facing society. In this study, you are tasked to apply spatial point patterns analysis methods to discover the spatial and spatio-temporal distribution of armed conflict in Myanmar.
 
-Importing Data sets:
+# Tasks
 
-Bullet points:
+The specific tasks of this take-home exercise are as follows:
 
--   point 1 on lesson 1 (dataset: administrative boundary data -\> sf tibble dataframe)
--   point 2 and 3 last week lesson 3 (dataset: ACLED point data -\> derive KDE & 2nd-Order Point Pattern Analysis)
-    -   **Caution!** dataset is very large! For point 2, it may take 8 mins. For point 3, it may take half a day.
-    -   Make sure to estimate the time, effort you require -\> plan ahead
+-   Using appropriate function of **sf** and **tidyverse** packages, import and transform the downloaded armed conflict data and administrative boundary data into sf tibble data.frames.
 
-Case Study:
+-   Using the geospatial data sets prepared, derive quarterly KDE layers.
 
-History of Myanmar Armed Conflict:
+-   Using the geospatial data sets prepared, perform 2nd-Order Spatial Point Patterns Analysis.
 
-Current Situation:
+-   Using the geospatial data sets prepared, derive quarterly spatio-temporal KDE layers.
 
-Study Area:
+-   Using the geospatial data sets prepared, perform 2nd-Order Spatio-temporal Point Patterns Analysis.
 
-Focus and Objective:
+-   Using appropriate **tmap** functions, display the KDE and Spatio-temporal KDE layers on openstreetmap of Myanmar.
 
-Analysis Methods Used:
-
-Our main purpose here this time is to study the **quarterly spatio-temporal distribution of armed conflict events in Myanmar**. Therefore, the focus is mainly on the **types of events**, **date of events**, and the **location of events**. We will not be focusing on other matters in this exercise.
+-   Describe the spatial patterns revealed by the KDE and Spatio-temporal KDE maps.
 
 # Import the Necessary
 
@@ -63,6 +55,11 @@ pacman::p_load(tidyverse, sf, spatstat, ggplot2, tmap, gifski, sparr, raster)
 Before we start manipulating the data, it is important that we understand what each data column and data type mean and how valuable it is for our analysis.
 
 To begin, let us refer to the [ACLED data set codebook](https://acleddata.com/acleddatanew/wp-content/uploads/dlm_uploads/2023/06/ACLED_Codebook_2023.pdf)
+
+Useful links:
+
+-   [Data Set Columns Information](https://acleddata.com/knowledge-base/codebook/)
+-   [Data Set Myanmar Overview](https://acleddata.com/knowledge-base/acled-methodology-and-coding-decisions-around-political-violence-and-demonstrations-in-myanmar/)
 
 The data was retrieved from the ACLED data portal. Specifically, the following types of data was retrieved:
 
@@ -791,6 +788,8 @@ plot(abduction_ppp_100km.diggle, main = "bw.diggle")
 par(mfrow=c(1,1))
 ```
 
+![](images/clipboard-2031661471.png)
+
 Based on the results, the method: bw.diggle is too detailed and not useful for our analysis. We should therefore try either bw.ppl for a more detailed visualisation, or bw.scott for a more balanced visualisation. In fact, let us try splitting our study area into the 3 states and see if there is a difference.
 
 ### Separate the Study Area
@@ -908,7 +907,13 @@ par(mfrow=c(1,1))
 
 ![](images/clipboard-1301117594.png)
 
-In this case, bw.ppl seem like the better choice for our analysis. Based on the results so far, we can observe that most abduction cases seem to occur near the borders of the states.
+**Choice of Adaptive Bandwidth Method**
+
+In this case, bw.ppl seem like a more appropriate choice for our analysis, as it is neither overly detailed like the one given by bw.diggle, and also neither overly generic/smooth like the one given by bw.CvL.
+
+**Conclusion**
+
+Based on the results so far, we can observe that most abduction cases seem to occur near the borders of the states. In the KDE above, we see abduction cases near the south and east of Sagaing, near the north of both Magway and Chin. Specifically, the abduction of civilians are observed along the borders between the states of Chin, Magway, and Sagaing.
 
 # 2nd Order Points Pattern Analysis: L-Function & Completely Spatial Randomness Test with Monte Carlo
 
@@ -974,7 +979,7 @@ plot(L_sagaing.csr, . - r ~ r, xlab="d", ylab="L(d)-r")
 
 ![](images/clipboard-3266514276.png)
 
-The overall results of the monte carlo tests for every study area also tells us that we are confident that the spatial points of the abduction events are clustered, and are not randomly distributed.
+The overall results of the monte carlo tests for every study area also tells us that we are confident that the spatial points of the abduction events are clustered, and are not randomly distributed. This is seen from the black line (our test cases) exceeding the grey zone (confidence envelope).
 
 # Spatio-Temporal KDE
 

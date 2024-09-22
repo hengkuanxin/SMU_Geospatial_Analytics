@@ -328,70 +328,72 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#import-the-necessary" id="toc-import-the-necessary" class="nav-link active" data-scroll-target="#import-the-necessary"><span class="header-section-number">1</span> Import the Necessary</a>
+  <li><a href="#objective" id="toc-objective" class="nav-link active" data-scroll-target="#objective"><span class="header-section-number">1</span> Objective</a></li>
+  <li><a href="#tasks" id="toc-tasks" class="nav-link" data-scroll-target="#tasks"><span class="header-section-number">2</span> Tasks</a></li>
+  <li><a href="#import-the-necessary" id="toc-import-the-necessary" class="nav-link" data-scroll-target="#import-the-necessary"><span class="header-section-number">3</span> Import the Necessary</a>
   <ul class="collapse">
-  <li><a href="#import-libraries-packages" id="toc-import-libraries-packages" class="nav-link" data-scroll-target="#import-libraries-packages"><span class="header-section-number">1.1</span> Import Libraries / Packages</a></li>
-  <li><a href="#import-raw-data" id="toc-import-raw-data" class="nav-link" data-scroll-target="#import-raw-data"><span class="header-section-number">1.2</span> Import Raw Data</a>
+  <li><a href="#import-libraries-packages" id="toc-import-libraries-packages" class="nav-link" data-scroll-target="#import-libraries-packages"><span class="header-section-number">3.1</span> Import Libraries / Packages</a></li>
+  <li><a href="#import-raw-data" id="toc-import-raw-data" class="nav-link" data-scroll-target="#import-raw-data"><span class="header-section-number">3.2</span> Import Raw Data</a>
   <ul class="collapse">
-  <li><a href="#acled-data-set" id="toc-acled-data-set" class="nav-link" data-scroll-target="#acled-data-set"><span class="header-section-number">1.2.1</span> ACLED Data Set</a></li>
-  <li><a href="#administrative-boundary-dataset" id="toc-administrative-boundary-dataset" class="nav-link" data-scroll-target="#administrative-boundary-dataset"><span class="header-section-number">1.2.2</span> Administrative Boundary Dataset</a></li>
-  <li><a href="#quick-plot-to-visualise-data-sets" id="toc-quick-plot-to-visualise-data-sets" class="nav-link" data-scroll-target="#quick-plot-to-visualise-data-sets"><span class="header-section-number">1.2.3</span> Quick Plot To Visualise Data Sets</a></li>
+  <li><a href="#acled-data-set" id="toc-acled-data-set" class="nav-link" data-scroll-target="#acled-data-set"><span class="header-section-number">3.2.1</span> ACLED Data Set</a></li>
+  <li><a href="#administrative-boundary-dataset" id="toc-administrative-boundary-dataset" class="nav-link" data-scroll-target="#administrative-boundary-dataset"><span class="header-section-number">3.2.2</span> Administrative Boundary Dataset</a></li>
+  <li><a href="#quick-plot-to-visualise-data-sets" id="toc-quick-plot-to-visualise-data-sets" class="nav-link" data-scroll-target="#quick-plot-to-visualise-data-sets"><span class="header-section-number">3.2.3</span> Quick Plot To Visualise Data Sets</a></li>
   </ul></li>
-  <li><a href="#data-cleaning" id="toc-data-cleaning" class="nav-link" data-scroll-target="#data-cleaning"><span class="header-section-number">1.3</span> Data Cleaning</a></li>
-  <li><a href="#data-extraction" id="toc-data-extraction" class="nav-link" data-scroll-target="#data-extraction"><span class="header-section-number">1.4</span> Data Extraction</a>
+  <li><a href="#data-cleaning" id="toc-data-cleaning" class="nav-link" data-scroll-target="#data-cleaning"><span class="header-section-number">3.3</span> Data Cleaning</a></li>
+  <li><a href="#data-extraction" id="toc-data-extraction" class="nav-link" data-scroll-target="#data-extraction"><span class="header-section-number">3.4</span> Data Extraction</a>
   <ul class="collapse">
-  <li><a href="#extract-quarterly-data-from-acled-dataset" id="toc-extract-quarterly-data-from-acled-dataset" class="nav-link" data-scroll-target="#extract-quarterly-data-from-acled-dataset"><span class="header-section-number">1.4.1</span> Extract Quarterly Data from ACLED Dataset</a></li>
+  <li><a href="#extract-quarterly-data-from-acled-dataset" id="toc-extract-quarterly-data-from-acled-dataset" class="nav-link" data-scroll-target="#extract-quarterly-data-from-acled-dataset"><span class="header-section-number">3.4.1</span> Extract Quarterly Data from ACLED Dataset</a></li>
   </ul></li>
-  <li><a href="#export-data-sets-rds-file-format" id="toc-export-data-sets-rds-file-format" class="nav-link" data-scroll-target="#export-data-sets-rds-file-format"><span class="header-section-number">1.5</span> Export Data Sets (RDS file format)</a></li>
+  <li><a href="#export-data-sets-rds-file-format" id="toc-export-data-sets-rds-file-format" class="nav-link" data-scroll-target="#export-data-sets-rds-file-format"><span class="header-section-number">3.5</span> Export Data Sets (RDS file format)</a></li>
   </ul></li>
-  <li><a href="#import-data-sets-rds-file-format" id="toc-import-data-sets-rds-file-format" class="nav-link" data-scroll-target="#import-data-sets-rds-file-format"><span class="header-section-number">2</span> Import Data Sets (RDS file format)</a>
+  <li><a href="#import-data-sets-rds-file-format" id="toc-import-data-sets-rds-file-format" class="nav-link" data-scroll-target="#import-data-sets-rds-file-format"><span class="header-section-number">4</span> Import Data Sets (RDS file format)</a>
   <ul class="collapse">
-  <li><a href="#visualise-the-myanmar-states-boundaries" id="toc-visualise-the-myanmar-states-boundaries" class="nav-link" data-scroll-target="#visualise-the-myanmar-states-boundaries"><span class="header-section-number">2.1</span> Visualise the Myanmar States Boundaries</a></li>
-  <li><a href="#visualise-main-event-acled-data" id="toc-visualise-main-event-acled-data" class="nav-link" data-scroll-target="#visualise-main-event-acled-data"><span class="header-section-number">2.2</span> Visualise Main Event ACLED data</a>
+  <li><a href="#visualise-the-myanmar-states-boundaries" id="toc-visualise-the-myanmar-states-boundaries" class="nav-link" data-scroll-target="#visualise-the-myanmar-states-boundaries"><span class="header-section-number">4.1</span> Visualise the Myanmar States Boundaries</a></li>
+  <li><a href="#visualise-main-event-acled-data" id="toc-visualise-main-event-acled-data" class="nav-link" data-scroll-target="#visualise-main-event-acled-data"><span class="header-section-number">4.2</span> Visualise Main Event ACLED data</a>
   <ul class="collapse">
-  <li><a href="#conclusion-filter-again" id="toc-conclusion-filter-again" class="nav-link" data-scroll-target="#conclusion-filter-again"><span class="header-section-number">2.2.1</span> Conclusion: Filter Again</a></li>
-  <li><a href="#extracting-sub-event-types-from-each-main-event-type-data-set" id="toc-extracting-sub-event-types-from-each-main-event-type-data-set" class="nav-link" data-scroll-target="#extracting-sub-event-types-from-each-main-event-type-data-set"><span class="header-section-number">2.2.2</span> Extracting Sub-event Types from Each Main Event Type Data Set</a></li>
+  <li><a href="#conclusion-filter-again" id="toc-conclusion-filter-again" class="nav-link" data-scroll-target="#conclusion-filter-again"><span class="header-section-number">4.2.1</span> Conclusion: Filter Again</a></li>
+  <li><a href="#extracting-sub-event-types-from-each-main-event-type-data-set" id="toc-extracting-sub-event-types-from-each-main-event-type-data-set" class="nav-link" data-scroll-target="#extracting-sub-event-types-from-each-main-event-type-data-set"><span class="header-section-number">4.2.2</span> Extracting Sub-event Types from Each Main Event Type Data Set</a></li>
   </ul></li>
-  <li><a href="#visualising-the-sub-event-acled-data-set" id="toc-visualising-the-sub-event-acled-data-set" class="nav-link" data-scroll-target="#visualising-the-sub-event-acled-data-set"><span class="header-section-number">2.3</span> Visualising the Sub-Event ACLED Data Set</a>
+  <li><a href="#visualising-the-sub-event-acled-data-set" id="toc-visualising-the-sub-event-acled-data-set" class="nav-link" data-scroll-target="#visualising-the-sub-event-acled-data-set"><span class="header-section-number">4.3</span> Visualising the Sub-Event ACLED Data Set</a>
   <ul class="collapse">
-  <li><a href="#conclusion-data-set-seems-ready." id="toc-conclusion-data-set-seems-ready." class="nav-link" data-scroll-target="#conclusion-data-set-seems-ready."><span class="header-section-number">2.3.1</span> Conclusion: Data set seems ready.</a></li>
-  <li><a href="#final-extract-of-data-sets" id="toc-final-extract-of-data-sets" class="nav-link" data-scroll-target="#final-extract-of-data-sets"><span class="header-section-number">2.3.2</span> Final Extract of Data Sets</a></li>
+  <li><a href="#conclusion-data-set-seems-ready." id="toc-conclusion-data-set-seems-ready." class="nav-link" data-scroll-target="#conclusion-data-set-seems-ready."><span class="header-section-number">4.3.1</span> Conclusion: Data set seems ready.</a></li>
+  <li><a href="#final-extract-of-data-sets" id="toc-final-extract-of-data-sets" class="nav-link" data-scroll-target="#final-extract-of-data-sets"><span class="header-section-number">4.3.2</span> Final Extract of Data Sets</a></li>
   </ul></li>
-  <li><a href="#export-data-sets-rds-file-formats" id="toc-export-data-sets-rds-file-formats" class="nav-link" data-scroll-target="#export-data-sets-rds-file-formats"><span class="header-section-number">2.4</span> Export Data Sets (RDS file formats)</a></li>
+  <li><a href="#export-data-sets-rds-file-formats" id="toc-export-data-sets-rds-file-formats" class="nav-link" data-scroll-target="#export-data-sets-rds-file-formats"><span class="header-section-number">4.4</span> Export Data Sets (RDS file formats)</a></li>
   </ul></li>
-  <li><a href="#st-order-points-pattern-analysis-kernel-density-estimation-kde" id="toc-st-order-points-pattern-analysis-kernel-density-estimation-kde" class="nav-link" data-scroll-target="#st-order-points-pattern-analysis-kernel-density-estimation-kde"><span class="header-section-number">3</span> 1st Order Points Pattern Analysis: Kernel Density Estimation (KDE)</a>
+  <li><a href="#st-order-points-pattern-analysis-kernel-density-estimation-kde" id="toc-st-order-points-pattern-analysis-kernel-density-estimation-kde" class="nav-link" data-scroll-target="#st-order-points-pattern-analysis-kernel-density-estimation-kde"><span class="header-section-number">5</span> 1st Order Points Pattern Analysis: Kernel Density Estimation (KDE)</a>
   <ul class="collapse">
-  <li><a href="#import-data-sets-rds-file-format-1" id="toc-import-data-sets-rds-file-format-1" class="nav-link" data-scroll-target="#import-data-sets-rds-file-format-1"><span class="header-section-number">3.1</span> Import Data Sets (RDS file format)</a></li>
-  <li><a href="#create-owin-objects-for-study-area" id="toc-create-owin-objects-for-study-area" class="nav-link" data-scroll-target="#create-owin-objects-for-study-area"><span class="header-section-number">3.2</span> Create Owin Objects for Study Area</a>
+  <li><a href="#import-data-sets-rds-file-format-1" id="toc-import-data-sets-rds-file-format-1" class="nav-link" data-scroll-target="#import-data-sets-rds-file-format-1"><span class="header-section-number">5.1</span> Import Data Sets (RDS file format)</a></li>
+  <li><a href="#create-owin-objects-for-study-area" id="toc-create-owin-objects-for-study-area" class="nav-link" data-scroll-target="#create-owin-objects-for-study-area"><span class="header-section-number">5.2</span> Create Owin Objects for Study Area</a>
   <ul class="collapse">
-  <li><a href="#converting-sf-into-ppp-objects" id="toc-converting-sf-into-ppp-objects" class="nav-link" data-scroll-target="#converting-sf-into-ppp-objects"><span class="header-section-number">3.2.1</span> Converting SF into PPP objects</a></li>
+  <li><a href="#converting-sf-into-ppp-objects" id="toc-converting-sf-into-ppp-objects" class="nav-link" data-scroll-target="#converting-sf-into-ppp-objects"><span class="header-section-number">5.2.1</span> Converting SF into PPP objects</a></li>
   </ul></li>
-  <li><a href="#choosing-adaptive-bandwidth-method" id="toc-choosing-adaptive-bandwidth-method" class="nav-link" data-scroll-target="#choosing-adaptive-bandwidth-method"><span class="header-section-number">3.3</span> Choosing Adaptive Bandwidth Method</a>
+  <li><a href="#choosing-adaptive-bandwidth-method" id="toc-choosing-adaptive-bandwidth-method" class="nav-link" data-scroll-target="#choosing-adaptive-bandwidth-method"><span class="header-section-number">5.3</span> Choosing Adaptive Bandwidth Method</a>
   <ul class="collapse">
-  <li><a href="#separate-the-study-area" id="toc-separate-the-study-area" class="nav-link" data-scroll-target="#separate-the-study-area"><span class="header-section-number">3.3.1</span> Separate the Study Area</a></li>
-  </ul></li>
-  </ul></li>
-  <li><a href="#nd-order-points-pattern-analysis-l-function-completely-spatial-randomness-test-with-monte-carlo" id="toc-nd-order-points-pattern-analysis-l-function-completely-spatial-randomness-test-with-monte-carlo" class="nav-link" data-scroll-target="#nd-order-points-pattern-analysis-l-function-completely-spatial-randomness-test-with-monte-carlo"><span class="header-section-number">4</span> 2nd Order Points Pattern Analysis: L-Function &amp; Completely Spatial Randomness Test with Monte Carlo</a>
-  <ul class="collapse">
-  <li><a href="#chin-state" id="toc-chin-state" class="nav-link" data-scroll-target="#chin-state"><span class="header-section-number">4.1</span> Chin State</a></li>
-  <li><a href="#magway-state" id="toc-magway-state" class="nav-link" data-scroll-target="#magway-state"><span class="header-section-number">4.2</span> Magway State</a></li>
-  <li><a href="#sagaing-state" id="toc-sagaing-state" class="nav-link" data-scroll-target="#sagaing-state"><span class="header-section-number">4.3</span> Sagaing State</a></li>
-  </ul></li>
-  <li><a href="#spatio-temporal-kde" id="toc-spatio-temporal-kde" class="nav-link" data-scroll-target="#spatio-temporal-kde"><span class="header-section-number">5</span> Spatio-Temporal KDE</a>
-  <ul class="collapse">
-  <li><a href="#selecting-year-quarters-of-events" id="toc-selecting-year-quarters-of-events" class="nav-link" data-scroll-target="#selecting-year-quarters-of-events"><span class="header-section-number">5.1</span> Selecting Year-Quarters of Events</a></li>
-  <li><a href="#including-owin-objects" id="toc-including-owin-objects" class="nav-link" data-scroll-target="#including-owin-objects"><span class="header-section-number">5.2</span> Including Owin Objects</a></li>
-  <li><a href="#plotting-out-the-ppp-objects" id="toc-plotting-out-the-ppp-objects" class="nav-link" data-scroll-target="#plotting-out-the-ppp-objects"><span class="header-section-number">5.3</span> Plotting out the PPP Objects</a></li>
-  <li><a href="#computing-stkde" id="toc-computing-stkde" class="nav-link" data-scroll-target="#computing-stkde"><span class="header-section-number">5.4</span> Computing STKDE</a>
-  <ul class="collapse">
-  <li><a href="#chin-state-1" id="toc-chin-state-1" class="nav-link" data-scroll-target="#chin-state-1"><span class="header-section-number">5.4.1</span> Chin State</a></li>
-  <li><a href="#magway-state-1" id="toc-magway-state-1" class="nav-link" data-scroll-target="#magway-state-1"><span class="header-section-number">5.4.2</span> Magway State</a></li>
-  <li><a href="#saging-state" id="toc-saging-state" class="nav-link" data-scroll-target="#saging-state"><span class="header-section-number">5.4.3</span> Saging State</a></li>
+  <li><a href="#separate-the-study-area" id="toc-separate-the-study-area" class="nav-link" data-scroll-target="#separate-the-study-area"><span class="header-section-number">5.3.1</span> Separate the Study Area</a></li>
   </ul></li>
   </ul></li>
-  <li><a href="#plotting-kde-and-stkde-on-map" id="toc-plotting-kde-and-stkde-on-map" class="nav-link" data-scroll-target="#plotting-kde-and-stkde-on-map"><span class="header-section-number">6</span> Plotting KDE and STKDE on Map</a>
+  <li><a href="#nd-order-points-pattern-analysis-l-function-completely-spatial-randomness-test-with-monte-carlo" id="toc-nd-order-points-pattern-analysis-l-function-completely-spatial-randomness-test-with-monte-carlo" class="nav-link" data-scroll-target="#nd-order-points-pattern-analysis-l-function-completely-spatial-randomness-test-with-monte-carlo"><span class="header-section-number">6</span> 2nd Order Points Pattern Analysis: L-Function &amp; Completely Spatial Randomness Test with Monte Carlo</a>
   <ul class="collapse">
-  <li><a href="#convert-plots-into-rasters-layers" id="toc-convert-plots-into-rasters-layers" class="nav-link" data-scroll-target="#convert-plots-into-rasters-layers"><span class="header-section-number">6.1</span> Convert Plots into Rasters layers</a></li>
+  <li><a href="#chin-state" id="toc-chin-state" class="nav-link" data-scroll-target="#chin-state"><span class="header-section-number">6.1</span> Chin State</a></li>
+  <li><a href="#magway-state" id="toc-magway-state" class="nav-link" data-scroll-target="#magway-state"><span class="header-section-number">6.2</span> Magway State</a></li>
+  <li><a href="#sagaing-state" id="toc-sagaing-state" class="nav-link" data-scroll-target="#sagaing-state"><span class="header-section-number">6.3</span> Sagaing State</a></li>
+  </ul></li>
+  <li><a href="#spatio-temporal-kde" id="toc-spatio-temporal-kde" class="nav-link" data-scroll-target="#spatio-temporal-kde"><span class="header-section-number">7</span> Spatio-Temporal KDE</a>
+  <ul class="collapse">
+  <li><a href="#selecting-year-quarters-of-events" id="toc-selecting-year-quarters-of-events" class="nav-link" data-scroll-target="#selecting-year-quarters-of-events"><span class="header-section-number">7.1</span> Selecting Year-Quarters of Events</a></li>
+  <li><a href="#including-owin-objects" id="toc-including-owin-objects" class="nav-link" data-scroll-target="#including-owin-objects"><span class="header-section-number">7.2</span> Including Owin Objects</a></li>
+  <li><a href="#plotting-out-the-ppp-objects" id="toc-plotting-out-the-ppp-objects" class="nav-link" data-scroll-target="#plotting-out-the-ppp-objects"><span class="header-section-number">7.3</span> Plotting out the PPP Objects</a></li>
+  <li><a href="#computing-stkde" id="toc-computing-stkde" class="nav-link" data-scroll-target="#computing-stkde"><span class="header-section-number">7.4</span> Computing STKDE</a>
+  <ul class="collapse">
+  <li><a href="#chin-state-1" id="toc-chin-state-1" class="nav-link" data-scroll-target="#chin-state-1"><span class="header-section-number">7.4.1</span> Chin State</a></li>
+  <li><a href="#magway-state-1" id="toc-magway-state-1" class="nav-link" data-scroll-target="#magway-state-1"><span class="header-section-number">7.4.2</span> Magway State</a></li>
+  <li><a href="#saging-state" id="toc-saging-state" class="nav-link" data-scroll-target="#saging-state"><span class="header-section-number">7.4.3</span> Saging State</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#plotting-kde-and-stkde-on-map" id="toc-plotting-kde-and-stkde-on-map" class="nav-link" data-scroll-target="#plotting-kde-and-stkde-on-map"><span class="header-section-number">8</span> Plotting KDE and STKDE on Map</a>
+  <ul class="collapse">
+  <li><a href="#convert-plots-into-rasters-layers" id="toc-convert-plots-into-rasters-layers" class="nav-link" data-scroll-target="#convert-plots-into-rasters-layers"><span class="header-section-number">8.1</span> Convert Plots into Rasters layers</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -437,44 +439,42 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Data sets:</p>
+<section id="objective" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Objective</h1>
+<p>Geospatial analytics hold tremendous potential to address complex problems facing society. In this study, you are tasked to apply spatial point patterns analysis methods to discover the spatial and spatio-temporal distribution of armed conflict in Myanmar.</p>
+</section>
+<section id="tasks" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Tasks</h1>
+<p>The specific tasks of this take-home exercise are as follows:</p>
 <ul>
-<li><a href="https://acleddata.com/knowledge-base/codebook/">Data Set Columns Information</a></li>
-<li><a href="https://acleddata.com/knowledge-base/acled-methodology-and-coding-decisions-around-political-violence-and-demonstrations-in-myanmar/">Data Set Myanmar Overview</a></li>
-<li>Categories by Event Type: Battles, Explosion/Remote violence, Strategic developments, and Violence against civilians.</li>
-<li>In terms of study period, students should focus on quarterly armed conflict events from January 2021 until June 2024.</li>
+<li><p>Using appropriate function of <strong>sf</strong> and <strong>tidyverse</strong> packages, import and transform the downloaded armed conflict data and administrative boundary data into sf tibble data.frames.</p></li>
+<li><p>Using the geospatial data sets prepared, derive quarterly KDE layers.</p></li>
+<li><p>Using the geospatial data sets prepared, perform 2nd-Order Spatial Point Patterns Analysis.</p></li>
+<li><p>Using the geospatial data sets prepared, derive quarterly spatio-temporal KDE layers.</p></li>
+<li><p>Using the geospatial data sets prepared, perform 2nd-Order Spatio-temporal Point Patterns Analysis.</p></li>
+<li><p>Using appropriate <strong>tmap</strong> functions, display the KDE and Spatio-temporal KDE layers on openstreetmap of Myanmar.</p></li>
+<li><p>Describe the spatial patterns revealed by the KDE and Spatio-temporal KDE maps.</p></li>
 </ul>
-<p>Importing Data sets:</p>
-<p>Bullet points:</p>
-<ul>
-<li>point 1 on lesson 1 (dataset: administrative boundary data -&gt; sf tibble dataframe)</li>
-<li>point 2 and 3 last week lesson 3 (dataset: ACLED point data -&gt; derive KDE &amp; 2nd-Order Point Pattern Analysis)
-<ul>
-<li><strong>Caution!</strong> dataset is very large! For point 2, it may take 8 mins. For point 3, it may take half a day.</li>
-<li>Make sure to estimate the time, effort you require -&gt; plan ahead</li>
-</ul></li>
-</ul>
-<p>Case Study:</p>
-<p>History of Myanmar Armed Conflict:</p>
-<p>Current Situation:</p>
-<p>Study Area:</p>
-<p>Focus and Objective:</p>
-<p>Analysis Methods Used:</p>
-<p>Our main purpose here this time is to study the <strong>quarterly spatio-temporal distribution of armed conflict events in Myanmar</strong>. Therefore, the focus is mainly on the <strong>types of events</strong>, <strong>date of events</strong>, and the <strong>location of events</strong>. We will not be focusing on other matters in this exercise.</p>
-<section id="import-the-necessary" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Import the Necessary</h1>
-<section id="import-libraries-packages" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="import-libraries-packages"><span class="header-section-number">1.1</span> Import Libraries / Packages</h2>
+</section>
+<section id="import-the-necessary" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Import the Necessary</h1>
+<section id="import-libraries-packages" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="import-libraries-packages"><span class="header-section-number">3.1</span> Import Libraries / Packages</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(tidyverse, sf, spatstat, ggplot2, tmap, gifski, sparr, raster)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="import-raw-data" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="import-raw-data"><span class="header-section-number">1.2</span> Import Raw Data</h2>
-<section id="acled-data-set" class="level3" data-number="1.2.1">
-<h3 data-number="1.2.1" class="anchored" data-anchor-id="acled-data-set"><span class="header-section-number">1.2.1</span> ACLED Data Set</h3>
+<section id="import-raw-data" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="import-raw-data"><span class="header-section-number">3.2</span> Import Raw Data</h2>
+<section id="acled-data-set" class="level3" data-number="3.2.1">
+<h3 data-number="3.2.1" class="anchored" data-anchor-id="acled-data-set"><span class="header-section-number">3.2.1</span> ACLED Data Set</h3>
 <p>Before we start manipulating the data, it is important that we understand what each data column and data type mean and how valuable it is for our analysis.</p>
 <p>To begin, let us refer to the <a href="https://acleddata.com/acleddatanew/wp-content/uploads/dlm_uploads/2023/06/ACLED_Codebook_2023.pdf">ACLED data set codebook</a></p>
+<p>Useful links:</p>
+<ul>
+<li><a href="https://acleddata.com/knowledge-base/codebook/">Data Set Columns Information</a></li>
+<li><a href="https://acleddata.com/knowledge-base/acled-methodology-and-coding-decisions-around-political-violence-and-demonstrations-in-myanmar/">Data Set Myanmar Overview</a></li>
+</ul>
 <p>The data was retrieved from the ACLED data portal. Specifically, the following types of data was retrieved:</p>
 <ol type="1">
 <li><code>violence-against-civilians.csv</code></li>
@@ -515,8 +515,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">event_date =</span> <span class="fu">dmy</span>(event_date))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="administrative-boundary-dataset" class="level3" data-number="1.2.2">
-<h3 data-number="1.2.2" class="anchored" data-anchor-id="administrative-boundary-dataset"><span class="header-section-number">1.2.2</span> Administrative Boundary Dataset</h3>
+<section id="administrative-boundary-dataset" class="level3" data-number="3.2.2">
+<h3 data-number="3.2.2" class="anchored" data-anchor-id="administrative-boundary-dataset"><span class="header-section-number">3.2.2</span> Administrative Boundary Dataset</h3>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <div class="quarto-figure quarto-figure-center">
@@ -566,8 +566,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>    <span class="fu">st_transform</span>(<span class="at">crs =</span> <span class="dv">32647</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="quick-plot-to-visualise-data-sets" class="level3" data-number="1.2.3">
-<h3 data-number="1.2.3" class="anchored" data-anchor-id="quick-plot-to-visualise-data-sets"><span class="header-section-number">1.2.3</span> Quick Plot To Visualise Data Sets</h3>
+<section id="quick-plot-to-visualise-data-sets" class="level3" data-number="3.2.3">
+<h3 data-number="3.2.3" class="anchored" data-anchor-id="quick-plot-to-visualise-data-sets"><span class="header-section-number">3.2.3</span> Quick Plot To Visualise Data Sets</h3>
 <p>Before we continue, let’s get a visual sense of the data by plotting it on a map to ensure we are working with the right dataset. In this step, we will also try to see if there are any erranous data that we have to clean later.</p>
 <p><strong>Check the Administrative Boundaries Data Set</strong></p>
 <p>From the left to right, we are able to see the increase in degree of administrative boundary division; respectively, they represent</p>
@@ -664,8 +664,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Let us start cleaning the data</p>
 </section>
 </section>
-<section id="data-cleaning" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="data-cleaning"><span class="header-section-number">1.3</span> Data Cleaning</h2>
+<section id="data-cleaning" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="data-cleaning"><span class="header-section-number">3.3</span> Data Cleaning</h2>
 <p>Let us filter out the data we want (time_precision and geo_precision codes &lt; 3), and see how many rows we have removed.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract all rows where either geo_precision or time_precision is not = 3 </span></span>
@@ -714,10 +714,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">all_of</span>(filter_columns))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="data-extraction" class="level2" data-number="1.4">
-<h2 data-number="1.4" class="anchored" data-anchor-id="data-extraction"><span class="header-section-number">1.4</span> Data Extraction</h2>
-<section id="extract-quarterly-data-from-acled-dataset" class="level3" data-number="1.4.1">
-<h3 data-number="1.4.1" class="anchored" data-anchor-id="extract-quarterly-data-from-acled-dataset"><span class="header-section-number">1.4.1</span> Extract Quarterly Data from ACLED Dataset</h3>
+<section id="data-extraction" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="data-extraction"><span class="header-section-number">3.4</span> Data Extraction</h2>
+<section id="extract-quarterly-data-from-acled-dataset" class="level3" data-number="3.4.1">
+<h3 data-number="3.4.1" class="anchored" data-anchor-id="extract-quarterly-data-from-acled-dataset"><span class="header-section-number">3.4.1</span> Extract Quarterly Data from ACLED Dataset</h3>
 <p>Now, since we want to analyse the quarterly events, let us add a new column within the tibble DataFrame called <strong>quarter</strong> to represent the quarter of each date in numerical format, e.g.&nbsp;(1, 2, 3, or 4). After that, let us create another column called <strong>year_quarter</strong> to represent the quarter of every year in string format, e.g.&nbsp;(“2021-Q1”, “2023-Q4”).</p>
 <p>The package we will be using here is called lubridate, a package within the tidyverse library.</p>
 <div class="cell">
@@ -739,8 +739,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 </section>
-<section id="export-data-sets-rds-file-format" class="level2" data-number="1.5">
-<h2 data-number="1.5" class="anchored" data-anchor-id="export-data-sets-rds-file-format"><span class="header-section-number">1.5</span> Export Data Sets (RDS file format)</h2>
+<section id="export-data-sets-rds-file-format" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="export-data-sets-rds-file-format"><span class="header-section-number">3.5</span> Export Data Sets (RDS file format)</h2>
 <p>Before we continue, let’s export our cleaned data sets so that our changes are saved. <strong>We will export the data sets in the RDS format.</strong></p>
 <p>RDS stands for R Data Serialization. It’s a binary serialization format in R used to save R objects to a file. This format preserves the class, attributes, and structure of the R object, making it useful for saving and loading data while maintaining its integrity.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -777,8 +777,8 @@ Tip
 <p>Now, let’s continue to the next section.</p>
 </section>
 </section>
-<section id="import-data-sets-rds-file-format" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Import Data Sets (RDS file format)</h1>
+<section id="import-data-sets-rds-file-format" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Import Data Sets (RDS file format)</h1>
 <p>Let us import the data sets back.</p>
 <p>The code chunk below imports the cleaned and filtered ACLED data that was previously exported into RDS file format.</p>
 <div class="cell">
@@ -795,8 +795,8 @@ Tip
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>admin_2 <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/rds/admin_boundary_district-selfAdministeredZone.rds"</span>)</span>
 <span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>admin_3 <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/rds/admin_boundary_township.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="visualise-the-myanmar-states-boundaries" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="visualise-the-myanmar-states-boundaries"><span class="header-section-number">2.1</span> Visualise the Myanmar States Boundaries</h2>
+<section id="visualise-the-myanmar-states-boundaries" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="visualise-the-myanmar-states-boundaries"><span class="header-section-number">4.1</span> Visualise the Myanmar States Boundaries</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_shape</span>(admin_1) <span class="sc">+</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_style</span>(<span class="st">"white"</span>) <span class="sc">+</span></span>
@@ -812,8 +812,8 @@ Tip
 </figure>
 </div>
 </section>
-<section id="visualise-main-event-acled-data" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="visualise-main-event-acled-data"><span class="header-section-number">2.2</span> Visualise Main Event ACLED data</h2>
+<section id="visualise-main-event-acled-data" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="visualise-main-event-acled-data"><span class="header-section-number">4.2</span> Visualise Main Event ACLED data</h2>
 <p>Now that we have categorised the ACLED points data into specific yearly quarters, let us plot them onto the map of myanmar to see if there are any obvious patterns.</p>
 <p>So far, we can have up to 14 temporal categories, with 4 quarters per year in <strong>Year 2021, 2022, 2023</strong>, and 2 quarters in the <strong>first half of 2024</strong>.</p>
 <div class="cell">
@@ -951,8 +951,8 @@ Tip
 <figcaption>Quarterly events: Battles</figcaption>
 </figure>
 </div>
-<section id="conclusion-filter-again" class="level3" data-number="2.2.1">
-<h3 data-number="2.2.1" class="anchored" data-anchor-id="conclusion-filter-again"><span class="header-section-number">2.2.1</span> Conclusion: Filter Again</h3>
+<section id="conclusion-filter-again" class="level3" data-number="4.2.1">
+<h3 data-number="4.2.1" class="anchored" data-anchor-id="conclusion-filter-again"><span class="header-section-number">4.2.1</span> Conclusion: Filter Again</h3>
 <p>Looking at the data, while we are able to see some trends along the 4 data sets, they are roughly the same. So let us filter our data sets and focus on sub-event types.</p>
 <p>Referring to ACLED’s codebook again, we see that event types are further categorised as sub-event types. For the purpose of this analysis, I have chosen the following event types from each data set:</p>
 <ol type="1">
@@ -976,8 +976,8 @@ Tip
 <p>I have chosen to focus on the mentioned 4 sub-event types simply because they sound interesting, and they provide enough data points for our analysis later on, which includes first and second order point pattern analysis, as well as spatio-temporal point pattern analysis.</p>
 <p>Previously, I have attempted to analyse all event types by selecting a study area, but I realise I was not able to draw out much conclusion. Refer to the section “Previous Attempts on This Exercise” for a glance of my previous attempts.</p>
 </section>
-<section id="extracting-sub-event-types-from-each-main-event-type-data-set" class="level3" data-number="2.2.2">
-<h3 data-number="2.2.2" class="anchored" data-anchor-id="extracting-sub-event-types-from-each-main-event-type-data-set"><span class="header-section-number">2.2.2</span> Extracting Sub-event Types from Each Main Event Type Data Set</h3>
+<section id="extracting-sub-event-types-from-each-main-event-type-data-set" class="level3" data-number="4.2.2">
+<h3 data-number="4.2.2" class="anchored" data-anchor-id="extracting-sub-event-types-from-each-main-event-type-data-set"><span class="header-section-number">4.2.2</span> Extracting Sub-event Types from Each Main Event Type Data Set</h3>
 <p>Let us now extract the data points that we want from each data set and visualise the data points over time.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>abduction_sf <span class="ot">&lt;-</span> violence_against_civilians <span class="sc">%&gt;%</span> </span>
@@ -994,8 +994,8 @@ Tip
 </div>
 </section>
 </section>
-<section id="visualising-the-sub-event-acled-data-set" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="visualising-the-sub-event-acled-data-set"><span class="header-section-number">2.3</span> Visualising the Sub-Event ACLED Data Set</h2>
+<section id="visualising-the-sub-event-acled-data-set" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="visualising-the-sub-event-acled-data-set"><span class="header-section-number">4.3</span> Visualising the Sub-Event ACLED Data Set</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tmap_mode</span>(<span class="st">"plot"</span>)</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tmap_style</span>(<span class="st">"classic"</span>)</span>
@@ -1040,8 +1040,8 @@ Tip
 <p><img src="images/clipboard-4026960393.png" class="img-fluid"></p>
 <p><img src="images/clipboard-2303509002.png" class="img-fluid"></p>
 <p><img src="images/clipboard-3450628062.png" class="img-fluid"></p>
-<section id="conclusion-data-set-seems-ready." class="level3" data-number="2.3.1">
-<h3 data-number="2.3.1" class="anchored" data-anchor-id="conclusion-data-set-seems-ready."><span class="header-section-number">2.3.1</span> Conclusion: Data set seems ready.</h3>
+<section id="conclusion-data-set-seems-ready." class="level3" data-number="4.3.1">
+<h3 data-number="4.3.1" class="anchored" data-anchor-id="conclusion-data-set-seems-ready."><span class="header-section-number">4.3.1</span> Conclusion: Data set seems ready.</h3>
 <p>Overall, it seems like there are more obvious trends and the data is easier to work with now. Some things we can see at a glance is that.</p>
 <ol type="1">
 <li>There seems to be quite a number of abduction cases in the central part of Myanmar (in states Mandalay and Sagaing). These cases seem to be happening along the border of the states, but more remains to be seen.</li>
@@ -1064,8 +1064,8 @@ Note
 </div>
 </div>
 </section>
-<section id="final-extract-of-data-sets" class="level3" data-number="2.3.2">
-<h3 data-number="2.3.2" class="anchored" data-anchor-id="final-extract-of-data-sets"><span class="header-section-number">2.3.2</span> Final Extract of Data Sets</h3>
+<section id="final-extract-of-data-sets" class="level3" data-number="4.3.2">
+<h3 data-number="4.3.2" class="anchored" data-anchor-id="final-extract-of-data-sets"><span class="header-section-number">4.3.2</span> Final Extract of Data Sets</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>studyarea_sf <span class="ot">&lt;-</span> admin_1 <span class="sc">%&gt;%</span> </span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(ST <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Magway"</span>, <span class="st">"Chin"</span>, <span class="st">"Sagaing"</span>))</span>
@@ -1084,8 +1084,8 @@ Note
 </div>
 </section>
 </section>
-<section id="export-data-sets-rds-file-formats" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="export-data-sets-rds-file-formats"><span class="header-section-number">2.4</span> Export Data Sets (RDS file formats)</h2>
+<section id="export-data-sets-rds-file-formats" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="export-data-sets-rds-file-formats"><span class="header-section-number">4.4</span> Export Data Sets (RDS file formats)</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(abduction_sf, <span class="st">"data/final_rds/abduction.rds"</span>)</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="co"># saveRDS(changeGroup_sf, "data/final_rds/changeGroup.rds")</span></span>
@@ -1095,10 +1095,10 @@ Note
 </div>
 </section>
 </section>
-<section id="st-order-points-pattern-analysis-kernel-density-estimation-kde" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> 1st Order Points Pattern Analysis: Kernel Density Estimation (KDE)</h1>
-<section id="import-data-sets-rds-file-format-1" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="import-data-sets-rds-file-format-1"><span class="header-section-number">3.1</span> Import Data Sets (RDS file format)</h2>
+<section id="st-order-points-pattern-analysis-kernel-density-estimation-kde" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> 1st Order Points Pattern Analysis: Kernel Density Estimation (KDE)</h1>
+<section id="import-data-sets-rds-file-format-1" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="import-data-sets-rds-file-format-1"><span class="header-section-number">5.1</span> Import Data Sets (RDS file format)</h2>
 <p>Note that currently, we are left with:</p>
 <ol type="1">
 <li><strong>abduction_sf: 326 data points</strong></li>
@@ -1111,14 +1111,14 @@ Note
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>studyArea_sf <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/final_rds/studyarea.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="create-owin-objects-for-study-area" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="create-owin-objects-for-study-area"><span class="header-section-number">3.2</span> Create Owin Objects for Study Area</h2>
+<section id="create-owin-objects-for-study-area" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="create-owin-objects-for-study-area"><span class="header-section-number">5.2</span> Create Owin Objects for Study Area</h2>
 <p>Let us first set our study area to the whole of Myanmar, simply because our number of data points of most of the sub-event types are not very large (except the <code>Shelling/artillery/missile attack</code> event)</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>studyArea_owin <span class="ot">&lt;-</span> studyArea_sf <span class="sc">%&gt;%</span> <span class="fu">as.owin</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="converting-sf-into-ppp-objects" class="level3" data-number="3.2.1">
-<h3 data-number="3.2.1" class="anchored" data-anchor-id="converting-sf-into-ppp-objects"><span class="header-section-number">3.2.1</span> Converting SF into PPP objects</h3>
+<section id="converting-sf-into-ppp-objects" class="level3" data-number="5.2.1">
+<h3 data-number="5.2.1" class="anchored" data-anchor-id="converting-sf-into-ppp-objects"><span class="header-section-number">5.2.1</span> Converting SF into PPP objects</h3>
 <p>Due to time constraints on my side, let us compute the Kernel Density Estimate (KDE) on each event type throughout the whole event period. To do this, we will first need to convert our data points into PPP objects.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>abduction_ppp <span class="ot">&lt;-</span> abduction_sf <span class="sc">%&gt;%</span> <span class="fu">as.ppp</span>() <span class="sc">%&gt;%</span> </span>
@@ -1129,8 +1129,8 @@ Note
 </div>
 </section>
 </section>
-<section id="choosing-adaptive-bandwidth-method" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="choosing-adaptive-bandwidth-method"><span class="header-section-number">3.3</span> Choosing Adaptive Bandwidth Method</h2>
+<section id="choosing-adaptive-bandwidth-method" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="choosing-adaptive-bandwidth-method"><span class="header-section-number">5.3</span> Choosing Adaptive Bandwidth Method</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bw.CvL</span>(abduction_ppp_study</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>       <span class="sc">%&gt;%</span> <span class="fu">rescale.ppp</span>(<span class="at">s=</span><span class="dv">100000</span>, <span class="at">unitname=</span><span class="st">"100km"</span>))</span>
@@ -1173,9 +1173,10 @@ Note
 <span id="cb27-25"><a href="#cb27-25" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(abduction_ppp_100km.diggle, <span class="at">main =</span> <span class="st">"bw.diggle"</span>)</span>
 <span id="cb27-26"><a href="#cb27-26" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p><img src="images/clipboard-2031661471.png" class="img-fluid"></p>
 <p>Based on the results, the method: bw.diggle is too detailed and not useful for our analysis. We should therefore try either bw.ppl for a more detailed visualisation, or bw.scott for a more balanced visualisation. In fact, let us try splitting our study area into the 3 states and see if there is a difference.</p>
-<section id="separate-the-study-area" class="level3" data-number="3.3.1">
-<h3 data-number="3.3.1" class="anchored" data-anchor-id="separate-the-study-area"><span class="header-section-number">3.3.1</span> Separate the Study Area</h3>
+<section id="separate-the-study-area" class="level3" data-number="5.3.1">
+<h3 data-number="5.3.1" class="anchored" data-anchor-id="separate-the-study-area"><span class="header-section-number">5.3.1</span> Separate the Study Area</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>chin_owin <span class="ot">&lt;-</span> studyArea_sf <span class="sc">%&gt;%</span> <span class="fu">filter</span>(ST<span class="sc">==</span><span class="st">"Chin"</span>) <span class="sc">%&gt;%</span> <span class="fu">as.owin</span>()</span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>magway_owin <span class="ot">&lt;-</span> studyArea_sf <span class="sc">%&gt;%</span> <span class="fu">filter</span>(ST<span class="sc">==</span><span class="st">"Magway"</span>) <span class="sc">%&gt;%</span> <span class="fu">as.owin</span>()</span>
@@ -1278,15 +1279,18 @@ Note
 <span id="cb32-26"><a href="#cb32-26" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><img src="images/clipboard-1301117594.png" class="img-fluid"></p>
-<p>In this case, bw.ppl seem like the better choice for our analysis. Based on the results so far, we can observe that most abduction cases seem to occur near the borders of the states.</p>
+<p><strong>Choice of Adaptive Bandwidth Method</strong></p>
+<p>In this case, bw.ppl seem like a more appropriate choice for our analysis, as it is neither overly detailed like the one given by bw.diggle, and also neither overly generic/smooth like the one given by bw.CvL.</p>
+<p><strong>Conclusion</strong></p>
+<p>Based on the results so far, we can observe that most abduction cases seem to occur near the borders of the states. In the KDE above, we see abduction cases near the south and east of Sagaing, near the north of both Magway and Chin. Specifically, the abduction of civilians are observed along the borders between the states of Chin, Magway, and Sagaing.</p>
 </section>
 </section>
 </section>
-<section id="nd-order-points-pattern-analysis-l-function-completely-spatial-randomness-test-with-monte-carlo" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> 2nd Order Points Pattern Analysis: L-Function &amp; Completely Spatial Randomness Test with Monte Carlo</h1>
+<section id="nd-order-points-pattern-analysis-l-function-completely-spatial-randomness-test-with-monte-carlo" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> 2nd Order Points Pattern Analysis: L-Function &amp; Completely Spatial Randomness Test with Monte Carlo</h1>
 <p>We will now test for whether the point patterns are randomly distributed. And if not randomly distributed, whether they are clustered or uniformly distributed?</p>
-<section id="chin-state" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="chin-state"><span class="header-section-number">4.1</span> Chin State</h2>
+<section id="chin-state" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="chin-state"><span class="header-section-number">6.1</span> Chin State</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>L_chin <span class="ot">=</span> <span class="fu">Lest</span>(abduction_ppp_chin<span class="fl">.100</span>km, <span class="at">correction =</span> <span class="st">"Ripley"</span>)</span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(L_chin, . <span class="sc">-</span>r <span class="sc">~</span> r, </span>
@@ -1300,8 +1304,8 @@ Note
 </div>
 <p><img src="images/clipboard-4031161975.png" class="img-fluid"></p>
 </section>
-<section id="magway-state" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="magway-state"><span class="header-section-number">4.2</span> Magway State</h2>
+<section id="magway-state" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="magway-state"><span class="header-section-number">6.2</span> Magway State</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>L_magway <span class="ot">=</span> <span class="fu">Lest</span>(abduction_ppp_magway<span class="fl">.100</span>km, <span class="at">correction =</span> <span class="st">"Ripley"</span>)</span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(L_magway, . <span class="sc">-</span>r <span class="sc">~</span> r, </span>
@@ -1315,8 +1319,8 @@ Note
 </div>
 <p><img src="images/clipboard-3644905663.png" class="img-fluid"></p>
 </section>
-<section id="sagaing-state" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="sagaing-state"><span class="header-section-number">4.3</span> Sagaing State</h2>
+<section id="sagaing-state" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="sagaing-state"><span class="header-section-number">6.3</span> Sagaing State</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>L_sagaing <span class="ot">=</span> <span class="fu">Lest</span>(abduction_ppp_sagaing<span class="fl">.100</span>km, <span class="at">correction =</span> <span class="st">"Ripley"</span>)</span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(L_sagaing, . <span class="sc">-</span>r <span class="sc">~</span> r, </span>
@@ -1329,13 +1333,13 @@ Note
 <span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(L_sagaing.csr, . <span class="sc">-</span> r <span class="sc">~</span> r, <span class="at">xlab=</span><span class="st">"d"</span>, <span class="at">ylab=</span><span class="st">"L(d)-r"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><img src="images/clipboard-3266514276.png" class="img-fluid"></p>
-<p>The overall results of the monte carlo tests for every study area also tells us that we are confident that the spatial points of the abduction events are clustered, and are not randomly distributed.</p>
+<p>The overall results of the monte carlo tests for every study area also tells us that we are confident that the spatial points of the abduction events are clustered, and are not randomly distributed. This is seen from the black line (our test cases) exceeding the grey zone (confidence envelope).</p>
 </section>
 </section>
-<section id="spatio-temporal-kde" class="level1" data-number="5">
-<h1 data-number="5"><span class="header-section-number">5</span> Spatio-Temporal KDE</h1>
-<section id="selecting-year-quarters-of-events" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="selecting-year-quarters-of-events"><span class="header-section-number">5.1</span> Selecting Year-Quarters of Events</h2>
+<section id="spatio-temporal-kde" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Spatio-Temporal KDE</h1>
+<section id="selecting-year-quarters-of-events" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="selecting-year-quarters-of-events"><span class="header-section-number">7.1</span> Selecting Year-Quarters of Events</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to convert year and quarter to numeric sequence</span></span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>convert_year_quarter <span class="ot">&lt;-</span> <span class="cf">function</span>(year, quarter) {</span>
@@ -1358,7 +1362,7 @@ Note
 <pre><code>Marked planar point pattern:  326 points
 Average intensity 1.221499e-09 points per square unit
 
-Coordinates are given to 14 decimal places
+Coordinates are given to 13 decimal places
 
 marks are numeric, of type 'double'
 Summary:
@@ -1371,16 +1375,16 @@ Window area = 2.66885e+11 square units</code></pre>
 </div>
 </div>
 </section>
-<section id="including-owin-objects" class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="including-owin-objects"><span class="header-section-number">5.2</span> Including Owin Objects</h2>
+<section id="including-owin-objects" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="including-owin-objects"><span class="header-section-number">7.2</span> Including Owin Objects</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>abduction_yq.ppp_chin <span class="ot">&lt;-</span> abduction_yq.ppp[chin_owin]</span>
 <span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>abduction_yq.ppp_magway <span class="ot">&lt;-</span> abduction_yq.ppp[magway_owin] </span>
 <span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>abduction_yq.ppp_sagaing <span class="ot">&lt;-</span> abduction_yq.ppp[sagaing_owin] </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="plotting-out-the-ppp-objects" class="level2" data-number="5.3">
-<h2 data-number="5.3" class="anchored" data-anchor-id="plotting-out-the-ppp-objects"><span class="header-section-number">5.3</span> Plotting out the PPP Objects</h2>
+<section id="plotting-out-the-ppp-objects" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="plotting-out-the-ppp-objects"><span class="header-section-number">7.3</span> Plotting out the PPP Objects</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(abduction_yq.ppp_chin)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -1408,10 +1412,10 @@ Window area = 2.66885e+11 square units</code></pre>
 </div>
 </div>
 </section>
-<section id="computing-stkde" class="level2" data-number="5.4">
-<h2 data-number="5.4" class="anchored" data-anchor-id="computing-stkde"><span class="header-section-number">5.4</span> Computing STKDE</h2>
-<section id="chin-state-1" class="level3" data-number="5.4.1">
-<h3 data-number="5.4.1" class="anchored" data-anchor-id="chin-state-1"><span class="header-section-number">5.4.1</span> Chin State</h3>
+<section id="computing-stkde" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="computing-stkde"><span class="header-section-number">7.4</span> Computing STKDE</h2>
+<section id="chin-state-1" class="level3" data-number="7.4.1">
+<h3 data-number="7.4.1" class="anchored" data-anchor-id="chin-state-1"><span class="header-section-number">7.4.1</span> Chin State</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
 <span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="fu">BOOT.spattemp</span>(abduction_yq.ppp_chin) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1511,8 +1515,8 @@ Window area = 2.66885e+11 square units</code></pre>
 </div>
 </div>
 </section>
-<section id="magway-state-1" class="level3" data-number="5.4.2">
-<h3 data-number="5.4.2" class="anchored" data-anchor-id="magway-state-1"><span class="header-section-number">5.4.2</span> Magway State</h3>
+<section id="magway-state-1" class="level3" data-number="7.4.2">
+<h3 data-number="7.4.2" class="anchored" data-anchor-id="magway-state-1"><span class="header-section-number">7.4.2</span> Magway State</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
 <span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="fu">BOOT.spattemp</span>(abduction_yq.ppp_magway)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1605,8 +1609,8 @@ Window area = 2.66885e+11 square units</code></pre>
 </div>
 </div>
 </section>
-<section id="saging-state" class="level3" data-number="5.4.3">
-<h3 data-number="5.4.3" class="anchored" data-anchor-id="saging-state"><span class="header-section-number">5.4.3</span> Saging State</h3>
+<section id="saging-state" class="level3" data-number="7.4.3">
+<h3 data-number="7.4.3" class="anchored" data-anchor-id="saging-state"><span class="header-section-number">7.4.3</span> Saging State</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
 <span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a><span class="fu">BOOT.spattemp</span>(abduction_yq.ppp_sagaing)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1722,10 +1726,10 @@ Window area = 2.66885e+11 square units</code></pre>
 </section>
 </section>
 </section>
-<section id="plotting-kde-and-stkde-on-map" class="level1" data-number="6">
-<h1 data-number="6"><span class="header-section-number">6</span> Plotting KDE and STKDE on Map</h1>
-<section id="convert-plots-into-rasters-layers" class="level2" data-number="6.1">
-<h2 data-number="6.1" class="anchored" data-anchor-id="convert-plots-into-rasters-layers"><span class="header-section-number">6.1</span> Convert Plots into Rasters layers</h2>
+<section id="plotting-kde-and-stkde-on-map" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> Plotting KDE and STKDE on Map</h1>
+<section id="convert-plots-into-rasters-layers" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="convert-plots-into-rasters-layers"><span class="header-section-number">8.1</span> Convert Plots into Rasters layers</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="co"># library(stars)</span></span>
 <span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a><span class="co"># chin_KDE_sf &lt;- raster(abduction_ppp_chin.100km.ppl) %&gt;% st_as_stars()</span></span>

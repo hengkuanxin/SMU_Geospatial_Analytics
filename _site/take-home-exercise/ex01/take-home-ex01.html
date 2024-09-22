@@ -346,28 +346,52 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#import-data-sets-rds-file-format" id="toc-import-data-sets-rds-file-format" class="nav-link" data-scroll-target="#import-data-sets-rds-file-format"><span class="header-section-number">2</span> Import Data Sets (RDS file format)</a>
   <ul class="collapse">
-  <li><a href="#identify-study-areas" id="toc-identify-study-areas" class="nav-link" data-scroll-target="#identify-study-areas"><span class="header-section-number">2.1</span> Identify Study Area(s)</a>
+  <li><a href="#visualise-the-myanmar-states-boundaries" id="toc-visualise-the-myanmar-states-boundaries" class="nav-link" data-scroll-target="#visualise-the-myanmar-states-boundaries"><span class="header-section-number">2.1</span> Visualise the Myanmar States Boundaries</a></li>
+  <li><a href="#visualise-main-event-acled-data" id="toc-visualise-main-event-acled-data" class="nav-link" data-scroll-target="#visualise-main-event-acled-data"><span class="header-section-number">2.2</span> Visualise Main Event ACLED data</a>
   <ul class="collapse">
-  <li><a href="#visualise-acled-data" id="toc-visualise-acled-data" class="nav-link" data-scroll-target="#visualise-acled-data"><span class="header-section-number">2.1.1</span> Visualise ACLED data</a></li>
-  <li><a href="#decision-study-areas-in-the-western-region-rakhine-chin-magway" id="toc-decision-study-areas-in-the-western-region-rakhine-chin-magway" class="nav-link" data-scroll-target="#decision-study-areas-in-the-western-region-rakhine-chin-magway"><span class="header-section-number">2.1.2</span> Decision: Study Area(s) in the Western Region (Rakhine, Chin, Magway)</a></li>
+  <li><a href="#conclusion-filter-again" id="toc-conclusion-filter-again" class="nav-link" data-scroll-target="#conclusion-filter-again"><span class="header-section-number">2.2.1</span> Conclusion: Filter Again</a></li>
+  <li><a href="#extracting-sub-event-types-from-each-main-event-type-data-set" id="toc-extracting-sub-event-types-from-each-main-event-type-data-set" class="nav-link" data-scroll-target="#extracting-sub-event-types-from-each-main-event-type-data-set"><span class="header-section-number">2.2.2</span> Extracting Sub-event Types from Each Main Event Type Data Set</a></li>
+  </ul></li>
+  <li><a href="#visualising-the-sub-event-acled-data-set" id="toc-visualising-the-sub-event-acled-data-set" class="nav-link" data-scroll-target="#visualising-the-sub-event-acled-data-set"><span class="header-section-number">2.3</span> Visualising the Sub-Event ACLED Data Set</a>
+  <ul class="collapse">
+  <li><a href="#conclusion-data-set-seems-ready." id="toc-conclusion-data-set-seems-ready." class="nav-link" data-scroll-target="#conclusion-data-set-seems-ready."><span class="header-section-number">2.3.1</span> Conclusion: Data set seems ready.</a></li>
+  <li><a href="#final-extract-of-data-sets" id="toc-final-extract-of-data-sets" class="nav-link" data-scroll-target="#final-extract-of-data-sets"><span class="header-section-number">2.3.2</span> Final Extract of Data Sets</a></li>
+  </ul></li>
+  <li><a href="#export-data-sets-rds-file-formats" id="toc-export-data-sets-rds-file-formats" class="nav-link" data-scroll-target="#export-data-sets-rds-file-formats"><span class="header-section-number">2.4</span> Export Data Sets (RDS file formats)</a></li>
+  </ul></li>
+  <li><a href="#st-order-points-pattern-analysis-kernel-density-estimation-kde" id="toc-st-order-points-pattern-analysis-kernel-density-estimation-kde" class="nav-link" data-scroll-target="#st-order-points-pattern-analysis-kernel-density-estimation-kde"><span class="header-section-number">3</span> 1st Order Points Pattern Analysis: Kernel Density Estimation (KDE)</a>
+  <ul class="collapse">
+  <li><a href="#import-data-sets-rds-file-format-1" id="toc-import-data-sets-rds-file-format-1" class="nav-link" data-scroll-target="#import-data-sets-rds-file-format-1"><span class="header-section-number">3.1</span> Import Data Sets (RDS file format)</a></li>
+  <li><a href="#create-owin-objects-for-study-area" id="toc-create-owin-objects-for-study-area" class="nav-link" data-scroll-target="#create-owin-objects-for-study-area"><span class="header-section-number">3.2</span> Create Owin Objects for Study Area</a>
+  <ul class="collapse">
+  <li><a href="#converting-sf-into-ppp-objects" id="toc-converting-sf-into-ppp-objects" class="nav-link" data-scroll-target="#converting-sf-into-ppp-objects"><span class="header-section-number">3.2.1</span> Converting SF into PPP objects</a></li>
+  </ul></li>
+  <li><a href="#choosing-adaptive-bandwidth-method" id="toc-choosing-adaptive-bandwidth-method" class="nav-link" data-scroll-target="#choosing-adaptive-bandwidth-method"><span class="header-section-number">3.3</span> Choosing Adaptive Bandwidth Method</a>
+  <ul class="collapse">
+  <li><a href="#separate-the-study-area" id="toc-separate-the-study-area" class="nav-link" data-scroll-target="#separate-the-study-area"><span class="header-section-number">3.3.1</span> Separate the Study Area</a></li>
   </ul></li>
   </ul></li>
-  <li><a href="#preparing-study-areas-data" id="toc-preparing-study-areas-data" class="nav-link" data-scroll-target="#preparing-study-areas-data"><span class="header-section-number">3</span> Preparing Study Area(s) Data</a>
+  <li><a href="#nd-order-points-pattern-analysis-l-function-completely-spatial-randomness-test-with-monte-carlo" id="toc-nd-order-points-pattern-analysis-l-function-completely-spatial-randomness-test-with-monte-carlo" class="nav-link" data-scroll-target="#nd-order-points-pattern-analysis-l-function-completely-spatial-randomness-test-with-monte-carlo"><span class="header-section-number">4</span> 2nd Order Points Pattern Analysis: L-Function &amp; Completely Spatial Randomness Test with Monte Carlo</a>
   <ul class="collapse">
-  <li><a href="#select-study-areas-boundary" id="toc-select-study-areas-boundary" class="nav-link" data-scroll-target="#select-study-areas-boundary"><span class="header-section-number">3.1</span> Select Study Area(s) Boundary</a></li>
-  <li><a href="#select-study-areas-acled-data" id="toc-select-study-areas-acled-data" class="nav-link" data-scroll-target="#select-study-areas-acled-data"><span class="header-section-number">3.2</span> Select Study Area(s) ACLED Data</a></li>
-  <li><a href="#export-and-save-data-sets-rds-file-format" id="toc-export-and-save-data-sets-rds-file-format" class="nav-link" data-scroll-target="#export-and-save-data-sets-rds-file-format"><span class="header-section-number">3.3</span> Export and Save Data Sets (RDS file format)</a></li>
+  <li><a href="#chin-state" id="toc-chin-state" class="nav-link" data-scroll-target="#chin-state"><span class="header-section-number">4.1</span> Chin State</a></li>
+  <li><a href="#magway-state" id="toc-magway-state" class="nav-link" data-scroll-target="#magway-state"><span class="header-section-number">4.2</span> Magway State</a></li>
+  <li><a href="#sagaing-state" id="toc-sagaing-state" class="nav-link" data-scroll-target="#sagaing-state"><span class="header-section-number">4.3</span> Sagaing State</a></li>
   </ul></li>
-  <li><a href="#kernel-density-estimation" id="toc-kernel-density-estimation" class="nav-link" data-scroll-target="#kernel-density-estimation"><span class="header-section-number">4</span> Kernel Density Estimation</a>
+  <li><a href="#spatio-temporal-kde" id="toc-spatio-temporal-kde" class="nav-link" data-scroll-target="#spatio-temporal-kde"><span class="header-section-number">5</span> Spatio-Temporal KDE</a>
   <ul class="collapse">
-  <li><a href="#import-previous-data" id="toc-import-previous-data" class="nav-link" data-scroll-target="#import-previous-data"><span class="header-section-number">4.1</span> Import Previous Data</a></li>
-  <li><a href="#separate-analysis" id="toc-separate-analysis" class="nav-link" data-scroll-target="#separate-analysis"><span class="header-section-number">4.2</span> Separate Analysis</a>
+  <li><a href="#selecting-year-quarters-of-events" id="toc-selecting-year-quarters-of-events" class="nav-link" data-scroll-target="#selecting-year-quarters-of-events"><span class="header-section-number">5.1</span> Selecting Year-Quarters of Events</a></li>
+  <li><a href="#including-owin-objects" id="toc-including-owin-objects" class="nav-link" data-scroll-target="#including-owin-objects"><span class="header-section-number">5.2</span> Including Owin Objects</a></li>
+  <li><a href="#plotting-out-the-ppp-objects" id="toc-plotting-out-the-ppp-objects" class="nav-link" data-scroll-target="#plotting-out-the-ppp-objects"><span class="header-section-number">5.3</span> Plotting out the PPP Objects</a></li>
+  <li><a href="#computing-stkde" id="toc-computing-stkde" class="nav-link" data-scroll-target="#computing-stkde"><span class="header-section-number">5.4</span> Computing STKDE</a>
   <ul class="collapse">
-  <li><a href="#create-owin-objects" id="toc-create-owin-objects" class="nav-link" data-scroll-target="#create-owin-objects"><span class="header-section-number">4.2.1</span> Create Owin Objects</a></li>
-  <li><a href="#separate-acled-points-by-region-using-owin" id="toc-separate-acled-points-by-region-using-owin" class="nav-link" data-scroll-target="#separate-acled-points-by-region-using-owin"><span class="header-section-number">4.2.2</span> Separate ACLED Points by Region (using Owin)</a></li>
-  <li><a href="#computing-kde-adaptive-bandwidth-for-each-region" id="toc-computing-kde-adaptive-bandwidth-for-each-region" class="nav-link" data-scroll-target="#computing-kde-adaptive-bandwidth-for-each-region"><span class="header-section-number">4.2.3</span> Computing KDE (adaptive bandwidth) for each Region</a></li>
-  <li><a href="#separating-study-areas" id="toc-separating-study-areas" class="nav-link" data-scroll-target="#separating-study-areas"><span class="header-section-number">4.2.4</span> Separating Study Areas</a></li>
+  <li><a href="#chin-state-1" id="toc-chin-state-1" class="nav-link" data-scroll-target="#chin-state-1"><span class="header-section-number">5.4.1</span> Chin State</a></li>
+  <li><a href="#magway-state-1" id="toc-magway-state-1" class="nav-link" data-scroll-target="#magway-state-1"><span class="header-section-number">5.4.2</span> Magway State</a></li>
+  <li><a href="#saging-state" id="toc-saging-state" class="nav-link" data-scroll-target="#saging-state"><span class="header-section-number">5.4.3</span> Saging State</a></li>
   </ul></li>
+  </ul></li>
+  <li><a href="#plotting-kde-and-stkde-on-map" id="toc-plotting-kde-and-stkde-on-map" class="nav-link" data-scroll-target="#plotting-kde-and-stkde-on-map"><span class="header-section-number">6</span> Plotting KDE and STKDE on Map</a>
+  <ul class="collapse">
+  <li><a href="#convert-plots-into-rasters-layers" id="toc-convert-plots-into-rasters-layers" class="nav-link" data-scroll-target="#convert-plots-into-rasters-layers"><span class="header-section-number">6.1</span> Convert Plots into Rasters layers</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -402,7 +426,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">September 21, 2024</p>
+      <p class="date-modified">September 22, 2024</p>
     </div>
   </div>
     
@@ -442,7 +466,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="import-libraries-packages" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="import-libraries-packages"><span class="header-section-number">1.1</span> Import Libraries / Packages</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(tidyverse, sf, spatstat, ggplot2, tmap, gifski)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(tidyverse, sf, spatstat, ggplot2, tmap, gifski, sparr, raster)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="import-raw-data" class="level2" data-number="1.2">
@@ -771,51 +795,66 @@ Tip
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>admin_2 <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/rds/admin_boundary_district-selfAdministeredZone.rds"</span>)</span>
 <span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>admin_3 <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/rds/admin_boundary_township.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="identify-study-areas" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="identify-study-areas"><span class="header-section-number">2.1</span> Identify Study Area(s)</h2>
-<section id="visualise-acled-data" class="level3" data-number="2.1.1">
-<h3 data-number="2.1.1" class="anchored" data-anchor-id="visualise-acled-data"><span class="header-section-number">2.1.1</span> Visualise ACLED data</h3>
+<section id="visualise-the-myanmar-states-boundaries" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="visualise-the-myanmar-states-boundaries"><span class="header-section-number">2.1</span> Visualise the Myanmar States Boundaries</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_shape</span>(admin_1) <span class="sc">+</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_style</span>(<span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_polygons</span>(<span class="st">"ST"</span>, <span class="at">palette =</span> <span class="st">"Set3"</span>, <span class="at">title =</span> <span class="st">"States/Regions"</span>) <span class="sc">+</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_shape</span>(<span class="fu">st_centroid</span>(admin_1)) <span class="sc">+</span> <span class="co"># Find the centroids</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_text</span>(<span class="st">"ST"</span>, <span class="at">size =</span> <span class="fl">0.6</span>, <span class="at">col =</span> <span class="st">"black"</span>, <span class="at">shadow =</span> <span class="cn">TRUE</span>, <span class="at">just=</span><span class="st">"center"</span>) <span class="sc">+</span> <span class="co"># Add labels at centroids</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_layout</span>(<span class="at">title =</span> <span class="st">"Administrative Boundaries Level 1"</span>,</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">legend.outside =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-2782946147.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</section>
+<section id="visualise-main-event-acled-data" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="visualise-main-event-acled-data"><span class="header-section-number">2.2</span> Visualise Main Event ACLED data</h2>
 <p>Now that we have categorised the ACLED points data into specific yearly quarters, let us plot them onto the map of myanmar to see if there are any obvious patterns.</p>
 <p>So far, we can have up to 14 temporal categories, with 4 quarters per year in <strong>Year 2021, 2022, 2023</strong>, and 2 quarters in the <strong>first half of 2024</strong>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tmap_mode</span>(<span class="st">"plot"</span>)</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tmap_style</span>(<span class="st">"classic"</span>)</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_shape</span>(admin_1) <span class="sc">+</span></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_polygons</span>() <span class="sc">+</span></span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_shape</span>(violence_against_civilians) <span class="sc">+</span></span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_dots</span>(<span class="at">size=</span> <span class="fl">0.05</span>, <span class="at">col =</span> <span class="st">"black"</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_facets</span>(<span class="at">by =</span> <span class="st">"year_quarter"</span>,</span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>              <span class="at">free.coords =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>              <span class="at">drop.units =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
-<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_layout</span>(<span class="at">main.title=</span><span class="st">"Violence Against Civilians (Quarterly)"</span>)</span>
-<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_shape</span>(admin_1) <span class="sc">+</span></span>
-<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_polygons</span>() <span class="sc">+</span></span>
-<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_shape</span>(strategic_developments) <span class="sc">+</span></span>
-<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_dots</span>(<span class="at">size=</span> <span class="fl">0.05</span>, <span class="at">col =</span> <span class="st">"black"</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_facets</span>(<span class="at">by =</span> <span class="st">"year_quarter"</span>,</span>
-<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>              <span class="at">free.coords =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>              <span class="at">drop.units =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
-<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_layout</span>(<span class="at">main.title=</span><span class="st">"Strategic Developments (Quarterly)"</span>)</span>
-<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_shape</span>(admin_1) <span class="sc">+</span></span>
-<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_polygons</span>() <span class="sc">+</span></span>
-<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_shape</span>(explosion_or_remoteviolence) <span class="sc">+</span></span>
-<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_dots</span>(<span class="at">size=</span> <span class="fl">0.05</span>, <span class="at">col =</span> <span class="st">"black"</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_facets</span>(<span class="at">by =</span> <span class="st">"year_quarter"</span>,</span>
-<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a>              <span class="at">free.coords =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a>              <span class="at">drop.units =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
-<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_layout</span>(<span class="at">main.title=</span><span class="st">"Explosion/Remote Violence (Quarterly)"</span>)</span>
-<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-31"><a href="#cb14-31" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_shape</span>(admin_1) <span class="sc">+</span></span>
-<span id="cb14-32"><a href="#cb14-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_polygons</span>() <span class="sc">+</span></span>
-<span id="cb14-33"><a href="#cb14-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_shape</span>(battles) <span class="sc">+</span></span>
-<span id="cb14-34"><a href="#cb14-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_dots</span>(<span class="at">size=</span> <span class="fl">0.05</span>, <span class="at">col =</span> <span class="st">"black"</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb14-35"><a href="#cb14-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_facets</span>(<span class="at">by =</span> <span class="st">"year_quarter"</span>,</span>
-<span id="cb14-36"><a href="#cb14-36" aria-hidden="true" tabindex="-1"></a>              <span class="at">free.coords =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb14-37"><a href="#cb14-37" aria-hidden="true" tabindex="-1"></a>              <span class="at">drop.units =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
-<span id="cb14-38"><a href="#cb14-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_layout</span>(<span class="at">main.title=</span><span class="st">"Battles (Quarterly)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tmap_mode</span>(<span class="st">"plot"</span>)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tmap_style</span>(<span class="st">"classic"</span>)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_shape</span>(admin_1) <span class="sc">+</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_polygons</span>() <span class="sc">+</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_shape</span>(violence_against_civilians) <span class="sc">+</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_dots</span>(<span class="at">size=</span> <span class="fl">0.05</span>, <span class="at">col =</span> <span class="st">"black"</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_facets</span>(<span class="at">by =</span> <span class="st">"year_quarter"</span>,</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>              <span class="at">free.coords =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>              <span class="at">drop.units =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_layout</span>(<span class="at">main.title=</span><span class="st">"Violence Against Civilians (Quarterly)"</span>)</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_shape</span>(admin_1) <span class="sc">+</span></span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_polygons</span>() <span class="sc">+</span></span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_shape</span>(strategic_developments) <span class="sc">+</span></span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_dots</span>(<span class="at">size=</span> <span class="fl">0.05</span>, <span class="at">col =</span> <span class="st">"black"</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_facets</span>(<span class="at">by =</span> <span class="st">"year_quarter"</span>,</span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>              <span class="at">free.coords =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a>              <span class="at">drop.units =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_layout</span>(<span class="at">main.title=</span><span class="st">"Strategic Developments (Quarterly)"</span>)</span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_shape</span>(admin_1) <span class="sc">+</span></span>
+<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_polygons</span>() <span class="sc">+</span></span>
+<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_shape</span>(explosion_or_remoteviolence) <span class="sc">+</span></span>
+<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_dots</span>(<span class="at">size=</span> <span class="fl">0.05</span>, <span class="at">col =</span> <span class="st">"black"</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb15-26"><a href="#cb15-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_facets</span>(<span class="at">by =</span> <span class="st">"year_quarter"</span>,</span>
+<span id="cb15-27"><a href="#cb15-27" aria-hidden="true" tabindex="-1"></a>              <span class="at">free.coords =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb15-28"><a href="#cb15-28" aria-hidden="true" tabindex="-1"></a>              <span class="at">drop.units =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb15-29"><a href="#cb15-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_layout</span>(<span class="at">main.title=</span><span class="st">"Explosion/Remote Violence (Quarterly)"</span>)</span>
+<span id="cb15-30"><a href="#cb15-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-31"><a href="#cb15-31" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_shape</span>(admin_1) <span class="sc">+</span></span>
+<span id="cb15-32"><a href="#cb15-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_polygons</span>() <span class="sc">+</span></span>
+<span id="cb15-33"><a href="#cb15-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_shape</span>(battles) <span class="sc">+</span></span>
+<span id="cb15-34"><a href="#cb15-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_dots</span>(<span class="at">size=</span> <span class="fl">0.05</span>, <span class="at">col =</span> <span class="st">"black"</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb15-35"><a href="#cb15-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_facets</span>(<span class="at">by =</span> <span class="st">"year_quarter"</span>,</span>
+<span id="cb15-36"><a href="#cb15-36" aria-hidden="true" tabindex="-1"></a>              <span class="at">free.coords =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb15-37"><a href="#cb15-37" aria-hidden="true" tabindex="-1"></a>              <span class="at">drop.units =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb15-38"><a href="#cb15-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_layout</span>(<span class="at">main.title=</span><span class="st">"Battles (Quarterly)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -838,55 +877,55 @@ Tip
 </figure>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tmap_mode</span>(<span class="st">"plot"</span>)</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>map_quarterly_ViolAgstCiv <span class="ot">&lt;-</span> <span class="fu">tm_shape</span>(admin_1) <span class="sc">+</span></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_style</span>(<span class="st">"white"</span>) <span class="sc">+</span></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_polygons</span>() <span class="sc">+</span></span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_shape</span>(violence_against_civilians) <span class="sc">+</span></span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_dots</span>(<span class="at">size=</span> <span class="fl">0.1</span>) <span class="sc">+</span> <span class="co"># make sizes a bit bigger so that it can be seen</span></span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_facets</span>(<span class="at">along =</span> <span class="st">"year_quarter"</span>, <span class="co"># 1 separate map for each year quarter</span></span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>              <span class="at">free.coords =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>              <span class="at">drop.units =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>map_quarterly_StratDev <span class="ot">&lt;-</span> <span class="fu">tm_shape</span>(admin_1) <span class="sc">+</span></span>
-<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_style</span>(<span class="st">"white"</span>) <span class="sc">+</span></span>
-<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_polygons</span>() <span class="sc">+</span></span>
-<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_shape</span>(strategic_developments) <span class="sc">+</span></span>
-<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_dots</span>(<span class="at">size=</span> <span class="fl">0.1</span>) <span class="sc">+</span> <span class="co"># make sizes a bit bigger so that it can be seen</span></span>
-<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_facets</span>(<span class="at">along =</span> <span class="st">"year_quarter"</span>, <span class="co"># 1 separate map for each year quarter</span></span>
-<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>              <span class="at">free.coords =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a>              <span class="at">drop.units =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a>map_quarterly_ExploOrRemoViol <span class="ot">&lt;-</span> <span class="fu">tm_shape</span>(admin_1) <span class="sc">+</span></span>
-<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_style</span>(<span class="st">"white"</span>) <span class="sc">+</span></span>
-<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_polygons</span>() <span class="sc">+</span></span>
-<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_shape</span>(explosion_or_remoteviolence) <span class="sc">+</span></span>
-<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_dots</span>(<span class="at">size=</span> <span class="fl">0.1</span>) <span class="sc">+</span> <span class="co"># make sizes a bit bigger so that it can be seen</span></span>
-<span id="cb15-26"><a href="#cb15-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_facets</span>(<span class="at">along =</span> <span class="st">"year_quarter"</span>, <span class="co"># 1 separate map for each year quarter</span></span>
-<span id="cb15-27"><a href="#cb15-27" aria-hidden="true" tabindex="-1"></a>              <span class="at">free.coords =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb15-28"><a href="#cb15-28" aria-hidden="true" tabindex="-1"></a>              <span class="at">drop.units =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb15-29"><a href="#cb15-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-30"><a href="#cb15-30" aria-hidden="true" tabindex="-1"></a>map_quarterly_Battles <span class="ot">&lt;-</span> <span class="fu">tm_shape</span>(admin_1) <span class="sc">+</span></span>
-<span id="cb15-31"><a href="#cb15-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_style</span>(<span class="st">"white"</span>) <span class="sc">+</span></span>
-<span id="cb15-32"><a href="#cb15-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_polygons</span>() <span class="sc">+</span></span>
-<span id="cb15-33"><a href="#cb15-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_shape</span>(battles) <span class="sc">+</span></span>
-<span id="cb15-34"><a href="#cb15-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_dots</span>(<span class="at">size=</span> <span class="fl">0.1</span>) <span class="sc">+</span> <span class="co"># make sizes a bit bigger so that it can be seen</span></span>
-<span id="cb15-35"><a href="#cb15-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_facets</span>(<span class="at">along =</span> <span class="st">"year_quarter"</span>, <span class="co"># 1 separate map for each year quarter</span></span>
-<span id="cb15-36"><a href="#cb15-36" aria-hidden="true" tabindex="-1"></a>              <span class="at">free.coords =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb15-37"><a href="#cb15-37" aria-hidden="true" tabindex="-1"></a>              <span class="at">drop.units =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb15-38"><a href="#cb15-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-39"><a href="#cb15-39" aria-hidden="true" tabindex="-1"></a><span class="fu">tmap_animation</span>(map_quarterly_ViolAgstCiv,</span>
-<span id="cb15-40"><a href="#cb15-40" aria-hidden="true" tabindex="-1"></a>               <span class="at">filename=</span><span class="st">"images/quarterly_violenceAgainstCivilians.gif"</span>, <span class="at">delay=</span><span class="dv">100</span>)</span>
-<span id="cb15-41"><a href="#cb15-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-42"><a href="#cb15-42" aria-hidden="true" tabindex="-1"></a><span class="fu">tmap_animation</span>(map_quarterly_StratDev,</span>
-<span id="cb15-43"><a href="#cb15-43" aria-hidden="true" tabindex="-1"></a>               <span class="at">filename=</span><span class="st">"images/quarterly_strategicDevelopments.gif"</span>, <span class="at">delay=</span><span class="dv">100</span>)</span>
-<span id="cb15-44"><a href="#cb15-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-45"><a href="#cb15-45" aria-hidden="true" tabindex="-1"></a><span class="fu">tmap_animation</span>(map_quarterly_ExploOrRemoViol,</span>
-<span id="cb15-46"><a href="#cb15-46" aria-hidden="true" tabindex="-1"></a>               <span class="at">filename=</span><span class="st">"images/quarterly_explosionOrRemoteViolence.gif"</span>, <span class="at">delay=</span><span class="dv">100</span>)</span>
-<span id="cb15-47"><a href="#cb15-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-48"><a href="#cb15-48" aria-hidden="true" tabindex="-1"></a><span class="fu">tmap_animation</span>(map_quarterly_Battles,</span>
-<span id="cb15-49"><a href="#cb15-49" aria-hidden="true" tabindex="-1"></a>               <span class="at">filename=</span><span class="st">"images/quarterly_battles.gif"</span>, <span class="at">delay=</span><span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tmap_mode</span>(<span class="st">"plot"</span>)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>map_quarterly_ViolAgstCiv <span class="ot">&lt;-</span> <span class="fu">tm_shape</span>(admin_1) <span class="sc">+</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_style</span>(<span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_polygons</span>() <span class="sc">+</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_shape</span>(violence_against_civilians) <span class="sc">+</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_dots</span>(<span class="at">size=</span> <span class="fl">0.1</span>) <span class="sc">+</span> <span class="co"># make sizes a bit bigger so that it can be seen</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_facets</span>(<span class="at">along =</span> <span class="st">"year_quarter"</span>, <span class="co"># 1 separate map for each year quarter</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>              <span class="at">free.coords =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>              <span class="at">drop.units =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>map_quarterly_StratDev <span class="ot">&lt;-</span> <span class="fu">tm_shape</span>(admin_1) <span class="sc">+</span></span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_style</span>(<span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_polygons</span>() <span class="sc">+</span></span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_shape</span>(strategic_developments) <span class="sc">+</span></span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_dots</span>(<span class="at">size=</span> <span class="fl">0.1</span>) <span class="sc">+</span> <span class="co"># make sizes a bit bigger so that it can be seen</span></span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_facets</span>(<span class="at">along =</span> <span class="st">"year_quarter"</span>, <span class="co"># 1 separate map for each year quarter</span></span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>              <span class="at">free.coords =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>              <span class="at">drop.units =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a>map_quarterly_ExploOrRemoViol <span class="ot">&lt;-</span> <span class="fu">tm_shape</span>(admin_1) <span class="sc">+</span></span>
+<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_style</span>(<span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_polygons</span>() <span class="sc">+</span></span>
+<span id="cb16-24"><a href="#cb16-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_shape</span>(explosion_or_remoteviolence) <span class="sc">+</span></span>
+<span id="cb16-25"><a href="#cb16-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_dots</span>(<span class="at">size=</span> <span class="fl">0.1</span>) <span class="sc">+</span> <span class="co"># make sizes a bit bigger so that it can be seen</span></span>
+<span id="cb16-26"><a href="#cb16-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_facets</span>(<span class="at">along =</span> <span class="st">"year_quarter"</span>, <span class="co"># 1 separate map for each year quarter</span></span>
+<span id="cb16-27"><a href="#cb16-27" aria-hidden="true" tabindex="-1"></a>              <span class="at">free.coords =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb16-28"><a href="#cb16-28" aria-hidden="true" tabindex="-1"></a>              <span class="at">drop.units =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb16-29"><a href="#cb16-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-30"><a href="#cb16-30" aria-hidden="true" tabindex="-1"></a>map_quarterly_Battles <span class="ot">&lt;-</span> <span class="fu">tm_shape</span>(admin_1) <span class="sc">+</span></span>
+<span id="cb16-31"><a href="#cb16-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_style</span>(<span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb16-32"><a href="#cb16-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_polygons</span>() <span class="sc">+</span></span>
+<span id="cb16-33"><a href="#cb16-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_shape</span>(battles) <span class="sc">+</span></span>
+<span id="cb16-34"><a href="#cb16-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_dots</span>(<span class="at">size=</span> <span class="fl">0.1</span>) <span class="sc">+</span> <span class="co"># make sizes a bit bigger so that it can be seen</span></span>
+<span id="cb16-35"><a href="#cb16-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_facets</span>(<span class="at">along =</span> <span class="st">"year_quarter"</span>, <span class="co"># 1 separate map for each year quarter</span></span>
+<span id="cb16-36"><a href="#cb16-36" aria-hidden="true" tabindex="-1"></a>              <span class="at">free.coords =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb16-37"><a href="#cb16-37" aria-hidden="true" tabindex="-1"></a>              <span class="at">drop.units =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb16-38"><a href="#cb16-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-39"><a href="#cb16-39" aria-hidden="true" tabindex="-1"></a><span class="fu">tmap_animation</span>(map_quarterly_ViolAgstCiv,</span>
+<span id="cb16-40"><a href="#cb16-40" aria-hidden="true" tabindex="-1"></a>               <span class="at">filename=</span><span class="st">"images/quarterly_violenceAgainstCivilians.gif"</span>, <span class="at">delay=</span><span class="dv">100</span>)</span>
+<span id="cb16-41"><a href="#cb16-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-42"><a href="#cb16-42" aria-hidden="true" tabindex="-1"></a><span class="fu">tmap_animation</span>(map_quarterly_StratDev,</span>
+<span id="cb16-43"><a href="#cb16-43" aria-hidden="true" tabindex="-1"></a>               <span class="at">filename=</span><span class="st">"images/quarterly_strategicDevelopments.gif"</span>, <span class="at">delay=</span><span class="dv">100</span>)</span>
+<span id="cb16-44"><a href="#cb16-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-45"><a href="#cb16-45" aria-hidden="true" tabindex="-1"></a><span class="fu">tmap_animation</span>(map_quarterly_ExploOrRemoViol,</span>
+<span id="cb16-46"><a href="#cb16-46" aria-hidden="true" tabindex="-1"></a>               <span class="at">filename=</span><span class="st">"images/quarterly_explosionOrRemoteViolence.gif"</span>, <span class="at">delay=</span><span class="dv">100</span>)</span>
+<span id="cb16-47"><a href="#cb16-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-48"><a href="#cb16-48" aria-hidden="true" tabindex="-1"></a><span class="fu">tmap_animation</span>(map_quarterly_Battles,</span>
+<span id="cb16-49"><a href="#cb16-49" aria-hidden="true" tabindex="-1"></a>               <span class="at">filename=</span><span class="st">"images/quarterly_battles.gif"</span>, <span class="at">delay=</span><span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -912,249 +951,794 @@ Tip
 <figcaption>Quarterly events: Battles</figcaption>
 </figure>
 </div>
+<section id="conclusion-filter-again" class="level3" data-number="2.2.1">
+<h3 data-number="2.2.1" class="anchored" data-anchor-id="conclusion-filter-again"><span class="header-section-number">2.2.1</span> Conclusion: Filter Again</h3>
+<p>Looking at the data, while we are able to see some trends along the 4 data sets, they are roughly the same. So let us filter our data sets and focus on sub-event types.</p>
+<p>Referring to ACLED’s codebook again, we see that event types are further categorised as sub-event types. For the purpose of this analysis, I have chosen the following event types from each data set:</p>
+<ol type="1">
+<li><code>Abduction/forced disappearance</code> from <strong>Violence Against Civilians</strong> (901 data points)</li>
+<li><code>Change to group/activity</code> from <strong>Strategic Developments</strong> (1230 data points)</li>
+<li><code>Shelling/artillery/missile attack</code> from <strong>Explosion/Remote Violence</strong> (3650 data points)</li>
+<li><code>Non-state actor overtakes territory</code> from <strong>Battles</strong> (274 data points) (can also be further broken down into different types of takeover, but I have chosen to ignore it this time)</li>
+</ol>
+<p>If you are interested, the description of the event types are as follows (copied from the <a href="https://acleddata.com/acleddatanew/wp-content/uploads/dlm_uploads/2023/06/ACLED_Codebook_2023.pdf">ACLED codebook</a>):</p>
+<ol type="1">
+<li><code>Abduction/forced disappearance</code>: This sub-event type is used when an actor engages in the abduction or forced disappearance of civilians, without reports of further violence. If fatalities or serious injuries are reported during the abduction or forced disappearance, the event is recorded as an ‘Attack’ event instead. If such violence is reported in later periods during captivity, this is recorded as an additional ‘Attack’ event. Note that multiple people can be abducted in a single ‘Abduction/forced disappearance’ event. Arrests by non-state groups and extrajudicial detentions by state forces are considered ‘Abduction/forced disappearance’. Arrests conducted by state forces within the standard judicial process are, however, considered ‘Arrests’.</li>
+<li><code>Change to group/activity</code>: This sub-event type is used to record significant changes in the activity or structure of armed groups. It can cover anything from the creation of a new rebel group or a paramilitary wing of the security forces, ‘voluntary’ recruitment drives, movement of forces, or any other non-violent security measures enacted by armed actors. This sub-event type can also be used if one armed group is absorbed into a different armed group or to track large-scale defections.</li>
+<li><code>Shelling/artillery/missile attack</code>: This sub-event type captures the use of long-range artillery, missile systems, or other heavy weapons platforms in the absence of any other engagement. When two armed groups exchange long-range fire, it is recorded as an ‘Armed clash’. ‘Shelling/artillery/missile attack’ events include attacks described as shelling, the use of artillery and cannons, mortars, guided missiles, rockets, grenade launchers, and other heavy weapons platforms. Crewed aircraft shot down by long-range systems fall under this sub-event type. Uncrewed armed drones that are shot down, however, are recorded as interceptions under ‘Disrupted weapons use’ because people are not targeted.</li>
+<li><code>Non-state actor overtakes territory</code>: This sub-event type is used when a non-state actor (excluding those operating directly on behalf of the government) or a foreign state actor, through armed interaction, captures territory from an opposing government or non-state actor; as a result, they are regarded as having a monopoly of force within that territory. Short-lived and/or small-scale territorial exchanges that do not last for more than one day are recorded as ‘Armed clash’ events. In cases where non- state forces fight with opposing actors in a location many times before gaining control, only the final territorial acquisition is recorded as ‘Non-state actor overtakes territory’. All other battles in that location are recorded as ‘Armed clash’.</li>
+</ol>
+<p><strong>Some Extra Observations</strong></p>
+<p>It would appear that in the main event type Explosion / Remote Violence, there are also Sub-event categories such as Suicide bombs and Chemical weapons, but their occurrences are not high. There are 2 recorded cases of suicide bombs and 1 case of chemical weapons in the study period in Myanmar.</p>
+<p>There are also other instances of these <em>strange</em> events available in the data sets.</p>
+<p>A reason I have not chosen these seemingly interesting events are that they are too rare and do not provide sufficient amount of data for our analysis. Though, of course, the fact that they are rare is a good sign, from the perspective of a layman.</p>
+<p><strong>Reasons</strong></p>
+<p>I have chosen to focus on the mentioned 4 sub-event types simply because they sound interesting, and they provide enough data points for our analysis later on, which includes first and second order point pattern analysis, as well as spatio-temporal point pattern analysis.</p>
+<p>Previously, I have attempted to analyse all event types by selecting a study area, but I realise I was not able to draw out much conclusion. Refer to the section “Previous Attempts on This Exercise” for a glance of my previous attempts.</p>
 </section>
-<section id="decision-study-areas-in-the-western-region-rakhine-chin-magway" class="level3" data-number="2.1.2">
-<h3 data-number="2.1.2" class="anchored" data-anchor-id="decision-study-areas-in-the-western-region-rakhine-chin-magway"><span class="header-section-number">2.1.2</span> Decision: Study Area(s) in the Western Region (Rakhine, Chin, Magway)</h3>
-<p><strong>Deciding on a Study Area(s)</strong></p>
-<p>After a brief observation of the points data, I’ve decided to focus on the western regions/states which seems to have quite a variety of point patterns throughout time. According to the map generated by the code chunk below, we can see that the places are called <strong>Rakhine</strong>, <strong>Chin</strong>, and <strong>Magway</strong>. Throughout the data sets, we see quite a number of conflict events occurring in the area in northern Rakhine. Let us focus on this area for our analysis hereon.</p>
+<section id="extracting-sub-event-types-from-each-main-event-type-data-set" class="level3" data-number="2.2.2">
+<h3 data-number="2.2.2" class="anchored" data-anchor-id="extracting-sub-event-types-from-each-main-event-type-data-set"><span class="header-section-number">2.2.2</span> Extracting Sub-event Types from Each Main Event Type Data Set</h3>
+<p>Let us now extract the data points that we want from each data set and visualise the data points over time.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_shape</span>(admin_1) <span class="sc">+</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_style</span>(<span class="st">"white"</span>) <span class="sc">+</span></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_polygons</span>(<span class="st">"ST"</span>, <span class="at">palette =</span> <span class="st">"Set3"</span>, <span class="at">title =</span> <span class="st">"States/Regions"</span>) <span class="sc">+</span></span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_shape</span>(<span class="fu">st_centroid</span>(admin_1)) <span class="sc">+</span> <span class="co"># Find the centroids</span></span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_text</span>(<span class="st">"ST"</span>, <span class="at">size =</span> <span class="fl">0.6</span>, <span class="at">col =</span> <span class="st">"black"</span>, <span class="at">shadow =</span> <span class="cn">TRUE</span>, <span class="at">just=</span><span class="st">"center"</span>) <span class="sc">+</span> <span class="co"># Add labels at centroids</span></span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_layout</span>(<span class="at">title =</span> <span class="st">"Administrative Boundaries Level 1"</span>,</span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">legend.outside =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>abduction_sf <span class="ot">&lt;-</span> violence_against_civilians <span class="sc">%&gt;%</span> </span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(sub_event_type <span class="sc">==</span> <span class="st">"Abduction/forced disappearance"</span>)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co"># changeGroup_sf &lt;- strategic_developments %&gt;% </span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="co">#   filter(sub_event_type == "Change to group/activity")</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="co"># shelling_sf &lt;- explosion_or_remoteviolence %&gt;%</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="co">#   filter(sub_event_type == "Shelling/artillery/missile attack")</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="co"># overtake_sf &lt;- battles %&gt;%</span></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a><span class="co">#   filter(sub_event_type == "Non-state actor overtakes territory")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><img src="images/unnamed-chunk-16-1.png" class="img-fluid"></p>
 </section>
 </section>
-</section>
-<section id="preparing-study-areas-data" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Preparing Study Area(s) Data</h1>
-<section id="select-study-areas-boundary" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="select-study-areas-boundary"><span class="header-section-number">3.1</span> Select Study Area(s) Boundary</h2>
-<p>Let us also select the study area(s) boundary</p>
+<section id="visualising-the-sub-event-acled-data-set" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="visualising-the-sub-event-acled-data-set"><span class="header-section-number">2.3</span> Visualising the Sub-Event ACLED Data Set</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>studyarea <span class="ot">&lt;-</span> admin_1 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(ST <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Rakhine"</span>, <span class="st">"Chin"</span>, <span class="st">"Magway"</span>))</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">qtm</span>(studyarea)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p><img src="images/unnamed-chunk-17-1.png" class="img-fluid"></p>
-</section>
-<section id="select-study-areas-acled-data" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="select-study-areas-acled-data"><span class="header-section-number">3.2</span> Select Study Area(s) ACLED Data</h2>
-<p>Since ACLED already came with attributes admin1, admin2, and admin3, let us use it to help us filter the points data.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Violence Against Civilians</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>studyarea_vac <span class="ot">&lt;-</span> violence_against_civilians <span class="sc">%&gt;%</span> </span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(admin1 <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Rakhine"</span>, <span class="st">"Chin"</span>, <span class="st">"Magway"</span>))</span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Strategic Deployment</span></span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>studyarea_stdp <span class="ot">&lt;-</span> strategic_developments <span class="sc">%&gt;%</span> </span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(admin1 <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Rakhine"</span>, <span class="st">"Chin"</span>, <span class="st">"Magway"</span>))</span>
-<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Explosions / Remote violence</span></span>
-<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>studyarea_erv <span class="ot">&lt;-</span> explosion_or_remoteviolence <span class="sc">%&gt;%</span> </span>
-<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(admin1 <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Rakhine"</span>, <span class="st">"Chin"</span>, <span class="st">"Magway"</span>))</span>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tmap_mode</span>(<span class="st">"plot"</span>)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tmap_style</span>(<span class="st">"classic"</span>)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_shape</span>(admin_1) <span class="sc">+</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_polygons</span>() <span class="sc">+</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_shape</span>(abduction_sf) <span class="sc">+</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_dots</span>(<span class="at">size=</span> <span class="fl">0.1</span>, <span class="at">col =</span> <span class="st">"black"</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_facets</span>(<span class="at">by =</span> <span class="st">"year_quarter"</span>,</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>              <span class="at">free.coords =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>              <span class="at">drop.units =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_layout</span>(<span class="at">main.title=</span><span class="st">"Abduction/forced disappearance (Quarterly)"</span>)</span>
 <span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Battles</span></span>
-<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>studyarea_bat <span class="ot">&lt;-</span> battles <span class="sc">%&gt;%</span> </span>
-<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(admin1 <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Rakhine"</span>, <span class="st">"Chin"</span>, <span class="st">"Magway"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_shape</span>(admin_1) <span class="sc">+</span></span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_polygons</span>() <span class="sc">+</span></span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_shape</span>(changeGroup_sf) <span class="sc">+</span></span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_dots</span>(<span class="at">size=</span> <span class="fl">0.1</span>, <span class="at">col =</span> <span class="st">"black"</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_facets</span>(<span class="at">by =</span> <span class="st">"year_quarter"</span>,</span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a>              <span class="at">free.coords =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a>              <span class="at">drop.units =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_layout</span>(<span class="at">main.title=</span><span class="st">"Change to group/activity (Quarterly)"</span>)</span>
+<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_shape</span>(admin_1) <span class="sc">+</span></span>
+<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_polygons</span>() <span class="sc">+</span></span>
+<span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_shape</span>(shelling_sf) <span class="sc">+</span></span>
+<span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_dots</span>(<span class="at">size=</span> <span class="fl">0.1</span>, <span class="at">col =</span> <span class="st">"black"</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb18-26"><a href="#cb18-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_facets</span>(<span class="at">by =</span> <span class="st">"year_quarter"</span>,</span>
+<span id="cb18-27"><a href="#cb18-27" aria-hidden="true" tabindex="-1"></a>              <span class="at">free.coords =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb18-28"><a href="#cb18-28" aria-hidden="true" tabindex="-1"></a>              <span class="at">drop.units =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb18-29"><a href="#cb18-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_layout</span>(<span class="at">main.title=</span><span class="st">"Shelling/artillery/missile attack (Quarterly)"</span>)</span>
+<span id="cb18-30"><a href="#cb18-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-31"><a href="#cb18-31" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_shape</span>(admin_1) <span class="sc">+</span></span>
+<span id="cb18-32"><a href="#cb18-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_polygons</span>() <span class="sc">+</span></span>
+<span id="cb18-33"><a href="#cb18-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_shape</span>(overtake_sf) <span class="sc">+</span></span>
+<span id="cb18-34"><a href="#cb18-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_dots</span>(<span class="at">size=</span> <span class="fl">0.1</span>, <span class="at">col =</span> <span class="st">"black"</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb18-35"><a href="#cb18-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_facets</span>(<span class="at">by =</span> <span class="st">"year_quarter"</span>,</span>
+<span id="cb18-36"><a href="#cb18-36" aria-hidden="true" tabindex="-1"></a>              <span class="at">free.coords =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb18-37"><a href="#cb18-37" aria-hidden="true" tabindex="-1"></a>              <span class="at">drop.units =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb18-38"><a href="#cb18-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_layout</span>(<span class="at">main.title=</span><span class="st">"Non-state actor overtakes territory (Quarterly)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Let us visualise the data again.</p>
+<p><img src="images/clipboard-4194991678.png" class="img-fluid"></p>
+<p><img src="images/clipboard-4026960393.png" class="img-fluid"></p>
+<p><img src="images/clipboard-2303509002.png" class="img-fluid"></p>
+<p><img src="images/clipboard-3450628062.png" class="img-fluid"></p>
+<section id="conclusion-data-set-seems-ready." class="level3" data-number="2.3.1">
+<h3 data-number="2.3.1" class="anchored" data-anchor-id="conclusion-data-set-seems-ready."><span class="header-section-number">2.3.1</span> Conclusion: Data set seems ready.</h3>
+<p>Overall, it seems like there are more obvious trends and the data is easier to work with now. Some things we can see at a glance is that.</p>
+<ol type="1">
+<li>There seems to be quite a number of abduction cases in the central part of Myanmar (in states Mandalay and Sagaing). These cases seem to be happening along the border of the states, but more remains to be seen.</li>
+<li>Changes to group / activity seem to also be happening in the same central areas, no big trends so far.</li>
+<li>Shelling seems to be occuring everywhere, not much pattern to see.</li>
+<li>Non-state actors overtaking seems to be occuring in northen Rakhine in the latter parts of the data set periods (from 2023 Q4 to 2024 Q2). If we were to compare this with the other event types, we can also see similar trend. In fact, at a glance, we can see that these shellings and artillery strikes seem to be happening at the same period of these territory takeover events in the northern Rakhine state.</li>
+</ol>
+<p>Since all the events seem to be happening in the central/upper parts of Myanmar, let us select those states as our study area. The <strong>study area includes: “Magway”, “Chin”, “Sagaing”</strong>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>I do not have enough time for the analysis, so I will only focus on the abduction cases in these 3 states.</p>
+</div>
+</div>
+</section>
+<section id="final-extract-of-data-sets" class="level3" data-number="2.3.2">
+<h3 data-number="2.3.2" class="anchored" data-anchor-id="final-extract-of-data-sets"><span class="header-section-number">2.3.2</span> Final Extract of Data Sets</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tmap_mode</span>(<span class="st">"plot"</span>)</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tmap_style</span>(<span class="st">"white"</span>)</span>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>studyarea_sf <span class="ot">&lt;-</span> admin_1 <span class="sc">%&gt;%</span> </span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(ST <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Magway"</span>, <span class="st">"Chin"</span>, <span class="st">"Sagaing"</span>))</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_shape</span>(studyarea) <span class="sc">+</span></span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_polygons</span>() <span class="sc">+</span></span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_shape</span>(studyarea_vac) <span class="sc">+</span></span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_dots</span>(<span class="at">size=</span> <span class="fl">0.1</span>, <span class="at">col =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_facets</span>(<span class="at">by =</span> <span class="st">"year_quarter"</span>,</span>
-<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>            <span class="at">free.coords =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>            <span class="at">drop.units =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>            <span class="at">ncol =</span> <span class="dv">7</span>) <span class="sc">+</span></span>
-<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_layout</span>(<span class="at">main.title=</span><span class="st">"Violence Against Civilians (Quarterly)"</span>)</span>
-<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_shape</span>(studyarea) <span class="sc">+</span></span>
-<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_polygons</span>() <span class="sc">+</span></span>
-<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_shape</span>(studyarea_stdp) <span class="sc">+</span></span>
-<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_dots</span>(<span class="at">size=</span> <span class="fl">0.1</span>, <span class="at">col =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
-<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_facets</span>(<span class="at">by =</span> <span class="st">"year_quarter"</span>,</span>
-<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a>            <span class="at">free.coords =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a>            <span class="at">drop.units =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a>            <span class="at">ncol =</span> <span class="dv">7</span>) <span class="sc">+</span></span>
-<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_layout</span>(<span class="at">main.title=</span><span class="st">"Strategic Developments (Quarterly)"</span>)</span>
-<span id="cb19-23"><a href="#cb19-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-24"><a href="#cb19-24" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_shape</span>(studyarea) <span class="sc">+</span></span>
-<span id="cb19-25"><a href="#cb19-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_polygons</span>() <span class="sc">+</span></span>
-<span id="cb19-26"><a href="#cb19-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_shape</span>(studyarea_erv) <span class="sc">+</span></span>
-<span id="cb19-27"><a href="#cb19-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_dots</span>(<span class="at">size=</span> <span class="fl">0.1</span>, <span class="at">col =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
-<span id="cb19-28"><a href="#cb19-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_facets</span>(<span class="at">by =</span> <span class="st">"year_quarter"</span>,</span>
-<span id="cb19-29"><a href="#cb19-29" aria-hidden="true" tabindex="-1"></a>            <span class="at">free.coords =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb19-30"><a href="#cb19-30" aria-hidden="true" tabindex="-1"></a>            <span class="at">drop.units =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb19-31"><a href="#cb19-31" aria-hidden="true" tabindex="-1"></a>            <span class="at">ncol =</span> <span class="dv">7</span>) <span class="sc">+</span></span>
-<span id="cb19-32"><a href="#cb19-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_layout</span>(<span class="at">main.title=</span><span class="st">"Explosion/Remote Violence (Quarterly)"</span>)</span>
-<span id="cb19-33"><a href="#cb19-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-34"><a href="#cb19-34" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_shape</span>(studyarea) <span class="sc">+</span></span>
-<span id="cb19-35"><a href="#cb19-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_polygons</span>() <span class="sc">+</span></span>
-<span id="cb19-36"><a href="#cb19-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_shape</span>(studyarea_bat) <span class="sc">+</span></span>
-<span id="cb19-37"><a href="#cb19-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_dots</span>(<span class="at">size=</span> <span class="fl">0.1</span>, <span class="at">col =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
-<span id="cb19-38"><a href="#cb19-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_facets</span>(<span class="at">by =</span> <span class="st">"year_quarter"</span>,</span>
-<span id="cb19-39"><a href="#cb19-39" aria-hidden="true" tabindex="-1"></a>            <span class="at">free.coords =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb19-40"><a href="#cb19-40" aria-hidden="true" tabindex="-1"></a>            <span class="at">drop.units =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb19-41"><a href="#cb19-41" aria-hidden="true" tabindex="-1"></a>            <span class="at">ncol =</span> <span class="dv">7</span>) <span class="sc">+</span></span>
-<span id="cb19-42"><a href="#cb19-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_layout</span>(<span class="at">main.title=</span><span class="st">"Battles (Quarterly)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p><img src="images/unnamed-chunk-19-1.png" class="img-fluid"></p>
-<p><img src="images/unnamed-chunk-19-2.png" class="img-fluid"></p>
-<p><img src="images/unnamed-chunk-19-3.png" class="img-fluid"></p>
-<p><img src="images/unnamed-chunk-19-4.png" class="img-fluid"></p>
-</section>
-<section id="export-and-save-data-sets-rds-file-format" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="export-and-save-data-sets-rds-file-format"><span class="header-section-number">3.3</span> Export and Save Data Sets (RDS file format)</h2>
-<p>Before we continue, let us export and save our data.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Study Areas</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(studyarea, <span class="st">"data/final_rds/studyarea.rds"</span>)</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co"># ACLED Data</span></span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(studyarea_vac, </span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>        <span class="st">"data/final_rds/studyarea_violence_against_civilians.rds"</span>)</span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(studyarea_stdp, </span>
-<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>        <span class="st">"data/final_rds/studyarea_strategic_developments.rds"</span>)</span>
-<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(studyarea_erv, </span>
-<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>        <span class="st">"data/final_rds/studyarea_explosion_or_remoteviolence.rds"</span>)</span>
-<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(studyarea_bat, </span>
-<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>        <span class="st">"data/final_rds/studyarea_battles.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>abduction_sf <span class="ot">&lt;-</span> abduction_sf <span class="sc">%&gt;%</span> </span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(admin1 <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Magway"</span>, <span class="st">"Chin"</span>, <span class="st">"Sagaing"</span>))</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="co"># changeGroup_sf &lt;- changeGroup_sf %&gt;% </span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="co">#   filter(admin1 %in% c("Magway", "Chin", "Sagaing"))</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a><span class="co"># shelling_sf &lt;- shelling_sf %&gt;% </span></span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a><span class="co">#   filter(admin1 %in% c("Magway", "Chin", "Sagaing"))</span></span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a><span class="co"># overtake_sf &lt;- overtake_sf %&gt;%</span></span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a><span class="co">#   filter(admin1 %in% c("Magway", "Chin", "Sagaing"))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
-<section id="kernel-density-estimation" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> Kernel Density Estimation</h1>
-<section id="import-previous-data" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="import-previous-data"><span class="header-section-number">4.1</span> Import Previous Data</h2>
+<section id="export-data-sets-rds-file-formats" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="export-data-sets-rds-file-formats"><span class="header-section-number">2.4</span> Export Data Sets (RDS file formats)</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>studyarea <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/final_rds/studyarea.rds"</span>)</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>studyarea_vac <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/final_rds/studyarea_violence_against_civilians.rds"</span>)</span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>studyarea_stdp <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/final_rds/studyarea_strategic_developments.rds"</span>)</span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>studyarea_erv <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/final_rds/studyarea_explosion_or_remoteviolence.rds"</span>)</span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>studyarea_bat <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/final_rds/studyarea_battles.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(abduction_sf, <span class="st">"data/final_rds/abduction.rds"</span>)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="co"># saveRDS(changeGroup_sf, "data/final_rds/changeGroup.rds")</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="co"># saveRDS(shelling_sf, "data/final_rds/shelling.rds")</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co"># saveRDS(overtake_sf, "data/final_rds/overtake.rds")</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(studyarea_sf, <span class="st">"data/final_rds/studyarea.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="separate-analysis" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="separate-analysis"><span class="header-section-number">4.2</span> Separate Analysis</h2>
-<section id="create-owin-objects" class="level3" data-number="4.2.1">
-<h3 data-number="4.2.1" class="anchored" data-anchor-id="create-owin-objects"><span class="header-section-number">4.2.1</span> Create Owin Objects</h3>
+</section>
+<section id="st-order-points-pattern-analysis-kernel-density-estimation-kde" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> 1st Order Points Pattern Analysis: Kernel Density Estimation (KDE)</h1>
+<section id="import-data-sets-rds-file-format-1" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="import-data-sets-rds-file-format-1"><span class="header-section-number">3.1</span> Import Data Sets (RDS file format)</h2>
+<p>Note that currently, we are left with:</p>
+<ol type="1">
+<li><strong>abduction_sf: 326 data points</strong></li>
+<li>changeGroup_sf: 729 data points</li>
+<li>overtake_sf: 179 data points</li>
+<li>shelling_sf: 1977 data points</li>
+</ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating the Owin objects</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>Chin_owin <span class="ot">&lt;-</span> studyarea <span class="sc">%&gt;%</span> <span class="fu">filter</span>(ST <span class="sc">==</span> <span class="st">"Chin"</span>) <span class="sc">%&gt;%</span> <span class="fu">as.owin</span>()</span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>Magway_owin <span class="ot">&lt;-</span> studyarea <span class="sc">%&gt;%</span> <span class="fu">filter</span>(ST <span class="sc">==</span> <span class="st">"Magway"</span>) <span class="sc">%&gt;%</span> <span class="fu">as.owin</span>()</span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>Rakhine_owin <span class="ot">&lt;-</span> studyarea <span class="sc">%&gt;%</span> <span class="fu">filter</span>(ST <span class="sc">==</span> <span class="st">"Rakhine"</span>) <span class="sc">%&gt;%</span> <span class="fu">as.owin</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>abduction_sf <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/final_rds/abduction.rds"</span>)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>studyArea_sf <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/final_rds/studyarea.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="create-owin-objects-for-study-area" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="create-owin-objects-for-study-area"><span class="header-section-number">3.2</span> Create Owin Objects for Study Area</h2>
+<p>Let us first set our study area to the whole of Myanmar, simply because our number of data points of most of the sub-event types are not very large (except the <code>Shelling/artillery/missile attack</code> event)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>studyArea_owin <span class="ot">&lt;-</span> studyArea_sf <span class="sc">%&gt;%</span> <span class="fu">as.owin</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="converting-sf-into-ppp-objects" class="level3" data-number="3.2.1">
+<h3 data-number="3.2.1" class="anchored" data-anchor-id="converting-sf-into-ppp-objects"><span class="header-section-number">3.2.1</span> Converting SF into PPP objects</h3>
+<p>Due to time constraints on my side, let us compute the Kernel Density Estimate (KDE) on each event type throughout the whole event period. To do this, we will first need to convert our data points into PPP objects.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>abduction_ppp <span class="ot">&lt;-</span> abduction_sf <span class="sc">%&gt;%</span> <span class="fu">as.ppp</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>               <span class="fu">rjitter</span>(<span class="at">retry =</span> <span class="cn">TRUE</span>, <span class="at">nsim =</span> <span class="dv">1</span>, <span class="at">drop =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| output: false</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to split any sf object into a list of sf by year_quarter</span></span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Outputs a list of ppp (converted from each sf in each year_quarter)</span></span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>split_by_year_quarter <span class="ot">&lt;-</span> <span class="cf">function</span>(sf_object) {</span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Get unique year_quarter values</span></span>
-<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>  unique_quarters <span class="ot">&lt;-</span> <span class="fu">unique</span>(sf_object<span class="sc">$</span>year_quarter)</span>
-<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Split the sf object into a list of sf objects by year_quarter,</span></span>
-<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Then, convert to ppp objects</span></span>
-<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Then, jittle the points (to handle the presence of duplicated points)</span></span>
-<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>  split_list <span class="ot">&lt;-</span> <span class="fu">lapply</span>(unique_quarters, <span class="cf">function</span>(unique_quarters) {</span>
-<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>    sf_object <span class="sc">%&gt;%</span> <span class="fu">filter</span>(year_quarter <span class="sc">==</span> unique_quarters) <span class="sc">%&gt;%</span> </span>
-<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>      <span class="fu">as.ppp</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>      <span class="fu">rjitter</span>(<span class="at">retry=</span><span class="cn">TRUE</span>, </span>
-<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a>              <span class="at">nsim=</span><span class="dv">1</span>, </span>
-<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a>              <span class="at">drop=</span><span class="cn">TRUE</span>)</span>
-<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a>  })</span>
-<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Name the list elements by their year_quarter values</span></span>
-<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">names</span>(split_list) <span class="ot">&lt;-</span> unique_quarters</span>
-<span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb23-23"><a href="#cb23-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(split_list)</span>
-<span id="cb23-24"><a href="#cb23-24" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb23-25"><a href="#cb23-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-26"><a href="#cb23-26" aria-hidden="true" tabindex="-1"></a>vac_ppp_list <span class="ot">&lt;-</span> <span class="fu">split_by_year_quarter</span>(studyarea_vac)</span>
-<span id="cb23-27"><a href="#cb23-27" aria-hidden="true" tabindex="-1"></a>stdp_ppp_list <span class="ot">&lt;-</span> <span class="fu">split_by_year_quarter</span>(studyarea_stdp)</span>
-<span id="cb23-28"><a href="#cb23-28" aria-hidden="true" tabindex="-1"></a>erv_ppp_list <span class="ot">&lt;-</span> <span class="fu">split_by_year_quarter</span>(studyarea_erv)</span>
-<span id="cb23-29"><a href="#cb23-29" aria-hidden="true" tabindex="-1"></a>bat_ppp_list <span class="ot">&lt;-</span> <span class="fu">split_by_year_quarter</span>(studyarea_bat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>abduction_ppp_study <span class="ot">&lt;-</span> abduction_ppp[studyArea_owin]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="separate-acled-points-by-region-using-owin" class="level3" data-number="4.2.2">
-<h3 data-number="4.2.2" class="anchored" data-anchor-id="separate-acled-points-by-region-using-owin"><span class="header-section-number">4.2.2</span> Separate ACLED Points by Region (using Owin)</h3>
-<p>Now, let us use the Owin objects to filter the ACLED data points for each region.</p>
+</section>
+<section id="choosing-adaptive-bandwidth-method" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="choosing-adaptive-bandwidth-method"><span class="header-section-number">3.3</span> Choosing Adaptive Bandwidth Method</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to Extract ppp points within a specified Owin object</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>filter_ppp_within_window <span class="ot">&lt;-</span> <span class="cf">function</span>(ppp_list, window) {</span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  filtered_list <span class="ot">&lt;-</span> <span class="fu">lapply</span>(ppp_list, <span class="cf">function</span>(ppp_item) {</span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>    ppp_item[window]</span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>  })</span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(filtered_list)</span>
-<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>Chin_vac_ppp_list <span class="ot">&lt;-</span> <span class="fu">filter_ppp_within_window</span>(vac_ppp_list, Chin_owin)</span>
-<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>Chin_stdp_ppp_list <span class="ot">&lt;-</span> <span class="fu">filter_ppp_within_window</span>(stdp_ppp_list, Chin_owin)</span>
-<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>Chin_erv_ppp_list <span class="ot">&lt;-</span> <span class="fu">filter_ppp_within_window</span>(erv_ppp_list, Chin_owin)</span>
-<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>Chin_bat_ppp_list <span class="ot">&lt;-</span> <span class="fu">filter_ppp_within_window</span>(bat_ppp_list, Chin_owin)</span>
-<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>Magway_vac_ppp_list <span class="ot">&lt;-</span> <span class="fu">filter_ppp_within_window</span>(vac_ppp_list, Magway_owin)</span>
-<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a>Magway_stdp_ppp_list <span class="ot">&lt;-</span> <span class="fu">filter_ppp_within_window</span>(stdp_ppp_list, Magway_owin)</span>
-<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a>Magway_erv_ppp_list <span class="ot">&lt;-</span> <span class="fu">filter_ppp_within_window</span>(erv_ppp_list, Magway_owin)</span>
-<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a>Magway_bat_ppp_list <span class="ot">&lt;-</span> <span class="fu">filter_ppp_within_window</span>(bat_ppp_list, Magway_owin)</span>
-<span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-19"><a href="#cb24-19" aria-hidden="true" tabindex="-1"></a>Rakhine_vac_ppp_list <span class="ot">&lt;-</span> <span class="fu">filter_ppp_within_window</span>(vac_ppp_list, Rakhine_owin)</span>
-<span id="cb24-20"><a href="#cb24-20" aria-hidden="true" tabindex="-1"></a>Rakhine_stdp_ppp_list <span class="ot">&lt;-</span> <span class="fu">filter_ppp_within_window</span>(stdp_ppp_list, Rakhine_owin)</span>
-<span id="cb24-21"><a href="#cb24-21" aria-hidden="true" tabindex="-1"></a>Rakhine_erv_ppp_list <span class="ot">&lt;-</span> <span class="fu">filter_ppp_within_window</span>(erv_ppp_list, Rakhine_owin)</span>
-<span id="cb24-22"><a href="#cb24-22" aria-hidden="true" tabindex="-1"></a>Rakhine_bat_ppp_list <span class="ot">&lt;-</span> <span class="fu">filter_ppp_within_window</span>(bat_ppp_list, Rakhine_owin)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bw.CvL</span>(abduction_ppp_study</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>       <span class="sc">%&gt;%</span> <span class="fu">rescale.ppp</span>(<span class="at">s=</span><span class="dv">100000</span>, <span class="at">unitname=</span><span class="st">"100km"</span>))</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="fu">bw.scott</span>(abduction_ppp_study</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>       <span class="sc">%&gt;%</span> <span class="fu">rescale.ppp</span>(<span class="at">s=</span><span class="dv">100000</span>, <span class="at">unitname=</span><span class="st">"100km"</span>))</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="fu">bw.ppl</span>(abduction_ppp_study</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>       <span class="sc">%&gt;%</span> <span class="fu">rescale.ppp</span>(<span class="at">s=</span><span class="dv">100000</span>, <span class="at">unitname=</span><span class="st">"100km"</span>))</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a><span class="fu">bw.diggle</span>(abduction_ppp_study</span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>       <span class="sc">%&gt;%</span> <span class="fu">rescale.ppp</span>(<span class="at">s=</span><span class="dv">100000</span>, <span class="at">unitname=</span><span class="st">"100km"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Seems like the bandwidth varies quite a bit. Let us visualise the density estimates and choose based on the visual results.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>abduction_ppp_100km <span class="ot">&lt;-</span> abduction_ppp_study <span class="sc">%&gt;%</span> <span class="fu">rescale.ppp</span>(<span class="at">s=</span><span class="dv">100000</span>, <span class="at">unitname=</span><span class="st">"100km"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>abduction_ppp_100km.CvL <span class="ot">&lt;-</span> <span class="fu">density</span>(abduction_ppp_100km,</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>                                <span class="at">sigma=</span>bw.CvL,</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>                                <span class="at">edge=</span><span class="cn">TRUE</span>,</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>                                <span class="at">kernel=</span><span class="st">"gaussian"</span>)</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>abduction_ppp_100km.scott <span class="ot">&lt;-</span> <span class="fu">density</span>(abduction_ppp_100km,</span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>                                <span class="at">sigma=</span>bw.scott,</span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>                                <span class="at">edge=</span><span class="cn">TRUE</span>,</span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>                                <span class="at">kernel=</span><span class="st">"gaussian"</span>)</span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>abduction_ppp_100km.ppl <span class="ot">&lt;-</span> <span class="fu">density</span>(abduction_ppp_100km,</span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a>                                <span class="at">sigma=</span>bw.ppl,</span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a>                                <span class="at">edge=</span><span class="cn">TRUE</span>,</span>
+<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a>                                <span class="at">kernel=</span><span class="st">"gaussian"</span>)</span>
+<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a>abduction_ppp_100km.diggle <span class="ot">&lt;-</span> <span class="fu">density</span>(abduction_ppp_100km,</span>
+<span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a>                                <span class="at">sigma=</span>bw.diggle,</span>
+<span id="cb27-18"><a href="#cb27-18" aria-hidden="true" tabindex="-1"></a>                                <span class="at">edge=</span><span class="cn">TRUE</span>,</span>
+<span id="cb27-19"><a href="#cb27-19" aria-hidden="true" tabindex="-1"></a>                                <span class="at">kernel=</span><span class="st">"gaussian"</span>)</span>
+<span id="cb27-20"><a href="#cb27-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-21"><a href="#cb27-21" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
+<span id="cb27-22"><a href="#cb27-22" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(abduction_ppp_100km.CvL, <span class="at">main =</span> <span class="st">"bw.CvL"</span>)</span>
+<span id="cb27-23"><a href="#cb27-23" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(abduction_ppp_100km.scott, <span class="at">main =</span> <span class="st">"bw.scott"</span>)</span>
+<span id="cb27-24"><a href="#cb27-24" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(abduction_ppp_100km.ppl, <span class="at">main =</span> <span class="st">"bw.ppl"</span>)</span>
+<span id="cb27-25"><a href="#cb27-25" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(abduction_ppp_100km.diggle, <span class="at">main =</span> <span class="st">"bw.diggle"</span>)</span>
+<span id="cb27-26"><a href="#cb27-26" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Based on the results, the method: bw.diggle is too detailed and not useful for our analysis. We should therefore try either bw.ppl for a more detailed visualisation, or bw.scott for a more balanced visualisation. In fact, let us try splitting our study area into the 3 states and see if there is a difference.</p>
+<section id="separate-the-study-area" class="level3" data-number="3.3.1">
+<h3 data-number="3.3.1" class="anchored" data-anchor-id="separate-the-study-area"><span class="header-section-number">3.3.1</span> Separate the Study Area</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>chin_owin <span class="ot">&lt;-</span> studyArea_sf <span class="sc">%&gt;%</span> <span class="fu">filter</span>(ST<span class="sc">==</span><span class="st">"Chin"</span>) <span class="sc">%&gt;%</span> <span class="fu">as.owin</span>()</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>magway_owin <span class="ot">&lt;-</span> studyArea_sf <span class="sc">%&gt;%</span> <span class="fu">filter</span>(ST<span class="sc">==</span><span class="st">"Magway"</span>) <span class="sc">%&gt;%</span> <span class="fu">as.owin</span>()</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>sagaing_owin <span class="ot">&lt;-</span> studyArea_sf <span class="sc">%&gt;%</span> <span class="fu">filter</span>(ST<span class="sc">==</span><span class="st">"Sagaing"</span>) <span class="sc">%&gt;%</span> <span class="fu">as.owin</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>abduction_ppp_chin<span class="fl">.100</span>km <span class="ot">&lt;-</span> abduction_ppp[chin_owin] <span class="sc">%&gt;%</span> </span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rescale.ppp</span>(<span class="at">s=</span><span class="dv">100000</span>, <span class="at">unitname=</span><span class="st">"100km"</span>)</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>abduction_ppp_magway<span class="fl">.100</span>km <span class="ot">&lt;-</span> abduction_ppp[magway_owin] <span class="sc">%&gt;%</span> </span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rescale.ppp</span>(<span class="at">s=</span><span class="dv">100000</span>, <span class="at">unitname=</span><span class="st">"100km"</span>)</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>abduction_ppp_sagaing<span class="fl">.100</span>km <span class="ot">&lt;-</span> abduction_ppp[sagaing_owin] <span class="sc">%&gt;%</span> </span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rescale.ppp</span>(<span class="at">s=</span><span class="dv">100000</span>, <span class="at">unitname=</span><span class="st">"100km"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>abduction_ppp_chin<span class="fl">.100</span>km.CvL <span class="ot">&lt;-</span> <span class="fu">density</span>(abduction_ppp_chin<span class="fl">.100</span>km,</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>                                <span class="at">sigma=</span>bw.CvL,</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>                                <span class="at">edge=</span><span class="cn">TRUE</span>,</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>                                <span class="at">kernel=</span><span class="st">"gaussian"</span>)</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>abduction_ppp_chin<span class="fl">.100</span>km.scott <span class="ot">&lt;-</span> <span class="fu">density</span>(abduction_ppp_chin<span class="fl">.100</span>km,</span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>                                <span class="at">sigma=</span>bw.scott,</span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>                                <span class="at">edge=</span><span class="cn">TRUE</span>,</span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>                                <span class="at">kernel=</span><span class="st">"gaussian"</span>)</span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>abduction_ppp_chin<span class="fl">.100</span>km.ppl <span class="ot">&lt;-</span> <span class="fu">density</span>(abduction_ppp_chin<span class="fl">.100</span>km,</span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a>                                <span class="at">sigma=</span>bw.ppl,</span>
+<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a>                                <span class="at">edge=</span><span class="cn">TRUE</span>,</span>
+<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a>                                <span class="at">kernel=</span><span class="st">"gaussian"</span>)</span>
+<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-16"><a href="#cb30-16" aria-hidden="true" tabindex="-1"></a>abduction_ppp_chin<span class="fl">.100</span>km.diggle <span class="ot">&lt;-</span> <span class="fu">density</span>(abduction_ppp_chin<span class="fl">.100</span>km,</span>
+<span id="cb30-17"><a href="#cb30-17" aria-hidden="true" tabindex="-1"></a>                                <span class="at">sigma=</span>bw.diggle,</span>
+<span id="cb30-18"><a href="#cb30-18" aria-hidden="true" tabindex="-1"></a>                                <span class="at">edge=</span><span class="cn">TRUE</span>,</span>
+<span id="cb30-19"><a href="#cb30-19" aria-hidden="true" tabindex="-1"></a>                                <span class="at">kernel=</span><span class="st">"gaussian"</span>)</span>
+<span id="cb30-20"><a href="#cb30-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-21"><a href="#cb30-21" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
+<span id="cb30-22"><a href="#cb30-22" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(abduction_ppp_chin<span class="fl">.100</span>km.CvL, <span class="at">main =</span> <span class="st">"bw.CvL"</span>)</span>
+<span id="cb30-23"><a href="#cb30-23" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(abduction_ppp_chin<span class="fl">.100</span>km.scott, <span class="at">main =</span> <span class="st">"bw.scott"</span>)</span>
+<span id="cb30-24"><a href="#cb30-24" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(abduction_ppp_chin<span class="fl">.100</span>km.ppl, <span class="at">main =</span> <span class="st">"bw.ppl"</span>)</span>
+<span id="cb30-25"><a href="#cb30-25" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(abduction_ppp_chin<span class="fl">.100</span>km.diggle, <span class="at">main =</span> <span class="st">"bw.diggle"</span>)</span>
+<span id="cb30-26"><a href="#cb30-26" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><img src="images/clipboard-2066425568.png" class="img-fluid"></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>abduction_ppp_magway<span class="fl">.100</span>km.CvL <span class="ot">&lt;-</span> <span class="fu">density</span>(abduction_ppp_magway<span class="fl">.100</span>km,</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>                                <span class="at">sigma=</span>bw.CvL,</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>                                <span class="at">edge=</span><span class="cn">TRUE</span>,</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>                                <span class="at">kernel=</span><span class="st">"gaussian"</span>)</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>abduction_ppp_magway<span class="fl">.100</span>km.scott <span class="ot">&lt;-</span> <span class="fu">density</span>(abduction_ppp_magway<span class="fl">.100</span>km,</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>                                <span class="at">sigma=</span>bw.scott,</span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>                                <span class="at">edge=</span><span class="cn">TRUE</span>,</span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>                                <span class="at">kernel=</span><span class="st">"gaussian"</span>)</span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>abduction_ppp_magway<span class="fl">.100</span>km.ppl <span class="ot">&lt;-</span> <span class="fu">density</span>(abduction_ppp_magway<span class="fl">.100</span>km,</span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>                                <span class="at">sigma=</span>bw.ppl,</span>
+<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a>                                <span class="at">edge=</span><span class="cn">TRUE</span>,</span>
+<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a>                                <span class="at">kernel=</span><span class="st">"gaussian"</span>)</span>
+<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a>abduction_ppp_magway<span class="fl">.100</span>km.diggle <span class="ot">&lt;-</span> <span class="fu">density</span>(abduction_ppp_magway<span class="fl">.100</span>km,</span>
+<span id="cb31-17"><a href="#cb31-17" aria-hidden="true" tabindex="-1"></a>                                <span class="at">sigma=</span>bw.diggle,</span>
+<span id="cb31-18"><a href="#cb31-18" aria-hidden="true" tabindex="-1"></a>                                <span class="at">edge=</span><span class="cn">TRUE</span>,</span>
+<span id="cb31-19"><a href="#cb31-19" aria-hidden="true" tabindex="-1"></a>                                <span class="at">kernel=</span><span class="st">"gaussian"</span>)</span>
+<span id="cb31-20"><a href="#cb31-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-21"><a href="#cb31-21" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
+<span id="cb31-22"><a href="#cb31-22" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(abduction_ppp_magway<span class="fl">.100</span>km.CvL, <span class="at">main =</span> <span class="st">"bw.CvL"</span>)</span>
+<span id="cb31-23"><a href="#cb31-23" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(abduction_ppp_magway<span class="fl">.100</span>km.scott, <span class="at">main =</span> <span class="st">"bw.scott"</span>)</span>
+<span id="cb31-24"><a href="#cb31-24" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(abduction_ppp_magway<span class="fl">.100</span>km.ppl, <span class="at">main =</span> <span class="st">"bw.ppl"</span>)</span>
+<span id="cb31-25"><a href="#cb31-25" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(abduction_ppp_magway<span class="fl">.100</span>km.diggle, <span class="at">main =</span> <span class="st">"bw.diggle"</span>)</span>
+<span id="cb31-26"><a href="#cb31-26" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><img src="images/clipboard-260942162.png" class="img-fluid"></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>abduction_ppp_sagaing<span class="fl">.100</span>km.CvL <span class="ot">&lt;-</span> <span class="fu">density</span>(abduction_ppp_sagaing<span class="fl">.100</span>km,</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>                                <span class="at">sigma=</span>bw.CvL,</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>                                <span class="at">edge=</span><span class="cn">TRUE</span>,</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>                                <span class="at">kernel=</span><span class="st">"gaussian"</span>)</span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>abduction_ppp_sagaing<span class="fl">.100</span>km.scott <span class="ot">&lt;-</span> <span class="fu">density</span>(abduction_ppp_sagaing<span class="fl">.100</span>km,</span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>                                <span class="at">sigma=</span>bw.scott,</span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>                                <span class="at">edge=</span><span class="cn">TRUE</span>,</span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>                                <span class="at">kernel=</span><span class="st">"gaussian"</span>)</span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>abduction_ppp_sagaing<span class="fl">.100</span>km.ppl <span class="ot">&lt;-</span> <span class="fu">density</span>(abduction_ppp_sagaing<span class="fl">.100</span>km,</span>
+<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a>                                <span class="at">sigma=</span>bw.ppl,</span>
+<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a>                                <span class="at">edge=</span><span class="cn">TRUE</span>,</span>
+<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a>                                <span class="at">kernel=</span><span class="st">"gaussian"</span>)</span>
+<span id="cb32-15"><a href="#cb32-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-16"><a href="#cb32-16" aria-hidden="true" tabindex="-1"></a>abduction_ppp_sagaing<span class="fl">.100</span>km.diggle <span class="ot">&lt;-</span> <span class="fu">density</span>(abduction_ppp_sagaing<span class="fl">.100</span>km,</span>
+<span id="cb32-17"><a href="#cb32-17" aria-hidden="true" tabindex="-1"></a>                                <span class="at">sigma=</span>bw.diggle,</span>
+<span id="cb32-18"><a href="#cb32-18" aria-hidden="true" tabindex="-1"></a>                                <span class="at">edge=</span><span class="cn">TRUE</span>,</span>
+<span id="cb32-19"><a href="#cb32-19" aria-hidden="true" tabindex="-1"></a>                                <span class="at">kernel=</span><span class="st">"gaussian"</span>)</span>
+<span id="cb32-20"><a href="#cb32-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-21"><a href="#cb32-21" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
+<span id="cb32-22"><a href="#cb32-22" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(abduction_ppp_sagaing<span class="fl">.100</span>km.CvL, <span class="at">main =</span> <span class="st">"bw.CvL"</span>)</span>
+<span id="cb32-23"><a href="#cb32-23" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(abduction_ppp_sagaing<span class="fl">.100</span>km.scott, <span class="at">main =</span> <span class="st">"bw.scott"</span>)</span>
+<span id="cb32-24"><a href="#cb32-24" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(abduction_ppp_sagaing<span class="fl">.100</span>km.ppl, <span class="at">main =</span> <span class="st">"bw.ppl"</span>)</span>
+<span id="cb32-25"><a href="#cb32-25" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(abduction_ppp_sagaing<span class="fl">.100</span>km.diggle, <span class="at">main =</span> <span class="st">"bw.diggle"</span>)</span>
+<span id="cb32-26"><a href="#cb32-26" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><img src="images/clipboard-1301117594.png" class="img-fluid"></p>
+<p>In this case, bw.ppl seem like the better choice for our analysis. Based on the results so far, we can observe that most abduction cases seem to occur near the borders of the states.</p>
+</section>
+</section>
+</section>
+<section id="nd-order-points-pattern-analysis-l-function-completely-spatial-randomness-test-with-monte-carlo" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> 2nd Order Points Pattern Analysis: L-Function &amp; Completely Spatial Randomness Test with Monte Carlo</h1>
+<p>We will now test for whether the point patterns are randomly distributed. And if not randomly distributed, whether they are clustered or uniformly distributed?</p>
+<section id="chin-state" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="chin-state"><span class="header-section-number">4.1</span> Chin State</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>L_chin <span class="ot">=</span> <span class="fu">Lest</span>(abduction_ppp_chin<span class="fl">.100</span>km, <span class="at">correction =</span> <span class="st">"Ripley"</span>)</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(L_chin, . <span class="sc">-</span>r <span class="sc">~</span> r, </span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab=</span> <span class="st">"L(d)-r"</span>, <span class="at">xlab =</span> <span class="st">"d(100km)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><img src="images/clipboard-1430039805.png" class="img-fluid"></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>L_chin.csr <span class="ot">&lt;-</span> <span class="fu">envelope</span>(abduction_ppp_chin<span class="fl">.100</span>km, Lest, <span class="at">nsim =</span> <span class="dv">99</span>, <span class="at">rank =</span> <span class="dv">1</span>, <span class="at">glocal=</span><span class="cn">TRUE</span>)</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(L_chin.csr, . <span class="sc">-</span> r <span class="sc">~</span> r, <span class="at">xlab=</span><span class="st">"d"</span>, <span class="at">ylab=</span><span class="st">"L(d)-r"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><img src="images/clipboard-4031161975.png" class="img-fluid"></p>
+</section>
+<section id="magway-state" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="magway-state"><span class="header-section-number">4.2</span> Magway State</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>L_magway <span class="ot">=</span> <span class="fu">Lest</span>(abduction_ppp_magway<span class="fl">.100</span>km, <span class="at">correction =</span> <span class="st">"Ripley"</span>)</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(L_magway, . <span class="sc">-</span>r <span class="sc">~</span> r, </span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab=</span> <span class="st">"L(d)-r"</span>, <span class="at">xlab =</span> <span class="st">"d(100km)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><img src="images/clipboard-206224831.png" class="img-fluid"></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>L_magway.csr <span class="ot">&lt;-</span> <span class="fu">envelope</span>(abduction_ppp_magway<span class="fl">.100</span>km, Lest, <span class="at">nsim =</span> <span class="dv">99</span>, <span class="at">rank =</span> <span class="dv">1</span>, <span class="at">glocal=</span><span class="cn">TRUE</span>)</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(L_magway.csr, . <span class="sc">-</span> r <span class="sc">~</span> r, <span class="at">xlab=</span><span class="st">"d"</span>, <span class="at">ylab=</span><span class="st">"L(d)-r"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><img src="images/clipboard-3644905663.png" class="img-fluid"></p>
+</section>
+<section id="sagaing-state" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="sagaing-state"><span class="header-section-number">4.3</span> Sagaing State</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>L_sagaing <span class="ot">=</span> <span class="fu">Lest</span>(abduction_ppp_sagaing<span class="fl">.100</span>km, <span class="at">correction =</span> <span class="st">"Ripley"</span>)</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(L_sagaing, . <span class="sc">-</span>r <span class="sc">~</span> r, </span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab=</span> <span class="st">"L(d)-r"</span>, <span class="at">xlab =</span> <span class="st">"d(100km)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><img src="images/clipboard-3309039899.png" class="img-fluid"></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>L_sagaing.csr <span class="ot">&lt;-</span> <span class="fu">envelope</span>(abduction_ppp_sagaing<span class="fl">.100</span>km, Lest, <span class="at">nsim =</span> <span class="dv">99</span>, <span class="at">rank =</span> <span class="dv">1</span>, <span class="at">glocal=</span><span class="cn">TRUE</span>)</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(L_sagaing.csr, . <span class="sc">-</span> r <span class="sc">~</span> r, <span class="at">xlab=</span><span class="st">"d"</span>, <span class="at">ylab=</span><span class="st">"L(d)-r"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><img src="images/clipboard-3266514276.png" class="img-fluid"></p>
+<p>The overall results of the monte carlo tests for every study area also tells us that we are confident that the spatial points of the abduction events are clustered, and are not randomly distributed.</p>
+</section>
+</section>
+<section id="spatio-temporal-kde" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Spatio-Temporal KDE</h1>
+<section id="selecting-year-quarters-of-events" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="selecting-year-quarters-of-events"><span class="header-section-number">5.1</span> Selecting Year-Quarters of Events</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to convert year and quarter to numeric sequence</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>convert_year_quarter <span class="ot">&lt;-</span> <span class="cf">function</span>(year, quarter) {</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calculate the numeric sequence</span></span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>  numeric_sequence <span class="ot">&lt;-</span> (year <span class="sc">-</span> <span class="dv">2021</span>) <span class="sc">*</span> <span class="dv">4</span> <span class="sc">+</span> quarter</span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(numeric_sequence)</span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a>abduction_sf<span class="sc">$</span>numeric_quarter <span class="ot">&lt;-</span> <span class="fu">mapply</span>(convert_year_quarter, abduction_sf<span class="sc">$</span>year, abduction_sf<span class="sc">$</span>quarter)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>abduction_yq <span class="ot">&lt;-</span> abduction_sf <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="st">`</span><span class="at">numeric_quarter</span><span class="st">`</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>abduction_yq.ppp <span class="ot">&lt;-</span> abduction_yq <span class="sc">%&gt;%</span> </span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.ppp</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rjitter</span>(<span class="at">retry =</span> <span class="cn">TRUE</span>, <span class="at">nsim =</span> <span class="dv">1</span>, <span class="at">drop =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(abduction_yq.ppp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Marked planar point pattern:  326 points
+Average intensity 1.221499e-09 points per square unit
+
+Coordinates are given to 14 decimal places
+
+marks are numeric, of type 'double'
+Summary:
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  1.000   7.000   8.000   8.755  11.000  14.000 
+
+Window: rectangle = [-141557.29, 241746.37] x [2108596.6, 2804872.7] units
+                    (383300 x 696300 units)
+Window area = 2.66885e+11 square units</code></pre>
+</div>
 </div>
 </section>
-<section id="computing-kde-adaptive-bandwidth-for-each-region" class="level3" data-number="4.2.3">
-<h3 data-number="4.2.3" class="anchored" data-anchor-id="computing-kde-adaptive-bandwidth-for-each-region"><span class="header-section-number">4.2.3</span> Computing KDE (adaptive bandwidth) for each Region</h3>
+<section id="including-owin-objects" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="including-owin-objects"><span class="header-section-number">5.2</span> Including Owin Objects</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>abduction_yq.ppp_chin <span class="ot">&lt;-</span> abduction_yq.ppp[chin_owin]</span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>abduction_yq.ppp_magway <span class="ot">&lt;-</span> abduction_yq.ppp[magway_owin] </span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>abduction_yq.ppp_sagaing <span class="ot">&lt;-</span> abduction_yq.ppp[sagaing_owin] </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
-<section id="separating-study-areas" class="level3" data-number="4.2.4">
-<h3 data-number="4.2.4" class="anchored" data-anchor-id="separating-study-areas"><span class="header-section-number">4.2.4</span> Separating Study Areas</h3>
-<pre class="{# {r}"><code># # Function to filter sf object by admin1 values
-# filter_by_admin1 &lt;- function(sf_object, regions) {
-#   filtered_list &lt;- lapply(regions, function(region) {
-#     sf_object %&gt;% filter(admin1 == region)
-#   })
-#   
-#   # Name the list elements by their region names
-#   names(filtered_list) &lt;- regions
-#   
-#   return(filtered_list)
-# }
-# 
-# # Define the regions to filter by
-# regions &lt;- c("Chin", "Magway", "Rakhine")
-# 
-# # Each list is a list of lists of sfs for each region
-# vac_list &lt;- filter_by_admin1(studyarea_vac, regions)
-# stdp_list &lt;- filter_by_admin1(studyarea_stdp, regions)
-# erv_list &lt;- filter_by_admin1(studyarea_erv, regions)
-# bat_list &lt;- filter_by_admin1(studyarea_bat, regions)
-# 
-# Chin_vac &lt;- vac_list[["Chin"]]
-# Chin_stdp &lt;- stdp_list[["Chin"]]
-# Chin_erv &lt;- erv_list[["Chin"]]
-# Chin_bat &lt;- bat_vac_list[["Chin"]]
-# 
-# Magway_vac &lt;- vac_list[["Magway"]]
-# Magway_stdp &lt;- stdp_list[["Magway"]]
-# Magway_erv &lt;- erv_list[["Magway"]]
-# Magway_bat &lt;- bat_vac_list[["Magway"]]
-# 
-# Rakhine_vac &lt;- vac_list[["Rakhine"]]
-# Rakhine_stdp &lt;- stdp_list[["Rakhine"]]
-# Rakhine_erv &lt;- erv_list[["Rakhine"]]
-# Rakhine_bat &lt;- bat_vac_list[["Rakhine"]]</code></pre>
+<section id="plotting-out-the-ppp-objects" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="plotting-out-the-ppp-objects"><span class="header-section-number">5.3</span> Plotting out the PPP Objects</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(abduction_yq.ppp_chin)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="take-home-ex01_files/figure-html/unnamed-chunk-43-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(abduction_yq.ppp_magway)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="take-home-ex01_files/figure-html/unnamed-chunk-43-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(abduction_yq.ppp_sagaing)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="take-home-ex01_files/figure-html/unnamed-chunk-43-3.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="computing-stkde" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="computing-stkde"><span class="header-section-number">5.4</span> Computing STKDE</h2>
+<section id="chin-state-1" class="level3" data-number="5.4.1">
+<h3 data-number="5.4.1" class="anchored" data-anchor-id="chin-state-1"><span class="header-section-number">5.4.1</span> Chin State</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="fu">BOOT.spattemp</span>(abduction_yq.ppp_chin) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>stkde_yq_chin <span class="ot">&lt;-</span> <span class="fu">spattemp.density</span>(</span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>  abduction_yq.ppp_chin,</span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">h =</span> <span class="fl">36220.355136</span>,</span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">lambda =</span> <span class="fl">4.220534</span>)</span>
+<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(stkde_yq_chin)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(stkde_yq_chin, <span class="at">fix.range=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="take-home-ex01_files/figure-html/unnamed-chunk-46-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="take-home-ex01_files/figure-html/unnamed-chunk-46-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="take-home-ex01_files/figure-html/unnamed-chunk-46-3.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="take-home-ex01_files/figure-html/unnamed-chunk-46-4.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="take-home-ex01_files/figure-html/unnamed-chunk-46-5.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="take-home-ex01_files/figure-html/unnamed-chunk-46-6.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="take-home-ex01_files/figure-html/unnamed-chunk-46-7.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="take-home-ex01_files/figure-html/unnamed-chunk-46-8.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="take-home-ex01_files/figure-html/unnamed-chunk-46-9.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="take-home-ex01_files/figure-html/unnamed-chunk-46-10.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="take-home-ex01_files/figure-html/unnamed-chunk-46-11.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="take-home-ex01_files/figure-html/unnamed-chunk-46-12.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="magway-state-1" class="level3" data-number="5.4.2">
+<h3 data-number="5.4.2" class="anchored" data-anchor-id="magway-state-1"><span class="header-section-number">5.4.2</span> Magway State</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="fu">BOOT.spattemp</span>(abduction_yq.ppp_magway)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>stkde_yq_magway <span class="ot">&lt;-</span> <span class="fu">spattemp.density</span>(</span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>  abduction_yq.ppp_magway,</span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">h =</span> <span class="fl">56861.966963</span>,</span>
+<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">lambda =</span> <span class="fl">1.035756</span>)</span>
+<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(stkde_yq_magway)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(stkde_yq_magway, <span class="at">fix.range=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="take-home-ex01_files/figure-html/unnamed-chunk-49-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="take-home-ex01_files/figure-html/unnamed-chunk-49-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="take-home-ex01_files/figure-html/unnamed-chunk-49-3.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="take-home-ex01_files/figure-html/unnamed-chunk-49-4.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="take-home-ex01_files/figure-html/unnamed-chunk-49-5.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="take-home-ex01_files/figure-html/unnamed-chunk-49-6.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="take-home-ex01_files/figure-html/unnamed-chunk-49-7.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="take-home-ex01_files/figure-html/unnamed-chunk-49-8.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="take-home-ex01_files/figure-html/unnamed-chunk-49-9.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="take-home-ex01_files/figure-html/unnamed-chunk-49-10.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="take-home-ex01_files/figure-html/unnamed-chunk-49-11.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="saging-state" class="level3" data-number="5.4.3">
+<h3 data-number="5.4.3" class="anchored" data-anchor-id="saging-state"><span class="header-section-number">5.4.3</span> Saging State</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a><span class="fu">BOOT.spattemp</span>(abduction_yq.ppp_sagaing)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>stkde_yq_sagaing <span class="ot">&lt;-</span> <span class="fu">spattemp.density</span>(</span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>  abduction_yq.ppp_sagaing,</span>
+<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">h =</span> <span class="fl">46988.081654</span>,</span>
+<span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">lambda =</span> <span class="fl">1.159582</span>)</span>
+<span id="cb54-5"><a href="#cb54-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(stkde_yq_sagaing)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(stkde_yq_sagaing, <span class="at">fix.range=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="take-home-ex01_files/figure-html/unnamed-chunk-52-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="take-home-ex01_files/figure-html/unnamed-chunk-52-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="take-home-ex01_files/figure-html/unnamed-chunk-52-3.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="take-home-ex01_files/figure-html/unnamed-chunk-52-4.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="take-home-ex01_files/figure-html/unnamed-chunk-52-5.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="take-home-ex01_files/figure-html/unnamed-chunk-52-6.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="take-home-ex01_files/figure-html/unnamed-chunk-52-7.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="take-home-ex01_files/figure-html/unnamed-chunk-52-8.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="take-home-ex01_files/figure-html/unnamed-chunk-52-9.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="take-home-ex01_files/figure-html/unnamed-chunk-52-10.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="take-home-ex01_files/figure-html/unnamed-chunk-52-11.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="take-home-ex01_files/figure-html/unnamed-chunk-52-12.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="take-home-ex01_files/figure-html/unnamed-chunk-52-13.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="take-home-ex01_files/figure-html/unnamed-chunk-52-14.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="plotting-kde-and-stkde-on-map" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Plotting KDE and STKDE on Map</h1>
+<section id="convert-plots-into-rasters-layers" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="convert-plots-into-rasters-layers"><span class="header-section-number">6.1</span> Convert Plots into Rasters layers</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="co"># library(stars)</span></span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a><span class="co"># chin_KDE_sf &lt;- raster(abduction_ppp_chin.100km.ppl) %&gt;% st_as_stars()</span></span>
+<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a><span class="co"># class(chin_KDE_sf)</span></span>
+<span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb56-5"><a href="#cb56-5" aria-hidden="true" tabindex="-1"></a><span class="co"># tmap_mode("plot")</span></span>
+<span id="cb56-6"><a href="#cb56-6" aria-hidden="true" tabindex="-1"></a><span class="co"># tm_shape(chin_KDE_sf) +</span></span>
+<span id="cb56-7"><a href="#cb56-7" aria-hidden="true" tabindex="-1"></a><span class="co">#   tm_raster(palette = "-RdYlBu", title = "KDE") +</span></span>
+<span id="cb56-8"><a href="#cb56-8" aria-hidden="true" tabindex="-1"></a><span class="co">#   tm_basemap("OpenStreetMap") +</span></span>
+<span id="cb56-9"><a href="#cb56-9" aria-hidden="true" tabindex="-1"></a><span class="co">#   tm_layout(main.title = "KDE on OpenStreetMap")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
-</section>
 </section>
 </section>
 

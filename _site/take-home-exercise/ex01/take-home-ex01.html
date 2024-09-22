@@ -104,6 +104,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<link href="../../site_libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
+
+<script src="../../site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+
+<script src="../../site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+
+<link href="../../site_libs/leaflet-1.3.1/leaflet.css" rel="stylesheet">
+
+<script src="../../site_libs/leaflet-1.3.1/leaflet.js"></script>
+
+<link href="../../site_libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet">
+
+<script src="../../site_libs/proj4-2.6.2/proj4.min.js"></script>
+
+<script src="../../site_libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+
+<link href="../../site_libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet">
+
+<script src="../../site_libs/leaflet-binding-2.2.2/leaflet.js"></script>
+
+<script src="../../site_libs/leaflet-providers-2.0.0/leaflet-providers_2.0.0.js"></script>
+
+<script src="../../site_libs/leaflet-providers-plugin-2.2.2/leaflet-providers-plugin.js"></script>
+
 
 
 <link rel="stylesheet" href="../../styles.css">
@@ -393,8 +417,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#plotting-kde-and-stkde-on-map" id="toc-plotting-kde-and-stkde-on-map" class="nav-link" data-scroll-target="#plotting-kde-and-stkde-on-map"><span class="header-section-number">8</span> Plotting KDE and STKDE on Map</a>
   <ul class="collapse">
-  <li><a href="#convert-plots-into-rasters-layers" id="toc-convert-plots-into-rasters-layers" class="nav-link" data-scroll-target="#convert-plots-into-rasters-layers"><span class="header-section-number">8.1</span> Convert Plots into Rasters layers</a></li>
+  <li><a href="#convert-images-into-spatialgriddataframe-layers" id="toc-convert-images-into-spatialgriddataframe-layers" class="nav-link" data-scroll-target="#convert-images-into-spatialgriddataframe-layers"><span class="header-section-number">8.1</span> Convert Images into SpatialGridDataFrame Layers</a></li>
+  <li><a href="#converting-images-into-raster-layers" id="toc-converting-images-into-raster-layers" class="nav-link" data-scroll-target="#converting-images-into-raster-layers"><span class="header-section-number">8.2</span> Converting Images into Raster Layers</a></li>
+  <li><a href="#visualisation-of-kde-on-osm-using-tmap" id="toc-visualisation-of-kde-on-osm-using-tmap" class="nav-link" data-scroll-target="#visualisation-of-kde-on-osm-using-tmap"><span class="header-section-number">8.3</span> Visualisation of KDE on OSM using tmap</a></li>
   </ul></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">9</span> Conclusion</a></li>
   </ul>
 </nav>
     </div>
@@ -1362,7 +1389,7 @@ Note
 <pre><code>Marked planar point pattern:  326 points
 Average intensity 1.221499e-09 points per square unit
 
-Coordinates are given to 13 decimal places
+Coordinates are given to 14 decimal places
 
 marks are numeric, of type 'double'
 Summary:
@@ -1728,22 +1755,92 @@ Window area = 2.66885e+11 square units</code></pre>
 </section>
 <section id="plotting-kde-and-stkde-on-map" class="level1" data-number="8">
 <h1 data-number="8"><span class="header-section-number">8</span> Plotting KDE and STKDE on Map</h1>
-<section id="convert-plots-into-rasters-layers" class="level2" data-number="8.1">
-<h2 data-number="8.1" class="anchored" data-anchor-id="convert-plots-into-rasters-layers"><span class="header-section-number">8.1</span> Convert Plots into Rasters layers</h2>
+<section id="convert-images-into-spatialgriddataframe-layers" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="convert-images-into-spatialgriddataframe-layers"><span class="header-section-number">8.1</span> Convert Images into SpatialGridDataFrame Layers</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="co"># library(stars)</span></span>
-<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a><span class="co"># chin_KDE_sf &lt;- raster(abduction_ppp_chin.100km.ppl) %&gt;% st_as_stars()</span></span>
-<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a><span class="co"># class(chin_KDE_sf)</span></span>
-<span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb56-5"><a href="#cb56-5" aria-hidden="true" tabindex="-1"></a><span class="co"># tmap_mode("plot")</span></span>
-<span id="cb56-6"><a href="#cb56-6" aria-hidden="true" tabindex="-1"></a><span class="co"># tm_shape(chin_KDE_sf) +</span></span>
-<span id="cb56-7"><a href="#cb56-7" aria-hidden="true" tabindex="-1"></a><span class="co">#   tm_raster(palette = "-RdYlBu", title = "KDE") +</span></span>
-<span id="cb56-8"><a href="#cb56-8" aria-hidden="true" tabindex="-1"></a><span class="co">#   tm_basemap("OpenStreetMap") +</span></span>
-<span id="cb56-9"><a href="#cb56-9" aria-hidden="true" tabindex="-1"></a><span class="co">#   tm_layout(main.title = "KDE on OpenStreetMap")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>gridded_kde_abduction_studyarea <span class="ot">&lt;-</span>  <span class="fu">as</span>(abduction_ppp.ppl,</span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>                                     <span class="st">"SpatialGridDataFrame"</span>)</span>
+<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>gridded_kde_abduction_chin <span class="ot">&lt;-</span>  <span class="fu">as</span>(abduction_ppp_chin.ppl,</span>
+<span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a>                                     <span class="st">"SpatialGridDataFrame"</span>)</span>
+<span id="cb56-5"><a href="#cb56-5" aria-hidden="true" tabindex="-1"></a>gridded_kde_abduction_magway <span class="ot">&lt;-</span>  <span class="fu">as</span>(abduction_ppp_magway.ppl,</span>
+<span id="cb56-6"><a href="#cb56-6" aria-hidden="true" tabindex="-1"></a>                                     <span class="st">"SpatialGridDataFrame"</span>)</span>
+<span id="cb56-7"><a href="#cb56-7" aria-hidden="true" tabindex="-1"></a>gridded_kde_abduction_sagaing <span class="ot">&lt;-</span>  <span class="fu">as</span>(abduction_ppp_sagaing.ppl,</span>
+<span id="cb56-8"><a href="#cb56-8" aria-hidden="true" tabindex="-1"></a>                                     <span class="st">"SpatialGridDataFrame"</span>)</span>
+<span id="cb56-9"><a href="#cb56-9" aria-hidden="true" tabindex="-1"></a><span class="fu">spplot</span>(gridded_kde_abduction_studyarea)</span>
+<span id="cb56-10"><a href="#cb56-10" aria-hidden="true" tabindex="-1"></a><span class="fu">spplot</span>(gridded_kde_abduction_chin)</span>
+<span id="cb56-11"><a href="#cb56-11" aria-hidden="true" tabindex="-1"></a><span class="fu">spplot</span>(gridded_kde_abduction_magway)</span>
+<span id="cb56-12"><a href="#cb56-12" aria-hidden="true" tabindex="-1"></a><span class="fu">spplot</span>(gridded_kde_abduction_sagaing)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-
-
+<p><img src="images/clipboard-449298234.png" class="img-fluid"></p>
+<p><img src="images/clipboard-134371247.png" class="img-fluid"></p>
+<p><img src="images/clipboard-2667409094.png" class="img-fluid"></p>
+<p><img src="images/clipboard-748721703.png" class="img-fluid"></p>
 </section>
+<section id="converting-images-into-raster-layers" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="converting-images-into-raster-layers"><span class="header-section-number">8.2</span> Converting Images into Raster Layers</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>raster_KDE_abduction <span class="ot">&lt;-</span> <span class="fu">raster</span>(abduction_ppp.ppl)</span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>raster_KDE_abduction_chin <span class="ot">&lt;-</span> <span class="fu">raster</span>(abduction_ppp_chin.ppl)</span>
+<span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a>raster_KDE_abduction_magway <span class="ot">&lt;-</span> <span class="fu">raster</span>(abduction_ppp_magway.ppl)</span>
+<span id="cb57-4"><a href="#cb57-4" aria-hidden="true" tabindex="-1"></a>raster_KDE_abduction_sagaing <span class="ot">&lt;-</span> <span class="fu">raster</span>(abduction_ppp_sagaing.ppl)</span>
+<span id="cb57-5"><a href="#cb57-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-6"><a href="#cb57-6" aria-hidden="true" tabindex="-1"></a><span class="fu">projection</span>(raster_KDE_abduction) <span class="ot">&lt;-</span> <span class="fu">CRS</span>(<span class="st">"+init=EPSG:32647"</span>)</span>
+<span id="cb57-7"><a href="#cb57-7" aria-hidden="true" tabindex="-1"></a><span class="fu">projection</span>(raster_KDE_abduction_chin) <span class="ot">&lt;-</span> <span class="fu">CRS</span>(<span class="st">"+init=EPSG:32647"</span>)</span>
+<span id="cb57-8"><a href="#cb57-8" aria-hidden="true" tabindex="-1"></a><span class="fu">projection</span>(raster_KDE_abduction_magway) <span class="ot">&lt;-</span> <span class="fu">CRS</span>(<span class="st">"+init=EPSG:32647"</span>)</span>
+<span id="cb57-9"><a href="#cb57-9" aria-hidden="true" tabindex="-1"></a><span class="fu">projection</span>(raster_KDE_abduction_sagaing) <span class="ot">&lt;-</span> <span class="fu">CRS</span>(<span class="st">"+init=EPSG:32647"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>raster_KDE_abduction</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>class      : RasterLayer 
+dimensions : 128, 128, 16384  (nrow, ncol, ncell)
+resolution : 2994.56, 5439.657  (x, y)
+extent     : -141557.3, 241746.4, 2108597, 2804873  (xmin, xmax, ymin, ymax)
+crs        : +proj=utm +zone=47 +datum=WGS84 +units=m +no_defs 
+source     : memory
+names      : layer 
+values     : -1.940912e-24, 2.271995e-08  (min, max)</code></pre>
+</div>
+</div>
+</section>
+<section id="visualisation-of-kde-on-osm-using-tmap" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="visualisation-of-kde-on-osm-using-tmap"><span class="header-section-number">8.3</span> Visualisation of KDE on OSM using tmap</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tmap_mode</span>(<span class="st">"view"</span>)</span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a><span class="co"># tm_shape(studyArea_sf) +</span></span>
+<span id="cb60-4"><a href="#cb60-4" aria-hidden="true" tabindex="-1"></a><span class="co">#   tm_polygons() +</span></span>
+<span id="cb60-5"><a href="#cb60-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_shape</span>(raster_KDE_abduction_chin) <span class="sc">+</span> </span>
+<span id="cb60-6"><a href="#cb60-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tm_raster</span>(<span class="at">palette =</span> <span class="st">"plasma"</span> , <span class="at">alpha =</span> <span class="fl">0.8</span>, <span class="at">legend.show =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb60-7"><a href="#cb60-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_shape</span>(raster_KDE_abduction_magway) <span class="sc">+</span> </span>
+<span id="cb60-8"><a href="#cb60-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tm_raster</span>(<span class="at">palette =</span> <span class="st">"plasma"</span>, <span class="at">alpha =</span> <span class="fl">0.8</span>, <span class="at">legend.show =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb60-9"><a href="#cb60-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_shape</span>(raster_KDE_abduction_sagaing) <span class="sc">+</span> </span>
+<span id="cb60-10"><a href="#cb60-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tm_raster</span>(<span class="at">palette =</span> <span class="st">"plasma"</span>, <span class="at">alpha =</span> <span class="fl">0.8</span>, <span class="at">legend.show =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="leaflet html-widget html-fill-item" id="htmlwidget-1b4ff99564eb6e8884a5" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-1b4ff99564eb6e8884a5">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"createMapPane","args":["tmap401",401]},{"method":"createMapPane","args":["tmap402",402]},{"method":"createMapPane","args":["tmap403",403]},{"method":"addProviderTiles","args":["Esri.WorldGrayCanvas",null,"Esri.WorldGrayCanvas",{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"pane":"tilePane"}]},{"method":"addProviderTiles","args":["OpenStreetMap",null,"OpenStreetMap",{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"pane":"tilePane"}]},{"method":"addProviderTiles","args":["Esri.WorldTopoMap",null,"Esri.WorldTopoMap",{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"pane":"tilePane"}]},{"method":"addRasterImage","args":["data:image/png;base64,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",[[24.1333513343446,92.48923996205377],[20.59005824532133,94.26987248467626]],0.8,null,"tmap401","raster_KDE_abduction_chin"]},{"method":"addRasterImage","args":["data:image/png;base64,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",[[22.81394657559759,93.76822947791398],[18.78384976511503,95.87892904608859]],0.8,null,"tmap402","raster_KDE_abduction_magway"]},{"method":"addRasterImage","args":["data:image/png;base64,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",[[27.37750164456735,93.77265441597415],[21.5395870371198,97.15764461473768]],0.8,null,"tmap403","raster_KDE_abduction_sagaing"]},{"method":"addLayersControl","args":[["Esri.WorldGrayCanvas","OpenStreetMap","Esri.WorldTopoMap"],["raster_KDE_abduction_chin","raster_KDE_abduction_magway","raster_KDE_abduction_sagaing"],{"collapsed":true,"autoZIndex":true,"position":"topleft"}]}],"limits":{"lat":[18.78384976511503,27.37750164456735],"lng":[92.48923996205377,97.15764461473768]},"fitBounds":[20.59762615353499,92.48923996205377,24.1333513343446,94.25848162224334,[]]},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</section>
+</section>
+<section id="conclusion" class="level1" data-number="9">
+<h1 data-number="9"><span class="header-section-number">9</span> Conclusion</h1>
+<p><strong>Location of Abductions: Near State Borders, and also Country Borders</strong></p>
+<p>Plotting the KDE layer on the map, we can see that the abductions of civilians / disappearance of persons are not random. They form rather <strong>tight clusters</strong> on the map, especially in areas near to the state borders. Overall, the <strong>abductions seem to mostly occur within the country and between state borders</strong> rather than the country’s borders, such as the northern border Myanmar share with India (<strong>though there is a quite a large cluster in Northern Chin and Northern Rakine/South-Western Chin, which are actually very close to the Indian border</strong>).</p>
+<p><strong>Largest Hot spot of Abduction Cases:</strong></p>
+<p>Nevertheless, the <strong>largest hot spot of abduction cases seem be deep within Myanmar</strong>, to the North-East of the Magway State, and South-East of the Sagaing State. These abduction cases are occurring in a <strong>wide-spread manner.</strong></p>
+<p><strong>Possible Reasons</strong></p>
+<p>The difference in the nature of the clusters (how tight/wide-spread) they are may be indicators of the social orders. A wild guess is that in the tighter clusters, abductions of civilians are done in a more secretive manner or at least not publicly seen, while in a widespread cluster the abductions of civilians are more rampant and unregulated.</p>
+<p>This is analysed considering the fact that in our preliminary analysis, we saw a large number of conflicts occuring over the central Myanmar states, coinciding with the area of widespread abduction hotspot.</p>
+<p><strong>Time-Based Analysis: Different Nature of Abduction Events?</strong></p>
+<p>While I did not manage to plot the Spatial-Temporal KDEs onto the final map plot. If we refer back to the STKDE plots, we can see two main types of hot spots.</p>
+<ol type="1">
+<li>Firstly, there are <strong>hot spots that remained “hot” or active throughout the whole study period</strong>. This can be seen in the STKDE for the state of Chin. In fact, the tight cluster of abduction events in the northern Chin State, continued throughout the study period.</li>
+<li>Secondly, in contrast, there are <strong>hot spots that only grew hotter over time, and sometimes died down</strong>. This is mainly seen along the inter-state borders such as the Northern Magway and Southern Sagaing regions.</li>
+</ol>
+<p><strong>The difference in patterns might reveal different nature of abductions.</strong> The first one seemed like an established hot spot that is recurring every quarter, while the second one seemed to be happening depending on the state of affairs of the place (growing hotter and getting colder at times).</p>
+
+
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->

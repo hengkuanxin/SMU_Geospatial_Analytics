@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "R for Geospatial Analytics",
     "section": "",
-    "text": "Contents overview:\n\nHome (this page)\nAbout\nHands-on exercises\nIn-class exercises\nTake-home Assignment\n\nThe table below shows the latest edits I have added.\n\n\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nDate\n\n\nModified\n\n\nTitle\n\n\n\n\n\n\nSep 4, 2024\n\n\n9/22/24, 9:14:50 PM\n\n\n01 Take Home Exercise 1\n\n\n\n\nSep 21, 2024\n\n\n9/22/24, 12:05:02 AM\n\n\n06 (Part 2) ‘Local Measures of Spatial Autocorrelation’\n\n\n\n\nSep 21, 2024\n\n\n9/21/24, 11:41:57 PM\n\n\n06 (Part 1) ‘Global Measures of Spatial Autocorrelation’\n\n\n\n\nSep 16, 2024\n\n\n9/16/24, 11:21:43 AM\n\n\n05 In-class Exercise (Review)\n\n\n\n\nSep 9, 2024\n\n\n9/9/24, 4:43:44 PM\n\n\n04 In-class Exercise 4 (Review)\n\n\n\n\nSep 3, 2024\n\n\n9/9/24, 9:45:13 AM\n\n\n04 ‘Network Constrained Spatial Point Patterns Analysis’\n\n\n\n\nAug 29, 2024\n\n\n9/4/24, 1:06:04 AM\n\n\n03 (Part 1) ‘1st Order Spatial Point Patterns Analysis Methods’\n\n\n\n\nAug 29, 2024\n\n\n9/4/24, 1:02:08 AM\n\n\n03 (Part 2) ‘2nd Order Spatial Point Patterns Analysis Methods’\n\n\n\n\nSep 2, 2024\n\n\n9/4/24, 12:47:23 AM\n\n\n03 In-class Exercise 3 (Review)\n\n\n\n\nAug 21, 2024\n\n\n9/2/24, 12:50:39 PM\n\n\n01 In-class Exercise 1 (Review)\n\n\n\n\nAug 26, 2024\n\n\n9/2/24, 12:50:06 PM\n\n\n02 In-class Exercise 2 (Review)\n\n\n\n\nAug 21, 2024\n\n\n8/28/24, 12:59:02 AM\n\n\n02 ‘Thematic Mapping and GeoVisualisation with R’\n\n\n\n\nAug 20, 2024\n\n\n8/28/24, 12:58:55 AM\n\n\n01 ‘Geospatial Data Science with R’\n\n\n\n\n\nNo matching items\n\n\n  \n\n Back to top"
+    "text": "Contents overview:\n\nHome (this page)\nAbout\nHands-on exercises\nIn-class exercises\nTake-home Assignment\n\nThe table below shows the latest edits I have added.\n\n\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nDate\n\n\nModified\n\n\nTitle\n\n\n\n\n\n\nSep 4, 2024\n\n\n9/22/24, 10:48:11 PM\n\n\n01 Take Home Exercise 1\n\n\n\n\nSep 21, 2024\n\n\n9/22/24, 12:05:02 AM\n\n\n06 (Part 2) ‘Local Measures of Spatial Autocorrelation’\n\n\n\n\nSep 21, 2024\n\n\n9/21/24, 11:41:57 PM\n\n\n06 (Part 1) ‘Global Measures of Spatial Autocorrelation’\n\n\n\n\nSep 16, 2024\n\n\n9/16/24, 11:21:43 AM\n\n\n05 In-class Exercise (Review)\n\n\n\n\nSep 9, 2024\n\n\n9/9/24, 4:43:44 PM\n\n\n04 In-class Exercise 4 (Review)\n\n\n\n\nSep 3, 2024\n\n\n9/9/24, 9:45:13 AM\n\n\n04 ‘Network Constrained Spatial Point Patterns Analysis’\n\n\n\n\nAug 29, 2024\n\n\n9/4/24, 1:06:04 AM\n\n\n03 (Part 1) ‘1st Order Spatial Point Patterns Analysis Methods’\n\n\n\n\nAug 29, 2024\n\n\n9/4/24, 1:02:08 AM\n\n\n03 (Part 2) ‘2nd Order Spatial Point Patterns Analysis Methods’\n\n\n\n\nSep 2, 2024\n\n\n9/4/24, 12:47:23 AM\n\n\n03 In-class Exercise 3 (Review)\n\n\n\n\nAug 21, 2024\n\n\n9/2/24, 12:50:39 PM\n\n\n01 In-class Exercise 1 (Review)\n\n\n\n\nAug 26, 2024\n\n\n9/2/24, 12:50:06 PM\n\n\n02 In-class Exercise 2 (Review)\n\n\n\n\nAug 21, 2024\n\n\n8/28/24, 12:59:02 AM\n\n\n02 ‘Thematic Mapping and GeoVisualisation with R’\n\n\n\n\nAug 20, 2024\n\n\n8/28/24, 12:58:55 AM\n\n\n01 ‘Geospatial Data Science with R’\n\n\n\n\n\nNo matching items\n\n\n  \n\n Back to top"
   },
   {
     "objectID": "about.html",
@@ -1325,7 +1325,7 @@
     "href": "take-home-exercise/ex01/take-home-ex01.html#selecting-year-quarters-of-events",
     "title": "01 Take Home Exercise 1",
     "section": "7.1 Selecting Year-Quarters of Events",
-    "text": "7.1 Selecting Year-Quarters of Events\n\n# Function to convert year and quarter to numeric sequence\nconvert_year_quarter &lt;- function(year, quarter) {\n  # Calculate the numeric sequence\n  numeric_sequence &lt;- (year - 2021) * 4 + quarter\n  return(numeric_sequence)\n}\n\nabduction_sf$numeric_quarter &lt;- mapply(convert_year_quarter, abduction_sf$year, abduction_sf$quarter)\n\n\nabduction_yq &lt;- abduction_sf %&gt;% dplyr::select(`numeric_quarter`)\n\n\nabduction_yq.ppp &lt;- abduction_yq %&gt;% \n  as.ppp() %&gt;% \n  rjitter(retry = TRUE, nsim = 1, drop = TRUE)\nsummary(abduction_yq.ppp)\n\nMarked planar point pattern:  326 points\nAverage intensity 1.221499e-09 points per square unit\n\nCoordinates are given to 13 decimal places\n\nmarks are numeric, of type 'double'\nSummary:\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n  1.000   7.000   8.000   8.755  11.000  14.000 \n\nWindow: rectangle = [-141557.29, 241746.37] x [2108596.6, 2804872.7] units\n                    (383300 x 696300 units)\nWindow area = 2.66885e+11 square units",
+    "text": "7.1 Selecting Year-Quarters of Events\n\n# Function to convert year and quarter to numeric sequence\nconvert_year_quarter &lt;- function(year, quarter) {\n  # Calculate the numeric sequence\n  numeric_sequence &lt;- (year - 2021) * 4 + quarter\n  return(numeric_sequence)\n}\n\nabduction_sf$numeric_quarter &lt;- mapply(convert_year_quarter, abduction_sf$year, abduction_sf$quarter)\n\n\nabduction_yq &lt;- abduction_sf %&gt;% dplyr::select(`numeric_quarter`)\n\n\nabduction_yq.ppp &lt;- abduction_yq %&gt;% \n  as.ppp() %&gt;% \n  rjitter(retry = TRUE, nsim = 1, drop = TRUE)\nsummary(abduction_yq.ppp)\n\nMarked planar point pattern:  326 points\nAverage intensity 1.221499e-09 points per square unit\n\nCoordinates are given to 14 decimal places\n\nmarks are numeric, of type 'double'\nSummary:\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n  1.000   7.000   8.000   8.755  11.000  14.000 \n\nWindow: rectangle = [-141557.29, 241746.37] x [2108596.6, 2804872.7] units\n                    (383300 x 696300 units)\nWindow area = 2.66885e+11 square units",
     "crumbs": [
       "Home",
       "Take Home Exercises",
@@ -1374,6 +1374,42 @@
     "title": "01 Take Home Exercise 1",
     "section": "8.1 Convert Plots into Rasters layers",
     "text": "8.1 Convert Plots into Rasters layers\n\n# library(stars)\n# chin_KDE_sf &lt;- raster(abduction_ppp_chin.100km.ppl) %&gt;% st_as_stars()\n# class(chin_KDE_sf)\n# \n# tmap_mode(\"plot\")\n# tm_shape(chin_KDE_sf) +\n#   tm_raster(palette = \"-RdYlBu\", title = \"KDE\") +\n#   tm_basemap(\"OpenStreetMap\") +\n#   tm_layout(main.title = \"KDE on OpenStreetMap\")",
+    "crumbs": [
+      "Home",
+      "Take Home Exercises",
+      "01 Take Home Exercise 1"
+    ]
+  },
+  {
+    "objectID": "take-home-exercise/ex01/take-home-ex01.html#convert-images-into-spatialgriddataframe-layers",
+    "href": "take-home-exercise/ex01/take-home-ex01.html#convert-images-into-spatialgriddataframe-layers",
+    "title": "01 Take Home Exercise 1",
+    "section": "8.1 Convert Images into SpatialGridDataFrame Layers",
+    "text": "8.1 Convert Images into SpatialGridDataFrame Layers\n\ngridded_kde_abduction_studyarea &lt;-  as(abduction_ppp.ppl,\n                                     \"SpatialGridDataFrame\")\ngridded_kde_abduction_chin &lt;-  as(abduction_ppp_chin.ppl,\n                                     \"SpatialGridDataFrame\")\ngridded_kde_abduction_magway &lt;-  as(abduction_ppp_magway.ppl,\n                                     \"SpatialGridDataFrame\")\ngridded_kde_abduction_sagaing &lt;-  as(abduction_ppp_sagaing.ppl,\n                                     \"SpatialGridDataFrame\")\nspplot(gridded_kde_abduction_studyarea)\nspplot(gridded_kde_abduction_chin)\nspplot(gridded_kde_abduction_magway)\nspplot(gridded_kde_abduction_sagaing)",
+    "crumbs": [
+      "Home",
+      "Take Home Exercises",
+      "01 Take Home Exercise 1"
+    ]
+  },
+  {
+    "objectID": "take-home-exercise/ex01/take-home-ex01.html#converting-images-into-raster-layers",
+    "href": "take-home-exercise/ex01/take-home-ex01.html#converting-images-into-raster-layers",
+    "title": "01 Take Home Exercise 1",
+    "section": "8.2 Converting Images into Raster Layers",
+    "text": "8.2 Converting Images into Raster Layers\n\nraster_KDE_abduction &lt;- raster(abduction_ppp.ppl)\nraster_KDE_abduction_chin &lt;- raster(abduction_ppp_chin.ppl)\nraster_KDE_abduction_magway &lt;- raster(abduction_ppp_magway.ppl)\nraster_KDE_abduction_sagaing &lt;- raster(abduction_ppp_sagaing.ppl)\n\nprojection(raster_KDE_abduction) &lt;- CRS(\"+init=EPSG:32647\")\nprojection(raster_KDE_abduction_chin) &lt;- CRS(\"+init=EPSG:32647\")\nprojection(raster_KDE_abduction_magway) &lt;- CRS(\"+init=EPSG:32647\")\nprojection(raster_KDE_abduction_sagaing) &lt;- CRS(\"+init=EPSG:32647\")\n\n\nraster_KDE_abduction\n\nclass      : RasterLayer \ndimensions : 128, 128, 16384  (nrow, ncol, ncell)\nresolution : 2994.56, 5439.657  (x, y)\nextent     : -141557.3, 241746.4, 2108597, 2804873  (xmin, xmax, ymin, ymax)\ncrs        : +proj=utm +zone=47 +datum=WGS84 +units=m +no_defs \nsource     : memory\nnames      : layer \nvalues     : -1.940912e-24, 2.271995e-08  (min, max)",
+    "crumbs": [
+      "Home",
+      "Take Home Exercises",
+      "01 Take Home Exercise 1"
+    ]
+  },
+  {
+    "objectID": "take-home-exercise/ex01/take-home-ex01.html#visualisation-of-kde-on-osm-using-tmap",
+    "href": "take-home-exercise/ex01/take-home-ex01.html#visualisation-of-kde-on-osm-using-tmap",
+    "title": "01 Take Home Exercise 1",
+    "section": "8.3 Visualisation of KDE on OSM using tmap",
+    "text": "8.3 Visualisation of KDE on OSM using tmap\n\ntmap_mode(\"view\")\n\n# tm_shape(studyArea_sf) +\n#   tm_polygons() +\n  tm_shape(raster_KDE_abduction_chin) + \n    tm_raster(palette = \"plasma\" , alpha = 0.8, legend.show = FALSE) +\n  tm_shape(raster_KDE_abduction_magway) + \n    tm_raster(palette = \"plasma\", alpha = 0.8, legend.show = FALSE) +\n  tm_shape(raster_KDE_abduction_sagaing) + \n    tm_raster(palette = \"plasma\", alpha = 0.8, legend.show = FALSE)",
     "crumbs": [
       "Home",
       "Take Home Exercises",

@@ -754,7 +754,6 @@ bw.diggle(abduction_ppp_study
 Seems like the bandwidth varies quite a bit. Let us visualise the density estimates and choose based on the visual results.
 
 ```{r}
-#| eval: false
 abduction_ppp_100km <- abduction_ppp_study %>% rescale.ppp(s=100000, unitname="100km")
 ```
 
@@ -1091,17 +1090,106 @@ plot(stkde_yq_sagaing, fix.range=TRUE)
 
 # Plotting KDE and STKDE on Map
 
-## Convert Plots into Rasters layers
+```{r}
+#| echo: false
+abduction_ppp.ppl <- density(abduction_ppp,
+                                sigma=bw.ppl,
+                                edge=TRUE,
+                                kernel="gaussian")
+abduction_ppp_chin.ppl <- density(abduction_ppp[chin_owin],
+                                sigma=bw.ppl,
+                                edge=TRUE,
+                                kernel="gaussian")
+abduction_ppp_magway.ppl <- density(abduction_ppp[magway_owin],
+                                sigma=bw.ppl,
+                                edge=TRUE,
+                                kernel="gaussian")
+abduction_ppp_sagaing.ppl <- density(abduction_ppp[sagaing_owin],
+                                sigma=bw.ppl,
+                                edge=TRUE,
+                                kernel="gaussian")
+```
+
+## Convert Images into SpatialGridDataFrame Layers
 
 ```{r}
-# library(stars)
-# chin_KDE_sf <- raster(abduction_ppp_chin.100km.ppl) %>% st_as_stars()
-# class(chin_KDE_sf)
-# 
-# tmap_mode("plot")
-# tm_shape(chin_KDE_sf) +
-#   tm_raster(palette = "-RdYlBu", title = "KDE") +
-#   tm_basemap("OpenStreetMap") +
-#   tm_layout(main.title = "KDE on OpenStreetMap")
-
+#| eval: false
+gridded_kde_abduction_studyarea <-  as(abduction_ppp.ppl,
+                                     "SpatialGridDataFrame")
+gridded_kde_abduction_chin <-  as(abduction_ppp_chin.ppl,
+                                     "SpatialGridDataFrame")
+gridded_kde_abduction_magway <-  as(abduction_ppp_magway.ppl,
+                                     "SpatialGridDataFrame")
+gridded_kde_abduction_sagaing <-  as(abduction_ppp_sagaing.ppl,
+                                     "SpatialGridDataFrame")
+spplot(gridded_kde_abduction_studyarea)
+spplot(gridded_kde_abduction_chin)
+spplot(gridded_kde_abduction_magway)
+spplot(gridded_kde_abduction_sagaing)
 ```
+
+![](images/clipboard-449298234.png)
+
+![](images/clipboard-134371247.png)
+
+![](images/clipboard-2667409094.png)
+
+![](images/clipboard-748721703.png)
+
+## Converting Images into Raster Layers
+
+```{r}
+raster_KDE_abduction <- raster(abduction_ppp.ppl)
+raster_KDE_abduction_chin <- raster(abduction_ppp_chin.ppl)
+raster_KDE_abduction_magway <- raster(abduction_ppp_magway.ppl)
+raster_KDE_abduction_sagaing <- raster(abduction_ppp_sagaing.ppl)
+
+projection(raster_KDE_abduction) <- CRS("+init=EPSG:32647")
+projection(raster_KDE_abduction_chin) <- CRS("+init=EPSG:32647")
+projection(raster_KDE_abduction_magway) <- CRS("+init=EPSG:32647")
+projection(raster_KDE_abduction_sagaing) <- CRS("+init=EPSG:32647")
+```
+
+```{r}
+raster_KDE_abduction
+```
+
+## Visualisation of KDE on OSM using tmap
+
+```{r}
+tmap_mode("view")
+
+# tm_shape(studyArea_sf) +
+#   tm_polygons() +
+  tm_shape(raster_KDE_abduction_chin) + 
+    tm_raster(palette = "plasma" , alpha = 0.8, legend.show = FALSE) +
+  tm_shape(raster_KDE_abduction_magway) + 
+    tm_raster(palette = "plasma", alpha = 0.8, legend.show = FALSE) +
+  tm_shape(raster_KDE_abduction_sagaing) + 
+    tm_raster(palette = "plasma", alpha = 0.8, legend.show = FALSE)
+```
+
+# Conclusion
+
+**Location of Abductions: Near State Borders, and also Country Borders**
+
+Plotting the KDE layer on the map, we can see that the abductions of civilians / disappearance of persons are not random. They form rather **tight clusters** on the map, especially in areas near to the state borders. Overall, the **abductions seem to mostly occur within the country and between state borders** rather than the country's borders, such as the northern border Myanmar share with India (**though there is a quite a large cluster in Northern Chin and Northern Rakine/South-Western Chin, which are actually very close to the Indian border**).
+
+**Largest Hot spot of Abduction Cases:**
+
+Nevertheless, the **largest hot spot of abduction cases seem be deep within Myanmar**, to the North-East of the Magway State, and South-East of the Sagaing State. These abduction cases are occurring in a **wide-spread manner.**
+
+**Possible Reasons**
+
+The difference in the nature of the clusters (how tight/wide-spread) they are may be indicators of the social orders. A wild guess is that in the tighter clusters, abductions of civilians are done in a more secretive manner or at least not publicly seen, while in a widespread cluster the abductions of civilians are more rampant and unregulated.
+
+This is analysed considering the fact that in our preliminary analysis, we saw a large number of conflicts occuring over the central Myanmar states, coinciding with the area of widespread abduction hotspot.
+
+**Time-Based Analysis: Different Nature of Abduction Events?**
+
+While I did not manage to plot the Spatial-Temporal KDEs onto the final map plot. If we refer back to the STKDE plots, we can see two main types of hot spots.
+
+1.  Firstly, there are **hot spots that remained "hot" or active throughout the whole study period**. This can be seen in the STKDE for the state of Chin. In fact, the tight cluster of abduction events in the northern Chin State, continued throughout the study period.
+2.  Secondly, in contrast, there are **hot spots that only grew hotter over time, and sometimes died down**. This is mainly seen along the inter-state borders such as the Northern Magway and Southern Sagaing regions.
+
+**The difference in patterns might reveal different nature of abductions.** The first one seemed like an established hot spot that is recurring every quarter, while the second one seemed to be happening depending on the state of affairs of the place (growing hotter and getting colder at times).

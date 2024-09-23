@@ -1,0 +1,61 @@
+---
+title: "06 In-class Exercise (Review)"
+author: "Heng Kuan Xin"
+date: 2024-09-23
+date-modified: "last-modified"
+
+toc: true
+toc-expand: true
+number-sections: true
+
+execute:
+  eval: true
+  echo: true
+  freeze: true
+  output: true
+  warning: false
+  error: false
+---
+
+# Recap
+
+Local Statistics -\> Test for outliers between states and its neighbours?
+
+Tobler's First Law of Geography -\> i.e basically nearer things are more related than further things
+
+In this lesson, we will not touch on Spatial Dependency, we will focus on Spatial Autocorrelation.
+
+Statisticians often use it in time series data -- since time series data have a lot of cyclical or seasonal patterns.
+
+Instead of testing for serial stability, in geospatial, we will use autocorrelation for spatial stability. Whether locations are randomly distributed or is it autocorrelated to its neighbours.
+
+Types of Spatial Autocorrelation Interpretation:
+
+-- Reject null hypo, can infer that there is spatial autocorrelation when interpreting, know that spatial autocorrelation is continuous, just like your correlation coefficients. e.g. in Positive Spatial Autocorrelation, we likely see a range of values from 0 to 1 (clustering is strong when nearer to 1.)
+
+-- When you have more negative spatial autocorrelation, we are likely to see more outliers, that is the checkboard patterns.
+
+Brief history: 1950s to 1960s --\> '[quantitative geography revolution](https://en.wikipedia.org/wiki/Quantitative_revolution)' Using quantitative methods to measure geographical phenomena.
+
+Confidence Interval:
+
+[![Click on Image for Reference](images/image7-8.jpg){fig-align="center" width="468"}](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2689604/)
+
+When we reject the null hypothesis, we can only infer that spatial points are not randomly distributed, we cannot say for sure, or determine that it is really not spatially randomly distributed.
+
+Getis-Ord Global G:
+
+d has to be distance matrix, cannot use proximity matrix.
+
+The function only tells us whether there are signs of positive or negative clusters –\> high-high (high value with high value neighbours) clusters and low-low (low value with low value neighbours) clusters.
+
+Meanwhile, there are signs of outliers –\> high-low, and low-high, which means high value surrounded by low value neighbours and vice versa.
+
+![](images/image7-15.jpg){fig-align="center" width="528"}
+
+The function only accepts only positive variables, since we are multiplying variables together.
+
+Local Indicator of Spatial Association (LISA)
+
+-   Break Moran's I into local to come up with LISA
+-   the LISA for each observation gives an indication of the extent of significant spatial clustering of similar values around that observation

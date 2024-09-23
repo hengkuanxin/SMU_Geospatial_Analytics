@@ -59,3 +59,151 @@ Local Indicator of Spatial Association (LISA)
 
 -   Break Moran's I into local to come up with LISA
 -   the LISA for each observation gives an indication of the extent of significant spatial clustering of similar values around that observation
+
+# In-class Exercise
+
+::: callout-note
+We are going to use a different package, and therefore different method, of computing the Spatial Autocorrelation in this exercise. (Compared to Hands-on Exercise 6)
+:::
+
+In your Takehome Exercise 2, you have to use [sfdep](https://sfdep.josiahparry.com/), a wrapper of spdep, which is based on **sf** and uses tibble DataFrames, which makes working with the data a lot easier.
+
+```{r}
+pacman::p_load(sf, sfdep, tmap, tidyverse)
+```
+
+```{r}
+hunan_2012 <- read_csv("data/aspatial/Hunan_2012.csv")
+hunan_sf <- st_read("data/geospatial/", layer = "Hunan")
+
+hunan_GDPPC <- left_join(hunan_sf, hunan_2012) %>% select(1:4, 7, 15)
+```
+
+Tips and Tricks:
+
+When using mutate, include argument .before = i, to insert the new attributes before column i. This makes the tibble DataFrame easier to read when we open the table.
+
+```{r}
+wm_q <- hunan_GDPPC %>%
+  mutate( nb = st_contiguity(geometry), # calculate contiguity neighbours as new column called nb
+          wt = st_weights(nb,           # calculate weights as new column called wt
+                          style = "W"), # row standardised weights
+          .before = 1)                  # .before makes mutate insert new columns at the front!
+```
+
+## Computing Global Moran's I \[Optional\]
+
+global_moran() function is used to compute the Moran's I value.
+
+Different from spdep package, the output is a tibble data.frame.
+
+```{r}
+moranI <- global_moran(wm_q$GDPPC,
+                       wm_q$nb,
+                       wm_q$wt)
+glimpse(moranI)
+```
+
+I refers to Moran's I value.
+
+K refers to the average number of neighbours found.
+
+## Performing Global Moran's I Test \[Base Moran I, no Simulation\]
+
+```{r}
+global_moran_test(wm_q$GDPPC,
+                  wm_q$nb,
+                  wm_q$wt)
+```
+
+**Check the p-value first!**
+
+The p-value is smaller than the alpha value if confidence level = 95%. We are therefore able to reject the null hypothesis and we can say that we have enough statistical evidence such that we are 95% confident that clustering is present.
+
+**Then interpret the Moran I statistics**
+
+I is positive, there are signs of clustering.
+
+## Performing Global Moran's I Permutation Test (Repeatedly Test) \[Use Simulations\]
+
+In the real world, in fact you do not need to perform the previous tests. You can just start with the permutation test.
+
+What if the Global Moran's I test, under randomisation,
+
+Usually, just a hundred iterations is enough. Note that iterations start from 0. You can also use 999 if need be.
+
+```{r}
+set.seed(1234)
+
+global_moran_perm(wm_q$GDPPC,
+                  wm_q$nb,
+                  wm_q$wt,
+                  nsim = 99)
+```
+
+```{r}
+lisa <- wm_q %>%
+  mutate(local_moran = local_moran(GDPPC, 
+                                   nb, 
+                                   wt, 
+                                   nsim = 99),
+         .before = 1) %>%
+  unnest(local_moran)
+
+```
+
+![](images/clipboard-4120759321.png){fig-align="center"}
+
+Describing the columns:
+
+-   **ii**: refers to your local Moran I
+-   **p_ii**: p value, using base method
+-   **p_ii_sim**: p value, using the simulation method –\> hundred simulations without replacement
+-   **p_folded_sim**: p value, is called the pysal method, which uses K fold validation.
+-   **mean**: label the clusters
+    -   (if normal distribution, mean is useful)
+-   **median:** label the clusters
+    -   (if distribution is skewed, median is more useful) REFER TO **skewness**!
+
+```{r}
+tmap_mode("plot")
+m1 <- tm_shape(lisa) +
+        tm_fill( "ii")+
+        tm_borders(alpha = 0.5)+ 
+        tm_view(set.zoom.limits = c(6,8))+
+        tm_layout(
+          main.title = "Local Moran's I of GDPPC",
+          main.title.size = 0.8
+        )
+
+ m2 <- tm_shape(lisa) +
+          tm_fill( "p_ii",
+                   breaks = c(0,0.001,0.01,0.05,1),
+                   labels = c("0.001","0.01","0.05","Not significant"))+
+          tm_borders(alpha = 0.5)+ 
+          tm_view(set.zoom.limits = c(6,8))+
+          tm_layout(
+            main.title = "p-value of Local Moran I's of GDPPC",
+            main.title.size = 0.8
+          )
+ 
+ tmap_arrange(m1,m2)
+```
+
+```{r}
+lisa_sig <- lisa %>%
+  filter(p_ii < 0.05)
+
+tmap_mode("plot")
+
+tm_shape(lisa) +
+  tm_polygons() +
+  tm_borders(alpha = 0.5) +
+tm_shape(lisa_sig) +
+  tm_fill("mean") +
+  tm_borders(alpha = 0.)
+```
+
+LISA map is a categorical map showing outliers and clusters. There are two types of outliers, namely: High-Low and Low-High outliers. Likewise, there are two types of clusters namely: High_High and Low-Low clusters. In fact, LISA map is an interpreted map by combining local Moran's I of geographical areas and their respective p-values.
+
+**Context is very important. Note that in your Take-home Exercise, you are looking at Clusters of Drug Usage.**

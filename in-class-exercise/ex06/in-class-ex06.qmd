@@ -207,3 +207,27 @@ tm_shape(lisa_sig) +
 LISA map is a categorical map showing outliers and clusters. There are two types of outliers, namely: High-Low and Low-High outliers. Likewise, there are two types of clusters namely: High_High and Low-Low clusters. In fact, LISA map is an interpreted map by combining local Moran's I of geographical areas and their respective p-values.
 
 **Context is very important. Note that in your Take-home Exercise, you are looking at Clusters of Drug Usage.**
+
+## Computing Local Gi\* statistics
+
+As usual, we will need to derive a spatial weight matrix before we can compute local Gi\* statistics, Code chunk below will be used to derive a spatial weight matrix by using sfdep functions and tidyverse approach.
+
+You will also need to include
+
+```{r}
+wm_idw <- hunan_GDPPC %>%
+  mutate( nb = st_contiguity(geometry),
+          wt = st_inverse_distance(nb, geometry,
+                                   scale = 1,
+                                   alpha = 1),
+          .before = 1)
+```
+
+```{r}
+HCSA <- wm_idw %>%
+  mutate( local_Gi = local_gstar_perm(GDPPC, nb, wt, nsim = 99),
+          .before = 1) %>%
+  unnest(local_Gi)
+
+HCSA
+```

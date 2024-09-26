@@ -580,7 +580,7 @@ A reason I have not chosen these seemingly interesting events are that they are 
 
 I have chosen to focus on the mentioned 4 sub-event types simply because they sound interesting, and they provide enough data points for our analysis later on, which includes first and second order point pattern analysis, as well as spatio-temporal point pattern analysis.
 
-Previously, I have attempted to analyse all event types by selecting a study area, but I realise I was not able to draw out much conclusion. Refer to the section "Previous Attempts on This Exercise" for a glance of my previous attempts.
+Previously, I have attempted to analyse all event types by selecting a study area, but I realise I was not able to draw out much conclusion. ~~Refer to the section "Previous Attempts on This Exercise" for a glance of my previous attempts.~~ (Edit: Removed)
 
 ### Extracting Sub-event Types from Each Main Event Type Data Set
 

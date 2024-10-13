@@ -88,6 +88,8 @@ website:
           href: "take-home-exercise/take-home-ex-intro.html"
         - text: "01 Take Home Exercise 1"
           href: "take-home-exercise/ex01/take-home-ex01.html"
+        - text: "01 Take Home Exercise 2"
+          href: "take-home-exercise/ex02/take-home-ex01.html"
 
   page-footer:
     background: "secondary"

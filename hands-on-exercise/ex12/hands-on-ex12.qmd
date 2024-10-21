@@ -1,0 +1,17 @@
+---
+title: "12 'Geographically Weighted Predictive Models'"
+author: "Heng Kuan Xin"
+date: 2024-10-21
+date-modified: "last-modified"
+execute:
+  eval: true
+  echo: true
+  freeze: true
+  output: true
+  warning: false
+  error: false
+
+toc: true
+toc-depth: 4
+---
+

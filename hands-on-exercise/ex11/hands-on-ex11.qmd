@@ -1,0 +1,176 @@
+---
+title: "11 'Calibrating Hedonic Pricing Model for Private Highrise Property with GWR Method'"
+author: "Heng Kuan Xin"
+date: 2024-10-21
+date-modified: "last-modified"
+execute:
+  eval: true
+  echo: true
+  freeze: true
+  output: true
+  warning: false
+  error: false
+
+toc: true
+toc-depth: 4
+---
+
+# Overview
+
+(Copied from Exercise):
+
+**Geographically weighted regression (GWR)** is a spatial statistical technique that takes non-stationary variables into
+consideration (e.g., climate; demographic factors; physical environment characteristics) and models the local relationships between these independent variables and an outcome of interest (also known as dependent variable). In this hands-on exercise, you will learn how to build [hedonic pricing](https://www.investopedia.com/terms/h/hedonicpricing.asp) models by using GWR methods. The dependent variable is the resale prices of condominium in 2015. The independent variables are divided into either structural and locational.
+
+## Data
+
+Two data sets will be used in this model building exercise, they are:
+
+-   URA Master Plan subzone boundary in shapefile format (i.e. *MP14_SUBZONE_WEB_PL*)
+
+-   condo_resale_2015 in csv format (i.e. *condo_resale_2015.csv*)
+
+## Packages
+
+Before we get started, it is important for us to install the necessary R packages into R and launch these R packages into R environment.
+
+The R packages needed for this exercise are as follows:
+
+-   R package for building OLS and performing diagnostics tests: [**olsrr**](https://olsrr.rsquaredacademy.com/)
+
+-   R package for calibrating geographical weighted family of models: [**GWmodel**](https://cran.r-project.org/web/packages/GWmodel/index.html)
+
+-   R package for multivariate data visualisation and analysis: [**corrplot**](https://cran.r-project.org/web/packages/corrplot/vignettes/corrplot-intro.html)
+
+-   Spatial data handling: **sf**
+
+-   Attribute data handling: **tidyverse**, which contains the following packages that we want: **readr**, **ggplot2** and **dplyr**
+
+-   Choropleth mapping: **tmap**
+
+```{r}
+# Importing the packages
+pacman::p_load(olsrr, corrplot, ggpubr, sf, spdep, GWmodel, tmap, tidyverse, gtsummary)
+```
+
+```{r}
+mpsz.sf <- st_read(dsn = "data/geospatial", layer = "MP14_SUBZONE_WEB_PL") %>% 
+  st_transform(crs=3414)
+
+condo_resale <- read_csv("data/aspatial/Condo_resale_2015.csv")
+
+condo_resale.sf <- condo_resale %>% 
+  st_as_sf(coords = c("LONGITUDE", "LATITUDE"),
+            crs=4326) %>%
+  st_transform(crs=3414)
+```
+
+## Exploratory Data Analysis
+
+```{r}
+st_bbox(mpsz.sf) #view the bounding box
+```
+
+```{r}
+# head(condo_resale.sf)
+# head(mpsz.sf)
+```
+
+```{r}
+ggplot(data=condo_resale.sf, aes(x=`SELLING_PRICE`)) +
+  geom_histogram(bins=20, color="black", fill="light blue")
+```
+
+```{r}
+condo_resale.sf <- condo_resale.sf %>%
+  mutate(`LOG_SELLING_PRICE` = log(SELLING_PRICE))
+
+ggplot(data=condo_resale.sf, aes(x=`LOG_SELLING_PRICE`)) +
+  geom_histogram(bins=20, color="black", fill="light blue")
+```
+
+```{r}
+AREA_SQM <- ggplot(data=condo_resale.sf, aes(x= `AREA_SQM`)) + 
+  geom_histogram(bins=20, color="black", fill="light blue")
+
+AGE <- ggplot(data=condo_resale.sf, aes(x= `AGE`)) +
+  geom_histogram(bins=20, color="black", fill="light blue")
+
+PROX_CBD <- ggplot(data=condo_resale.sf, aes(x= `PROX_CBD`)) +
+  geom_histogram(bins=20, color="black", fill="light blue")
+
+PROX_CHILDCARE <- ggplot(data=condo_resale.sf, aes(x= `PROX_CHILDCARE`)) + 
+  geom_histogram(bins=20, color="black", fill="light blue")
+
+PROX_ELDERLYCARE <- ggplot(data=condo_resale.sf, aes(x= `PROX_ELDERLYCARE`)) +
+  geom_histogram(bins=20, color="black", fill="light blue")
+
+PROX_URA_GROWTH_AREA <- ggplot(data=condo_resale.sf, 
+                               aes(x= `PROX_URA_GROWTH_AREA`)) +
+  geom_histogram(bins=20, color="black", fill="light blue")
+
+PROX_HAWKER_MARKET <- ggplot(data=condo_resale.sf, aes(x= `PROX_HAWKER_MARKET`)) +
+  geom_histogram(bins=20, color="black", fill="light blue")
+
+PROX_KINDERGARTEN <- ggplot(data=condo_resale.sf, aes(x= `PROX_KINDERGARTEN`)) +
+  geom_histogram(bins=20, color="black", fill="light blue")
+
+PROX_MRT <- ggplot(data=condo_resale.sf, aes(x= `PROX_MRT`)) +
+  geom_histogram(bins=20, color="black", fill="light blue")
+
+PROX_PARK <- ggplot(data=condo_resale.sf, aes(x= `PROX_PARK`)) +
+  geom_histogram(bins=20, color="black", fill="light blue")
+
+PROX_PRIMARY_SCH <- ggplot(data=condo_resale.sf, aes(x= `PROX_PRIMARY_SCH`)) +
+  geom_histogram(bins=20, color="black", fill="light blue")
+
+PROX_TOP_PRIMARY_SCH <- ggplot(data=condo_resale.sf, 
+                               aes(x= `PROX_TOP_PRIMARY_SCH`)) +
+  geom_histogram(bins=20, color="black", fill="light blue")
+
+ggarrange(AREA_SQM, AGE, PROX_CBD, PROX_CHILDCARE, PROX_ELDERLYCARE, 
+          PROX_URA_GROWTH_AREA, PROX_HAWKER_MARKET, PROX_KINDERGARTEN, PROX_MRT,
+          PROX_PARK, PROX_PRIMARY_SCH, PROX_TOP_PRIMARY_SCH,  
+          ncol = 3, nrow = 4)
+```
+
+### Drawing Statistical Point Map
+
+```{r}
+tmap_mode("view")
+tmap_options(check.and.fix = TRUE) 
+tm_shape(mpsz.sf)+
+  tm_polygons() +
+tm_shape(condo_resale.sf) +  
+  tm_dots(col = "SELLING_PRICE",
+          alpha = 0.6,
+          style="quantile") +
+  tm_view(set.zoom.limits = c(11,14))
+tmap_mode("plot")
+```
+
+# Hedonic Pricing Modelling in R
+
+## Simple Linear Regression Method
+
+```{r}
+condo.slr <- lm(formula=SELLING_PRICE ~ AREA_SQM, data = condo_resale.sf)
+```
+
+```{r}
+summary(condo.slr)
+```
+
+```{r}
+ggplot(data=condo_resale.sf,  
+       aes(x=`AREA_SQM`, y=`SELLING_PRICE`)) +
+  geom_point() +
+  geom_smooth(method = lm)
+```
+
+## Multiple Linear Regression Method
+
+```{r}
+corrplot(cor(condo_resale[, 5:23]), diag = FALSE, order = "AOE",
+         tl.pos = "td", tl.cex = 0.5, method = "number", type = "upper")
+```

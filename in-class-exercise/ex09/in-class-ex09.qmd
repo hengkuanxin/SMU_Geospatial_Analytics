@@ -1,0 +1,266 @@
+---
+title: "09 In-class Exercise (Review)"
+author: "Heng Kuan Xin"
+date: 2024-10-21
+date-modified: "last-modified"
+
+toc: true
+toc-expand: true
+number-sections: true
+
+execute:
+  eval: true
+  echo: true
+  freeze: true
+  output: true
+  warning: false
+  error: false
+---
+
+## The Code
+
+```{r}
+pacman::p_load(spdep, sp, tmap, sf, ClustGeo, 
+               cluster, factoextra, NbClust,
+               tidyverse, GGally)
+```
+
+```{r}
+shan_sf <- read_rds("data/rds/shan_sf.rds")
+shan_ict <- read_rds("data/rds/shan_ict.rds")
+shan_sf_cluster <- read_rds("data/rds/shan_sf_cluster.rds")
+```
+
+## Conventional Hierarchical Clustering
+
+Take note that this is a simplified version of hierarchical clustering.
+
+We need to first define a proximity matrix.
+
+1.  use base R dist() function to calculate numerical distance between all variables in `shan_ICT`. Note that if your input contains unnecessary variables, you need to filter them out.
+    -   When creating an App, we will usually allow users to specify the variables, and choose the method to be used; refer to [dist() function documentation](https://www.rdocumentation.org/packages/factoextra/versions/1.0.7/topics/dist) for more information.
+2.  use Ward's method for hierarchical clustering to cluster using proximity matrix – outputs a unique hclust object
+3.  Group the results – note that this works together with the hclust() function – on the hclust object
+4.  Use print(groups) to check your output, in terminal or in the code chunks.
+
+```{r}
+proxmat <- dist(shan_ict, method = "euclidean") # calculate numerical distance
+hclust_ward <- hclust(proxmat, method = "ward.D") # using Ward's method
+groups <- as.factor(cutree(hclust_ward, k=6)) #
+```
+
+```{r}
+print(groups)
+class(hclust_ward)
+```
+
+```{r}
+shan_sf_cluster <- cbind(shan_sf,
+                         as.matrix(groups) # convert to a matrix or data table as.dt so                                                that you can append to shan_sf
+                         ) %>%
+  rename('CLUSTER' = 'as.matrix.groups.') %>% # tidy up by using meaningful column names
+  select(-c(3:4, 7:9)) %>% # -c drops away columns; filter away all unwanted columns
+  rename(TS = TS.x) # tidy up by using meaningful column names
+```
+
+Why tidy up? Because the output will look like this:
+
+![](images/clipboard-1933921546.png){fig-align="center" width="624"}
+
+Carefully look at your data output and use things like `rename('NAME' = 'OldName')` and `select(-c(x:y))`.
+
+use the following to ensure your figure outputs look readable:
+
+`#| fig-height: 7 #| fig-width: 12`
+
+```{r}
+#| fig-height: 7
+#| fig-width: 12
+plot(hclust_ward, cex=0.6)
+rect.hclust(hclust_ward, k=6 , border = 2:5)
+```
+
+### Quick Plot of the Clustering Results
+
+```{r}
+qtm(shan_sf_cluster, "CLUSTER") # note base R only has 16 colours, beyond that, you have to use your own colour scheme.
+```
+
+## Spatially Constrained Hierarchical Clustering
+
+Note that **spdep** **now allows sf objects as inputs**, so you no longer need to convert sf objects to sp objects before inputting.
+
+```{r}
+shan.nb <- poly2nb(shan_sf)
+summary(shan.nb)
+```
+
+```{r}
+#| fig-height: 12
+#| fig-width: 12
+
+plot(st_geometry(shan_sf),
+     border = grey(.5))
+
+pts <- st_coordinates(st_centroid(shan_sf))
+
+plot(shan.nb,
+    pts,
+    col="blue",
+    add=TRUE)
+```
+
+### Computing Minimum Spanning Tree
+
+```{r}
+lcosts <- nbcosts(shan.nb, shan_ict)
+```
+
+### Computing the Spatial Weights
+
+Note we are fixing the style as "B", referring to the documentation:
+
+Default value for style is "W"
+
+B is the basic binary coding, W is row standardised (sums over all links to n), C is globally standardised (sums over all links to n), U is equal to C divided by the number of neighbours (sums over all links to unity), while S is the variance-stabilizing coding scheme.
+
+```{r}
+shan.w <- nb2listw(shan.nb,
+                   lcosts,
+                   style="B") # this is important, ensure binary
+```
+
+```{r}
+shan.mst <- mstree(shan.w)
+```
+
+```{r}
+#| fig-height: 12
+#| fig-width: 12
+
+plot(st_geometry(shan_sf),
+     border = grey(.5))
+
+pts <- st_coordinates(st_centroid(shan_sf))
+
+plot(shan.mst,
+    pts,
+    col="blue",
+    cex.lab=0.7,
+    cex.circles=0.005,
+    add=TRUE)
+```
+
+### Computing Spatially Constrained Clusters using SKATER method
+
+```{r}
+skater.clust6 <- skater(edges = shan.mst[,1:2],
+                        dat = shan_ict,
+                        method = "euclidean",
+                        ncuts = 5)
+```
+
+### Visualising the SKATER Tree
+
+```{r}
+#| fig-height: 12
+#| fig-width: 12
+
+
+plot(st_geometry(shan_sf),
+     border = gray(0.5))
+
+plot(skater.clust6,
+     pts,
+     cex.lab=0.7,
+     groups.colours=c("red","green","blue","brown","pink"),
+     cex.circles=0.005,
+     add=TRUE # this parameter plots the 2nd plot over the 1st geometry plot
+)
+```
+
+::: callout-note
+## Useful Tip
+
+In the code chunk below, we want to convert groups_mat into character data type, rather than a numerical data type. We can use `as.factor()`, which will automatically sort data by alphabetical or numerical form, which conveniently outputs in a sorted manner.
+:::
+
+```{r}
+# extract the groups/cluster as a matrix
+groups_mat <- as.matrix(skater.clust6$groups)
+
+# so that we can cbind it with shan_sf_cluster
+# convert numerical data type to factor (which is of type character) using as.factor() 
+# note: avoid using as.character() as it can result in unsorted results.
+shan_sf_spatialcluster <- cbind(shan_sf_cluster, 
+                                as.factor(groups_mat)) %>%
+  rename('skater_CLUSTER' = 'as.factor.groups_mat.')
+
+qtm(shan_sf_spatialcluster, "skater_CLUSTER")
+```
+
+## Spatially Constrained ClusteringL ClustGeo Method
+
+```{r}
+dist <- st_distance(shan_sf, shan_sf) # specify origin and destination
+distmat <- as.dist(dist) # convert to dist matrix
+```
+
+### Cluster Graphs
+
+```{r}
+# This code chunk plots the proximity weights and distance weights against one another
+# range of alpha is used as such = seq(startOfRange, endOfRange, interval)
+
+# The function outputs 2 graphical plots
+# The difference between them is this: 1st plot gives you the raw values, 2nd plot is min-max standardised.
+cr <- choicealpha(proxmat, distmat, 
+                  range.alpha = seq(0, 1, 0.1), 
+                  K=6, graph = TRUE)
+```
+
+Use the first graph to determine when is the optimal cutoff alpha value. The closer the gap between line D0 and D1, the better. A lower alpha value means a greater
+
+```{r}
+clustG <- hclustgeo(proxmat, distmat, alpha = 0.2)
+groups <- as.factor(cutree(clustG, k=6))
+shan_sf_clustGeo <- cbind(shan_sf, 
+                          as.matrix(groups)) %>%
+  rename("clustGeo" = "as.matrix.groups.")
+```
+
+```{r}
+qtm(shan_sf_clustGeo, "clustGeo")
+```
+
+### Visualising the Clusters using Parallel Coordinates
+
+```{r}
+ggparcoord(data = shan_sf_clustGeo, 
+           columns = c(17:21), 
+           scale = "globalminmax",
+           alphaLines = 0.2,
+           boxplot = TRUE, 
+           title = "Multiple Parallel Coordinates Plots of ICT Variables by Cluster") +
+  facet_grid(~ clustGeo) + # another choice is facet_wrap()
+  theme(axis.text.x = element_text(angle = 30))
+```
+
+How do we interpret this?
+
+The thick black line within each boxplot refers to the 50th percentile.\
+Each line connecting the box plots is an observation. In this case, each observation represents each province(? or township) in the Shan state. If a particular cluster has less observations, it also means that cluster is small, and has less provinces.
+
+If a cluster has a relatively low value for LLPHONE_PR, we can infer that the residents in that cluster has a relatively low ownership of land line phones.
+
+Some characteristics can be seen throughout multiple clusters, like the low values for LLPHONE_PR and COMPUTER_PR throughout all clusters. Meanwhile, some characteristics uniquely define a cluster, like the particularly high RADIO_PR value of cluster 4.
+
+# Conclusion
+
+When do we use SKATER method and ClustGeo method?
+
+SKATER method is a hard method, that is, you cannot control the weight(?) of the spatial attributes. ClustGeo method allows you to control the relative weights between the weight of the spatial attributes vs non-spatial attributes, allow you to control the effect of spatial constraints on the final clustering result.
+
+How is this different from the univariate LISA clustering we used in Takehome Exercise 2?
+
+This method allows you to consider multiple variables at the same time for clustering, rather than using a single variable.

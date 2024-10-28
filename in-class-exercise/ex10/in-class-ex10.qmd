@@ -1,0 +1,249 @@
+---
+title: "10 In-class Exercise (Review)"
+author: "Heng Kuan Xin"
+date: 2024-10-28
+date-modified: "last-modified"
+
+toc: true
+toc-expand: true
+number-sections: true
+
+execute:
+  eval: true
+  echo: true
+  freeze: true
+  output: true
+  warning: false
+  error: false
+---
+
+# Overview
+
+## Building Regression Models
+
+-\> A method of predicting the value of a dependent variable (y) based on one or more independent variable (X) - Does X affect Y? If so, how? - What is the change in Y given a unit change in X
+
+Take note of scales, interval? categorical/continuous? shape/linear/Poisson? These will affect how you calibrate your model. Other than linear regression, you can also look into nominal logistic regression for categorical dependent variable (y), or a Poisson regression for a Poisson shaped curve, e.g. epidemic disease outbreak graph which increases sharply, plateau, and gently reduce.
+
+In our course, we will only touch on linear regression.
+
+# In-class Code
+
+```{r}
+# We will not be using gtsummary
+pacman::p_load(olsrr, ggstatsplot, sf,
+               tmap, tidyverse,
+               performance, see, sfdep)
+```
+
+# The data
+
+```{r}
+condo_resale <- read_csv("data/aspatial/Condo_resale_2015.csv")
+
+mpsz <- st_read(dsn = "data/geospatial", layer = "MP14_SUBZONE_WEB_PL") %>%
+  st_transform(crs=3414)
+  
+condo_resale_sf <- condo_resale %>% 
+  st_as_sf(coords = c("LONGITUDE", "LATITUDE"),
+            crs=4326) %>%
+  st_transform(crs=3414)
+
+# mpsz <- read_rds("data/rds/mpsz.rds")
+# condo_resale_sf <- read_rds("data/rds/condo_resale_sf.rds")
+```
+
+Correlation matrix is an effective graphical method to check if there are pair independent variables with high correlations. In the code chunk below, `ggcorrmat()` of `ggstatsplot` is used to plot the correlation matrix.
+
+```{r}
+#| fig-height: 12
+#| fig-width: 12
+
+ggcorrmat(condo_resale[, 5:23])
+```
+
+Note that the colour palette used is diverging. Take a look at the darker colours, dark green shows a strong sign of positive correlation, and dark yellow means a strong sign of negative correlation.
+
+```{r}
+# create a Large lm object to be reused
+condo_mlr <- lm(formula = SELLING_PRICE ~ AREA_SQM +
+                  AGE + PROX_CBD + PROX_CHILDCARE +
+                  PROX_ELDERLYCARE + PROX_URA_GROWTH_AREA +
+                  PROX_HAWKER_MARKET + PROX_KINDERGARTEN +
+                  PROX_MRT + PROX_PARK + PROX_PRIMARY_SCH +
+                  PROX_TOP_PRIMARY_SCH + PROX_SHOPPING_MALL +
+                  PROX_SUPERMARKET + PROX_BUS_STOP +
+                  NO_Of_UNITS + FAMILY_FRIENDLY +
+                  FREEHOLD + LEASEHOLD_99YR,
+                data=condo_resale_sf) # note you need to use a dataframe, a matrix doesn't work
+
+# summary(condo_mlr) # use the ols_regress function instead.
+```
+
+`oslrr` provides a collection of very useful methods to build better multiple linear regression models:
+
+-   **comprehensive regression output (this lesson)**
+-   residual diagnostics
+-   measures of influence
+-   heteroskedasticity tests
+-   model fit assessment
+-   variable contribution assessment
+-   **variable selection procedure (this lesson)**
+
+## Generating tidy linear regression report
+
+Rather than using summary(), we can use olsrr package to help us generate a tidy summary report.
+
+```{r}
+# Create a Large ols_regress object
+olsrr_condo <- ols_regress(condo_mlr)
+```
+
+Note that the model is saved under the attribute "model" of olsrr_condo; the rest are attributes used to generate the table.
+
+### Forward Stepwise
+
+```{r}
+condo_forward_mlr <- ols_step_forward_p(
+  condo_mlr,
+  p_val = 0.05,
+  details = FALSE
+)
+
+condo_forward_mlr
+```
+
+```{r}
+#| fig-height: 12
+#| fig-width: 12
+
+plot(condo_forward_mlr)
+```
+
+### Backward Stepwise
+
+```{r}
+condo_backward_mlr <- ols_step_backward_p(
+  condo_mlr,
+  p_val = 0.05,
+  details = FALSE
+)
+
+
+# condo_backward_mlr
+```
+
+### Bidirectional Stepwise
+
+```{r}
+condo_bidirection_mlr <- ols_step_both_p(
+  condo_mlr,
+  p_val = 0.05,
+  details = FALSE
+)
+
+# condo_bidirection_mlr
+```
+
+We are going to use the easystats package to compare the performance for different stepwise methods
+
+```{r}
+metric <- compare_performance(condo_mlr,
+                              condo_forward_mlr$model,
+                              condo_backward_mlr$model,
+                              condo_bidirection_mlr$model)
+
+# Renaming the field names to make it clean and readable
+metric$Name <- gsub(".*\\\\([a-zA-Z0-9_]+)\\\\, \\\\model\\\\.*", 
+                    "\\1",
+                    metric$Name)
+
+metric
+```
+
+```{r}
+#| fig-height: 5
+#| fig-width: 6
+
+plot(metric) # this is not from R plot, it is from See
+```
+
+Here, we plot out the standardised results of all models in a radial graph, and we can conclude that the bidirection stepwise model does well 4 aspects (having highest scores). The centre of the circle is take to be 0, and each direction is one dimension. condo_mlr is similar to condo_forward_mlr, therefore it is hidden when it is plotted under.
+
+```{r}
+#| fig-height: 10
+#| fig-width: 12
+
+
+ggcoefstats(condo_bidirection_mlr$model)
+```
+
+```{r}
+check_collinearity(condo_bidirection_mlr$model)
+```
+
+```{r}
+plot(check_collinearity(condo_bidirection_mlr$model)) +
+  theme(axis.text.x = element_text(angle = 30, hjust = 1)) # turn texts by 45 degrees, as See uses ggplot, we use a ggplot function.
+```
+
+```{r}
+plot(check_normality(condo_bidirection_mlr$model))
+```
+
+```{r}
+out <- plot(check_model(condo_bidirection_mlr$model, 
+                        panel = FALSE))
+out[[2]]
+```
+
+```{r}
+outliers <- check_outliers(condo_bidirection_mlr$model,
+                           method= "cook") # this method
+
+```
+
+```{r}
+plot(outliers)
+```
+
+```{r}
+mlr_output <- as.data.frame(condo_bidirection_mlr$model$residuals) %>%
+  rename('BIDRECTION_MLR_RES' = `condo_bidirection_mlr$model$residuals`)
+
+condo_resale_sf <- cbind(condo_resale_sf, 
+                        mlr_output$BIDRECTION_MLR_RES) %>%
+  rename(`MLR_RES` = `mlr_output.BIDRECTION_MLR_RES`)
+```
+
+```{r}
+tmap_mode("view")
+tm_shape(mpsz)+
+  tmap_options(check.and.fix = TRUE) +
+  tm_polygons(alpha = 0.4) +
+tm_shape(condo_resale_sf) +  
+  tm_dots(col = "MLR_RES",
+          alpha = 0.6,
+          style="quantile") 
+tmap_mode("plot")
+
+# global_moran_perm(condo_resale_sf$MLR_RES,
+#                   condo)
+```
+
+```{r}
+condo_resale_sf <- condo_resale_sf %>%
+  mutate(nb = st_knn(geometry, k=6,
+                     longlat = FALSE),
+         wt = st_weights(nb,
+                         style = "W"),
+         .before = 1)
+```
+
+```{r}
+global_moran_perm(condo_resale_sf$MLR_RES, 
+                  condo_resale_sf$nb, 
+                  condo_resale_sf$wt, 
+                  alternative = "two.sided", 
+                  nsim = 99)
+```

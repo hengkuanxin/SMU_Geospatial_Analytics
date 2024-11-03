@@ -1,0 +1,203 @@
+---
+title: "Preliminary Analysis (EDA) for Housing Price in Johor Bahru"
+subtitle: "Geospatial Analytics"
+author: "Heng Kuan Xin"
+date: "2024-10-31"
+date-modified: "last-modified"
+
+execute: 
+  eval: true
+  echo: true
+  freeze: true
+---
+
+```{r}
+# Removed API Key
+```
+
+```{r}
+pacman::p_load(sf, tmap, tidyverse, tidygeocoder, matrixStats, units)
+```
+
+## Reading the Data
+
+### Study Area (Admin Boundary Level 3)
+
+```{r}
+study_area <- st_read(dsn = "data/geospatial/admin_boundaries", 
+                      layer = "geoBoundaries-MYS-ADM3") %>%
+  filter(shapeName %in% c(
+    "BANDAR JOHOR BAHRU", "MUKIM PLENTONG", "MUKIM PULAI",
+    "MUKIM TEBRAU", "MUKIM BUKIT BATU", "MUKIM KULAI",
+    "MUKIM SEDENAK", "MUKIM SENAI", "MUKIM JELUTONG",
+    "MUKIM TANJUNG KUPANG", "BANDAR KULAI"
+  )) %>% select(c(1,5,6)) %>% 
+    st_set_crs(4326) %>%  # Set the CRS to WGS84
+    st_transform(3377) %>% # Transform to Johor Bahru's appropriate CRS
+    st_zm()
+```
+
+After importing, I realise that several polygons are not located within the the supposedly Johor Bahru District, so we will
+
+```{r}
+# Split into individual polygons
+study_area_split <- study_area %>%
+  filter(shapeName %in% c("MUKIM PULAI", "MUKIM JELUTONG")) %>%
+  st_cast("POLYGON")
+
+# Convert row names (fractional indices) to a new column for polygon IDs
+study_area_split <- study_area_split %>%
+  mutate(polygon_id = row.names(study_area_split))
+
+# Plot using tmap to visualize each polygon with its unique fractional index ID
+tmap_mode("view")
+tm_shape(study_area_split) +
+  tm_polygons("polygon_id") +
+  tm_text("polygon_id", size = 0.7, col = "black")
+```
+
+```{r}
+# Cleaning up unwanted data
+study_area_split <- study_area_split %>% 
+  # Remove unwanted polygons
+  filter(polygon_id %in% c(1,2)) %>%
+  # Remove the polygon_id column
+  select(-c("polygon_id"))
+
+# Remove the row names
+rownames(study_area_split) <- NULL
+
+# Combine the modified areas back with the rest of the study area
+study_area_cleaned <- study_area %>%
+  filter(!shapeName %in% c("MUKIM PULAI", "MUKIM JELUTONG")) %>%
+  bind_rows(study_area_split)
+```
+
+### Property Sales Data
+
+```{r}
+property_data <- read_rds("data/rds/property_preprocessed.rds") %>% 
+    st_set_crs(4326) %>%  # Set the CRS to WGS84
+    st_transform(3377) %>% # Transform to Johor Bahru's appropriate CRS
+    st_zm()
+```
+
+### Amenities Data (OpenStreetMap(OSM))
+
+```{r}
+# Set the directory for the files
+file_dir <- "data/geospatial/osm_extract2_combined/"
+
+# List of amenities files to read
+files <- c(
+  "border(border_control_facilities).geojson",
+  "border(coastlines).geojson",
+  "border(waterfronts_and_beaches).geojson",
+  "education(kindergartens).geojson",
+  "education(schools).geojson",
+  "education(universities_and_colleges).geojson",
+  "government_office(offices,townhalls).geojson",
+  "government_office(police_and_fire_stations).geojson",
+  "healthcare(hospitals_and_specialists).geojson",
+  "landuse(cemetery).geojson",
+  "landuse(commercial).geojson",
+  "landuse(industrial).geojson",
+  "recreation(parks_and_green_spaces).geojson",
+  "recreation(theme_parks_and_resorts).geojson",
+  "religion(buddhist_temples).geojson",
+  "religion(churches).geojson",
+  "religion(hindu_temples).geojson",
+  "religion(mosques).geojson",
+  # "religion(place_of_worship).geojson",
+  "retail_and_commercial(marketplace,malls).geojson",
+  "retail_and_commercial(restaurant, cafe, fast_food).geojson",
+  "retail_and_commercial(supermarket,convenience).geojson",
+  "transportation(airport).geojson",
+  "transportation(bus_stops).geojson",
+  "transportation(bus_terminals).geojson",
+  "transportation(carparks).geojson",
+  "transportation(petrol_stations).geojson"
+)
+
+# Read all files using lapply and store them in a list
+amenities <- lapply(files, function(file) {
+  st_read(dsn = paste0(file_dir, file)) %>%
+    st_set_crs(4326) %>%  # Set the CRS to WGS84
+    st_transform(3377) %>% # Transform to Johor Bahru's appropriate CRS
+    st_zm() %>%            # Eliminate the z dimension
+    select(name, geometry) # Select relevant columns
+})
+
+# Set names based on the amenity extracted from the file names
+names(amenities) <- gsub(".*\\((.*)\\).*", "\\1", files)
+```
+
+## Data Cleaning
+
+```{r}
+tmap_mode("view")
+tm_shape(amenities$`border_control_facilities`) +
+  tm_dots()
+```
+
+```{r}
+# Filter the customs_facilities data and replace the entry in amenity_data
+amenities[["border_control_facilities"]] <- amenities[["border_control_facilities"]] %>%
+  filter(
+    str_detect(str_to_lower(name), str_to_lower("Sultan Abu Bakar")) |
+    str_detect(str_to_lower(name), str_to_lower("Johor Bahru"))
+  )
+
+# Rename to amenity type to customs
+names(amenities)[names(amenities) == "border_control_facilities"] <- "customs_facilities"
+```
+
+```{r}
+proximity <- function(df1, df2, varname) {
+  dist_matrix <- st_distance(df1, df2) %>%
+    drop_units()
+  df1[,varname] <- rowMins(dist_matrix)
+  return(df1)
+}
+```
+
+```{r}
+# Calculate proximity for each amenity and add to property_data
+for (amenity in names(amenities)) {
+  
+  property_data <- proximity(property_data, amenities[[amenity]], 
+                             paste0("PROX_", toupper(amenity)))
+}
+```
+
+```{r}
+write_rds(property_data, "data/rds/proximity_matrix.rds")
+```
+
+```{r}
+property_sales <- read_rds("data/rds/proximity_matrix.rds")
+
+tmap_mode("plot")
+
+tm_shape(study_area_cleaned) + tm_fill() + tm_borders(alpha=0.2) +
+  tm_shape(property_sales) + tm_dots("PROX_HOSPITALS_AND_SPECIALISTS", 
+                                    breaks = c(0, 500, 1000, 2000, 5000, Inf),
+                                    palette="-viridis")
+                            
+
+```
+
+```{r}
+# tmap_mode("view")
+# 
+# tm_shape(property_data) +
+#   # tm_dots(col="PROX_INDUSTRIAL") +
+#   # tm_shape(property_data) +
+#   tm_dots(col="PROX_BORDERCONTROL")
+```
+
+```{r}
+# # Geocoding
+# result <- geo("JLN UNGKU MOHSIN Johor Bahru", method="google")
+# result
+```

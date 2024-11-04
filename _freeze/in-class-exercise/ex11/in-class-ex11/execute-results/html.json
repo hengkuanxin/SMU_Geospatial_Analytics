@@ -1,0 +1,15 @@
+{
+  "hash": "d105730b97f8bf875691e1252402a439",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"11 In-class Exercise (Review)\"\nauthor: \"Heng Kuan Xin\"\ndate: 2024-11-04\ndate-modified: \"last-modified\"\n\ntoc: true\ntoc-expand: true\nnumber-sections: true\n\nexecute:\n  eval: true\n  echo: true\n  freeze: true\n  output: true\n  warning: false\n  error: false\n---\n\n\n\n\n\n# In class exercise code\n\n\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\npacman::p_load(tidyverse, sf, tmap, httr, performance)\n```\n:::\n\n::: {.cell}\n\n```{.r .cell-code}\nfolder_path <- \"data/aspatial\"\n\n# Read all files starting with realis + ending with .csv\nfile_list <- list.files( path = folder_path,\n                         pattern = \"^realis.*\\\\.csv$\",\n                         full.names = TRUE)\n\n# Functions that return data frames, use read_csv() \nrealis_data <- file_list %>%\n  map_dfr(read_csv)\n```\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

@@ -1,0 +1,116 @@
+---
+title: "11 In-class Exercise (Review)"
+author: "Heng Kuan Xin"
+date: 2024-11-04
+date-modified: "last-modified"
+
+toc: true
+toc-expand: true
+number-sections: true
+
+execute:
+  eval: false
+  echo: true
+  freeze: true
+  output: true
+  warning: false
+  error: false
+---
+
+# In class exercise code
+
+```{r}
+pacman::p_load(tidyverse, sf, tmap, httr, performance)
+```
+
+```{r}
+folder_path <- "data/aspatial"
+
+# Read all files starting with realis + ending with .csv
+file_list <- list.files( path = folder_path,
+                         pattern = "^realis.*\\.csv$",
+                         full.names = TRUE)
+
+# Functions that return data frames, use read_csv(), also appends data together 
+realis_data <- file_list %>%
+  map_dfr(read_csv)
+```
+
+When you are using any Postal Code, make sure it is read as character, but not num or int which will result in truncated values especially when a postal code starts with 0.
+
+Note that the date field is in chr rather than a date format. We need to fix this.
+
+## Data wrangling
+
+```{r}
+condo_resale <- realis_data %>%
+  mutate(`Sale Date` = dmy(`Sale Date`)) %>% # convert to d-m-y 
+  filter(`Type of Sale` == "Resale" &        # combination of two logical search using '&'
+           `Property Type` == "Condominium")
+```
+
+## Query OneMap (Geocoding from Postal Codes)
+
+```{r}
+# Select a unique list of postal codes
+postcode <- unique(condo_resale$`Postal Code`)
+```
+
+```{r}
+
+url <- "https://onemap.gov.sg/api/common/elastic/search"
+found <- data.frame()
+not_found <- data.frame()
+
+# Do geocoding for postcodes rather than doing it for every row in the condo_resale data
+for (postcode in postcode){
+  query <- list('searchVal'=postcode, 'returnGeom'='Y',
+                'getAddrDetails'='Y', 'pageNum'='1')
+  
+  res <- GET(url, query=query)
+  if ((content(res)$found) != 0){
+    found <- rbind(found, data.frame(content(res))[4:13])
+  } else {
+    not_found = data.frame(postcode)
+  }
+}
+
+```
+
+```{r}
+found <- found %>%
+  select(c(6:8)) %>%
+  rename(POSTAL = `results.POSTAL`,
+         XCOORD = `results.X`,
+         YCOORD = `results.Y`)
+```
+
+```{r}
+condo_resale_geocoded <- left_join(condo_resale, found, 
+                                   by = c("Postal Code" = "POSTAL"))
+```
+
+```{r}
+condo_resale_sf <- st_as_sf(condo_resale_geocoded,
+                            coords = c("XCOORD", "YCOORD"),
+                            crs= 3414
+                            )
+```
+
+## Handling Overlapping Points by Jittering
+
+Check if there are overlapping points
+
+```{r}
+# Add a column to see if overlap is TRUE or FALSE
+overlapping_points <- condo_resale_sf %>% mutate(overlap = lengths(st_equals(., .)) > 1)
+```
+
+If there are overlapping points, then we need to jitter, and repeatedly do so.
+
+```{r}
+# Since there are overlapping points, we will shift the points by 2 metres
+condo_resale_sf <- condo_resale_sf %>% st_jitter(amount = 2)
+```
+
+

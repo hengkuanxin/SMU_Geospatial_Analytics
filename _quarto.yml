@@ -93,6 +93,8 @@ website:
           href: "in-class-exercise/ex10/in-class-ex10.html"
         - text: "11 In-class Exercise 11 (Review)"
           href: "in-class-exercise/ex11/in-class-ex11.html"
+        - text: "12 In-class Exercise 12 (Review)"
+          href: "in-class-exercise/ex12/in-class-ex12.html"
       - text: "---"
       - section: "Take Home Exercises"
         contents:

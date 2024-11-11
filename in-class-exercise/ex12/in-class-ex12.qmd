@@ -1,0 +1,40 @@
+---
+title: "12 In-class Exercise (Review)"
+author: "Heng Kuan Xin"
+date: 2024-11-11
+date-modified: "last-modified"
+
+toc: true
+toc-expand: true
+number-sections: true
+
+execute:
+  eval: false
+  echo: true
+  freeze: true
+  output: true
+  warning: false
+  error: false
+---
+
+# Notes on Configuring App Inputs
+
+- Note that while you can allow users to have the freedom to choose the inputs, such as how much % of the data set to sample and use for regression analysis, to use for test or train data, you should try out the different possible inputs and observe how long the app will take to run for the user.
+
+- Remember to always set seed whenever you are doing random selection or any random process, so that your results are reproducable, for yourself and the user.
+
+# In-class Exercise
+
+```{r}
+pacman::p_load(sf, tidyverse)
+```
+
+## Multicollinearity Check
+```{r}
+#| eval: false
+
+mdata_nogeo <- mdata %>% st_drop_geometry() # no need geometry
+
+ggstatsplot::ggcorrmat(mdata_nogeo[,2:17])
+```
+

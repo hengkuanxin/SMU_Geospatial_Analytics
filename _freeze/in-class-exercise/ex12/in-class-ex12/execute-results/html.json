@@ -1,0 +1,15 @@
+{
+  "hash": "d58df16515829d4970be893fa14511ae",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"12 In-class Exercise (Review)\"\nauthor: \"Heng Kuan Xin\"\ndate: 2024-11-11\ndate-modified: \"last-modified\"\n\ntoc: true\ntoc-expand: true\nnumber-sections: true\n\nexecute:\n  eval: false\n  echo: true\n  freeze: true\n  output: true\n  warning: false\n  error: false\n---\n\n\n\n# Notes on Configuring App Inputs\n\n- Note that while you can allow users to have the freedom to choose the inputs, such as how much % of the data set to sample and use for regression analysis, to use for test or train data, you should try out the different possible inputs and observe how long the app will take to run for the user.\n\n- Remember to always set seed whenever you are doing random selection or any random process, so that your results are reproducable, for yourself and the user.\n\n# In-class Exercise\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\npacman::p_load(sf, tidyverse)\n```\n:::\n\n\n\n## Multicollinearity Check\n\n\n::: {.cell}\n\n```{.r .cell-code}\nmdata_nogeo <- mdata %>% st_drop_geometry() # no need geometry\n\nggstatsplot::ggcorrmat(mdata_nogeo[,2:17])\n```\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

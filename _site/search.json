@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "R for Geospatial Analytics",
     "section": "",
-    "text": "Contents overview:\n\nHome (this page)\nAbout\nHands-on exercises\nIn-class exercises\nTake-home Assignment\n\nThe table below shows the latest edits I have added.\n\n\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nDate\n\n\nModified\n\n\nTitle\n\n\n\n\n\n\nNov 4, 2024\n\n\n11/4/24, 11:05:18 PM\n\n\n11 In-class Exercise (Review)\n\n\n\n\nOct 21, 2024\n\n\n11/4/24, 10:13:42 AM\n\n\n12 ‘Geographically Weighted Predictive Models’\n\n\n\n\nOct 31, 2024\n\n\n11/4/24, 1:07:19 AM\n\n\nPreliminary Analysis (EDA) for Housing Price in Johor Bahru\n\n\n\n\nOct 28, 2024\n\n\n10/28/24, 2:51:35 PM\n\n\n10 In-class Exercise (Review)\n\n\n\n\nOct 21, 2024\n\n\n10/28/24, 10:04:27 AM\n\n\n11 ‘Calibrating Hedonic Pricing Model for Private Highrise Property with GWR Method’\n\n\n\n\nOct 21, 2024\n\n\n10/21/24, 11:19:38 AM\n\n\n09 In-class Exercise (Review)\n\n\n\n\nOct 20, 2024\n\n\n10/21/24, 12:08:50 AM\n\n\n08 ‘Geographical Segmentation with Spatially Constrained Clustering Techniques’\n\n\n\n\nOct 13, 2024\n\n\n10/13/24, 10:14:58 PM\n\n\n02 Take Home Exercise 2\n\n\n\n\nOct 12, 2024\n\n\n10/12/24, 11:47:05 PM\n\n\n07 ‘Geographical Segmentation with Spatially Constrained Clustering Techniques’\n\n\n\n\nSep 4, 2024\n\n\n9/26/24, 10:27:07 AM\n\n\n01 Take Home Exercise 1\n\n\n\n\nSep 23, 2024\n\n\n9/23/24, 11:08:39 AM\n\n\n06 In-class Exercise (Review)\n\n\n\n\nSep 21, 2024\n\n\n9/22/24, 12:05:02 AM\n\n\n06 (Part 2) ‘Local Measures of Spatial Autocorrelation’\n\n\n\n\nSep 21, 2024\n\n\n9/21/24, 11:41:57 PM\n\n\n06 (Part 1) ‘Global Measures of Spatial Autocorrelation’\n\n\n\n\nSep 16, 2024\n\n\n9/16/24, 11:21:43 AM\n\n\n05 In-class Exercise (Review)\n\n\n\n\nSep 9, 2024\n\n\n9/9/24, 4:43:44 PM\n\n\n04 In-class Exercise 4 (Review)\n\n\n\n\nSep 3, 2024\n\n\n9/9/24, 9:45:13 AM\n\n\n04 ‘Network Constrained Spatial Point Patterns Analysis’\n\n\n\n\nAug 29, 2024\n\n\n9/4/24, 1:06:04 AM\n\n\n03 (Part 1) ‘1st Order Spatial Point Patterns Analysis Methods’\n\n\n\n\nAug 29, 2024\n\n\n9/4/24, 1:02:08 AM\n\n\n03 (Part 2) ‘2nd Order Spatial Point Patterns Analysis Methods’\n\n\n\n\nSep 2, 2024\n\n\n9/4/24, 12:47:23 AM\n\n\n03 In-class Exercise 3 (Review)\n\n\n\n\nAug 21, 2024\n\n\n9/2/24, 12:50:39 PM\n\n\n01 In-class Exercise 1 (Review)\n\n\n\n\nAug 26, 2024\n\n\n9/2/24, 12:50:06 PM\n\n\n02 In-class Exercise 2 (Review)\n\n\n\n\nAug 21, 2024\n\n\n8/28/24, 12:59:02 AM\n\n\n02 ‘Thematic Mapping and GeoVisualisation with R’\n\n\n\n\nAug 20, 2024\n\n\n8/28/24, 12:58:55 AM\n\n\n01 ‘Geospatial Data Science with R’\n\n\n\n\n\nNo matching items\n\n\n  \n\n Back to top"
+    "text": "Contents overview:\n\nHome (this page)\nAbout\nHands-on exercises\nIn-class exercises\nTake-home Assignment\n\nThe table below shows the latest edits I have added.\n\n\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nDate\n\n\nModified\n\n\nTitle\n\n\n\n\n\n\nNov 11, 2024\n\n\n11/11/24, 9:27:31 AM\n\n\n12 In-class Exercise (Review)\n\n\n\n\nNov 4, 2024\n\n\n11/4/24, 11:05:18 PM\n\n\n11 In-class Exercise (Review)\n\n\n\n\nOct 21, 2024\n\n\n11/4/24, 10:13:42 AM\n\n\n12 ‘Geographically Weighted Predictive Models’\n\n\n\n\nOct 31, 2024\n\n\n11/4/24, 1:07:19 AM\n\n\nPreliminary Analysis (EDA) for Housing Price in Johor Bahru\n\n\n\n\nOct 28, 2024\n\n\n10/28/24, 2:51:35 PM\n\n\n10 In-class Exercise (Review)\n\n\n\n\nOct 21, 2024\n\n\n10/28/24, 10:04:27 AM\n\n\n11 ‘Calibrating Hedonic Pricing Model for Private Highrise Property with GWR Method’\n\n\n\n\nOct 21, 2024\n\n\n10/21/24, 11:19:38 AM\n\n\n09 In-class Exercise (Review)\n\n\n\n\nOct 20, 2024\n\n\n10/21/24, 12:08:50 AM\n\n\n08 ‘Geographical Segmentation with Spatially Constrained Clustering Techniques’\n\n\n\n\nOct 13, 2024\n\n\n10/13/24, 10:14:58 PM\n\n\n02 Take Home Exercise 2\n\n\n\n\nOct 12, 2024\n\n\n10/12/24, 11:47:05 PM\n\n\n07 ‘Geographical Segmentation with Spatially Constrained Clustering Techniques’\n\n\n\n\nSep 4, 2024\n\n\n9/26/24, 10:27:07 AM\n\n\n01 Take Home Exercise 1\n\n\n\n\nSep 23, 2024\n\n\n9/23/24, 11:08:39 AM\n\n\n06 In-class Exercise (Review)\n\n\n\n\nSep 21, 2024\n\n\n9/22/24, 12:05:02 AM\n\n\n06 (Part 2) ‘Local Measures of Spatial Autocorrelation’\n\n\n\n\nSep 21, 2024\n\n\n9/21/24, 11:41:57 PM\n\n\n06 (Part 1) ‘Global Measures of Spatial Autocorrelation’\n\n\n\n\nSep 16, 2024\n\n\n9/16/24, 11:21:43 AM\n\n\n05 In-class Exercise (Review)\n\n\n\n\nSep 9, 2024\n\n\n9/9/24, 4:43:44 PM\n\n\n04 In-class Exercise 4 (Review)\n\n\n\n\nSep 3, 2024\n\n\n9/9/24, 9:45:13 AM\n\n\n04 ‘Network Constrained Spatial Point Patterns Analysis’\n\n\n\n\nAug 29, 2024\n\n\n9/4/24, 1:06:04 AM\n\n\n03 (Part 1) ‘1st Order Spatial Point Patterns Analysis Methods’\n\n\n\n\nAug 29, 2024\n\n\n9/4/24, 1:02:08 AM\n\n\n03 (Part 2) ‘2nd Order Spatial Point Patterns Analysis Methods’\n\n\n\n\nSep 2, 2024\n\n\n9/4/24, 12:47:23 AM\n\n\n03 In-class Exercise 3 (Review)\n\n\n\n\nAug 21, 2024\n\n\n9/2/24, 12:50:39 PM\n\n\n01 In-class Exercise 1 (Review)\n\n\n\n\nAug 26, 2024\n\n\n9/2/24, 12:50:06 PM\n\n\n02 In-class Exercise 2 (Review)\n\n\n\n\nAug 21, 2024\n\n\n8/28/24, 12:59:02 AM\n\n\n02 ‘Thematic Mapping and GeoVisualisation with R’\n\n\n\n\nAug 20, 2024\n\n\n8/28/24, 12:58:55 AM\n\n\n01 ‘Geospatial Data Science with R’\n\n\n\n\n\nNo matching items\n\n\n  \n\n Back to top"
   },
   {
     "objectID": "about.html",
@@ -2116,7 +2116,7 @@
     "crumbs": [
       "Home",
       "In-class Exercises",
-      "06 In-class Exercise 9 (Review)"
+      "09 In-class Exercise 9 (Review)"
     ]
   },
   {
@@ -2128,7 +2128,7 @@
     "crumbs": [
       "Home",
       "In-class Exercises",
-      "06 In-class Exercise 9 (Review)"
+      "09 In-class Exercise 9 (Review)"
     ]
   },
   {
@@ -2140,7 +2140,7 @@
     "crumbs": [
       "Home",
       "In-class Exercises",
-      "06 In-class Exercise 9 (Review)"
+      "09 In-class Exercise 9 (Review)"
     ]
   },
   {
@@ -2152,7 +2152,7 @@
     "crumbs": [
       "Home",
       "In-class Exercises",
-      "06 In-class Exercise 9 (Review)"
+      "09 In-class Exercise 9 (Review)"
     ]
   },
   {
@@ -2164,7 +2164,7 @@
     "crumbs": [
       "Home",
       "In-class Exercises",
-      "06 In-class Exercise 9 (Review)"
+      "09 In-class Exercise 9 (Review)"
     ]
   },
   {
@@ -2260,7 +2260,7 @@
     "crumbs": [
       "Home",
       "In-class Exercises",
-      "06 In-class Exercise 10 (Review)"
+      "10 In-class Exercise 10 (Review)"
     ]
   },
   {
@@ -2272,7 +2272,7 @@
     "crumbs": [
       "Home",
       "In-class Exercises",
-      "06 In-class Exercise 10 (Review)"
+      "10 In-class Exercise 10 (Review)"
     ]
   },
   {
@@ -2284,7 +2284,7 @@
     "crumbs": [
       "Home",
       "In-class Exercises",
-      "06 In-class Exercise 10 (Review)"
+      "10 In-class Exercise 10 (Review)"
     ]
   },
   {
@@ -2381,6 +2381,30 @@
       "Home",
       "In-class Exercises",
       "11 In-class Exercise 11 (Review)"
+    ]
+  },
+  {
+    "objectID": "in-class-exercise/ex12/in-class-ex12.html",
+    "href": "in-class-exercise/ex12/in-class-ex12.html",
+    "title": "12 In-class Exercise (Review)",
+    "section": "",
+    "text": "Note that while you can allow users to have the freedom to choose the inputs, such as how much % of the data set to sample and use for regression analysis, to use for test or train data, you should try out the different possible inputs and observe how long the app will take to run for the user.\nRemember to always set seed whenever you are doing random selection or any random process, so that your results are reproducable, for yourself and the user.",
+    "crumbs": [
+      "Home",
+      "In-class Exercises",
+      "12 In-class Exercise 12 (Review)"
+    ]
+  },
+  {
+    "objectID": "in-class-exercise/ex12/in-class-ex12.html#multicollinearity-check",
+    "href": "in-class-exercise/ex12/in-class-ex12.html#multicollinearity-check",
+    "title": "12 In-class Exercise (Review)",
+    "section": "2.1 Multicollinearity Check",
+    "text": "2.1 Multicollinearity Check\n\nmdata_nogeo &lt;- mdata %&gt;% st_drop_geometry() # no need geometry\n\nggstatsplot::ggcorrmat(mdata_nogeo[,2:17])",
+    "crumbs": [
+      "Home",
+      "In-class Exercises",
+      "12 In-class Exercise 12 (Review)"
     ]
   }
 ]

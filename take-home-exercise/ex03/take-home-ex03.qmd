@@ -12,16 +12,12 @@ execute:
 ---
 
 ```{r}
-# Removed API Key
-```
-
-```{r}
 pacman::p_load(sf, tmap, tidyverse, tidygeocoder, matrixStats, units)
 ```
 
-## Reading the Data
+# Reading the Data
 
-### Study Area (Admin Boundary Level 3)
+## Study Area (Admin Boundary Level 3)
 
 ```{r}
 study_area <- st_read(dsn = "data/geospatial/admin_boundaries", 
@@ -37,7 +33,9 @@ study_area <- st_read(dsn = "data/geospatial/admin_boundaries",
     st_zm()
 ```
 
-After importing, I realise that several polygons are not located within the the supposedly Johor Bahru District, so we will
+### Extract Study Area
+
+After importing, I realise that several polygons are not located within the the supposedly Johor Bahru District, so we will split the polygons, and clean up wanted polygons.
 
 ```{r}
 # Split into individual polygons
@@ -50,17 +48,19 @@ study_area_split <- study_area_split %>%
   mutate(polygon_id = row.names(study_area_split))
 
 # Plot using tmap to visualize each polygon with its unique fractional index ID
-tmap_mode("view")
+tmap_mode("plot")
 tm_shape(study_area_split) +
   tm_polygons("polygon_id") +
   tm_text("polygon_id", size = 0.7, col = "black")
 ```
 
+The map above shows multiple polygons outside of Johor Bahru, our study area. We will therefore identify the respective polygon.ids of polygons outside of our study area and remove them from our data set.
+
 ```{r}
 # Cleaning up unwanted data
 study_area_split <- study_area_split %>% 
   # Remove unwanted polygons
-  filter(polygon_id %in% c(1,2)) %>%
+  filter(polygon_id %in% c(1,2)) %>% # polygon_id with values 1 or 2
   # Remove the polygon_id column
   select(-c("polygon_id"))
 
@@ -73,7 +73,118 @@ study_area_cleaned <- study_area %>%
   bind_rows(study_area_split)
 ```
 
-### Property Sales Data
+After extracting the cleaned study area, we will export it to a file for future uses.
+
+```{r}
+write_rds(study_area_cleaned, "data/rds/study_area.rds")
+```
+
+Clear our temporary variables in our environment
+
+```{r}
+rm(study_area, study_area_cleaned, study_area_split)
+```
+
+Read back the exported file (for future runs).
+
+```{r}
+study_area <- read_rds("data/rds/study_area.rds")
+```
+
+## Property Sales Data
+
+```{r}
+property_data <- read_delim(
+  "data/aspatial/Open Transaction Data.csv", 
+  delim = "\t", 
+  locale = locale(encoding = "UTF-16") # Specify encoding
+) %>% select(-c(9,11,12,14))
+```
+
+```{r}
+colnames(property_data)
+```
+
+```{r}
+# Relabelling Data Columns
+property_data <- property_data %>%
+  # Step 1: Drop all rows with empty values
+  drop_na() %>%
+  # Step 2: Clean up Column Name Error
+  rename(
+    `Transaction Price` = `Transaction Price  `,
+  ) %>%
+  # Step 3: Convert 'Transaction Price' from string to numeric
+  mutate(
+    `Transaction Price` = `Transaction Price` %>%
+      gsub(pattern = "RM", replacement = "") %>%   # Remove 'RM'
+      gsub(pattern = ",", replacement = "") %>%     # Remove commas
+      as.numeric()                                  # Convert to numeric
+  ) %>%
+  # Step 4: Convert Main Floor Area from string to numeric
+  mutate(
+    `Main Floor Area` = `Main Floor Area` %>% as.numeric()
+  ) %>%
+  # Step 5: Replace abbreviations and trim whitespace
+  mutate(
+    `Road Name` = str_replace_all(`Road Name`, "\\bJLN\\b", "Jalan"),
+    `Road Name` = str_replace_all(`Road Name`, "\\bTMN\\b", "Taman"),
+    `Scheme Name/Area` = str_replace_all(`Scheme Name/Area`, "\\bJLN\\b", "Jalan"),
+    `Scheme Name/Area` = str_replace_all(`Scheme Name/Area`, "\\bTMN\\b", "Taman")
+  ) %>%
+  # Step 6: Trim whitespace from the specified columns
+  mutate(
+    `Road Name` = str_trim(`Road Name`),
+    `Scheme Name/Area` = str_trim(`Scheme Name/Area`),
+    `Mukim` = str_trim(`Mukim`),
+    `District` = str_trim(`District`)
+  ) %>%
+  # Step 7: Select only 2023 Data Set
+  filter(grepl("2023", `Month, Year of Transaction Date`)) %>%
+  # Step 8: Calculate Price per Area
+  mutate(
+    `Price Per Floor Area` = 
+      (`Transaction Price` / `Main Floor Area`) %>% round(.,digits=2)
+  ) %>%
+  # Step 9: Create the address column
+  mutate(
+    address = paste0(`Road Name`, ', ', `Scheme Name/Area`, ', ', `Mukim`, ', ', `District`)
+  ) %>%
+  # Step 10: Clean up the column names
+  rename(
+    `Transaction Price (RM)` = `Transaction Price`,
+    `Land/Parcel Area (SqM)` = `Land/Parcel Area`,
+    `Main Floor Area (SqM)` = `Main Floor Area`
+  ) %>%
+  # Step 11: Ensure no null values during calculation and data type conversion
+  drop_na()
+```
+
+```{r}
+#| eval: false
+random_sample <- sample_n(property_data, 100)
+property_data_geocoded <- geocode_batch(random_sample)
+```
+
+```{r}
+# # Function to geocode in batches with delays to avoid being blocked
+# geocode_batch <- function(data, batch_size = 500) {
+#   results <- data.frame()
+#   for (i in seq(1, nrow(data), by = batch_size)) {
+#     batch <- data[i:min(i + batch_size - 1, nrow(data)), ]
+#     batch <- batch %>%
+#       geocode(
+#       address = `address`,               # Column containing the address
+#       method = 'google',                 # Use Google Geocoding API
+#       api_key = google_api_key,          # Provide your API key
+#       full_results = TRUE                # Get full results (optional)
+#     )
+#     results <- bind_rows(results, batch)
+#     Sys.sleep(60) # wait 60 seconds between batches to avoid rate limits
+#   }
+#   return(results)
+# }
+```
 
 ```{r}
 property_data <- read_rds("data/rds/property_preprocessed.rds") %>% 
@@ -82,7 +193,7 @@ property_data <- read_rds("data/rds/property_preprocessed.rds") %>%
     st_zm()
 ```
 
-### Amenities Data (OpenStreetMap(OSM))
+## Amenities Data (OpenStreetMap(OSM))
 
 ```{r}
 # Set the directory for the files
@@ -179,25 +290,10 @@ property_sales <- read_rds("data/rds/proximity_matrix.rds")
 
 tmap_mode("plot")
 
-tm_shape(study_area_cleaned) + tm_fill() + tm_borders(alpha=0.2) +
+tm_shape(study_area) + tm_fill() + tm_borders(alpha=0.2) +
   tm_shape(property_sales) + tm_dots("PROX_HOSPITALS_AND_SPECIALISTS", 
                                     breaks = c(0, 500, 1000, 2000, 5000, Inf),
                                     palette="-viridis")
                             
 
-```
-
-```{r}
-# tmap_mode("view")
-# 
-# tm_shape(property_data) +
-#   # tm_dots(col="PROX_INDUSTRIAL") +
-#   # tm_shape(property_data) +
-#   tm_dots(col="PROX_BORDERCONTROL")
-```
-
-```{r}
-# # Geocoding
-# result <- geo("JLN UNGKU MOHSIN Johor Bahru", method="google")
-# result
 ```

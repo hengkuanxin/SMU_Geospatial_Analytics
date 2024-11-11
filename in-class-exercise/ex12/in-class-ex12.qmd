@@ -19,9 +19,9 @@ execute:
 
 # Notes on Configuring App Inputs
 
-- Note that while you can allow users to have the freedom to choose the inputs, such as how much % of the data set to sample and use for regression analysis, to use for test or train data, you should try out the different possible inputs and observe how long the app will take to run for the user.
+-   Note that while you can allow users to have the freedom to choose the inputs, such as how much % of the data set to sample and use for regression analysis, to use for test or train data, you should try out the different possible inputs and observe how long the app will take to run for the user.
 
-- Remember to always set seed whenever you are doing random selection or any random process, so that your results are reproducable, for yourself and the user.
+-   Remember to always set seed whenever you are doing random selection or any random process, so that your results are reproducable, for yourself and the user.
 
 # In-class Exercise
 
@@ -30,6 +30,7 @@ pacman::p_load(sf, tidyverse)
 ```
 
 ## Multicollinearity Check
+
 ```{r}
 #| eval: false
 
@@ -38,3 +39,57 @@ mdata_nogeo <- mdata %>% st_drop_geometry() # no need geometry
 ggstatsplot::ggcorrmat(mdata_nogeo[,2:17])
 ```
 
+## Model callibration
+
+Find the suitable bandwidth first, before applying it to the gwr regression model.
+
+```{r}
+#| eval: false
+gwr_bw_train_ad <- bw.gwr(resale_price ~ floor_area_sqm +
+                            storey_order + remaining_lease_mths +
+                            PROX_CBD + PROX_ELDERLYCARE + PROX_HAWKER +
+                            PROX_MRT + PROX_PARK + PROX_MALL +
+                            PROX_SUPERMARKET + WITHIN_350M_KINDERGARTEN +
+                            WITHIN_350M_CHILDCARE + WITHIN_350M_BUS + WITHIN_1KM_PRISCH,
+                          data=train_data,
+                          approach="CV",
+                          kernel="gaussian",
+                          adaptive=TRUE,
+                          longlat=FALSE)
+```
+
+## Predictive Modelling with RF Method
+
+```{r}
+#| eval: false
+# extract coordinates from your samples
+coords <- st_coordinates(HDB_sample)
+coords_train <- st_coordinates(train_data)
+coords_test <- st_coordinates(test_data)
+```
+
+```{r}
+#| eval: false
+
+# Random Forest Model
+rf <- ranger(resale_price ~ floor_area_sqm +
+                            storey_order + remaining_lease_mths +
+                            PROX_CBD + PROX_ELDERLYCARE + PROX_HAWKER +
+                            PROX_MRT + PROX_PARK + PROX_MALL +
+                            PROX_SUPERMARKET + WITHIN_350M_KINDERGARTEN +
+                            WITHIN_350M_CHILDCARE + WITHIN_350M_BUS + WITHIN_1KM_PRISCH,
+                          data=train_data_nogeom)
+```
+
+```{r}
+#| eval: false
+rf_pred <- predicT(rf,
+                   data = test_data_nogeom)
+
+rf_pred_df <- as.data.frame(rf_pred$predictions) %>%
+  rename(rf_pred = "rf_pred$predictions")
+```
+
+```{r}
+
+```
